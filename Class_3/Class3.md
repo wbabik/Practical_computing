@@ -35,4 +35,28 @@ One solution to this task takes you to type about 6 short lines of text in the t
 2. **This needs to be modified** On the desktop you can find the file: GCF_000001405.33_GRCh38.p7_genomic.fna. This is a text file containing the latest version of the human genome reference sequence (what does that mean?). How big is this file? How many characters does it contain? If you wanted to print it, how many sheets of paper would be needed (a standard typescript page contains 1800 characters). Can you open this file in any text editor (Word, Notepad, Notepad)?
 In today's class, I will ask you to copy the V chromosome sequence to a separate file. Next, we'll use the tools from the EMBOSS suite to find out what the content of GC bases on this chromosome is. In addition, I would like to ask you to obtain the sequence of the second strand of this chromosome.
 
+## How to open a terminal?
+We assume that you work on the computer running Windows. If you are running Linux or MacOS, see below. Widnows uses differnt shell from Linux, we will not cover during our course. Our first task will be to connect to a remote computer that runs Linux and run a terminal session which we will use for the reminder of the class.  To do this, we will use the PuTTy program which you can downlowad [here](https://www.putty.org/).
+
+Please open PuTTy.
+In the `Host Name (or IP address)` field, please enter:
+`149.156.165.xxx`
+This is the IP number of the fsm server.
+In the `Port` field, please leave `22`. We also do not change the connection type (`SSH`).
+In the `Saved Sessions` field you can enter any name, this will be the name of your connection - please type the name `thor`.
+Then please select `Translation` in the `Category` (left) and select
+`UTF-8` in the `Remote character set` field.
+Then press `Open`. Then you will be asked by the program to enter your username (e.g. user102 - **your username and password will be provided by the course instructor**) and your password (**Remember! uppercase letters are not the same as lowercase in Linux !!!**). Please enter your username and password carefully. Note: When typing the password, no characters appear in the terminal window!
+You are now connected to the server and can work on it in the terminal. In the same way, you can connect to the server from any Windows computer connected to the Internet. PuTTy is free software.
+
+If you have the Linux or MacOS operating system installed on your computer, you can open a terminal window like any other program. If you would like to connect to our server (to do your homework), use the ssh-client program. In the terminal enter:
+
+`ssh 149.156.165.xxx -l user102`  149.156.165.xxx is the IP number our server and user102 is the user account name.
+
+After pressing <kbd>Enter</kbd> you will be asked to enter your password.
+
+
+A few notes and useful commands to get you started. Please read the following text carefully, as it will facilitate further work.
+
+
 
