@@ -53,7 +53,6 @@ If you have the Linux or MacOS operating system installed on your computer, you 
 
 `ssh 149.156.165.xxx -l user102`  149.156.165.xxx is the IP number our server and user102 is the user account name.
 
-And here's to you, <span style="background-color:green">Mrs. Robinson</span>, Jesus loves you more than you will know.
 
 After pressing <kbd>Enter</kbd> you will be asked to enter your password.
 
