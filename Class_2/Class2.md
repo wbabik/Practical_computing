@@ -6,4 +6,4 @@ Text files (sometimes called also plain text) are commonly used for storing and 
 
 We're start with an example.
 To make things confusing, files we usually open and save in one of the most popular text editing program, MS Word, are actually not text files, but rather binary files containing text. When open in MS Word the file looks like this:
-![word-in-word](https://www.dropbox.com/s/t76ujqav0x6o6z2/14042008%28004%29.jpg?dl=0)
+![Word-in-Word](text_Word_in_Word.png)
