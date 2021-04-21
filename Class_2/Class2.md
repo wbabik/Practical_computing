@@ -24,8 +24,8 @@ Interesting things appear when we ask Word to save this as text file - there are
 ## Notepad ++
 To explore text files in more detail we need an appropriate tool. In the class we'll use Notepad++ for Windows. If you use Mac or Linux you should contact your course instructure for alternatives. For the rest of the class we'll assume that you have Notepad++ installed on your system. You can get it [here](https://notepad-plus-plus.org/downloads/), you will probably want to install the newest 64-bit version. Please install the English language version.
 
-Notepad++ is a plain text editors with many features, today we will use only a few to learn more about the nature of text files.
+Notepad++ is a plain text editor with many features, today we will use only a few to learn more about the nature of text files.
 
 Download file from [here](https://www.dropbox.com/s/stfdyaudt0dg0lb/Text_file_01.txt?dl=0), save it in your course directory, run Notepad++ and open the file. You should see something like this:
 
-There are two lines of text in the file. When you select `View -> Show Symbol -> Show All Characters`, you will see, in addition to text some extra symbols. These are small dots in place of whitespaces between words and letters `CR` and `LF` on black background at the end of the lines.
+There are two lines of text in the file. When you select `View -> Show Symbol -> Show All Characters`, you will see, in addition to text some extra symbols. These are small dots in place of whitespaces between words and letters `CR` and `LF` on black background at the end of the lines. Actually these are two normally invisible characters that are inserted into a text file when you press <kbd>Enter</kbd> to end a line of text. Unfortunately ends of line symbols are system-specific, in Windows they are `CR``LF`, in Mac `LF``CR` and in Linux `LF`.
