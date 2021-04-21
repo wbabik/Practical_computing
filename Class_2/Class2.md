@@ -26,6 +26,21 @@ To explore text files in more detail we need an appropriate tool. In the class w
 
 Notepad++ is a plain text editor with many features, today we will use only a few to learn more about the nature of text files.
 
+## End-of-line and other non-printable characters
+
 Download file from [here](https://www.dropbox.com/s/stfdyaudt0dg0lb/Text_file_01.txt?dl=0), save it in your course directory, run Notepad++ and open the file. You should see something like this:
 
-There are two lines of text in the file. When you select `View -> Show Symbol -> Show All Characters`, you will see, in addition to text some extra symbols. These are small dots in place of whitespaces between words and letters `CR` and `LF` on black background at the end of the lines. Actually these are two normally invisible characters that are inserted into a text file when you press <kbd>Enter</kbd> to end a line of text. Unfortunately ends of line symbols are system-specific, in Windows they are `CR``LF`, in Mac `LF``CR` and in Linux `LF`.
+There are two lines of text in the file. When you select `View -> Show Symbol -> Show All Characters`, you will see, in addition to text some extra symbols. These are small dots in place of whitespaces between words and letters `CR` and `LF` on black background at the end of the lines. Actually these are two normally invisible characters that are inserted into a text file when you press <kbd>Enter</kbd> to end a line of text. Unfortunately ends of line symbols are system-specific, in Windows they are `CRLF`, in Mac `LFCR` and in Linux `LF` only. Although it may seem jaust a curiosity and in many situations it indeed doesn't matter, we're introducing this information here becauseit is a common enough source of frustration. Things don't work as they should although everything seems in order, and the the problem turns out to be in the type of end of line. The problem is very easy to fix if you are aware of it.
+
+EOL conversion, programs give you a choice, like in the case of MS Word
+
+Other non-printable characters: TAB
+
+## Encoding
+
+## Delimited text
+
+## Regular expressions
+
+
+
