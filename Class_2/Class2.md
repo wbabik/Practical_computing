@@ -52,6 +52,9 @@ Information stored in text files often is structured. One of the most commons wa
 
 > ### Regular expression symbols
 > `.` any single character
+> 
 > `?` preceding character occured 0 or 1 times (`Bla?` will match `Bl` or `Bla` but not `Blaa`)
+> 
 > `*` preceding character occurred 0 or more times (`Bla?` will match `Bl`, `Bla` or `Blaa`)
+> 
 
