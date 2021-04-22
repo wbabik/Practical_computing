@@ -55,6 +55,19 @@ Information stored in text files often is structured. One of the most commons wa
 > 
 > `?` preceding character occured 0 or 1 times (`Bla?` will match `Bl` or `Bla` but not `Blaa`)
 > 
-> `*` preceding character occurred 0 or more times (`Bla?` will match `Bl`, `Bla` or `Blaa`)
+> `*` preceding character occurred 0 or more times (`Bla*` will match `Bl`, `Bla` or `Blaa`)
 > 
+> `+` preceding character occurred 1 or more times (`Bla+` will match `Bla` or `Blaa`, but not `Bl`)
+> 
+> `[abc]` any single character from a set
+> 
+> `[^abc]` any single character **not** from a set
+> 
+> `[a-j]` any single character from a range (other examples `[A-Z]`, `[0-9]` etc.)
+>
+>
+>
+
+
+
 
