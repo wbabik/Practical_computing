@@ -43,7 +43,7 @@ Try to always use UTF-8.
 
 > ### Insert an UTF-8 character in Notepad++
 > So how to get access to this huge number of UTF-8 characters? Under Windows probably the simplest way is to use
- Character Map program which is installed by default. For example to insert small Greek alpha character, find its Unicode code point (`03B1`) go to Character Map, enter this code in `Go to Unicode` field, then `Select` and `Copy` and then the character can be pasted into Notepad++. The method is a bit cumbersome, but it gives you access to any UTF-8 characters, however exotic. During this course we'll learn also about other methods.
+ Character Map program which is installed by default. For example to insert small Greek &#x03B1 (alpha) character, find its Unicode code point (`03B1`) go to Character Map, enter this code in `Go to Unicode` field, then `Select` and `Copy` and then the character can be pasted into Notepad++. The method is a bit cumbersome, but it gives you access to any UTF-8 characters, however exotic. During this course we'll learn also about other methods.
  
  
 ## Delimited text
