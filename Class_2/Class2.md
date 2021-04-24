@@ -41,9 +41,11 @@ Other non-printable characters: TAB
 As most of early development of computters occurred in English-speaking countries, the character sets supported were English, or more generally speaking Latin alphabet-centric. In early days of text files only slightly more than 200 (or evel less than 100) printable characters were available. ASCII. This led to the development of various text encoding standards to represnt various alphabets and sets of characteres. These were usually not intercompatible. Fortunately now an almost de facto standard called UTF-8 exists, which is capable of representing more than million characters. It is fully compatible with ASCII as ASCII is a subset of UTF-8. UTF-8 has an enormous capacity - it can represent more than 1 million characters. Currently ca. 150 thousands are in use, details can be found [here](https://www.unicode.org/versions/stats/). The full set of UTF-8 characters together with their codes, i.e., numbers that represent each character, can be found [here](https://www.utf8-chartable.de/)
 Try to always use UTF-8.
 
-> ###Insert an UTF-8 character in Notepad++
-> So how to get access to this huge number of UTF-8 characters. There are several ways under Windows, but unfortunately none of them is fully universal, see [discussion](https://www.fileformat.info/tip/microsoft/enter_unicode.htm). Therefore we'll show Notepad++-specific solution. First, get the code of the character you're interested in, for example the (decimal) code for the small Greek letter gamma \Uceb1
-
+> ### Insert an UTF-8 character in Notepad++
+> So how to get access to this huge number of UTF-8 characters? Under Windows probably the simplest way is to use
+ Character Map program which is installed by default. For example to insert small Greek alpha character, find its Unicode code point (`03B1`) go to Character Map, enter this code in `Go to Unicode` field, then `Select` and `Copy` and then the character can be pasted into Notepad++. The method is a bit cumbersome, but it gives you access to any UTF-8 characters, however exotic. During this course we'll learn also about other methods.
+ 
+ 
 ## Delimited text
 
 Information stored in text files often is structured. One of the most commons ways of structuring information is in a way similar to what you see in spreasheets, where observations are in rows and various attributes of observations are in columns, that is a row contains multiple fields. This kind of information can easily be represented in delimited text files. In such files a special character is used to delimit fields. Two types of delimited text files are the most popular: 
