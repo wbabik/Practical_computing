@@ -38,8 +38,11 @@ Other non-printable characters: TAB
 
 ## Encoding
 
-As most of early development of computters occurred in English-speaking countries, the character sets supported were English, or more generally speaking Latin alphabet-centric. In early days of text files only slightly more than 200 (or evel less than 100) printable characters were available. ASCII. This led to the development of various text encoding standards to represnt various alphabets and sets of characteres. These were usually not intercompatible. Fortunately now an almost de facto standard called UTF-8 exists, which is capable of representing more than million characters. It is fully compatible with ASCII as ASCII is a subset of UTF-8.
-Thry to always use UTF-8.
+As most of early development of computters occurred in English-speaking countries, the character sets supported were English, or more generally speaking Latin alphabet-centric. In early days of text files only slightly more than 200 (or evel less than 100) printable characters were available. ASCII. This led to the development of various text encoding standards to represnt various alphabets and sets of characteres. These were usually not intercompatible. Fortunately now an almost de facto standard called UTF-8 exists, which is capable of representing more than million characters. It is fully compatible with ASCII as ASCII is a subset of UTF-8. UTF-8 has an enormous capacity - it can represent more than 1 million characters. Currently ca. 150 thousands are in use, details can be found [here](https://www.unicode.org/versions/stats/). The full set of UTF-8 characters together with their codes, i.e., numbers that represent each character, can be found [here](https://www.utf8-chartable.de/)
+Try to always use UTF-8.
+
+> ###Insert an UTF-8 character in Notepad++
+> So how to get access to this huge number of UTF-8 characters. There are several ways under Windows, but unfortunately none of them is fully universal, see [discussion](https://www.fileformat.info/tip/microsoft/enter_unicode.htm). Therefore we'll show Notepad++-specific solution. First, get the code of the character you're interested in, for example the (decimal) code for the small Greek letter gamma &#206177;
 
 ## Delimited text
 
