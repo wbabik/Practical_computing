@@ -42,7 +42,7 @@ As most of early development of computters occurred in English-speaking countrie
 Try to always use UTF-8.
 
 > ###Insert an UTF-8 character in Notepad++
-> So how to get access to this huge number of UTF-8 characters. There are several ways under Windows, but unfortunately none of them is fully universal, see [discussion](https://www.fileformat.info/tip/microsoft/enter_unicode.htm). Therefore we'll show Notepad++-specific solution. First, get the code of the character you're interested in, for example the (decimal) code for the small Greek letter gamma \uceb1
+> So how to get access to this huge number of UTF-8 characters. There are several ways under Windows, but unfortunately none of them is fully universal, see [discussion](https://www.fileformat.info/tip/microsoft/enter_unicode.htm). Therefore we'll show Notepad++-specific solution. First, get the code of the character you're interested in, for example the (decimal) code for the small Greek letter gamma \Uceb1
 
 ## Delimited text
 
