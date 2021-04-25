@@ -30,15 +30,17 @@ Notepad++ is a plain text editor with many features, today we will use only a fe
 
 Download file from [here](https://www.dropbox.com/s/stfdyaudt0dg0lb/Text_file_01.txt?dl=0), save it in your course directory, run Notepad++ and open the file. You should see something like this:
 
+![Text in Notepad++](Text_file_01_in_Notepad++.png)
+
 There are two lines of text in the file. When you select `View -> Show Symbol -> Show All Characters`, you will see, in addition to text some extra symbols. These are small dots in place of whitespaces between words and letters `CR` and `LF` on black background at the end of the lines. Actually these are two normally invisible characters that are inserted into a text file when you press <kbd>Enter</kbd> to end a line of text. Unfortunately end-of-line (EOL) symbols are system-specific, in Windows they are `CRLF`, in Mac `LFCR` and in Linux `LF` only. Although it may seem jaust a curiosity and in many situations it indeed doesn't matter, we're introducing this information here becauseit is a common enough source of frustration. Things don't work as they should although everything seems in order, and the the problem turns out to be in the type of end of line. The problem is easy to fix if you are aware of it.
 
-EOL conversion, programs give you a choice, like in the case of MS Word
+In Notepad++ you can easily do EOL conversion selecting from menu: `Edit -> EOL Conversion`. Some programs, as MS Word give you the option of various EOL types when saving as plain text.
 
-Other non-printable characters: TAB
+Another important non-printable character is tabulator or **tab** that you insert by pressing <kbd>TAB</kbd>. In Notepad++ it isnormally  displayed as an ornge arrow, but many other programs don't display anything. 
 
 ## Encoding
 
-As most of early development of computters occurred in English-speaking countries, the character sets supported were English, or more generally speaking Latin alphabet-centric. In early days of text files only slightly more than 200 (or evel less than 100) printable characters were available. ASCII. This led to the development of various text encoding standards to represnt various alphabets and sets of characteres. These were usually not intercompatible. Fortunately now an almost de facto standard called UTF-8 exists, which is capable of representing more than million characters. It is fully compatible with ASCII as ASCII is a subset of UTF-8. UTF-8 has an enormous capacity - it can represent more than 1 million characters. Currently ca. 150 thousands are in use, details can be found [here](https://www.unicode.org/versions/stats/). The full set of UTF-8 characters together with their codes, i.e., numbers that represent each character, can be found [here](https://www.utf8-chartable.de/)
+As most of early development of computters occurred in English-speaking countries, the character sets supported were English, or more generally speaking Latin alphabet-centric. In early days of text files only slightly more than 200 (or evel less than 100) printable characters were available in the ASCII standard. This led to the development of various text encoding standards to represnt various alphabets and sets of characteres. These were usually not intercompatible. Fortunately now a de facto standard called UTF-8 exists. It is fully compatible with ASCII, as ASCII is a subset of UTF-8. UTF-8 has an enormous capacity - it can represent more than 1 million characters. Currently ca. 150 thousands are in use, details can be found [here](https://www.unicode.org/versions/stats/). The full set of UTF-8 characters together with their codes, i.e., numbers that represent each character, can be found [here](https://www.utf8-chartable.de/)
 Try to always use UTF-8.
 
 
@@ -49,9 +51,10 @@ Try to always use UTF-8.
  
 ## Delimited text
 
-Information stored in text files often is structured. One of the most commons ways of structuring information is in a way similar to what you see in spreasheets, where observations are in rows and various attributes of observations are in columns, that is a row contains multiple fields. This kind of information can easily be represented in delimited text files. In such files a special character is used to delimit fields. Two types of delimited text files are the most popular: 
-* csv or comma separated values - here comma (`,`) is used as field separator. However in some languages, e.g., in Polish, `,` is used as the decimal point in numbers. Therefore a dialect of csv exists that uses semicolon (`;`) as delimiter. The csv is extremely popular, but one needs to remember about its dialects to avoid unexpected results. A clear advantage of csv is that the delimiter is always a visible character
-* tsv or tab separated values - here <kbd>TAB</kbd> is used as delimiter. <kbd>TAB</kbd>, often represented as `\t` is normally not a visible character, which sometimes makes recognition of tab-separated files not so straightforward. On the other hand, tsv files are often easier to read and there is no problem with dialects. **Important !** <kbd>TAB</kbd> is different from <kbd>SPACE</kbd> and you should **NEVER** try to used multiple spaces instead of <kbd>TAB</kbd>.
+Information stored in text files is often structured. One of the most commons ways of structuring information is in a way similar to what you see in spreasheets, where observations are in rows and various attributes of observations are in columns, that is a row contains multiple fields (see also previous class). This kind of information can easily be represented in delimited text files. In such files a special character is used to delimit fields. Two types of delimited text files are the most popular: 
+* csv or comma separated values - here comma (`,`) is used as field separator. However in some languages, e.g., in Polish, `,` is used as the decimal point in numbers. Therefore a dialect of csv exists that uses semicolon (`;`) as delimiter. The csv is extremely popular, but one needs to remember about its dialects to avoid unexpected results. A clear advantage of csv is that the delimiter is always a visible character. An example of csv as displayed in Notepad ++:<br/> 
+* tsv or tab separated values - here <kbd>TAB</kbd> is used as delimiter. <kbd>TAB</kbd>, often represented as `\t` is normally not a visible character, which sometimes makes recognition of tab-separated files not so straightforward. On the other hand, tsv files are often easier to read and there is no problem with dialects. **Important !** <kbd>TAB</kbd> is different from <kbd>SPACE</kbd> and you should **NEVER** try to used multiple spaces instead of <kbd>TAB</kbd>. An example of tsv as displayed in Notepad ++:<br/> 
+
 
 
 ## Regular expressions
