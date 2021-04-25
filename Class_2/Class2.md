@@ -59,6 +59,8 @@ Information stored in text files is often structured. One of the most commons wa
 
 ## Regular expressions
 
+Regular expressions or regexp allow us to look for patterns in text files. They are an extremely powerful and versatile tool and we'll encounter them over and over again during this course. Here a gentle introduction, some examples and exercises.
+
 > ### Regular expression symbols
 > `.` any single character
 > 
@@ -68,15 +70,25 @@ Information stored in text files is often structured. One of the most commons wa
 > 
 > `+` preceding character occurred 1 or more times (`Bla+` will match `Bla` or `Blaa`, but not `Bl`)
 > 
+> `\{n\}`   preceding character occurred exactly n times
+> 
+> `\{n,m\}`  preceding character occured at least n times, but not more than m times
+> 
 > `[abc]` any single character from a set
 > 
 > `[^abc]` any single character **not** from a set
 > 
 > `[a-j]` any single character from a range (other examples `[A-Z]`, `[0-9]` etc.)
 >
+> `^` beginning of line
 >
+> `$` end of line
+> 
+> `()` parentheses can be used to group patterns. As we see below parentheses are also use to **capture** parts of expresion for subsequent use.
 >
-
-
+> `|` alternative (`Bl(a|e)` will match `Bla` or `Ble`, it's equivalent to `Bl[ae]`; `cat|dog` will match `cat` or `dog`)
+> 
+> If you want to search for a character that has a special meaning, e.g., `*`, you should **
+> **Important** unfortunately there are some differences in implementation of regular expressions between programs. These differences are not large, but can matter in everyday life. You'll find the reference here, and we'll also highlight the issue throughout the course.
 
 
