@@ -97,7 +97,7 @@ Regular expressions or regexp allow us to look for patterns in text files. They 
 
 ### Exercise 1
 
-Download text file from [here]() and open it in Notepad++. The file contains information about height of persons and animals. Use Notepad++ `Search -> Find...`  with `Search Mode` set to `Regular expression` and `Match case` field checked to find the following (and write down the reular expressions you used):
+Download text file from [here](https://www.dropbox.com/s/hbiixi3g2udpbek/Ex_02_1.txt?dl=0) and open it in Notepad++. The file contains information about height of persons and animals. Use Notepad++ `Search -> Find...`  with `Search Mode` set to `Regular expression` and `Match case` field checked to find the following (and write down the reular expressions you used):
 * persons with (given) name starting with L (L at the start of line)
 * persons with (given) name starting with L or animals with species name staring with l (L or l at the start of line)
 * persons/animals taller than 2 meters (tip use alternative and parentheses to group expressions)
@@ -109,6 +109,7 @@ Download text file from [here]() and open it in Notepad++. The file contains inf
 > Rana dalmatina
 > Rana temporaria
 > ```
+> 
 
 ### Exercice 2
 Download text file from [here](https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt?dl=0) and open it in Notepad++. This file contains long lines, you can toggle line wrapping selecting from menu `View -> Word wrap`. Answer the following questions
