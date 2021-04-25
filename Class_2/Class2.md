@@ -92,10 +92,15 @@ Regular expressions or regexp allow us to look for patterns in text files. They 
 > `|` alternative (`Bl(a|e)` will match `Bla` or `Ble`, it's equivalent to `Bl[ae]`; `cat|dog` will match `cat` or `dog`)
 > 
 > If you want to search for a character that has a special meaning, e.g., `*`, you should **escape** it with `\`, for exaple to look for:
+> 
 > `*` use `\*`
+> 
 > tab use `\t`
+> 
 > `CR` use `\r`
+> 
 > `LF` use `\r`
+> 
 > **Important** unfortunately there are some differences in implementation of regular expressions between programs. These differences are not large, but can matter in everyday life. You'll find a complete reference [here](https://www.regular-expressions.info/reference.html), and we'll also highlight the issue throughout the course.
 
 ### Exercise 1
