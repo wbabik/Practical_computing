@@ -95,4 +95,15 @@ Regular expressions or regexp allow us to look for patterns in text files. They 
 > 
 > **Important** unfortunately there are some differences in implementation of regular expressions between programs. These differences are not large, but can matter in everyday life. You'll find a complete reference [here](https://www.regular-expressions.info/reference.html), and we'll also highlight the issue throughout the course.
 
+### Exercise 1
 
+Download text file from [here]() and open it in Notepad++. The file contains information about height of persons and animals. Use Notepad++ `Search -> Find...`  with `Search Mode` set to `Regular expression` and `Match case` field checked to find the following (and write down the reular expressions you used):
+* persons with (given) name starting with L (L at the start of line)
+* persons with (given) name starting with L or animals with species name staring with l (L or l at the start of line)
+* persons/animals taller than 2 meters (tip use alternative and parentheses to group expressions)
+
+> ### Searching and repleacing with regular expressions
+> You can capture a part of regular expression for subsequent use. This allows using regular expressions to find patterns and modify them. Imagine that you have three binomial Latin species names:
+> `Rana arvalis`
+> `Rana delmatina`
+> `Rana temporaria`
