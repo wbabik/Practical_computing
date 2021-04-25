@@ -104,7 +104,11 @@ Download text file from [here]() and open it in Notepad++. The file contains inf
 
 > ### Searching and repleacing with regular expressions
 > You can capture a part of regular expression for subsequent use. This allows using regular expressions to find patterns and modify them. Imagine that you have three binomial Latin species names:
-> `Rana arvalis  Rana delmatina  Rana temporaria`
+> ```
+> Rana arvalis
+> Rana dalmatina
+> Rana temporaria
+> ```
 
 ### Exercice 2
 Download text file from [here](https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt?dl=0) and open it in Notepad++. This file contains long lines, you can toggle line wrapping selecting from menu `View -> Word wrap`. Answer the following questions
