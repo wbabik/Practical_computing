@@ -73,9 +73,9 @@ Regular expressions or regexp allow us to look for patterns in text files. They 
 > 
 > `+` preceding character occurred 1 or more times (`Bla+` will match `Bla` or `Blaa`, but not `Bl`)
 > 
-> `\{n\}`   preceding character occurred exactly n times
+> `{n}`   preceding character occurred exactly n times
 > 
-> `\{n,m\}`  preceding character occured at least n times, but not more than m times
+> `{n,m}`  preceding character occured at least n times, but not more than m times
 > 
 > `[abc]` any single character from a set
 > 
