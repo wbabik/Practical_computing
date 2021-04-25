@@ -91,7 +91,7 @@ Regular expressions or regexp allow us to look for patterns in text files. They 
 >
 > `|` alternative (`Bl(a|e)` will match `Bla` or `Ble`, it's equivalent to `Bl[ae]`; `cat|dog` will match `cat` or `dog`)
 > 
-> If you want to search for a character that has a special meaning, e.g., `*`, you should **escape** it with `\`, for exaple to look for `*` use `\*`.
+> If you want to search for a character that has a special meaning, e.g., `*`, you should **escape** it with `\`, for exaple to look for `*` use `\*` and to look for tab use `\t`.
 > 
 > **Important** unfortunately there are some differences in implementation of regular expressions between programs. These differences are not large, but can matter in everyday life. You'll find a complete reference [here](https://www.regular-expressions.info/reference.html), and we'll also highlight the issue throughout the course.
 
@@ -104,6 +104,12 @@ Download text file from [here]() and open it in Notepad++. The file contains inf
 
 > ### Searching and repleacing with regular expressions
 > You can capture a part of regular expression for subsequent use. This allows using regular expressions to find patterns and modify them. Imagine that you have three binomial Latin species names:
-> `Rana arvalis`
-> `Rana delmatina`
-> `Rana temporaria`
+> `Rana arvalis 
+> Rana delmatina
+> Rana temporaria`
+
+### Exercice 2
+Download text file from [here](https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt?dl=0) and open it in Notepad++. This file contains long lines, you can toggle line wrapping selecting from menu `View -> Word wrap`. Answer the following questions
+* what type of delimited file is this (csv, tsv, other?)
+* what type of EOL it has?
+* the first column contains 4-digit individual id, the second column contains information about species, population (as name and number) and geographic region in the form of `_` separated fields in the form `popID_region_species_popNr`. Use regular expressions with Notepad++ `Search -> Replace ...` to change the order of the fields in the second column to `species_region_popID_popNr`.
