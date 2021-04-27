@@ -1,3 +1,5 @@
+# Class 2
+
 # Text files, text editors and regular expressions
 
 ## Text vs. binary files
@@ -47,8 +49,8 @@ Try to always use UTF-8 in your text files.
 > ### Insert an UTF-8 character in Notepad++
 > So how to get access to this plenty of UTF-8 characters? Under Windows probably the simplest way is to use
  Character Map program which is installed by default. For example to insert small Greek &#x03B1; character, find its Unicode code point (`03B1`) go to Character Map, enter this code in `Go to Unicode` field, then `Select` and `Copy` and then the character can be pasted into Notepad++. The method is a bit cumbersome, but it gives you access to any UTF-8 characters, however exotic. During this course we'll learn also about other methods.
- 
- 
+
+
 ## Delimited text
 
 Information stored in text files is often structured. One of the most commons ways of structuring information is in a way similar to what you see in spreasheets, where observations are in rows and various attributes of observations are in columns, that is a row contains multiple fields (see also previous class). This kind of information can easily be represented in delimited text files. In such files a special character is used to delimit fields. Two types of delimited text files are the most popular: 
