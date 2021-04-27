@@ -2,7 +2,7 @@
 
 
 ## Working with a terminal in Linux
-Linux is a free operating system that, apart from working in a graphical environment (GUI), allows very efficient work in the command line mode (in a terminal) using the Shell. The Shell is the part of the operating system that is responsible for how the terminal looks and functions. The most commonly used type of Shell is bash (Bourne again shell).
+Linux is a free operating system that, apart from working in a graphical environment (GUI), allows very efficient work in the command line mode (in a terminal) using the Shell. The Shell is the part of the operating system that is responsible for how the terminal looks and functions. The most commonly used type of Shell is bash (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, in particular, on most large computer clusters. The working knowledge of Linux is thus an important part of a biologist's toolbox.
 
 So:
 - The Terminal is a window where you can enter commands to be executed by the computer.
@@ -57,7 +57,126 @@ If you have the Linux or MacOS operating system installed on your computer, you 
 After pressing <kbd>Enter</kbd> you will be asked to enter your password.
 
 
-A few notes and useful commands to get you started. Please read the following text carefully, as it will facilitate further work.
+## A few notes and useful commands to get you started. 
+Please read the following text carefully, as it will facilitate further work.
+
+> ### Files, directories (folders) and paths
+> If the terms 'file' or 'directory' appears in the commands below, it will really mean the path to that file or directory. You can use both absolute and relative paths. Let's imagine we have the following directory system and we are currently in the user102 directory:
+> HERE FIG
+> The absolute path to the ref directory is then:
+> 
+> `/home/user102/ngs/ref`
+> 
+> Such a path always starts at the very top of the directory tree, with the so-called "root" symbolized by the `/` character.
+> The relative path provides the path from your current directory:
+> 
+> `ngs/mother`
+> 
+> Likewise, the absolute path to the data1.txt file in the ref directory is:
+> 
+> `/home/user102/ngs/ref/dane1.txt`
+> 
+> The relative path is:
+> 
+> `ngs/ref/data1.txt`
+
+### Exercise 1
+Please write down the absolute path to the `genome` directory and the relative path from the `user102` directory to the `data2.txt` file in the `ngs` directory.
+
+> The following shortcuts can be used in paths:
+> 
+> `~` (tilde) is the home directory symbol (can be used instead of `/home/user102` here)
+> 
+> `.` (period) is the symbol of the current directory
+> 
+> `..` (two dots) is the parent directory symbol (one level higher than the directory we are currently in)
+> 
+
+### Exercise 2
+Please use the appropriate symbols from the box above and write the relative path from the `ref` directory to the `ngs` directory.
+
+> ### Commands and their options
+> **Important!** If something in the commands typed below is enclosed in `[]`, it means that it is not an obligatory part of the command syntax, but rather it's optional. Do not type parentheses in the terminal! For example, the command:
+>
+> `ls [options] [directory]`
+> Means we can type in the terminal:
+> 
+> `ls`
+> 
+> Content of the current directory will then be displayed. Whereas the command:
+>
+> `ls -l`
+> 
+> will display content of the current directory in so-called long format. In turn, the command:
+>
+> `ls -l /home/user102/genome`
+> 
+> will display the contents of the genom directory, also in long format.
+> 
+
+> ### Spaces are important
+> The command will not be understood by the shell if we enter a space where it shouldn't be (e.g. by typing `- l` instead of `-l` or `/ home / user102 / genome` instead of `/hime/user2012/genome`). Spaces, however, are necessary between the components of the command:
+> 
+> `ls -l /home/user102/genome` will work, while `ls-l/home/user102/genome` will throw an error
+>
+> **Important**
+> Usually, an incorrectly typed command only results in a message that shell did not understand and did not carry out the command. If you accidentally type a command that causes the terminal to hang (no prompt, can't type anything), press <kbd>Ctrl</kbd> and <kbd>C</kbd> at the same time - this should end the  process.
+
+> ### Useful commands and utilities part 1
+> `pwd` </br> 
+> (print working directory) - displays path to the current directory, starting with root
+> 
+> `cd [directory]`
+> (change directory) - go to the directory. cd without target directory gets the user to its home directory, in the case of user102 this will be `/home/user102` 
+> 
+> `mkdir [options] directory`
+> (make directory) Create a new directory called directory. By using the -p option, we can create the given directory and parent directories (if they do not already exist) with one command.
+>
+> `rmdir [options] directory`
+> (remove directory) Removes an empty directory named `directory`.
+>
+> `touch [options] filename`
+> Creates an empty file named `filename`.
+>
+> `rm [options] file`
+> `rm -r directory`
+> (remove) Removes a file with the given name.
+> `rm` with the -r option removes the directory and its contents. Attention! Please be careful when deleting files and full directories. The rm command does not move them to the trash. Files and directories are finally removed from the computer's memory!
+
+cp [options] file directory
+cp -r directory1 directory2
+copy. Copies the file named file to a directory named directory.
+The command with the -r option copies directory1 and its contents to a directory named directory2.
+
+mv [options] file directory
+mv [options] file1 file2
+(move) Moves the file named file to the directory named directory.
+The command is also used to rename a file (file1 → file2)
+
+wc [options] file
+word count Returns the number of lines, words and characters contained in the file. The -l option gives only a count of lines, -w only a count of words, -c only a count of characters.
+
+man [options] command
+manual Opens the manual for the command.
+
+less [options] file
+It allows you to browse the contents of a file in the terminal and search its contents.
+
+passwd
+(password) Allows the user to change his password.
+exit
+Ends the session and closes the terminal.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
