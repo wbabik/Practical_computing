@@ -138,34 +138,34 @@ Please use the appropriate symbols from the box above and write the relative pat
 > `touch [options] filename`
 > Creates an empty file named `filename`.
 >
-> `rm [options] file`
+> `rm [options] file`</br>
 > `rm -r directory`
 > (remove) Removes a file with the given name.
 > `rm` with the -r option removes the directory and its contents. Attention! Please be careful when deleting files and full directories. The rm command does not move them to the trash. Files and directories are finally removed from the computer's memory!
-
-cp [options] file directory
-cp -r directory1 directory2
-copy. Copies the file named file to a directory named directory.
-The command with the -r option copies directory1 and its contents to a directory named directory2.
-
-mv [options] file directory
-mv [options] file1 file2
-(move) Moves the file named file to the directory named directory.
-The command is also used to rename a file (file1 → file2)
-
-wc [options] file
-word count Returns the number of lines, words and characters contained in the file. The -l option gives only a count of lines, -w only a count of words, -c only a count of characters.
-
-man [options] command
-manual Opens the manual for the command.
-
-less [options] file
-It allows you to browse the contents of a file in the terminal and search its contents.
-
-passwd
-(password) Allows the user to change his password.
-exit
-Ends the session and closes the terminal.
+>
+> `cp [options] filename directory`
+> `cp -r directory1 directory2`
+> (copy). Copies the file named `filename` to a directory named `directory`.
+> The command with the `-r` option copies `directory1` and its content to directory named `directory2`.
+>
+> `mv [options] filename directory`
+> `mv [options] file1 file2`
+> (move) Moves the file named `filename` to the directory named `directory`. The command is also used to rename a file (file1 → file2)
+> 
+> `wc [options] file`
+> (word count) Returns the number of lines, words and characters contained in the file. The `-l` option gives only the number of lines, `-w` only the number of words, `-c` only the number of characters.
+> 
+> `man [options] command`
+> (manual) Opens the manual for the command. Man displays comprehensive documentation of the command/program, which may be quite technical. To get more limited, but often more accessible help, many programs support `--help` option
+>
+> `less [options] file`
+> Allows you to browse the content of a file in the terminal and search its contents.
+>
+> `passwd`
+> (password) Allows the user to change his password.
+> 
+> `exit`
+> Ends the session and closes the terminal.
 
 
 
