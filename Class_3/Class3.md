@@ -206,6 +206,12 @@ Search the manual for `size` and answer the question: Wich `ls` command option s
 
 To exit the manual, press <kbd>q</kbd>.
 
+> ### Wildcards
+> Operations on multiple files
+> 
+
+## Editing text files with Nano
+
 ### Here we need some extra exercises (less etc.)  with general-purpose text files
 
 
