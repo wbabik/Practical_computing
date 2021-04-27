@@ -186,27 +186,29 @@ What is the path to the current directory, i.e., to the dirrectory you're in now
 > Typing commands can be tiresome, but you can reuse the commands you typed previously. The commands that were typed in the terminal are remembered as **History**. To recall them, you can use the <kbd>↑</kbd> <kbd>↓</kbd> arrows, and then change only part of the command (arrows <kbd>→</kbd> <kbd>←</kbd>, <kbd>Backspace</kbd>, <kbd>Delete</kbd> keys).
 > 
 
-Exercise 6
+### Exercise 6
 Please display content of directory `/data`. How do files and directories look like?
 
-Exercise 7
+### Exercise 7
 Please copy the file `GCF_000001405.33 ...` from the directory `/data` to the `genome` directory you created. This is a file containing the reference human genome sequence. You will work with it later in the class.
 
 > ### Autocompletion
 > The file has a long name that is difficult to type. Please check what happens when you enter just the first few letters of its name and press the <kbd>TAB</kbd> key. This is called the Tab completion or autocompletion feature. Use it as often as possible to do less typing avoid typos. After completing the file name, you can go to the end of the line and finish typing the command (you can also continue to use Tab completion!)
 
-Exercise 8
+### Exercise 8
 Please view the manual pages for the `ls` command. Which `ls` option will show all files, including hidden files (hidden filenames start with a period on Linux)?</br>
+When inside the manual, you can search its contents by typing:
 
-When you are inside the manual, you can search its contents by typing:
-
-`/phrase`
+`/phrase`</br>
 and then pressing the <kbd>Enter</kbd> key. Pressing the <kbd>n</kbd> key will allow you to go to the place of the next occurrence of the searched phrase in the manual.
 
-Search the manual for `size` and answer the question, what ls command option should you use to list files and directories sorted by size?
+Search the manual for `size` and answer the question: Wich `ls` command option should you use to list files and directories sorted by size?
+
+To exit the manual, press <kbd>q</kbd>.
+
+### Here we need some extra exercises (less etc.)  with general-purpose text files
 
 
-To exit the manual, press q.
 
 
 
