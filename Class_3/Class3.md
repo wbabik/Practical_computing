@@ -7,13 +7,13 @@
 Linux is a free operating system that, apart from a graphical user environment (GUI), allows very efficient work in the command line mode (in a terminal) using shell. The shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux is thus an important part of a biologist's toolbox.
 
 So:
-- The Terminal is a window where you can enter commands to be executed by the computer - this can be your own computer or a remote machine you connect to and work on.
+- The Terminal is a window where you can enter commands to be executed by the computer - this can be your own computer, or a remote machine you connect to and work on.
 - Shell (in our case bash) is a program that executes commands.
 
 **One of the most important goals of this course is to teach you to work in a terminal.**
 
 How is it working?
-In the terminal, you type a command that has a specific syntax, e. g .:
+In the terminal, you type a command that has a specific syntax, e.g .:
 
 `ls -l`
 
