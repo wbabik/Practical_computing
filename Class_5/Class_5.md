@@ -262,10 +262,10 @@ The standard compression and decompression utility in Linux in `gzip`.  Its basi
 In your home directory create gzipped `.tar` archive named `HIV_all.tar.gz` containing all `.fasta` files from `~/HIV`. List content of this archive.
 
 ## Searching and replacing with `sed`  
-`sed` is a quite advanced stream text editor. 
-You can read its full manual [here](https://www.gnu.org/software/sed/manual/sed.html).
-But, it is usually used for two simple tasks: 
-1. searching and replacing a text phrase (or a regular expressions) in the text file
+`sed` is a stream text editor with many advanced facilities. 
+You can find out about them [here](https://www.gnu.org/software/sed/manual/sed.html).  
+But, it is usually used for two very simple tasks: 
+1. searching and replacing a text  (or a regular expressions) in the text file
 2. Extracting specific lines from the text file
 > 
 > Substituting the phrase `"text1"` with `"text2"` in file `infile` (first task):  
