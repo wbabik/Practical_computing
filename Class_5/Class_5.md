@@ -18,6 +18,7 @@
  * [Searching and replacing with sed](#searching-and-replacing-with-sed)
     * [Exercise 8](#exercise-8)
  
+***   
 
 ## Copying files to and from remote server with `scp`
 

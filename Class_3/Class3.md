@@ -13,7 +13,8 @@
   * [Exercise 6](#exercise-6) 
   * [Exercise 7](#exercise-7) 
   * [Exercise 8](#exercise-8)
-    
+  
+***     
 
 ## Working in a Linux terminal
 Linux is a free operating system that, apart from graphical user environment (GUI), allows very efficient work in the command line mode (terminal) using shell. Shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux command line is thus an important part of a biologist's toolbox.
