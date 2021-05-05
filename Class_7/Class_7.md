@@ -1,7 +1,7 @@
 
 # Class 7
 
-# Basics of R and Rstudio
+# R and RStudio basics
 
 ## What is R?
 
@@ -113,6 +113,72 @@ Expected result:
     [1] 6.907755
 
     [1] 3
+
+## R studio
+
+RStudio is a shell and programming environment for the R language. It
+makes working with R much easier and more intuitive by providing a user
+interface to R features originally hidden behind R functions and R
+console. However, remember that all actions can be also performed within
+the classical R console, e. g. if you work on a remote server without
+GUI.
+
+### Installation and appearance
+
+Follow the [link](https://rstudio.com/products/rstudio/download/),
+choose the appropriate operating system and install R studio. Have in
+mind that R needs to be installed first (as we did here).
+
+R Studio has three major advantages over the classical R console:
+
+-   you can easily save and edit your code as a text file (give it `.R`
+    extension)  
+-   running any piece of previously written code (reanalysis)
+-   displaying all R objects and variables saved in your computer memory
+    at any given moment - you can check whether R is doing behind the
+    scenes what you think is doing
+
+The R Studio workspace consists of four main panels:
+
+![<https://sfg-ucsb.github.io/fishery-manageR/images/rstudio_ide.png>](https://sfg-ucsb.github.io/fishery-manageR/images/rstudio_ide.png)
+
+1.  **Code editor** - write your code and save it in a text file (.R).
+    You can run it anytime by highlighting aa given piece of code and
+    clicking `Run` in right-top corner (or pressing
+    <kbd>Ctrl</kbd>+<kbd>R</kbd>).
+2.  **Console** - Exactly the same console as in standard R (see above).
+    Note that any line of code run from *Code editor* will appear in the
+    console. To recall the lastly run line of code use <kbd>↑</kbd> (it
+    works as a general way of browsing through the history of the
+    previously executed commands).
+3.  **Environment / History**
+    -   `Environment` - see all variables (including their current
+        values) and functions present in your computer’s memory (RAM).
+        Have in mind they will be lost as soon as you close RStudio.
+    -   `History` - access to the entire code run in a given RStudio
+        session.
+4.  **Files / Plots / Help / Packages**
+    -   `Files` - manage files on your computer.
+    -   `Plots` - preview generated plots before saving them.
+    -   `Help` - access help page (often with examples) for a given
+        function.
+    -   `Packages` - manage all additionally installed modules.
+
+### Exercise 6
+
+Create new script file `File -> New File -> R Script` and save it. Write
+code for all subsequent exercises using Code editor and save it in the
+script. Remember that to obtain any result you have to execute/run your
+code first.
+
+> #### Comments
+>
+> If you want to include some comments within a script file or “turn
+> off” a chunk of code, type `#` hash before it, exactly as you’d do in
+> a bash script. Anything written until the end of a given line will be
+> ignored by R. To comment several lines highlight them and use
+> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd>. To uncomment use the
+> same keyboard shortcut once again.
 
 ### 4. Variables
 
