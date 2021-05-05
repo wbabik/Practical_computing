@@ -265,8 +265,8 @@ In your home directory create gzipped `.tar` archive named `HIV_all.tar.gz` cont
 `sed` is a stream text editor with many advanced facilities. 
 You can find out about them [here](https://www.gnu.org/software/sed/manual/sed.html).  
 But, it is usually used for two very simple tasks: 
-1. searching and replacing a text  (or a regular expressions) in the text file
-2. Extracting specific lines from the text file
+1. Searching and replacing a text  (or a regular expressions) in the text file
+2. Selecting lines by numbers 
 > 
 > Substituting the phrase `"text1"` with `"text2"` in file `infile` (first task):  
 >  ```bash
@@ -288,9 +288,16 @@ But, it is usually used for two very simple tasks:
 > 
 >   ## extracting line 24 from the input file
 >   sed -n 24p infile > outfile
+> ````
+>  Both tasks at once:
+> ```bash
+>   ## replacing all occurrences of "text1" with "text2" in the 6th line of the file:
+>   sed '6s/text1/text2/g' infile > outfile
+> ```
+>   
 >```
 ### Exercise 8  
 Change the `Ex_02_2.txt` into a comma delimited file. Write the result to the new file named `Ex_02_2.csv`. 
-**Tip** Use a symbolic representation of <kbd>Tab</kbd>: `\t`.   
+**Tip** Use sed and the symbolic representation of <kbd>Tab</kbd>: `\t`.   
 
 [Return to the top](#working-in-linux-shell-ii)
