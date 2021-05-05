@@ -4,11 +4,11 @@
 
 ## Wildcards and operations on many files
 
-Linux provides an easy way to manipulate large numbers of files. For this purpose, you can use wildcards. These are characters with a special meaning that allow the user to refer to the entire set of files or directories on a single command . 
+Linux provides an easy way to process at once a large number of files. For this purpose, you can use wildcards. These are characters with a special meaning that allow the user to refer to the entire set of files or directories on a single command . 
 
 > ### The most commonly used wildcards
 >
-> `*` nothing or any character(s)
+> `*` nothing or any character(s), their number is unlimited
 >
 > `?` any single character
 >
@@ -21,15 +21,32 @@ Linux provides an easy way to manipulate large numbers of files. For this purpos
 > `mv A * directory1` will move all files starting with `A` to `directory1`
 > `ls A???` will show all files / directories whose names are only 4 characters long and start with `A`
 
-The principle of wildcard characters is quite similar to that of regular expressions. However, wildcards are used to search for a pattern in file and directory names, not inside text files. They are interpreted directly by the shell (and not by any particular program), therefore the meaning of the characters is slightly different than in regular expressions! Wildcards can be used in most programs that operate on files and directories  (`ls`, `cp`, `mv`, `rm`, etc.)
+The principle of wildcard characters is quite similar to that of regular expressions. However, wildcards are used to search for a pattern in file and directory names, not inside text files. They are interpreted directly by the shell (and not by any particular program), therefore the meaning of the characters is slightly different than in regular expressions! Wildcards can be used in most programs that operate on files and directories  (`ls`, `cp`, `mv`, `rm` etc.)
 
 ### HIV and SIV sequences
 
-During today's class we'll use genomic sequences of various lentiviruses (HIV and SIV) isolated from several hosts (designations of hosts are in file `/data/hiv_species.txt`). Virus sequences are in `/data/hiv`.
+During today's class we'll use genomic sequences of various lentiviruses (HIV and SIV) isolated from several hosts (designations of hosts are in file `/data/hiv/hiv_species.txt`). Virus sequences are in `/data/hiv`.
+
+> ### FASTA format
+>
+> One of the simples and widely used formats for storing sequences of nucleic acid and protein sequences is FASTA, often saved in files with extensions `.fa`, `fas` or `fasta` . These are plain text files, each sequence has a title line starting with `>`, which can contain any description you want, and in next line or lines is the actual sequence. Sequences are separated by lines staring with `>` and each sequence can be written in a single or multiple lines:
+>
+> ```
+> >seq1
+> ACTGATAGTAGATTAGGATTGAGTTGACCCATCAACTCATAGATCGTACGCAGTCAGCTCAGACGAGACGACGACAGCAGACGAAGAATAGCAGACGACGACAGCAGCAGACGACAGAAGATAGATGGCAGAGAAGATGAAGAG
+> >SEQ2 with a long title name containing # special % chracters
+> ACTGATAATGTATGATATGAGTA
+> >seq3 written in multiple short lines
+> ACTG
+> ATGACTAGTA
+> ACTAGG
+> ```
+>
+> An easy way to count the number of sequences in FASTA file is to count the number of lines starting with `>`
 
 ## Exercise 1
 
-Sequences of viruses in `/data/hiv` are in separate files, each of them with extension `.fasta`.  How many files are in this directory? Do all of them have extension `.fasta`? Please create directory `hiv` in your home directory and copy there from `/data/hiv` only files containing sequences, i.e. with extension `.fasta`. 
+Sequences of viruses in `/data/hiv` are in separate files, each of them with extension `.fasta`. Do all files in the directory have extension `.fasta`? Please create directory `hiv` in your home directory and copy there from `/data/hiv` only files containing sequences, i. e. with extension `.fasta`. 
 
 ## Editing text files with Nano
 
@@ -47,7 +64,7 @@ For example, to download the readme file explaining a part NCBI genomic resource
 
 ## Standard input, output, redirection and pipe
 
-Each program that you run in the terminal takes input data, analyzes it and returns its result and possibly an error message. To put it in other words, each program has three **data streams**. These streams have their names and numbers:
+Each program that you run in the terminal takes input data, analyses it and returns its result and possibly an error message. To put it in other words, each program has three **data streams**. These streams have their names and numbers:
 
 ![stdin](Stdinout.png)
 
@@ -60,7 +77,7 @@ Each program that you run in the terminal takes input data, analyzes it and retu
 Data streams can be redirected to files (effectively: saved to files) or to other programs. This technique is commonly used and extremely powerful, as it allows to combine several tools, each performing a simple task, into **pipelines**, together performing complex tasks
 
 > #### Redirection examples
-
+>
 > `ls > list.txt` will write a list of files/directories in the current directory (i. e., the output from `ls` program) to the file `list.txt` (in which directory will this file be created? Why? Which path we used here?). **Caution!** If file `list.txt` already exists, its content will be overwritten.
 >
 > `ls >> list.txt` works similar to the previous command. The difference is that if `list.txt` already exists, using `>>` will **append** new data to the end of the file. 

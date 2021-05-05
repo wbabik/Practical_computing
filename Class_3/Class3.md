@@ -4,10 +4,10 @@
 
 
 ## Working in a Linux terminal
-Linux is a free operating system that, apart from a graphical user environment (GUI), allows very efficient work in the command line mode (in a terminal) using shell. The shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux is thus an important part of a biologist's toolbox.
+Linux is a free operating system that, apart from graphical user environment (GUI), allows very efficient work in the command line mode (terminal) using shell. Shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux command line is thus an important part of a biologist's toolbox.
 
 So:
-- The Terminal is a window where you can enter commands to be executed by the computer - this can be your own computer or a remote machine you connect to and work on.
+- Terminal is a window where you can enter commands to be executed by the computer - this can be your own computer or a remote machine you connect to and work on.
 - Shell (in our case bash) is a program that executes commands.
 
 **One of the most important goals of this course is to teach you to work in a terminal.**
@@ -21,35 +21,35 @@ We check if we typed what we wanted (or correct the entered text - to navigate w
 And then hit the <kbd>Enter</kbd> key - only now is the command executed.
 
 Let's break down the above command into its component parts:
-- `ls`: what Shell is supposed to do for us. This is the name of the program that performs an action in the Shell. In the example, `ls` will show you the content of a directory.
-- `-l`: how the task is to be performed. In the example, the `-l` option tells `ls` to show not only the names of files and directories, but also some additional information about them (who owns them, what is their size, when were they last modified).
+- `ls`: what shell is supposed to do for us. This is the name of the program that performs an action in the shell. In the example, `ls` will show you the content of a directory.
+- `-l`: how should the task be performed? In the example, the `-l` option tells `ls` to show not only the names of files and directories, but also some additional information about them (who owns them, what is their size, when were they last modified).
 - We could add, as the third part of the command, the name of the directory, which content should be listed. As we did not do it, the content of the current working directory will be listed.
 
 After pressing the <kbd>Enter</kbd> key, the required information will be displayed in the terminal.
 
 ## Why is it worth learning to work with the command line?
 
-For a computer user accustomed to working in the graphical mode (that is, almost every user), the ability to work in text mode may seem superfluous and old-fashioned. It is not so. First, many programs used in bioinformatics (and not only) do not work in a graphic environment. Equally importantly, many tasks that are simple to do in the command line, are very difficult to do in the point-and-click Graphical User Interface (GUI). Think, how would you carry out the following tasks?:
+For a computer user accustomed to working in the graphical mode (that is, almost every user), the ability to work in text mode may seem superfluous and old-fashioned. It is not so. First, many programs used in bioinformatics (and not only) do not work in a graphic environment. Equally importantly, many tasks that are simple to do in the command line, are very difficult to do in the point-and-click Graphical User Interface (GUI). Think, how would you carry out the following task?:
 
-1. We collected 20,112 text files in the epidemia2021 directory on the remote server you will connect to in a couple of minutes. Each of the files contains information on one of the recent cases of hemorrhagic fever in Poland. The second line of each file contains the name of the city where the patient was diagnosed. The next line contains the date of diagnosis. It is your job to analyze the spread of the disease. In the first stage, information about the place and time of infection of all patients should be collected into one file, so that the origin of the epidemic could be identified.   
+We collected 20,112 text files in the `epidemy2021` directory on a remote server you will connect to in a couple of minutes. Each of the files contains information on one of the recent cases of hemorrhagic fever in Poland. The second line of each file contains the name of the city where the patient was diagnosed. The next line contains the date of diagnosis. It's your job to analyze the spread of the disease. In the first stage, information about the place and time of infection of all patients should be collected into one file, so that the origin of the epidemic could be identified.   
 Please think how many steps you need to take to copy the second and third lines from the file obtained for a single patient to one line of the summary file? How much time would it take for a very skilled person? How much time would such a person need to complete the entire task, working 8 hours a day?  
-One solution to this task takes you to type about 6 short lines of text in the terminal, and an average computer will complete the task for you in couple of seconds.  We will return to this task at the end of the course.
-2. **TODO** ~~On the desktop you can find the file: GCF_000001405.33_GRCh38.p7_genomic.fna. This is a text file containing the latest version of the human genome reference sequence (what does that mean?). How big is this file? How many characters does it contain? If you wanted to print it, how many sheets of paper would be needed (a standard typescript page contains 1800 characters). Can you open this file in any text editor (Word, Notepad, Notepad)?
-In today's class, I will ask you to copy the V chromosome sequence to a separate file. Next, we'll use the tools from the EMBOSS suite to find out what the content of GC bases on this chromosome is. In addition, I would like to ask you to obtain the sequence of the second strand of this chromosome.~~
+One solution to this task takes you to type a few lines of text in the terminal, and an average computer will complete the task for you in couple of seconds.  We will return to this task in Classes 5 and 6.
+
+
 
 ## How to open a terminal?
-We assume that you work on a computer running Windows. If you are running Linux or MacOS, see below. Windows uses shell that is different from Linux shells, and we will not cover it during our course. Our first task will be to connect to a remote computer that runs Linux and start a terminal session which we will use for the rest of the class.  To do this, we will use the PuTTy program which you can download [here](https://www.putty.org/).
+We assume that you work on a computer running Windows. If you are running Linux or MacOS, see below. Windows uses shell that is different from Linux shells, and we will not cover it during our course. Our first task will be to connect to a remote computer that runs Linux and start a terminal session which we will use for the rest of the class.  To do this, we will use the PuTTY program which you can download [here](https://www.putty.org/).
 
-Please open PuTTy.
+Please open PuTTY.
 In the `Host Name (or IP address)` field, please enter:
 `149.156.165.xxx`
-This is the IP number of the **fsm** server.
+This is the IP number of the `thor` server.
 In the `Port` field, please leave `22`. We also do not change the connection type (`SSH`).
 In the `Saved Sessions` field you can enter any name, this will be the name of your connection - please type the name `thor`.
 Then please select `Translation` in the `Category` (left) and select
 `UTF-8` in the `Remote character set` field.
 Press `Open`, then you will be asked by the program to enter your username (e. g., user102 - **your username and password will be provided by the course instructor**) and your password (**Remember! Uppercase letters are not the same as lowercase in Linux !!!**). Please enter your username and password carefully. Note: When typing the password, no characters appear in the terminal window.
-You are now connected to the server and can work on it in the terminal. In the same way, you can connect to the server from any Windows computer connected to the Internet. PuTTy is free software.
+You are now connected to the server and can work on it in the terminal. In the same way, you can connect to the server from any Windows computer connected to the Internet. PuTTY is free software.
 
 If you have the Linux or MacOS operating system installed on your computer, you can open a terminal window like any other program. If you would like to connect to our server (to do your homework), use the ssh-client program. In the terminal enter:
 
@@ -99,7 +99,7 @@ Please write down the absolute path to the `genome` directory and the relative p
 Please use the appropriate symbols from the box above and write the relative path from the `ref` directory to the `ngs` directory.
 
 > ### Commands and their options
-> **Important!** If something in the commands typed below is enclosed in `[]`, it means that it is not an obligatory part of the command syntax, but rather it is optional. Do not type parentheses in the terminal! For example, the command:
+> **Important!** If something in the commands typed below is enclosed in `[]`, it means that it's not an obligatory part of the command syntax, but rather it's optional. Do not type parentheses in the terminal! For example, the command:
 >
 > `ls [options] [directory]`
 > Means we can type in the terminal:
@@ -117,12 +117,12 @@ Please use the appropriate symbols from the box above and write the relative pat
 > will display the contents of the genome directory, also in long format.
 
 > ### Spaces are important
-> The command will not be understood by the shell if we enter a space where it shouldn't be (e. g., by typing `- l` instead of `-l` or `/ home / user102 / genome` instead of `/home/user2012/genome`). Spaces, however, are necessary between the components of the command:
+> The command will not be understood by the shell if we enter a space where it shouldn't be (e. g., by typing `- l` instead of `-l` or `/ home / user102 / genome` instead of `/home/user102/genome`). Spaces, however, are necessary between the components of the command:
 > 
 > `ls -l /home/user102/genome` will work, while `ls-l/home/user102/genome` will throw an error
 >
 > **Important**
-> Usually, an incorrectly typed command only results in a message that shell did not understand and did not carry out the command. If you accidentally type a command that causes the terminal to hang (no prompt, can't type anything), press <kbd>Ctrl</kbd> and <kbd>C</kbd> at the same time - this should terminate the  process.
+> Usually, an incorrectly typed command only results in a message that shell didn't understand and didn't carry out the command. If you accidentally type a command that causes the terminal to hang (no prompt, can't type anything), press <kbd>Ctrl</kbd> and <kbd>C</kbd> at the same time - this should terminate the  process. Remember this shortcut, you'll use it many times during the course!
 
 > ### Useful commands and utilities Part 1
 > `pwd` </br> 
@@ -143,7 +143,7 @@ Please use the appropriate symbols from the box above and write the relative pat
 > `rm [options] filename`</br>
 > `rm -r directory`
 > (remove) Removes a file with the given name.
-> `rm` with the `-r` option removes the directory and its content. **Attention!** Please be careful when deleting files and full directories. The `rm` command does not move them to the trash. Files and directories are permanently removed from the disk!
+> `rm` with the `-r` option removes the directory and its content. **Attention!** Please be careful when deleting files and full directories. The `rm` command does not move them to the trash. Files and directories are permanently removed from the disk! 
 >
 > `cp [options] filename directory`
 > `cp -r directory1 directory2`

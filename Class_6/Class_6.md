@@ -1,5 +1,3 @@
-
-
 # Automation with shell scripts
 
 ## `if` conditional
@@ -135,7 +133,125 @@ Doctors suspect that as the epidemy progressed, the symptoms were becoming milde
 
 Please test your script on patients 9633 (conditions fulfilled) and 1 (conditions not fulfilled)
 
+## Loops: `while` `until` and `for`
 
+Loops execute a list of commands multiple time and are thus crucial for automation. In principle loops can run forever (and sometimes do, if they are incorrectly written), therefore we need to specify conditions for a loop to finish. The three types of loops we'll cover:
+
+* `while` runs  as long as conditions are met
+
+* `until` runs until conditions are met
+
+* `for` runs for each item from a list of items
+### Two similar loops: `while` and `until`
+
+Let's write script `while_loop.sh`:
+
+``` bash
+#!/bin/bash
+n=1									#define variable n, which counts the number of iterations
+while [ $n -lt 11 ]					#define contition: loop will run as long as n < 11
+do									#'do' starts the loop; three next lines contain commands to execute
+	echo $n							#print current value of n
+	echo passes through while loop	#print message, the same in each iteration
+	(( n++ ))						#increase the value of n by 1
+done								#'done' ends the loop
+```
+
+Conditions in loops are defined in the same way as in `if` statements. Please note variable `n` which counts the number of passes through the loop, and is called, surprisingly, **counter**. Counter is a general concept, common for most programming languages. Counter has to be **defined before loop**! - of course you can give it any name. Within the loop you have to **modify its value** `(( n++))`! What would happen if you did not modify the counter value?
+
+You can increase counter in steps different from 1, using expression `(( n+=3 ))`. If instead of `+` you use `-` counter will decrease by 3 with each pass through the loop. 
+
+Let's now write script `until_loop.sh`
+
+``` bash
+#!/bin/bash
+n=1									#define variable n, which counts the number of iterations
+until [ $n -gt 10 ]					#define condition: loop will run until n > 10
+do									#'do' starts the loop; three next lines contain commands to execute
+	echo $n							#print current value of n
+	echo passes through while loop	#print message, the same in each iteration
+	(( n++ ))						#increase the value of n by 1
+done								#'done' ends the loop
+```
+
+Do scripts `while_loop.sh` and `until_loop.sh` produce identical results? How many time the message `passes through the loop` appears in terminal? Make sure that you understand the syntax of both scripts.
+
+### Exercise 3
+
+Please modify the scripts:
+
+* `while_loop.sh` so that it prints only even numbers in the range 2-10.
+* `until_loop.sh` so that in prints numbers from 1 to 10 in **descending** order.
+
+### `for` loop
+
+In the `for` loop we define iterator, often named `i` that in consecutive passes through the loop takes value of consecutive elements from the list of values:
+
+``` bash
+for i in Alice Alex John	#define list, its items (Alice, Alex, John) are separated with space
+do							#'do' starts the loop
+	echo $i has a cat		#the next line contains command to do: print the message
+done						#'done' ends the loop
+```
+
+The list can be the result of a command. For example, you can use `ls` to get a list of file name:
+
+``` bash
+for f in $( ls *.tab )		#define list of files: all files with extension '.tab' in current directory
+do
+	echo $f					#print file name
+	sort $f > s_"$f"		#sort file, save the result to a new file (what will be its name?)
+done
+```
+
+The list can be a sequence of integers:
+
+``` bash
+for n in {5..13}			#define list of integers 5-13
+do
+	n1=$(( $n % 2 ))		#define new variable n1, it's value is the remainder from dividing n by 2
+	echo $n1				#print n1
+done
+```
+
+### Exercise 4
+
+Modify script `epidemy2.sh` from the previous class so that it saves in file `June_difficult_cases.txt` names of all files that contain difficult cases (complications or death) diagnosed in June2021. Save the modified script as `epidemy3.sh`. How many files were there. **Tip**: it's a good idea to test the script on a portion of data (e. g., files `pacjent11*.txt`) as searching through all 20,112 files will take a while.
+
+### Exercise 5
+
+Write script `epidemy4.sh` which will, from all text files in the directory `epidemy`, cut lines 2 and 3 (place and date of diagnosis) and will write them is a single line of the file `diagnosis.txt` in your home directory. The file `diagnosis.txt` should have two columns delimited with `tab`.
+
+> #### Reading file line by line
+>
+> `read` command can be used to read file content line by line. To do that use a `while` loop:
+>
+> ``` bash
+> while read i
+> do
+> 	echo $i | cut -f 1 -d ''
+> done<text_file.txt
+> ```
+>
+> The code above opens file `text_file.txt`, reads it line by line, cuts from each line the first column and prints it in terminal. The loop terminates while it reaches an empty line.
+
+## Running jobs in the background with `screen`
+
+So far our scripts were fast and we did not have to wait more than a few seconds for the to finish. In may real-life applications you have to process large files or perform time-consuming calculations. In such situations it's useful to be able to disconnect from a remote computer while leaving your script/program running in the background. For this you can use `screen`.
+
+> #### Using `screen`
+>
+> `screen -S terminal_name` will open a virtual terminal session. You can now work in the same way as in a normal terminal. The difference is that you can run a command/script/program and leave the virtual terminal without interrupting the tasks running. In other words, after you disconnect from the remote computer your processes will continue. To disconnect, press the <kbd>Ctrl</kbd> and <kbd>a</kbd> keys simultaneously, and then still pressing <kbd>Ctrl</kbd> press <kbd>d</kbd>. After leaving the virtual terminal, you can also close the "normal" terminal (`exit`) and switch off your computer.
+>
+> To return to any of the virtual terminals of the screen program, enter the command:
+>
+> `screen -r terminal_name`
+>
+> To see the names of all created virtual terminals, enter:
+>
+> `screen -ls` or `screen -r`
+>
+> To get rid of any of the virtual terminals (when it commands issued in it have been executed), enter it, and then type the `exit` as in a "normal" terminal.
 
 
 
