@@ -12,7 +12,8 @@
   * [Exercise 5](#exercise-5) 
   * [Exercise 6](#exercise-6) 
   * [Exercise 7](#exercise-7) 
-  * [Exercise 8](#exercise-8)   
+  * [Exercise 8](#exercise-8)
+    
 
 ## Working in a Linux terminal
 Linux is a free operating system that, apart from graphical user environment (GUI), allows very efficient work in the command line mode (terminal) using shell. Shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux command line is thus an important part of a biologist's toolbox.
@@ -45,7 +46,6 @@ For a computer user accustomed to working in the graphical mode (that is, almost
 We collected 20,112 text files in the `epidemy2021` directory on a remote server you will connect to in a couple of minutes. Each of the files contains information on one of the recent cases of hemorrhagic fever in Poland. The second line of each file contains the name of the city where the patient was diagnosed. The next line contains the date of diagnosis. It's your job to analyze the spread of the disease. In the first stage, information about the place and time of infection of all patients should be collected into one file, so that the origin of the epidemic could be identified.   
 Please think how many steps you need to take to copy the second and third lines from the file obtained for a single patient to one line of the summary file? How much time would it take for a very skilled person? How much time would such a person need to complete the entire task, working 8 hours a day?  
 One solution to this task takes you to type a few lines of text in the terminal, and an average computer will complete the task for you in couple of seconds.  We will return to this task in Classes 5 and 6.
-
 
 
 ## How to open a terminal?
@@ -233,7 +233,7 @@ Search the manual for `size` and answer the question: Which `ls` command option 
 
 To exit the manual, press <kbd>q</kbd>.
 
-
+[Return to the top](#introduction-to-linux-command-line-connecting-to-a-remote-linux-machine-moving-around-in-the-linux-system)  
 
 
 
