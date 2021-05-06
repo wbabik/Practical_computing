@@ -303,7 +303,7 @@ Now, try to change all lowercase letters
 in the header (first line) of the resulting file to the corresponding uppercase letters. 
 **Tip** You can use `.*` as the searched regular expression (to be replaced) 
 and `\U&` as the "new text". Save the resulting file as `Ex_02_2_upper.csv`.  
-This solution was found [here](https://stackoverflow.com/questions/22718518/sed-to-replace-lower-case-string-between-two-strings-to-upper-case). 
+This solution was found [here](https://stackoverflow.com/questions/22718518/sed-to-replace-lower-case-string-between-two-strings-to-upper-case).    
 How to perform both steps in one command? Try it!  
  
 
