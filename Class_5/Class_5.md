@@ -166,7 +166,7 @@ A variable can be defined inside script, it can also be defined directly in term
 > Imagine that we want to write a script in which we take first two lines from a file and save it in file with (almost) the same name, just adding `L2_` as prefix. To do that you can use the following code - you can run it directly from the terminal or as a shell script
 >
 > ```bash 
->   my_file='HIV/KT183271.fasta'
+>   my_file='hiv/KT183271.fasta'
 >   head -2 $my_file > L2_"$my_file"
 > ```
 >
@@ -185,10 +185,11 @@ head -2 $my_file > L2_"$my_file"
 cd ..
 ```
 
-Note, that in this script we entered directory `HIV` where fasta files are located, and at the end of the script we moved one directory up, back to the home directory. In this way we can refer to the files in this directory directly, without specifying path. 
+Note, that in this script we entered directory `hiv` where fasta files are located, and at the end of the script we moved one directory up, back to the home directory. In this way we can refer to the files in this directory directly, without specifying path. 
 Save `script2.sh`, exit `nano` and run script in terminal `./script2.sh`. **Tip**: when writing a script it's a good idea to test individual commands in terminal. To do that, it's handy to have another PuTTY session open - you can open as many terminal windows as you want.
 
-A script can be written in such a way that we pass variables (for example, names of files on which the script operates) to the script. One of the ways of passing variables is to use command line arguments. In bash variable names `1` to `9` are reserved for command line arguments. You refer to these command line arguments inside your script by typing `$1`, `$2` etc.
+A script can be written in such a way that we pass variables (for example, names of files on which the script operates) to the script. One of the ways of passing variables is to use command line arguments. In bash variable names `1` to `9` are reserved for command line arguments. 
+You refer to these command line arguments inside your script by typing `$1`, `$2` etc.
 
 Armed with this knowledge we can modify `script2.sh` and save the modified version as `script3.sh`:
 
@@ -207,7 +208,7 @@ The script is now a bit shorter and we run it providing file name as command lin
 Write script `script4.sh` and save it in your home directory. Within the script define variable `n` and assign to it an integer from the range 1 to 20. Script should:
 
 1. Print number `n` in terminal.
-2. Print in terminal `n` first nucleotides from each of `n`lines at the end of the file `KT183271.fasta` which is in directory `HIV`. **Tip1**: use pipe. **Tip2** `-c` option of `cat` may be useful.
+2. Print in terminal `n` first nucleotides from each of `n`lines at the end of the file `KT183271.fasta` which is in directory `hiv`. **Tip1**: use pipe. **Tip2** `-c` option of `cat` may be useful.
 
 Set appropriate permissions and run the script in terminal.
 
