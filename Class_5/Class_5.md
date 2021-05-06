@@ -259,7 +259,7 @@ The standard compression and decompression utility in Linux in `gzip`.  Its basi
 
 ### Exercise 7
 
-In your home directory create gzipped `.tar` archive named `HIV_all.tar.gz` containing all `.fasta` files from `~/HIV`. List content of this archive.
+In your home directory create gzipped `.tar` archive named `hiv_all.tar.gz` containing all `.fasta` files from `~/hiv`. List content of this archive.
 
 ## Searching and replacing with `sed`  
 `sed` is a stream text editor with many advanced facilities. 
