@@ -294,8 +294,7 @@ But, it is usually used for two very simple tasks:
 >   ## replacing all occurrences of "text1" with "text2" in the 6th line of the file:
 >   sed '6s/text1/text2/g' infile > outfile
 > ```
->   
->```
+
 ### Exercise 8  
 Change the `Ex_02_2.txt` (you should have this file in your home directory; if not, download 
 it from `https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt`) into a comma delimited file. Write the result to the new file named `Ex_02_2.csv`. 
