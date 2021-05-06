@@ -8,3 +8,4 @@ This is repository of Practical Computing for Biologists Instructions
 * [Class_5: **Working in Linux shell II**](https://github.com/wbabik/Practical_computing/blob/main/Class_5/Class_5.md) 
 * [Class_6: **Automation with shell scripts**](https://github.com/wbabik/Practical_computing/blob/main/Class_6/Class_6.md)
 * [Class_7: **R and RStudio basics**](https://github.com/wbabik/Practical_computing/blob/main/Class_7/Class_7.md)
+* [Class_8: **Data in R**](https://github.com/wbabik/Practical_computing/blob/main/Class_8/Class_8.md)
