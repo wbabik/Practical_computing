@@ -297,7 +297,15 @@ But, it is usually used for two very simple tasks:
 >   
 >```
 ### Exercise 8  
-Change the `Ex_02_2.txt` into a comma delimited file. Write the result to the new file named `Ex_02_2.csv`. 
-**Tip** Use sed and the symbolic representation of <kbd>Tab</kbd>: `\t`.   
+Change the `Ex_02_2.txt` (you should have this file in your home directory; if not, download 
+it from `https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt`) into a comma delimited file. Write the result to the new file named `Ex_02_2.csv`. 
+**Tip** Use sed and the symbolic representation of <kbd>Tab</kbd>: `\t`. 
+Now, try to change all lowercase letters
+in the header (first line) of the resulting file to the corresponding uppercase letters. 
+**Tip** You can use `.*` as the searched regular expression (to be replaced) 
+and `\U&` as the "new text". Save the resulting file as `Ex_02_2_upper.csv`.  
+This solution was found [here](https://stackoverflow.com/questions/22718518/sed-to-replace-lower-case-string-between-two-strings-to-upper-case). 
+How to perform both steps in one command? Try it!  
+ 
 
 [Return to the top](#working-in-linux-shell-ii)
