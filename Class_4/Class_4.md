@@ -50,6 +50,8 @@ Sequences of viruses in `/data/hiv` are in separate files, each of them with ext
 Do all files in the directory have extension `.fasta`? 
 Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequences, i. e. with extension `.fasta`. 
 
+---
+
 ## Editing text files with Nano
 
 ## Downloading files from the Internet
@@ -134,9 +136,11 @@ Basically each computer running Linux has several tools to work with text files.
 > 1. Plain text, e. g., 'new' - `grep` will print lines containing **new**, **new**t or sto**new**ork. Plain text pattern can contain whitespaces 'This is a valid pattern to search' 
 > 2. Regular expressions as explained in Class 2.
 
-### Exercise 2
+#### Exercise 2
 
 TODO use grep to search for pattern
+
+---
 
 ## Extracting information from structured text files with `cut`, `sort` and `uniq`
 
@@ -214,7 +218,7 @@ As we saw in Class 2, text files are often structured into columns. Similarly, f
 >
 > Now, use a similar technique to get the list of feature names.
 
-### Exercise 3
+#### Exercise 3
 
 Download file `Ex_02_2.txt` from the Internet using `wget` and the link: `https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt`. We used this file already in Class 2. 
 
@@ -260,12 +264,16 @@ Download file `Ex_02_2.txt` from the Internet using `wget` and the link: `https:
 
 * The second column contains several fields delimited with underscore (`_`). Its first field contains population acronym (`Visui`, `Solo2` etc.).  Using  `tail`, `cut`, `sort`, `uniq` and `|` print the list of unique population acronyms. Then modify the command to save the list to the file `Population_acronyms.txt`. **Tip1**:  `tail` can be used to skip the first line, which is of no interest for you. **Tip2:** you can pipe output from `cut` to `cut` to divide a single column into multiple columns using a different delimiter.
 
+---
+
 ## Merging files with `cat` 
 
 `cat` concatenates all files provided as arguments and by default prints them to the terminal. By redirecting output to a file we can easily merge multiple files into one.
 
-### Exercise 4
+#### Exercise 4
 
 * Use `ls` with `wc` and `|` to count  `.fasta` in `~/hiv`
 * Use `cat` with redirection to concatenate all `.fasta` files from your `~/hiv` directory into file `hiv_all.fasta` in your home directory.
+
+---
 

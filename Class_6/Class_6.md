@@ -82,7 +82,7 @@ fi
 > then...
 > ```
 
-### Exercise 1
+#### Exercise 1
 
 All exercises in this class will use files in directory `/data/epidemy`. Copy this directory and its entire content into your home directory (`cp -r` ). The directry contains 20,112 text files. Each of these files describes a single case of hemorrhagic fever in Poland from summer 2021 (therefore file names start with `pacjent`, which is `patient` in Polish). All files have the following format (below file for patient1 is shown):
 
@@ -110,6 +110,8 @@ Write script `epidemy1.sh`. This script should take as command line arguments id
 3. Define two variables which will contain the third line of each file (use `sed -n` or `head` and `tail`)
 4. Write `if` statement that will compare the values of the third lines assigned to the variables from p. 3 and, based on the result of this comparison, print the appropriate message.
 
+---
+
 > #### Testing condition in terminal
 >
 > Before entering a condition into your script, you can test it in terminal using `test`command.
@@ -122,7 +124,7 @@ Write script `epidemy1.sh`. This script should take as command line arguments id
 >
 > Is the above condition TRUE? Please check quickly in terminal.
 
-### Exercise 2
+#### Exercise 2
 
 Doctors suspect that as the epidemy progressed, the symptoms were becoming milder. Write script `epidemy2.txt`, which takes patients number as command line argument and checks whether this patient experienced serious complications or died (nonempty comment line) and whether the patient was diagnosed at the early stage of epidemy (June). If both conditions are fulfilled the script should print `A serious case diagnosed in June 2021`, otherwise print `exiting...`
 
@@ -132,6 +134,8 @@ Doctors suspect that as the epidemy progressed, the symptoms were becoming milde
 2. To get the month you can use `cut` with an appropriate column delimiter.
 
 Please test your script on patients 9633 (conditions fulfilled) and 1 (conditions not fulfilled)
+
+---
 
 ## Loops: `while` `until` and `for`
 
@@ -176,12 +180,14 @@ done								#'done' ends the loop
 
 Do scripts `while_loop.sh` and `until_loop.sh` produce identical results? How many time the message `passes through the loop` appears in terminal? Make sure that you understand the syntax of both scripts.
 
-### Exercise 3
+#### Exercise 3
 
 Please modify the scripts:
 
 * `while_loop.sh` so that it prints only even numbers in the range 2-10.
 * `until_loop.sh` so that in prints numbers from 1 to 10 in **descending** order.
+
+---
 
 ### `for` loop
 
@@ -214,13 +220,17 @@ do
 done
 ```
 
-### Exercise 4
+#### Exercise 4
 
 Modify script `epidemy2.sh` from the previous class so that it saves in file `June_difficult_cases.txt` names of all files that contain difficult cases (complications or death) diagnosed in June2021. Save the modified script as `epidemy3.sh`. How many files were there. **Tip**: it's a good idea to test the script on a portion of data (e. g., files `pacjent11*.txt`) as searching through all 20,112 files will take a while.
 
-### Exercise 5
+---
+
+#### Exercise 5
 
 Write script `epidemy4.sh` which will, from all text files in the directory `epidemy`, cut lines 2 and 3 (place and date of diagnosis) and will write them is a single line of the file `diagnosis.txt` in your home directory. The file `diagnosis.txt` should have two columns delimited with `tab`.
+
+---
 
 > #### Reading file line by line
 >
@@ -252,8 +262,5 @@ So far our scripts were fast and we did not have to wait more than a few seconds
 > `screen -ls` or `screen -r`
 >
 > To get rid of any of the virtual terminals (when it commands issued in it have been executed), enter it, and then type the `exit` as in a "normal" terminal.
-
-
-
 
 
