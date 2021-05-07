@@ -48,7 +48,7 @@ R understands standard mathematical operators: `+` (addition), `-`
 (subtraction), `*` (multiplication), `/` (division) and `^` (raising to
 a power).
 
-### Exercise 1
+#### Exercise 1
 
 Sum up all integers from 1 to 10 using the `+` operator.
 
@@ -58,7 +58,7 @@ Expected result:
 
 ------------------------------------------------------------------------
 
-### Exercise 2
+#### Exercise 2
 
 Raise the result of exercise 1 to the power of 5.
 
@@ -75,7 +75,7 @@ Expected result:
 > `%/%` - **integer division** - returns how many times one number is
 > contained in the other, e. g., `10 %/% 3 = 3`
 
-### Exercise 3
+#### Exercise 3
 
 For numbers 10, 156, 557, 777 and 1055, check which one are divisible by
 7 (i.e., divisible without remainder)
@@ -85,7 +85,7 @@ For numbers 10, 156, 557, 777 and 1055, check which one are divisible by
 Because its enormous importance in science *π* value can be obtained
 just by typing `pi`.
 
-### Exercise 4
+#### Exercise 4
 
 Calculate the area of circle which radius equals 40 meters.  
 Expected result:
@@ -113,7 +113,7 @@ Expected result:
 > exponent of e for \`exp() or the angle in radians for trigonometric
 > functions.
 
-### Exercise 5
+#### Exercise 5
 
 Calculate the natural logarithm and logarithm with base 10 of 1000.  
 Expected result:
@@ -174,7 +174,7 @@ The R Studio workspace consists of four main panels:
         function.
     -   `Packages` - manage all additionally installed modules.
 
-### Exercise 6
+#### Exercise 6
 
 Create new script file `File -> New File -> R Script` and save it. Write
 code for all subsequent exercises using Code editor and save it in the
@@ -206,7 +206,7 @@ You can easily recall the value of the variable later on by typing its
 name. The assignment operation is common and handy a keyboard shortcut
 <kbd>Alt</kbd>+<kbd>-</kbd>exists.
 
-### Exercise 7
+#### Exercise 7
 
 Assign `5` to a variable, giving it any name you want. Then type the
 name in console and press <kbd>Enter</kbd> Expected result:
@@ -227,7 +227,7 @@ Once an object is assigned to variable, its name can replace the value
 of the object in any R command, e. g., if `2` is assigned to `x`, both
 `2 + 3` and `x + 3` would produce the result `5`.
 
-### Exercise 8
+#### Exercise 8
 
 Assign your day of birth and month of birth (integer) to two separate
 variables. Then calculate the sum of these two variables and assign it
@@ -239,7 +239,7 @@ Variables can be overwritten by assigning a new object to an already
 used variable name. Once you overwrite the variable, its old value
 disappears for good.
 
-### Exercise 9
+#### Exercise 9
 
 Change the value of `day_month` by increasing its value by 20%. Call it.
 
@@ -250,8 +250,15 @@ very popular type of data is `string`. It is text which behaves as a
 single object regardless of its length. To distinguish strings from
 variable names R requires enclosing them in quotation marks.
 
-### Exercise 10
+#### Exercise 10
 
 Assign your name to variable `my_name`. Call it.
 
 ------------------------------------------------------------------------
+
+## `str()` and understanding the structure of R objects
+
+When in doubt about the nature of any named R object, be it a named
+variable, function, dataset, you can learn a lot about what it is using
+`str()` function. Please consult manual of `str()` and test yourself
+some of the examples provided in the manual

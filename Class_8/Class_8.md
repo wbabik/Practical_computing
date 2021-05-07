@@ -461,3 +461,50 @@ answer as a comment within the script file.
 > function. It will provide simple statistics for each column
 > separately. You can display a few rows from the beginning of data
 > frame with `head()` and from the end of data frame with `tail()`.
+
+## Types of data
+
+All values inside a single data frame column must be of the same data
+type, but the columns can be of different types. Type of data within a
+column is defined by its `type`. The most popular `types` are:
+
+-   \`character - strings (remember that numbers surrounded by quotation
+    marks are also treated as strings)
+-   `factor` - strings with the levels carrying information about the
+    number of occurances and order of strings. Factors are commonly used
+    when doing statistics in R, where they serve as indicators of the
+    [nominal
+    scale](https://www.statsdirect.com/help/basics/measurement_scales.htm).
+    Set as default for columns with strings. To change this behavior set
+    the *stringAsFactors* argument of importing function to *FALSE*.  
+-   `double` - real (floating point) numbers
+-   `integer` - integer. both `integer` and `double` can both be
+    interpreted as numbers, therefore they together constitute type
+    `numeric`.
+-   `logical` - logical values (TRUE or FALSE)
+
+> #### Conversion between types
+>
+> You can convert different data types with the use of `as...` function
+> family, e.g., `as.character()`, `as.factor()` etc. Note, however, that
+> not all conversions are permitted e.g. a letter cannot be converted
+> into an integer. The general rule is that more a simpler type can
+> always be repseented as a more complex type, but generally not vice
+> versa. Types in the order or increasing complexity: `logical`,
+> `integer`, numeric To change class of a column you need to replace
+> whole column with the result of *as…* function.
+
+Type of a column can be checked by displaying data frame with `View()`
+function and placing mouse cursor over the column header.
+
+#### Exercise 22
+
+Check the class of column `uptake`. Write your answer as a comment
+within the script file.
+
+------------------------------------------------------------------------
+
+Type of column can be also checked with `typeof()` or `class()`
+functions, the latter providing more detailed information. However, as
+both require a single vector as argument we need to learn subsetting
+first, which we’ll do in the next class.
