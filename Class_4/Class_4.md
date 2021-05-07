@@ -46,7 +46,9 @@ During today's class we'll use genomic sequences of various lentiviruses (HIV an
 
 ## Exercise 1
 
-Sequences of viruses in `/data/hiv` are in separate files, each of them with extension `.fasta`. Do all files in the directory have extension `.fasta`? Please create directory `hiv` in your home directory and copy there from `/data/hiv` only files containing sequences, i. e. with extension `.fasta`. 
+Sequences of viruses in `/data/hiv` are in separate files, each of them with extension `.fasta`.
+Do all files in the directory have extension `.fasta`? 
+Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequences, i. e. with extension `.fasta`. 
 
 ---
 

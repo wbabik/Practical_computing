@@ -1,7 +1,20 @@
 # Class 3 
 
 # Introduction to Linux command line, connecting to a remote Linux machine, moving around in the Linux system
-
+* [Working in a Linux terminal](#working-in-the-linux-terminal)  
+* [Why is it worth learning to work with the command line?](#why-is-it-worth-learning-to-work-with-the-command-line)  
+* [How to open a terminal](#how-to-open-a-terminal)  
+* [A few notes and useful commands to get you started](#a-few-notes-and-useful-commands-to-get-you-started)  
+  * [Exercise 1](#exercise-1) 
+  * [Exercise 2](#exercise-2) 
+  * [Exercise 3](#exercise-3) 
+  * [Exercise 4](#exercise-4) 
+  * [Exercise 5](#exercise-5) 
+  * [Exercise 6](#exercise-6) 
+  * [Exercise 7](#exercise-7) 
+  * [Exercise 8](#exercise-8)
+  
+***     
 
 ## Working in a Linux terminal
 Linux is a free operating system that, apart from graphical user environment (GUI), allows very efficient work in the command line mode (terminal) using shell. Shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux command line is thus an important part of a biologist's toolbox.
@@ -60,29 +73,47 @@ After pressing <kbd>Enter</kbd> you will be asked to enter your password.
 Please read the following text carefully, as it will facilitate further work.
 
 > ### Files, directories (folders) and paths
-> If the terms 'file' or 'directory' appears in the commands below, this will really mean the path to that file or directory. You can use both absolute and relative paths. Let's imagine we have the following directory system and we are currently in the user102 directory:
+> If the terms 'file' or 'directory' appears in the commands below, this will really mean the path to that file or directory. 
+> You can use both absolute and relative paths. Let's imagine we have the following directory system and we are currently in the user102 directory:
 >
-> TODO HERE FIG
+> ```bash
+>    
+>    / (root) 
+>    ├── data
+>    └── home
+>         ├── user101
+>         ├── user102
+>         │    ├── genome
+>         │    ├── hiv
+>         │    └── scripts
+>         │          └── output_files
+>         ├── user103
+>         │   ...
+>         │   ...
+>         ├── user124
+>         └── user125
+> ```
 >
-> The absolute path to the ref directory is then:
+> The absolute path to the `output_files` directory is then:
 >
-> `/home/user102/ngs/ref`
+> `/home/user102/scripts/output_files`   
 >
 > Such a path always starts at the very top of the directory tree, with the so-called "root" symbolized by the `/` character.
 > The relative path provides the path from your current directory:
 >
-> `ngs/mother`
+> `scripts/output_files`
 >
-> Likewise, the absolute path to the data1.txt file in the ref directory is:
+> Likewise, the absolute path to the result.txt file in the `output_files` directory is:
 >
-> `/home/user102/ngs/ref/data1.txt`
+> `/home/user102/scripts/output_files/result.txt`
 >
 > The relative path is:
 >
-> `ngs/ref/data1.txt`
+> `scripts/output_files/result.txt`
+
 
 #### Exercise 1
-Please write down the absolute path to the `genome` directory and the relative path from the `user102` directory to the `data2.txt` file in the `ngs` directory.
+Please write down the absolute path to the `hiv` directory and the relative path from the `user102` directory to the `data.txt` file in the `genome` directory.
 
 > The following shortcuts can be used in paths:
 >
@@ -92,10 +123,9 @@ Please write down the absolute path to the `genome` directory and the relative p
 >
 > `..` (two dots) is the parent directory symbol (one level higher than the directory we are currently in)
 
----
 
 #### Exercise 2
-Please use the appropriate symbols from the box above and write the relative path from the `ref` directory to the `ngs` directory.
+Please use the appropriate symbols from the box above and write the relative path from the `output_files` directory to the `scripts` directory.
 
 ---
 
@@ -183,8 +213,11 @@ What is the path to the current directory, i. e., to the directory you're in now
 ---
 
 
+
 #### Exercise 5
-**TODO** *Please create directories and subdirectories in your home directory to recreate the tree shown above (below the user102 directory).*
+Please create directories and subdirectories in your home directory to recreate the tree shown above (downstream the `user102` directory).
+**Tip** To create a directory and subdirectory at once, you can use the `mkdir -p` option.
+
 
 > ### History
 > Typing commands can be tiresome, but you can reuse the commands you typed previously. The commands that were typed in the terminal are remembered as **History**. To recall them, you can use the <kbd>↑</kbd> <kbd>↓</kbd> arrows, and then change only part of the command (arrows <kbd>→</kbd> <kbd>←</kbd>, <kbd>Backspace</kbd>, <kbd>Delete</kbd> keys).
@@ -214,6 +247,10 @@ Search the manual for `size` and answer the question: Which `ls` command option 
 To exit the manual, press <kbd>q</kbd>.
 
 ---
+
+[Return to the top](#introduction-to-linux-command-line-connecting-to-a-remote-linux-machine-moving-around-in-the-linux-system)  
+
+
 
 
 

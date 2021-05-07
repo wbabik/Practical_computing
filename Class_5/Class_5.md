@@ -1,6 +1,24 @@
 # Class 5
 
 # Working in Linux shell II
+ * [Copying files to and from remote server with `scp`](#copying-files-to-and-from-remote-server-with-scp)
+ * [MobaXterm combo (optional)](#mobaxterm-combo-optional)
+ * [Shell scripts and echo](#shell-scripts-and-echo) 
+   * [Exercise 1](#exercise-1) 
+ * [Setting permissions with chmod](#setting-permissions-with-chmod)
+   * [Exercise 2](#exercise-2)
+   * [Exercise 3](#exercise-3)
+   * [Exercise 4](#exercise-4) 
+ * [Shell variables](#shell-variables)  
+ * [Shell scripts continued](#shell-scripts-continued)
+   * [Exercise 5](#exercise-5)
+   * [Exercise 6](#exercise-6) 
+ * [Compressing with gzip and archiving with tar](#compressing-with-gzip-and-archiving-with-tar)  
+   * [Exercise 7](#exercise-7)
+ * [Searching and replacing with sed](#searching-and-replacing-with-sed)
+    * [Exercise 8](#exercise-8)
+ 
+***   
 
 ## Copying files to and from remote server with `scp`
 
@@ -155,9 +173,9 @@ A variable can be defined inside script, it can also be defined directly in term
 >
 > Imagine that we want to write a script in which we take first two lines from a file and save it in file with (almost) the same name, just adding `L2_` as prefix. To do that you can use the following code - you can run it directly from the terminal or as a shell script
 >
-> ``` 
-> my_file='HIV/KT183271.fasta'
-> head -2 $my_file > L2_"$my_file"
+> ```bash 
+>   my_file='hiv/KT183271.fasta'
+>   head -2 $my_file > L2_"$my_file"
 > ```
 >
 > **Note!** Because we wanted the value of the variable `my_file` to be a part of the name of a new file, we enclosed it in double quotes `""`.  This is related to a complex topic of shell expansion, discussed in many places on the web, for example [here](https://mywiki.wooledge.org/Quotes).
@@ -166,25 +184,26 @@ A variable can be defined inside script, it can also be defined directly in term
 
 We can wrap the commands from the previous section into a script. Use `nano` to create `script2.sh`:
 
-``` 
+```bash
 #!/bin/bash
 my_file=KT183271.fasta
-cd HIV
+cd hiv
 echo $my_file
 head -2 $my_file > L2_"$my_file"
 cd ..
 ```
 
-Note, that in this script we entered directory `HIV` where fasta files are located, and at the end of the script we moved one directory up, back to the home directory. In this way we can refer to the files in this directory directly, without specifying path. 
+Note, that in this script we entered directory `hiv` where fasta files are located, and at the end of the script we moved one directory up, back to the home directory. In this way we can refer to the files in this directory directly, without specifying path. 
 Save `script2.sh`, exit `nano` and run script in terminal `./script2.sh`. **Tip**: when writing a script it's a good idea to test individual commands in terminal. To do that, it's handy to have another PuTTY session open - you can open as many terminal windows as you want.
 
-A script can be written in such a way that we pass variables (for example, names of files on which the script operates) to the script. One of the ways of passing variables is to use command line arguments. In bash variable names `1` to `9` are reserved for command line arguments. You refer to these command line arguments inside your script by typing `$1`, `$2` etc.
+A script can be written in such a way that we pass variables (for example, names of files on which the script operates) to the script. One of the ways of passing variables is to use command line arguments. In bash variable names `1` to `9` are reserved for command line arguments. 
+You refer to these command line arguments inside your script by typing `$1`, `$2` etc.
 
 Armed with this knowledge we can modify `script2.sh` and save the modified version as `script3.sh`:
 
-``` 
+```bash
 #!/bin/bash
-cd HIV
+cd hiv
 echo $1
 head -2 $1 > L2_"$1"
 cd ..
@@ -197,7 +216,7 @@ The script is now a bit shorter and we run it providing file name as command lin
 Write script `script4.sh` and save it in your home directory. Within the script define variable `n` and assign to it an integer from the range 1 to 20. Script should:
 
 1. Print number `n` in terminal.
-2. Print in terminal `n` first nucleotides from each of `n`lines at the end of the file `KT183271.fasta` which is in directory `HIV`. **Tip1**: use pipe. **Tip2** `-c` option of `cat` may be useful.
+2. Print in terminal `n` first nucleotides from each of `n`lines at the end of the file `KT183271.fasta` which is in directory `hiv`. **Tip1**: use pipe. **Tip2** `-c` option of `cat` may be useful.
 
 Set appropriate permissions and run the script in terminal.
 
@@ -223,7 +242,7 @@ The standard compression and decompression utility in Linux in `gzip`.  Its basi
 >
 > You can compress (or decompress - see below) multiple files by specifying their names as `gzip` arguments, explicitly, or using wildcards. 
 >
-> `-k` keep the original file. By default the original version will be replaced with gzipped `.gz` file
+> `-k` keep the original file. By default, the original version will be replaced with gzipped `.gz` file
 >
 > `-r directory` compress all the files within the directory and all its subdirectories
 >
@@ -253,11 +272,56 @@ The standard compression and decompression utility in Linux in `gzip`.  Its basi
 
 #### Exercise 7
 
-In your home directory create gzipped `.tar` archive named `HIV_all.tar.gz` containing all `.fasta` files from `~/HIV`. List content of this archive.
+
+In your home directory create gzipped `.tar` archive named `hiv_all.tar.gz` containing all `.fasta` files from `~/hiv`. List content of this archive.
 
 ---
 
-## ?Searching and replacing with `sed`
+## Searching and replacing with `sed`  
+`sed` is a stream text editor with many advanced facilities. 
+You can find out about them [here](https://www.gnu.org/software/sed/manual/sed.html).  
+But, it is usually used for two very simple tasks: 
+1. Searching and replacing a text  (or a regular expressions) in the text file
+2. Selecting lines by numbers 
+> 
+> Substituting the phrase `"text1"` with `"text2"` in file `infile` (first task):  
+>  ```bash
+>   ## replacing only the first occurrence of "text1" within each line of the input file
+>   ## result written to the outfile
+>   sed 's/text1/text2/' infile > outfile 
+>   
+>   ## replacing all occurrences of "text1" in each line of the input file
+>   ## result written to the outfile
+>   sed 's/text1/text2/g' infile > outfile
+> 
+>   ## replacing all occurrences of "text1" in each line of the input file in place:
+>   sed -i  's/text1/text2/g' infile
+> ```
+> Extracting lines from the text file (second task):  
+> ```bash
+>   ## extracting lines from 3 to 6 from the input file
+>   sed -n 3,6p infile > outfile
+> 
+>   ## extracting line 24 from the input file
+>   sed -n 24p infile > outfile
+> ````
+>  Both tasks at once:
+> ```bash
+>   ## replacing all occurrences of "text1" with "text2" in the 6th line of the file:
+>   sed '6s/text1/text2/g' infile > outfile
+> ```
 
 
+### Exercise 8  
+Change the `Ex_02_2.txt` (you should have this file in your home directory; if not, download 
+it from `https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt`) into a comma delimited file. Write the result to the new file named `Ex_02_2.csv`. 
+**Tip** Use sed and the symbolic representation of <kbd>Tab</kbd>: `\t`. 
+Now, try to change all lowercase letters
+in the header (first line) of the resulting file to the corresponding uppercase letters. 
+**Tip** You can use `.*` as the searched regular expression (to be replaced) 
+and `\U&` as the "new text". Save the resulting file as `Ex_02_2_upper.csv`.  
+This solution was found [here](https://stackoverflow.com/questions/22718518/sed-to-replace-lower-case-string-between-two-strings-to-upper-case).    
+How to perform both steps in one command? Try it!  
+ 
 
+[Return to the top](#working-in-linux-shell-ii)
