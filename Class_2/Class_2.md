@@ -106,12 +106,14 @@ Regular expressions or regexp allow us to look for patterns in text files. They 
 > 
 > **Important**! Unfortunately there are some differences in implementation of regular expressions between programs. These differences are not large, but can matter in everyday life. You'll find a complete reference [here](https://www.regular-expressions.info/reference.html), and we'll also highlight the issue throughout the course.
 
-### Exercise 1
+#### Exercise 1
 
 Download text file from [here](https://www.dropbox.com/s/hbiixi3g2udpbek/Ex_02_1.txt?dl=0) and open it in Notepad++. The file contains information about height of persons and animals. Use Notepad++ `Search -> Find...`  with `Search Mode` set to `Regular expression` and `Match case` field checked to find the following (and write down the regular expressions you used):
 * persons with (given) name starting with L (`L` at the beginning of line)
 * persons with (given) name starting with L or animals with species name staring with l (`L` or `l` at the beginning of line)
 * persons/animals taller than 2 meters (**tip**: use alternative and parentheses to group expressions)
+
+---
 
 > ### Searching and replacing with regular expressions
 > You can **capture** a part of regular expression for subsequent use. This allows using regular expressions to find patterns and modify them. Imagine that you have three binomial Latin species names:
@@ -122,9 +124,12 @@ Download text file from [here](https://www.dropbox.com/s/hbiixi3g2udpbek/Ex_02_1
 > ```
 > You want to replace them with trinomial names (Genus species subspecies) of the nominal subspecies. To do it using a single Search-and-Replace command we note that we want to duplicate a string of characters preceded by space, i. e., `  [a-z]+`. We can capture this expression enclosing it in parentheses `( [a-z]+)`and then reuse it. Copy the three species names into Notepad++, so that each is in a separate line, then use `Search -> Replace ...` with `Search Mode` set to `Regular expression` to replace binominal to trinomial names. In the `Find what` field type `( [a-z]+)` and in the `Replace with` field type `\1\1` - in this way you refer to the first (and the only one in this case) captured group and you use it twice. To make your expression more robust you could use `( [a-z])$` as search pattern and `\1\1\r\n` as replace pattern- then you'd make sure than only the last word in the line is replicated.
 
-### Exercise 2
+#### Exercise 2
 Download text file from [here](https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt?dl=0) and open it in Notepad++. This file contains long lines, you can toggle line wrapping selecting from menu `View -> Word wrap`. Answer the following questions
 * what type of delimited file is this (csv, tsv, other?)
 * what type of EOL is there?
 * the first column contains 4-digit individual id, the second column contains information about species, population (as name and number) and geographic region as `_` separated fields in the form `popID_region_species_popNr`. Use regular expressions with Notepad++ `Search -> Replace ...` to change the order of the fields in the second column to `species_region_popID_popNr`.
 * use `Search -> Replace ...` to change EOL into the Linux-style using regexp.
+
+---
+

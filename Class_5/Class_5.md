@@ -46,9 +46,11 @@ The script above will display in the terminal `My script works!`
 
 `echo` prints in the terminal text in the current line, following the first whitespace.
 
-### Exercise 1
+#### Exercise 1
 
 In `nano` write a script that will save the list of `.fasta` files in the directory `~/HIV` to the file `List_of_fasta_files.txt` in your home directory, and then will print in the terminal sentence `Task completed!`. Please name script `script1.sh1` and save it in your home directory.
+
+---
 
 ## Setting permissions with `chmod`
 
@@ -76,9 +78,11 @@ To run a script you have to set appropriate **permissions** so that the script c
 > * three next positions - owner's group members permissions (here: only `r`)
 > * three last positions - other users (here: only `r`)
 
-### Exercise 2
+#### Exercise 2
 
 What are permissions for `script1.sh` in your home directory? Who is its owner?
+
+---
 
 You can change permissions with `chmod` (change file mode)
 
@@ -102,15 +106,19 @@ You can change permissions with `chmod` (change file mode)
 >
 > `chmod o+rw file.txt` gives others permission to read and write the file
 
-### Exercise 3
+#### Exercise 3
 
 Give all users permissions to read and execute file `script1.sh`. Noe, list all files in your home directory. What's the font color in your script name? Use `ls -l` to check whether your script has indeed the permissions you wanted it to have. What's in the permissions field?
 
 Now you can run the script typing: `./filename.sh`  (what's the meaning of the dot at the beginning of the command?)
 
-### Exercise 4
+----
+
+#### Exercise 4
 
 Run `script1.sh` and check whether it's worked. Did file `List_of_fasta_files.txt` appear in your home directory. Did the message `Task completed!` appear in the terminal?
+
+---
 
 ## Shell variables
 
@@ -184,7 +192,7 @@ cd ..
 
 The script is now a bit shorter and we run it providing file name as command line argument: `./script3.sh KT183271.sh`
 
-### Exercise 5
+#### Exercise 5
 
 Write script `script4.sh` and save it in your home directory. Within the script define variable `n` and assign to it an integer from the range 1 to 20. Script should:
 
@@ -193,13 +201,17 @@ Write script `script4.sh` and save it in your home directory. Within the script 
 
 Set appropriate permissions and run the script in terminal.
 
+----
+
 > #### Comments inside shell scripts
 >
 > Inside a script you can include comments that will not be interpreted by shell. They can, for example, explain its operation for other users (or the future you!). Comments start with `#`, can be in separate lines or can follow shell comments in the same line. Comments can be included anywhere in the script **except first line**, where `#` has a special meaning.
 
-### Exercise 6
+#### Exercise 6
 
 Write script `script5.sh` and save it in your home directory. This script should do the same operations as `script3.sh` from Exercise 5, but `n` should be the first command line argument (`$1`), and the name of the file from which parts of the last lines will be printed should be the second command line argument (`$2`). Within the script include comments explaining the meaning of the two command line arguments. As previously, set permissions and run the script in terminal.
+
+---
 
 ## Compressing with `gzip` and archiving with `tar`
 
@@ -239,9 +251,11 @@ The standard compression and decompression utility in Linux in `gzip`.  Its basi
 >
 > `-xvf [FILENAME] [FILE-TO-EXTRACT]` extracts single file form `.tar` archive`
 
-### Exercise 7
+#### Exercise 7
 
 In your home directory create gzipped `.tar` archive named `HIV_all.tar.gz` containing all `.fasta` files from `~/HIV`. List content of this archive.
+
+---
 
 ## ?Searching and replacing with `sed`
 

@@ -355,3 +355,15 @@ Save the modified `my_data` int a `.csv` file. Consult `write.table()`
 manual to set the arguments. Include your surname in the file name.
 
 ------------------------------------------------------------------------
+
+## Logical expressions and subsetting with logical vectors
+
+## `dplyr` and `tidyverse`
+
+### Selecting variables with `select()`
+
+### Filtering rows with `filter()`
+
+### Sorting with `arrange()`
+
+### Creating new variables with `mutate()`

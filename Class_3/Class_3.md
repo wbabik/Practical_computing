@@ -35,8 +35,6 @@ We collected 20,112 text files in the `epidemy2021` directory on a remote server
 Please think how many steps you need to take to copy the second and third lines from the file obtained for a single patient to one line of the summary file? How much time would it take for a very skilled person? How much time would such a person need to complete the entire task, working 8 hours a day?  
 One solution to this task takes you to type a few lines of text in the terminal, and an average computer will complete the task for you in couple of seconds.  We will return to this task in Classes 5 and 6.
 
-
-
 ## How to open a terminal?
 We assume that you work on a computer running Windows. If you are running Linux or MacOS, see below. Windows uses shell that is different from Linux shells, and we will not cover it during our course. Our first task will be to connect to a remote computer that runs Linux and start a terminal session which we will use for the rest of the class.  To do this, we will use the PuTTY program which you can download [here](https://www.putty.org/).
 
@@ -54,7 +52,6 @@ You are now connected to the server and can work on it in the terminal. In the s
 If you have the Linux or MacOS operating system installed on your computer, you can open a terminal window like any other program. If you would like to connect to our server (to do your homework), use the ssh-client program. In the terminal enter:
 
 `ssh 149.156.165.xxx -l user102`  149.156.165.xxx is the IP number our server and user102 is the user account name.
-
 
 After pressing <kbd>Enter</kbd> you will be asked to enter your password.
 
@@ -84,19 +81,23 @@ Please read the following text carefully, as it will facilitate further work.
 >
 > `ngs/ref/data1.txt`
 
-### Exercise 1
+#### Exercise 1
 Please write down the absolute path to the `genome` directory and the relative path from the `user102` directory to the `data2.txt` file in the `ngs` directory.
 
 > The following shortcuts can be used in paths:
-> 
+>
 > `~` (tilde) is the home directory symbol (can be used instead of `/home/user102` here)
-> 
+>
 > `.` (period) is the symbol of the current directory
-> 
+>
 > `..` (two dots) is the parent directory symbol (one level higher than the directory we are currently in)
 
-### Exercise 2
+---
+
+#### Exercise 2
 Please use the appropriate symbols from the box above and write the relative path from the `ref` directory to the `ngs` directory.
+
+---
 
 > ### Commands and their options
 > **Important!** If something in the commands typed below is enclosed in `[]`, it means that it's not an obligatory part of the command syntax, but rather it's optional. Do not type parentheses in the terminal! For example, the command:
@@ -166,7 +167,7 @@ Please use the appropriate symbols from the box above and write the relative pat
 > `exit`
 > Ends the session and closes the terminal.
 
-### Exercise 3
+#### Exercise 3
 Please change your password. In the terminal type:
 
 `passwd` and press <kbd>Enter</kbd>.
@@ -174,26 +175,34 @@ Please change your password. In the terminal type:
 You will be guided through the steps of changing your password. Please enter your passwords carefully! Please remember that a capital letter is not the same as a lower case letter! The new password should be hard to crack. Please make it at least 8 characters long, including a capital letter and a number.
 Please remember or write down the new password!
 
-### Exercise 4
+---
+
+#### Exercise 4
 What is the path to the current directory, i. e., to the directory you're in now? This is your home directory.
 
+---
 
-### Exercise 5
+
+#### Exercise 5
 **TODO** *Please create directories and subdirectories in your home directory to recreate the tree shown above (below the user102 directory).*
 
 > ### History
 > Typing commands can be tiresome, but you can reuse the commands you typed previously. The commands that were typed in the terminal are remembered as **History**. To recall them, you can use the <kbd>↑</kbd> <kbd>↓</kbd> arrows, and then change only part of the command (arrows <kbd>→</kbd> <kbd>←</kbd>, <kbd>Backspace</kbd>, <kbd>Delete</kbd> keys).
 
-### Exercise 6
+#### Exercise 6
 Please display content of directory `/data`. How do files and directories look like?
 
-### Exercise 7
+---
+
+#### Exercise 7
 Please copy the file `GCF_000001405.33 ...` from the directory `/data` to the `genome` directory you created. This is a file containing the reference human genome sequence. We will use it as an example of a large text file.
+
+---
 
 > ### Autocompletion
 > The file has a long name that is difficult to type. Please check what happens when you enter just the first few letters of its name and press the <kbd>Tab</kbd> key. This is called the Tab completion or autocompletion feature. Use it as often as possible to do less typing avoid typos. After completing the file name, you can go to the end of the line and finish typing the command (you can also continue to use Tab completion)
 
-### Exercise 8
+#### Exercise 8
 Please view the manual pages for the `ls` command. Which `ls` option will show all files, including hidden files (hidden filenames start with a period on Linux)?</br>
 When inside the manual, you can search its contents by typing:
 
@@ -204,11 +213,7 @@ Search the manual for `size` and answer the question: Which `ls` command option 
 
 To exit the manual, press <kbd>q</kbd>.
 
-
-
-
-
-
+---
 
 
 
