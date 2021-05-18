@@ -23,10 +23,6 @@ Linux provides an easy way to process at once a large number of files. For this 
 
 The principle of wildcard characters is quite similar to that of regular expressions. However, wildcards are used to search for a pattern in file and directory names, not inside text files. They are interpreted directly by the shell (and not by any particular program), therefore the meaning of the characters is slightly different than in regular expressions! Wildcards can be used in most programs that operate on files and directories  (`ls`, `cp`, `mv`, `rm` etc.)
 
-### HIV and SIV sequences
-
-During today's class we will use genomic sequences of various lentiviruses (HIV and SIV) isolated from several hosts (designations of hosts are in file `/data/hiv/hiv_species.txt`). Virus sequences are in `/data/hiv`.
-
 > ### FASTA format
 >
 > One of the simplest and widely used formats for storing sequences of nucleic acid and protein sequences is FASTA, often saved in files with extensions `.fa`, `.fas` or `.fasta` . These are plain text files, each sequence has a title line starting with `>`, which can contain any description you want, and in next line or lines is the actual sequence. Sequences are separated by lines staring with `>` and each sequence can be written in a single or multiple lines:
@@ -46,6 +42,8 @@ During today's class we will use genomic sequences of various lentiviruses (HIV 
 
 ## Exercise 1
 
+During today's class we will use genomic sequences of various lentiviruses (HIV and SIV) isolated from several hosts (designations of hosts are in file `/data/hiv/hiv_species.txt`). Virus sequences are in `/data/hiv`.  
+  
 Sequences of viruses in `/data/hiv` are in separate files, each of them with extension `.fasta`.
 Do all files in the directory have extension `.fasta`? 
 Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequences, i. e. with extension `.fasta`. 
@@ -53,6 +51,12 @@ Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequ
 ---
 
 ## Editing text files with Nano
+
+Nano is an easy-to-use, versatile and simple text editor installed by default in Ubuntu and many other Linux distributions. While not 
+
+
+
+
 
 ## Downloading files from the Internet
 
