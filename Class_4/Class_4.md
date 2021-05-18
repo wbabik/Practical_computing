@@ -150,10 +150,15 @@ ATACTATACTTTATTTTTTCATTCTGAGCAGGAATATTAGGATCCTCAATAAGTATAATTATTCGCTTAGAACTAGGAAC
 ATACTTTATTTTATCTTTTCTTTTTGAGCCGGAATATTAGGTTCATCAATAAGAATAATTATTCGACTAGAATTAGGAACTTGTGGATCATTAATTAATAATGACCAA....
 ```
 > 2.1. Display the heading lines. Now, count them. How many sequences are there in the file?
+> 
 > 2.2. How many sequences of *Eciton* are there?
+> 
 > 2.3. How many sequences of *Eciton* species other than *burchellii* are there? ***Hint***: you can pipe `|` the output of a `grep` search to another `grep` search!
+> 
 > 2.4. Display all sequences (headings + sequences) of *Labidus praedator*. Then, send them to a new file.
+> 
 > 2.5. Display, and then export to a new file, all sequences (headings + sequences) where the nucleotide sequence matches a potential diagnostic primer `ACCTGTGGTTCATTACTC`, supposed to match only a single species. Which species that is?
+> 
 > 2.6. We want to test another potential diagnostic primer for one of the species, `GGAAACTTYCTTGTACCA`. Note that it contains a degenerate position, `Y`, which according to the [IUPAC nucleotide code](https://www.bioinformatics.org/sms/iupac.html) represents either `T` or `C`. How many sequences does this primer match? Which species they belong to? How does the number of sequences matching the primer compare to the total number of sequences of that species?
 ---
 
