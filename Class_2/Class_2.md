@@ -4,7 +4,7 @@
 
 ## Text vs. binary files
 
-At the very basic level there are two types of computer files: text files and everything else, usually called binary files. Loosely speaking, text files contain lines of text, very little else, and are human readable. The content of binary files, on the contrary, is not human readable, but to convey information meaningful for the user it has to be interpreted by a dedicated program (or run, if it's an executable file). The distinction between text and binary files may, at the beginning, seem a bit vague, but hopefully things will become clearer as we move on.
+At the very basic level, there are two types of computer files: text files and everything else, usually called binary files. Loosely speaking, text files contain lines of text, very little else, and are human readable. The content of binary files, on the contrary, is not human readable, but to convey information meaningful for the user it has to be interpreted by a dedicated program (or run, if it's an executable file). The distinction between text and binary files may, at the beginning, seem a bit vague, but hopefully things will become clearer as we move on.
 
 Text files (sometimes called also plain text) are commonly used for storing and exchanging between programs various types of information. Therefore, an understanding of their structure, types and quirks is essential for any biologist.
 
@@ -36,9 +36,9 @@ Download file from [here](https://www.dropbox.com/s/stfdyaudt0dg0lb/Text_file_01
 
 
 
-There are two lines of text in the file, with small orange dots in place of whitespaces between words. When you select `View -> Show Symbol -> Show All Characters`, you will see, in addition to text some extra symbols. These are letters `CR` and `LF` on black background at the end of the lines. These are two normally invisible characters that are inserted into text file when you press <kbd>Enter</kbd> to end a line of text. Unfortunately, end-of-line (EOL) symbols are system-specific: in Windows they are `CRLF`, in Mac `LFCR` and in Linux `LF` only. Although it may seem just a curiosity, and in many situations it indeed doesn't matter, we're introducing this information here because it's a common enough source of frustration. Things don't work as they should although everything seems in order, and the the problem turns out to be in the EOL. The problem is easy to fix if you are aware of it.
+There are two lines of text in the file, with small orange dots in place of whitespaces between words. When you select `View -> Show Symbol -> Show All Characters`, you will see, in addition to text some extra symbols. These are letters `CR` and `LF` on black background at the end of the lines. These are two normally invisible characters that are inserted into text file when you press <kbd>Enter</kbd> to end a line of text. Unfortunately, end-of-line (EOL) symbols are system-specific: in Windows they are `CRLF`, on older Macs `CR` only, and in Linux and newer Macs `LF` only. Although it may seem just a curiosity, and in many situations it indeed doesn't matter, we're introducing this information here because it is a common enough source of frustration. Things don't work as they should although everything seems in order, and the the problem turns out to be in the EOL. The problem is easy to fix if you are aware of it.
 
-In Notepad++ you can easily do EOL conversion selecting from menu: `Edit -> EOL Conversion`. Some programs, such as MS Word give you the option of various EOL types when saving as plain text.
+In Notepad++ you can easily do EOL conversion selecting from menu: `Edit -> EOL Conversion`. Some programs, including MS Word, give you the option of various EOL types when saving as plain text.
 
 Another important non-printable character is tabulator or `tab` that you insert by pressing <kbd>Tab</kbd>. In Notepad++ it is normally  displayed as an orange arrow, but many other programs don't display anything, just blank space. 
 
