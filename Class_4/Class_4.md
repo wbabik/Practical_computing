@@ -52,7 +52,8 @@ Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequ
 
 ## Editing text files with Nano
 
-Nano is an easy-to-use, versatile and simple text editor installed by default in Ubuntu and many other Linux distributions. While not 
+Nano is an easy-to-use, versatile and simple text editor installed by default in Ubuntu and many other Linux distributions. In many cases, nano provides the most straightforward way of making quick edits to your system files and scripts.
+
 
 
 
