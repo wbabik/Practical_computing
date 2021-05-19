@@ -323,5 +323,30 @@ iris %>% select (Species, Petal.Length) %>% group_by(Species) %>%
 
 ## Practical `dplyr`
 
-In the remainig part of the class we'll illustrate the practical use of `dplyr` with a real life example.
+In the remaining part of the class we'll illustrate the practical use of `dplyr` with a real life example. Our task will be to summarize data on MHC class I genotypes from many populations of  several *Triturus* newt species. These genes are duplicated (with different number of genes in different individual) and highly polymorphic, so each individual has several alleles, and the total number of alleles in a species can be hundreds.  
+We will calculate:
+
+* For each population:
+  * number of analysed individuals (`n_ind`)
+  * total number of MHC alleles (`n_all`)
+  * mean number of MHC alleles per individual (`mean_n_all_ind`)
+* For each species you will calculate the same three summaries and additionally also:
+  * number of sampled populations (`n_pop`)
+  
+Please you the names indicated above as column names of your reuslt data frame.
+
+* **Download data**  
+[Here](https://www.dropbox.com/sh/6s60oyt4snc8fgj/AAAyR9wv3t9hWUah2bq_aNtwa?dl) is the folder with the data we will use. Please download the files to your computer. Have a look at the files in Notepad++:
+    * `genotypes.txt` 
+    * `localities.txt`
+    * `ID_locality_species.txt`
+
+
+* **Set up new project in RStudio**  
+Within the project folder create new directory names `data`. Copy the three previously downloaded files to `data`
+
+* **Create new R script**  
+Make sure it's in you project folder (NOT in `data`) 
+
+
 
