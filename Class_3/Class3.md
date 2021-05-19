@@ -228,8 +228,8 @@ Please display content of directory `/data`. How do files and directories look l
 ---
 
 #### Exercise 7
-Please copy the file `GCF_000001405.33 ...` from the directory `/data` to the `genome` directory you created. This is a file containing the reference human genome sequence. We will use it as an example of a large text file.
-
+Please copy the file `GCF_000001405.39 ...` from the directory `/data` to the `genome` directory you created. 
+This is a file containing the description of the latest human reference genome assembly.   
 ---
 
 > ### Autocompletion
