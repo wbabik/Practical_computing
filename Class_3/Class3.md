@@ -13,15 +13,15 @@
       * [Exercise 6](#exercise-6)
       * [Exercise 7](#exercise-7)
       * [Exercise 8](#exercise-8)
-  
-***     
+
+***
 
 ## Working in a Linux terminal
-Linux is a free operating system that, apart from graphical user environment (GUI), allows very efficient work in the command line mode (terminal) using shell. Shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux command line is thus an important part of a biologist's toolbox.
+Linux is a free operating system that, apart from graphical user environment (GUI), allows a very efficient work in the command line mode (terminal) using shell. Shell is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux command line is thus an important part of a biologist's toolbox.
 
 So:
-- Terminal is a window where you can enter commands to be executed by the computer - this can be your own computer or a remote machine you connect to and work on.
-- Shell (in our case bash) is a program that executes commands.
+- **Terminal** is a window where you can enter commands to be executed by the computer - this can be your own computer or a remote machine you connect to and work on.
+- **Shell** (in our case bash) is a program that executes commands.
 
 **One of the most important goals of this course is to teach you to work in a terminal.**
 
@@ -30,51 +30,66 @@ In the terminal, you type a command that has a specific syntax, e. g .:
 
 `ls -l`
 
-We check if we typed what we wanted (or correct the entered text - to navigate within the line use the arrows <kbd>→</kbd> <kbd>←</kbd>, a wrongly inserted letter can be removed with the <kbd>Delete</kbd> or <kbd>Backspace</kbd> key).
-And then hit the <kbd>Enter</kbd> key - only now is the command executed.
+We check if we typed what we wanted (or correct the entered text - to navigate within the line use the arrows <kbd>→</kbd> <kbd>←</kbd>, a wrongly inserted letter can be removed with <kbd>Delete</kbd> or <kbd>Backspace</kbd> keys).
+And then hit <kbd>Enter</kbd>  - only now is the command executed.
 
 Let's break down the above command into its component parts:
 - `ls`: what shell is supposed to do for us. This is the name of the program that performs an action in the shell. In the example, `ls` will show you the content of a directory.
 - `-l`: how should the task be performed? In the example, the `-l` option tells `ls` to show not only the names of files and directories, but also some additional information about them (who owns them, what is their size, when were they last modified).
 - We could add, as the third part of the command, the name of the directory, which content should be listed. As we did not do it, the content of the current working directory will be listed.
 
-After pressing the <kbd>Enter</kbd> key, the required information will be displayed in the terminal.
+After pressing <kbd>Enter</kbd> , the required information will be displayed in the terminal.
 
 ## Why is it worth learning to work with the command line?
 
-For a computer user accustomed to working in the graphical mode (that is, almost every user), the ability to work in text mode may seem superfluous and old-fashioned. It is not so. First, many programs used in bioinformatics (and not only) do not work in a graphic environment. Equally importantly, many tasks that are simple to do in the command line, are very difficult to do in the point-and-click Graphical User Interface (GUI). Think, how would you carry out the following task?:
+For a computer user accustomed to working in the graphical mode (that is, almost every user), the ability to work in text mode may seem superfluous and old-fashioned. It is not so. First, many programs used in research (and not only) do not work in a graphic environment. Equally importantly, many tasks that are simple to do in the command line, are very difficult to do in the point-and-click Graphical User Interface (GUI). Think, how would you carry out the following task?:
 
-We collected 20,112 text files in the `epidemy2021` directory on a remote server you will connect to in a couple of minutes. Each of the files contains information on one of the recent cases of hemorrhagic fever in Poland. The second line of each file contains the name of the city where the patient was diagnosed. The next line contains the date of diagnosis. It's your job to analyze the spread of the disease. In the first stage, information about the place and time of infection of all patients should be collected into one file, so that the origin of the epidemic could be identified.   
-Please think how many steps you need to take to copy the second and third lines from the file obtained for a single patient to one line of the summary file? How much time would it take for a very skilled person? How much time would such a person need to complete the entire task, working 8 hours a day?  
+We collected 20,112 text files in the `epidemy2021` directory on a remote server you will connect to in a couple of minutes. Each of the files contains information on one of the recent cases of hemorrhagic fever in Poland. The second line of each file contains the name of the city where the patient was diagnosed. The next line contains the date of diagnosis. It's your job to analyze the spread of the disease. At the first stage, information about the place and time of infection of all patients should be collected into a single file, so that the origin of the epidemic could be identified.   
+Please think how many steps you need to copy the second and third lines from the file obtained for a single patient to one line of the summary file? How much time would it take for a very skilled person? How much time would such a person need to complete the entire task, working 8 hours a day?  
 One solution to this task takes you to type a few lines of text in the terminal, and an average computer will complete the task for you in couple of seconds.  We will return to this task in Classes 5 and 6.
 
 ## How to open a terminal?
 We assume that you work on a computer running Windows. If you are running Linux or MacOS, see below. Windows uses shell that is different from Linux shells, and we will not cover it during our course. Our first task will be to connect to a remote computer that runs Linux and start a terminal session which we will use for the rest of the class.  To do this, we will use the PuTTY program which you can download [here](https://www.putty.org/).
 
-Please open PuTTY.
-In the `Host Name (or IP address)` field, please enter:
-`149.156.165.xxx`
-This is the IP number of the `thor` server.
-In the `Port` field, please leave `22`. We also do not change the connection type (`SSH`).
-In the `Saved Sessions` field you can enter any name, this will be the name of your connection - please type the name `thor`.
-Then please select `Translation` in the `Category` (left) and select
-`UTF-8` in the `Remote character set` field.
-Press `Open`, then you will be asked by the program to enter your username (e. g., user102 - **your username and password will be provided by the course instructor**) and your password (**Remember! Uppercase letters are not the same as lowercase in Linux !!!**). Please enter your username and password carefully. Note: When typing the password, no characters appear in the terminal window.
-You are now connected to the server and can work on it in the terminal. In the same way, you can connect to the server from any Windows computer connected to the Internet. PuTTY is free software.
+Please open PuTTY and:
+
+- In the `Host Name (or IP address)` field, please enter:`149.156.165.156`
+  This is the IP number of the `apollo` server we'll use during the class.
+
+- In the `Port` field, leave `22`. We also do not change the connection type (`SSH`).
+
+- In the `Saved Sessions` field you can enter any name, this will be the name of your connection - please type the name `apollo`.
+
+- Then select `Translation` in the `Category` (left) and select `UTF-8` in the `Remote character set` field.
+
+- Press `Open`, then you will be asked by the program to enter your username (e. g., user102 - **your username and password will be provided by the course instructor**) and your password.  **Remember! Uppercase letters are not the same as lowercase in Linux !!!** Please enter your username and password carefully. **Note:** When typing the password, no characters appear in the terminal window.
+
+  You are now connected to the server and can work on it in the terminal. In the same way, you can connect to the server from any Windows computer connected to the Internet. PuTTY is free software.
 
 If you have the Linux or MacOS operating system installed on your computer, you can open a terminal window like any other program. If you would like to connect to our server (to do your homework), use the ssh-client program. In the terminal enter:
 
-`ssh 149.156.165.xxx -l user102`  149.156.165.xxx is the IP number our server and user102 is the user account name.
+`ssh 149.156.165.156 -l user102`  149.156.165.156 is the IP number our server and user102 is the user account name.
 
 After pressing <kbd>Enter</kbd> you will be asked to enter your password.
 
+#### Exercise 1
+
+Please change your password. In the terminal type:
+
+`passwd` and press <kbd>Enter</kbd>.
+
+You will be guided through the steps of changing your password. Please enter your passwords carefully!  **Remember! Uppercase letters are not the same as lowercase in Linux !!!** The new password should be difficult to crack. Please make it at least 8 characters long, including a capital letter and a number.
+**Remember or write down the new password!** You'll use it from now on.
+
+> #### Copying and pasting in terminal
+>
+> Standard Windows <kbd>Ctrl</kbd> + <kbd> C</kbd> and <kbd>Ctrl</kbd>+<kbd>V</kbd> shortcuts for copying and pasting don't work in shell, because these combinations were assigned to different commands long ago before Windows was born. To copy text within terminal use<kbd>Ctrl</kbd>+<kbd>Shift</kbd> +<kbd>Ins</kbd> and to paste <kbd>Shift</kbd>+<kbd>Ins</kbd>.  You can mark text within terminal and use mouse right-click to insert it at the cursor position.
+
 
 ## A few notes and useful commands to get you started. 
-Please read the following text carefully, as it will facilitate further work.
-
 > ### Files, directories (folders) and paths
 > If the terms 'file' or 'directory' appears in the commands below, this will really mean the path to that file or directory. 
-> You can use both absolute and relative paths. Let's imagine we have the following directory system and we are currently in the user102 directory:
+> You can use both **absolute** and **relative** paths. Let's imagine we have the following directory system and we are currently in the `user102` directory:
 >
 > ```bash
 >    
@@ -112,7 +127,7 @@ Please read the following text carefully, as it will facilitate further work.
 > `scripts/output_files/result.txt`
 
 
-#### Exercise 1
+#### Exercise 2
 Please write down the absolute path to the `hiv` directory and the relative path from the `user102` directory to the `data.txt` file in the `genome` directory.
 
 > The following shortcuts can be used in paths:
@@ -121,10 +136,12 @@ Please write down the absolute path to the `hiv` directory and the relative path
 >
 > `.` (period) is the symbol of the current directory
 >
-> `..` (two dots) is the parent directory symbol (one level higher than the directory we are currently in)
+> `..` (two dots) is the parent directory symbol (one level up from the directory we are currently in)
+
+---
 
 
-#### Exercise 2
+#### Exercise 3
 Please use the appropriate symbols from the box above and write the relative path from the `output_files` directory to the `scripts` directory.
 
 ---
@@ -158,10 +175,10 @@ Please use the appropriate symbols from the box above and write the relative pat
 > ### Useful commands and utilities Part 1
 > `pwd` </br> 
 > (print working directory) - displays path to the current directory, starting with root
-> 
+>
 > `cd [directory]`
 > (change directory) - go to the directory. cd without target directory gets the user to its home directory, in the case of user102 this will be `/home/user102` 
-> 
+>
 > `mkdir [options] directory`
 > (make directory) Create a new directory named `directory`. By using the `-p` option, we can create the given directory and parent directories (if they do not already exist) with one command.
 >
@@ -174,7 +191,7 @@ Please use the appropriate symbols from the box above and write the relative pat
 > `rm [options] filename`</br>
 > `rm -r directory`
 > (remove) Removes a file with the given name.
-> `rm` with the `-r` option removes the directory and its content. **Attention!** Please be careful when deleting files and full directories. The `rm` command does not move them to the trash. Files and directories are permanently removed from the disk! 
+> `rm` with the `-r` option removes the directory and its content. **Warning!** Please be careful when deleting files and full directories. The `rm` command does not move them to the trash. Files and directories are permanently removed from the disk! 
 >
 > `cp [options] filename directory`
 > `cp -r directory1 directory2`
@@ -184,39 +201,31 @@ Please use the appropriate symbols from the box above and write the relative pat
 > `mv [options] filename directory`
 > `mv [options] file1 file2`
 > (move) Moves the file named `filename` to the directory named `directory`. The command is also used to rename a file (`file1` → `file2`)
-> 
+>
 > `wc [options] filename`
 > (word count) Returns the number of lines, words and characters contained in the file. The `-l` option gives only the number of lines, `-w` only the number of words, `-c` only the number of characters.
-> 
+>
 > `man [options] command`
 > (manual) Opens the manual for the command. Man displays comprehensive documentation of the command/program, which may be quite technical. To get more limited, but often more accessible help, many programs support `--help` option
 >
 > `passwd`
-> (password) Allows the user to change his password.
+> (password) Allows the user to change his password, as we already did.
 >
 > `exit`
 > Ends the session and closes the terminal.
 
-#### Exercise 3
-Please change your password. In the terminal type:
 
-`passwd` and press <kbd>Enter</kbd>.
-
-You will be guided through the steps of changing your password. Please enter your passwords carefully! Please remember that a capital letter is not the same as a lower case letter! The new password should be hard to crack. Please make it at least 8 characters long, including a capital letter and a number.
-Please remember or write down the new password!
-
----
 
 #### Exercise 4
 What is the path to the current directory, i. e., to the directory you're in now? This is your home directory.
 
 ---
 
-
-
 #### Exercise 5
 Please create directories and subdirectories in your home directory to recreate the tree shown above (downstream the `user102` directory).
 **Tip** To create a directory and subdirectory at once, you can use the `mkdir -p` option.
+
+---
 
 
 > ### History
@@ -228,7 +237,7 @@ Please display content of directory `/data`. How do files and directories look l
 ---
 
 #### Exercise 7
-Please copy the file `GCF_000001405.33 ...` from the directory `/data` to the `genome` directory you created. This is a file containing the reference human genome sequence. We will use it as an example of a large text file.
+Please read the `Autocompletion` box below and copy the file `GCF_000001405.39 ...` from the directory `/data` to the `genome` directory you created. This is a file containing information about the human genome assembly. We will use it as an example of a text file later on.
 
 ---
 
