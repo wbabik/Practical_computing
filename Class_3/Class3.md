@@ -229,7 +229,8 @@ Please display content of directory `/data`. How do files and directories look l
 
 #### Exercise 7
 Please copy the file `GCF_000001405.39 ...` from the directory `/data` to the `genome` directory you created. 
-This is a file containing the description of the latest human reference genome assembly.   
+This is a file containing the description of the latest human reference genome assembly. 
+Change its name to `grch38-description.txt`. How many lines are in this file?    
 ---
 
 > ### Autocompletion
