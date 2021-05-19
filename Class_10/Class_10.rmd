@@ -215,7 +215,7 @@ mutate(iris, One = "1")
 ```
 
 ```{r, echo = FALSE}
-mutate(iris, Petal.Ratio = Petal.Length/Petal.Width) %>% head(n = 10)
+mutate(iris, One = "1") %>% head(n = 10)
 ```
 
 Create new variable named `Petal.Ratio`, the value of which will be the ratio of petal length to petal width:
@@ -229,7 +229,7 @@ mutate(iris, Petal.Ratio = Petal.Length/Petal.Width) %>% head(n = 10)
 
 
 #### Exercise 7
-Create, using a single `mutate()` call two new variables: Petal.Length.Squared, Sepal.Length.Squared containing the squared length of petal and sepal, respectively.  
+Create, using a single `mutate()` call, two new variables: Petal.Length.Squared, Sepal.Length.Squared containing the squared length of petal and sepal, respectively.  
 Expected result:  
 ```{r, echo = FALSE}
 head(mutate(iris, Petal.Length.Squared = Petal.Length^2,
@@ -240,7 +240,7 @@ head(mutate(iris, Petal.Length.Squared = Petal.Length^2,
 
 ### Grouping cases by variable(s) with `group_by()`
 
-You could (rightly) consider some of the preceding examples and exercises boring, so let's move to something more exciting. `group_by()` creates a **grouped data frame**, that is a data frame which rows are assigned to various groups based on the value of one or more grouping variable. The data frame itself is not changed, but the way operations on the data frame are performed is. For example, if you use a function, such as `mean()` with `mutate()`, for observations from each group the mean of this group will be used.
+You could (rightly) consider some of the preceding examples and exercises boring, so let's move to something more exciting.  `group_by()` creates a **grouped data frame**, that is a data frame which rows are assigned to various groups based on the value of one or more grouping variables. The data frame itself is not changed, but the way operations on the data frame are performed is. For example, if you use a function, such as `mean()` with `mutate()`, the the mean of the group to which a row belongs will be used for this row.
 
 #### `group_by()` examples
 
@@ -249,7 +249,7 @@ Create grouped `iris` dataframe
 group_by(iris, Species)
 ```
 
-When you call the command above, you'll see that the data structure is not anymore `data.frame` but rather it's called `tibble` and you'll find information about grouping, though no information in the table is altered:
+When you execute the command above, you'll see that the object is not anymore `data.frame`, but now it's called `tibble` and you'll find information about grouping added, though no information in the table is altered:
 ```{r, echo = FALSE, warning = FALSE}
 group_by(iris, Species)
 ```
@@ -265,27 +265,28 @@ Usually, when you want to use several functions in sequence, you repeatedly assi
 ```{r}
 a <- select(iris, Species, starts_with("Sepal"))
 a <- mutate(a, Sepal.Ratio = Sepal.Length/Sepal.Width)
-a
+head(a)
 ```
 
-Here's where the pipe `%>` comes handy. Although the symbol used is different, its behaviour is similar to the pipe operator `|` of the Linux shell. In conjunction with `dplyr` verbs it allows creating pipelines without the need of assigning intermediate results to variable. Note, that when a `dplyr` function is used following `%>` you don't specify the data frame the function operates on - because the data frame is passed by `%>%!
+Here's where the pipe `%>%` comes handy. Although the symbol used is different, its behaviour is similar to the pipe operator `|` of the Linux shell. In conjunction with `dplyr` verbs it allows creating pipelines without the need of assigning intermediate results to variables. Note, that when a `dplyr` function is used following `%>%` you don't specify the data frame the function operates on - because the data frame is passed by `%>%`!
+
 So, instead of the code above you can use:
 ```{r}
 a <- select(iris, Species, starts_with("Sepal")) %>% mutate(Sepal.Ratio = Sepal.Length/Sepal.Width)
-a
+head(a)
 ```
 or
 ```{r}
 a <- iris %>% select(Species, starts_with("Sepal")) %>% mutate(Sepal.Ratio = Sepal.Length/Sepal.Width)
-a
+head(a)
 ```
 
-Using `%>%` not only eliminates the need for intermediate variables but also make code more readable. In this case, you firs take `iris`, then select some columns and then add a column based on the values of the existing columns, and your code captures the sequence of steps
+Using `%>%` not only eliminates the need for intermediate variables but also makes code more **readable**. In this case, you first take `iris`, then select some columns and then add a column based on the values of the existing columns. The way your code is written captures the sequence of steps.
 
-Before we move on, we'll show a useful technique that allows, for example, easy standardization. Our task is to standardize the values of sepal length by subtracting it from the species mean and dividing the result by the species standard deviation (this is called **Z-standardization**). Here's the code that does it:
+Before we move on, we'll show a useful technique that allows, for example, easy standardization. Our task is to standardize the values of sepal length by subtracting it from the species mean and dividing the result by the species standard deviation (this is called **Z-standardization**). Here's the code:
 
 
-```{r}
+```{r, warning = FALSE}
 iris %>% select(Species, Sepal.Length) %>%  group_by(Species) %>%
   mutate(sp.Mean = mean(Sepal.Length),
          sp.SD = sd(Sepal.Length),
@@ -293,26 +294,26 @@ iris %>% select(Species, Sepal.Length) %>%  group_by(Species) %>%
 ```
 
 we could use `select()` again to drop the intermediate variables we no longer need:
-```{r}
+```{r, warning = FALSE}
 iris %>% select(Species, Sepal.Length) %>%  group_by(Species) %>%
   mutate(sp.Mean = mean(Sepal.Length),
          sp.SD = sd(Sepal.Length),
          Zstand.Sepal.Length = (Sepal.Length - sp.Mean)/sp.SD) %>% select(-c(sp.Mean, sp.SD))
 ```
 
-Note that the columns to drop were passed as a vector of column names not enclosed in quotation marks (quotation marks are allowed but not necessary)
+Note, that the columns to drop were passed as a vector of column names not enclosed in quotation marks (quotation marks are allowed but not necessary).
 
 ### Summarising with `summarise()`
-When used on a data frame that is not grouped `summarise` just applies a function to a column and returns a small data frame containing the result of applying the function to a column:
+When used on a data frame that is not grouped `summarise` just applies a function to a column and returns a small data frame containing the result:
 
 ```{r}
 summarise(iris, mean.Sepal.Length = mean(Sepal.Length))
 ```
 
-This may be useful, but perhaps not terribly so.
+This may be useful, but rather not terribly so.
 
-Things change when you use summarise with grouped data frame. Then, writing very little code you can get lots of quite useful results:
-```{r}
+Things change when you use summarise with a grouped data frame. Then, writing very little code you can get lots of useful results:
+```{r, warning=FALSE}
 iris %>% select (Species, Petal.Length) %>% group_by(Species) %>% 
   summarise(min.Petal.Length = min(Petal.Length),
             mean.Petal.Length = mean(Petal.Length), 

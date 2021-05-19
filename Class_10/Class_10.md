@@ -146,7 +146,7 @@ filter(iris, (Species == "versicolor" | "virginica"), Petal.Length >=5)
 ```
 
     ## Error: Problem with `filter()` input `..1`.
-    ## x operations are possible only for numeric, logical or complex types
+    ## x operacje są możliwe jedynie dla typów liczbowych, logicznych oraz zespolonych
     ## i Input `..1` is `(Species == "versicolor" | "virginica")`.
 
 #### Exercise 3
