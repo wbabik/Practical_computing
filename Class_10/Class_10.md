@@ -344,17 +344,17 @@ value `1` and the data type *character* for all observations.
 mutate(iris, One = "1")
 ```
 
-    ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species Petal.Ratio
-    ## 1           5.1         3.5          1.4         0.2  setosa    7.000000
-    ## 2           4.9         3.0          1.4         0.2  setosa    7.000000
-    ## 3           4.7         3.2          1.3         0.2  setosa    6.500000
-    ## 4           4.6         3.1          1.5         0.2  setosa    7.500000
-    ## 5           5.0         3.6          1.4         0.2  setosa    7.000000
-    ## 6           5.4         3.9          1.7         0.4  setosa    4.250000
-    ## 7           4.6         3.4          1.4         0.3  setosa    4.666667
-    ## 8           5.0         3.4          1.5         0.2  setosa    7.500000
-    ## 9           4.4         2.9          1.4         0.2  setosa    7.000000
-    ## 10          4.9         3.1          1.5         0.1  setosa   15.000000
+    ##    Sepal.Length Sepal.Width Petal.Length Petal.Width Species One
+    ## 1           5.1         3.5          1.4         0.2  setosa   1
+    ## 2           4.9         3.0          1.4         0.2  setosa   1
+    ## 3           4.7         3.2          1.3         0.2  setosa   1
+    ## 4           4.6         3.1          1.5         0.2  setosa   1
+    ## 5           5.0         3.6          1.4         0.2  setosa   1
+    ## 6           5.4         3.9          1.7         0.4  setosa   1
+    ## 7           4.6         3.4          1.4         0.3  setosa   1
+    ## 8           5.0         3.4          1.5         0.2  setosa   1
+    ## 9           4.4         2.9          1.4         0.2  setosa   1
+    ## 10          4.9         3.1          1.5         0.1  setosa   1
 
 Create new variable named `Petal.Ratio`, the value of which will be the
 ratio of petal length to petal width:
@@ -377,7 +377,7 @@ mutate(iris, Petal.Ratio = Petal.Length/Petal.Width)
 
 #### Exercise 7
 
-Create, using a single `mutate()` call two new variables:
+Create, using a single `mutate()` call, two new variables:
 Petal.Length.Squared, Sepal.Length.Squared containing the squared length
 of petal and sepal, respectively.  
 Expected result:
@@ -413,10 +413,10 @@ You could (rightly) consider some of the preceding examples and
 exercises boring, so let’s move to something more exciting. `group_by()`
 creates a **grouped data frame**, that is a data frame which rows are
 assigned to various groups based on the value of one or more grouping
-variable. The data frame itself is not changed, but the way operations
+variables. The data frame itself is not changed, but the way operations
 on the data frame are performed is. For example, if you use a function,
-such as `mean()` with `mutate()`, for observations from each group the
-mean of this group will be used.
+such as `mean()` with `mutate()`, the the mean of the group to which a
+row belongs will be used for this row.
 
 #### `group_by()` examples
 
@@ -426,9 +426,9 @@ Create grouped `iris` dataframe
 group_by(iris, Species)
 ```
 
-When you call the command above, you’ll see that the data structure is
-not anymore `data.frame` but rather it’s called `tibble` and you’ll find
-information about grouping, though no information in the table is
+When you execute the command above, you’ll see that the object is not
+anymore `data.frame`, but now it’s called `tibble` and you’ll find
+information about grouping added, though no information in the table is
 altered:
 
     ## # A tibble: 150 x 5
@@ -464,495 +464,66 @@ inconvenient:
 ``` r
 a <- select(iris, Species, starts_with("Sepal"))
 a <- mutate(a, Sepal.Ratio = Sepal.Length/Sepal.Width)
-a
+head(a)
 ```
 
-    ##        Species Sepal.Length Sepal.Width Sepal.Ratio
-    ## 1       setosa          5.1         3.5    1.457143
-    ## 2       setosa          4.9         3.0    1.633333
-    ## 3       setosa          4.7         3.2    1.468750
-    ## 4       setosa          4.6         3.1    1.483871
-    ## 5       setosa          5.0         3.6    1.388889
-    ## 6       setosa          5.4         3.9    1.384615
-    ## 7       setosa          4.6         3.4    1.352941
-    ## 8       setosa          5.0         3.4    1.470588
-    ## 9       setosa          4.4         2.9    1.517241
-    ## 10      setosa          4.9         3.1    1.580645
-    ## 11      setosa          5.4         3.7    1.459459
-    ## 12      setosa          4.8         3.4    1.411765
-    ## 13      setosa          4.8         3.0    1.600000
-    ## 14      setosa          4.3         3.0    1.433333
-    ## 15      setosa          5.8         4.0    1.450000
-    ## 16      setosa          5.7         4.4    1.295455
-    ## 17      setosa          5.4         3.9    1.384615
-    ## 18      setosa          5.1         3.5    1.457143
-    ## 19      setosa          5.7         3.8    1.500000
-    ## 20      setosa          5.1         3.8    1.342105
-    ## 21      setosa          5.4         3.4    1.588235
-    ## 22      setosa          5.1         3.7    1.378378
-    ## 23      setosa          4.6         3.6    1.277778
-    ## 24      setosa          5.1         3.3    1.545455
-    ## 25      setosa          4.8         3.4    1.411765
-    ## 26      setosa          5.0         3.0    1.666667
-    ## 27      setosa          5.0         3.4    1.470588
-    ## 28      setosa          5.2         3.5    1.485714
-    ## 29      setosa          5.2         3.4    1.529412
-    ## 30      setosa          4.7         3.2    1.468750
-    ## 31      setosa          4.8         3.1    1.548387
-    ## 32      setosa          5.4         3.4    1.588235
-    ## 33      setosa          5.2         4.1    1.268293
-    ## 34      setosa          5.5         4.2    1.309524
-    ## 35      setosa          4.9         3.1    1.580645
-    ## 36      setosa          5.0         3.2    1.562500
-    ## 37      setosa          5.5         3.5    1.571429
-    ## 38      setosa          4.9         3.6    1.361111
-    ## 39      setosa          4.4         3.0    1.466667
-    ## 40      setosa          5.1         3.4    1.500000
-    ## 41      setosa          5.0         3.5    1.428571
-    ## 42      setosa          4.5         2.3    1.956522
-    ## 43      setosa          4.4         3.2    1.375000
-    ## 44      setosa          5.0         3.5    1.428571
-    ## 45      setosa          5.1         3.8    1.342105
-    ## 46      setosa          4.8         3.0    1.600000
-    ## 47      setosa          5.1         3.8    1.342105
-    ## 48      setosa          4.6         3.2    1.437500
-    ## 49      setosa          5.3         3.7    1.432432
-    ## 50      setosa          5.0         3.3    1.515152
-    ## 51  versicolor          7.0         3.2    2.187500
-    ## 52  versicolor          6.4         3.2    2.000000
-    ## 53  versicolor          6.9         3.1    2.225806
-    ## 54  versicolor          5.5         2.3    2.391304
-    ## 55  versicolor          6.5         2.8    2.321429
-    ## 56  versicolor          5.7         2.8    2.035714
-    ## 57  versicolor          6.3         3.3    1.909091
-    ## 58  versicolor          4.9         2.4    2.041667
-    ## 59  versicolor          6.6         2.9    2.275862
-    ## 60  versicolor          5.2         2.7    1.925926
-    ## 61  versicolor          5.0         2.0    2.500000
-    ## 62  versicolor          5.9         3.0    1.966667
-    ## 63  versicolor          6.0         2.2    2.727273
-    ## 64  versicolor          6.1         2.9    2.103448
-    ## 65  versicolor          5.6         2.9    1.931034
-    ## 66  versicolor          6.7         3.1    2.161290
-    ## 67  versicolor          5.6         3.0    1.866667
-    ## 68  versicolor          5.8         2.7    2.148148
-    ## 69  versicolor          6.2         2.2    2.818182
-    ## 70  versicolor          5.6         2.5    2.240000
-    ## 71  versicolor          5.9         3.2    1.843750
-    ## 72  versicolor          6.1         2.8    2.178571
-    ## 73  versicolor          6.3         2.5    2.520000
-    ## 74  versicolor          6.1         2.8    2.178571
-    ## 75  versicolor          6.4         2.9    2.206897
-    ## 76  versicolor          6.6         3.0    2.200000
-    ## 77  versicolor          6.8         2.8    2.428571
-    ## 78  versicolor          6.7         3.0    2.233333
-    ## 79  versicolor          6.0         2.9    2.068966
-    ## 80  versicolor          5.7         2.6    2.192308
-    ## 81  versicolor          5.5         2.4    2.291667
-    ## 82  versicolor          5.5         2.4    2.291667
-    ## 83  versicolor          5.8         2.7    2.148148
-    ## 84  versicolor          6.0         2.7    2.222222
-    ## 85  versicolor          5.4         3.0    1.800000
-    ## 86  versicolor          6.0         3.4    1.764706
-    ## 87  versicolor          6.7         3.1    2.161290
-    ## 88  versicolor          6.3         2.3    2.739130
-    ## 89  versicolor          5.6         3.0    1.866667
-    ## 90  versicolor          5.5         2.5    2.200000
-    ## 91  versicolor          5.5         2.6    2.115385
-    ## 92  versicolor          6.1         3.0    2.033333
-    ## 93  versicolor          5.8         2.6    2.230769
-    ## 94  versicolor          5.0         2.3    2.173913
-    ## 95  versicolor          5.6         2.7    2.074074
-    ## 96  versicolor          5.7         3.0    1.900000
-    ## 97  versicolor          5.7         2.9    1.965517
-    ## 98  versicolor          6.2         2.9    2.137931
-    ## 99  versicolor          5.1         2.5    2.040000
-    ## 100 versicolor          5.7         2.8    2.035714
-    ## 101  virginica          6.3         3.3    1.909091
-    ## 102  virginica          5.8         2.7    2.148148
-    ## 103  virginica          7.1         3.0    2.366667
-    ## 104  virginica          6.3         2.9    2.172414
-    ## 105  virginica          6.5         3.0    2.166667
-    ## 106  virginica          7.6         3.0    2.533333
-    ## 107  virginica          4.9         2.5    1.960000
-    ## 108  virginica          7.3         2.9    2.517241
-    ## 109  virginica          6.7         2.5    2.680000
-    ## 110  virginica          7.2         3.6    2.000000
-    ## 111  virginica          6.5         3.2    2.031250
-    ## 112  virginica          6.4         2.7    2.370370
-    ## 113  virginica          6.8         3.0    2.266667
-    ## 114  virginica          5.7         2.5    2.280000
-    ## 115  virginica          5.8         2.8    2.071429
-    ## 116  virginica          6.4         3.2    2.000000
-    ## 117  virginica          6.5         3.0    2.166667
-    ## 118  virginica          7.7         3.8    2.026316
-    ## 119  virginica          7.7         2.6    2.961538
-    ## 120  virginica          6.0         2.2    2.727273
-    ## 121  virginica          6.9         3.2    2.156250
-    ## 122  virginica          5.6         2.8    2.000000
-    ## 123  virginica          7.7         2.8    2.750000
-    ## 124  virginica          6.3         2.7    2.333333
-    ## 125  virginica          6.7         3.3    2.030303
-    ## 126  virginica          7.2         3.2    2.250000
-    ## 127  virginica          6.2         2.8    2.214286
-    ## 128  virginica          6.1         3.0    2.033333
-    ## 129  virginica          6.4         2.8    2.285714
-    ## 130  virginica          7.2         3.0    2.400000
-    ## 131  virginica          7.4         2.8    2.642857
-    ## 132  virginica          7.9         3.8    2.078947
-    ## 133  virginica          6.4         2.8    2.285714
-    ## 134  virginica          6.3         2.8    2.250000
-    ## 135  virginica          6.1         2.6    2.346154
-    ## 136  virginica          7.7         3.0    2.566667
-    ## 137  virginica          6.3         3.4    1.852941
-    ## 138  virginica          6.4         3.1    2.064516
-    ## 139  virginica          6.0         3.0    2.000000
-    ## 140  virginica          6.9         3.1    2.225806
-    ## 141  virginica          6.7         3.1    2.161290
-    ## 142  virginica          6.9         3.1    2.225806
-    ## 143  virginica          5.8         2.7    2.148148
-    ## 144  virginica          6.8         3.2    2.125000
-    ## 145  virginica          6.7         3.3    2.030303
-    ## 146  virginica          6.7         3.0    2.233333
-    ## 147  virginica          6.3         2.5    2.520000
-    ## 148  virginica          6.5         3.0    2.166667
-    ## 149  virginica          6.2         3.4    1.823529
-    ## 150  virginica          5.9         3.0    1.966667
+    ##   Species Sepal.Length Sepal.Width Sepal.Ratio
+    ## 1  setosa          5.1         3.5    1.457143
+    ## 2  setosa          4.9         3.0    1.633333
+    ## 3  setosa          4.7         3.2    1.468750
+    ## 4  setosa          4.6         3.1    1.483871
+    ## 5  setosa          5.0         3.6    1.388889
+    ## 6  setosa          5.4         3.9    1.384615
 
-Here’s where the pipe `%>` comes handy. Although the symbol used is
+Here’s where the pipe `%>%` comes handy. Although the symbol used is
 different, its behaviour is similar to the pipe operator `|` of the
 Linux shell. In conjunction with `dplyr` verbs it allows creating
 pipelines without the need of assigning intermediate results to
-variable. Note, that when a `dplyr` function is used following `%>` you
-don’t specify the data frame the function operates on - because the data
-frame is passed by \`%&gt;%! So, instead of the code above you can use:
+variables. Note, that when a `dplyr` function is used following `%>%`
+you don’t specify the data frame the function operates on - because the
+data frame is passed by `%>%`!
+
+So, instead of the code above you can use:
 
 ``` r
 a <- select(iris, Species, starts_with("Sepal")) %>% mutate(Sepal.Ratio = Sepal.Length/Sepal.Width)
-a
+head(a)
 ```
 
-    ##        Species Sepal.Length Sepal.Width Sepal.Ratio
-    ## 1       setosa          5.1         3.5    1.457143
-    ## 2       setosa          4.9         3.0    1.633333
-    ## 3       setosa          4.7         3.2    1.468750
-    ## 4       setosa          4.6         3.1    1.483871
-    ## 5       setosa          5.0         3.6    1.388889
-    ## 6       setosa          5.4         3.9    1.384615
-    ## 7       setosa          4.6         3.4    1.352941
-    ## 8       setosa          5.0         3.4    1.470588
-    ## 9       setosa          4.4         2.9    1.517241
-    ## 10      setosa          4.9         3.1    1.580645
-    ## 11      setosa          5.4         3.7    1.459459
-    ## 12      setosa          4.8         3.4    1.411765
-    ## 13      setosa          4.8         3.0    1.600000
-    ## 14      setosa          4.3         3.0    1.433333
-    ## 15      setosa          5.8         4.0    1.450000
-    ## 16      setosa          5.7         4.4    1.295455
-    ## 17      setosa          5.4         3.9    1.384615
-    ## 18      setosa          5.1         3.5    1.457143
-    ## 19      setosa          5.7         3.8    1.500000
-    ## 20      setosa          5.1         3.8    1.342105
-    ## 21      setosa          5.4         3.4    1.588235
-    ## 22      setosa          5.1         3.7    1.378378
-    ## 23      setosa          4.6         3.6    1.277778
-    ## 24      setosa          5.1         3.3    1.545455
-    ## 25      setosa          4.8         3.4    1.411765
-    ## 26      setosa          5.0         3.0    1.666667
-    ## 27      setosa          5.0         3.4    1.470588
-    ## 28      setosa          5.2         3.5    1.485714
-    ## 29      setosa          5.2         3.4    1.529412
-    ## 30      setosa          4.7         3.2    1.468750
-    ## 31      setosa          4.8         3.1    1.548387
-    ## 32      setosa          5.4         3.4    1.588235
-    ## 33      setosa          5.2         4.1    1.268293
-    ## 34      setosa          5.5         4.2    1.309524
-    ## 35      setosa          4.9         3.1    1.580645
-    ## 36      setosa          5.0         3.2    1.562500
-    ## 37      setosa          5.5         3.5    1.571429
-    ## 38      setosa          4.9         3.6    1.361111
-    ## 39      setosa          4.4         3.0    1.466667
-    ## 40      setosa          5.1         3.4    1.500000
-    ## 41      setosa          5.0         3.5    1.428571
-    ## 42      setosa          4.5         2.3    1.956522
-    ## 43      setosa          4.4         3.2    1.375000
-    ## 44      setosa          5.0         3.5    1.428571
-    ## 45      setosa          5.1         3.8    1.342105
-    ## 46      setosa          4.8         3.0    1.600000
-    ## 47      setosa          5.1         3.8    1.342105
-    ## 48      setosa          4.6         3.2    1.437500
-    ## 49      setosa          5.3         3.7    1.432432
-    ## 50      setosa          5.0         3.3    1.515152
-    ## 51  versicolor          7.0         3.2    2.187500
-    ## 52  versicolor          6.4         3.2    2.000000
-    ## 53  versicolor          6.9         3.1    2.225806
-    ## 54  versicolor          5.5         2.3    2.391304
-    ## 55  versicolor          6.5         2.8    2.321429
-    ## 56  versicolor          5.7         2.8    2.035714
-    ## 57  versicolor          6.3         3.3    1.909091
-    ## 58  versicolor          4.9         2.4    2.041667
-    ## 59  versicolor          6.6         2.9    2.275862
-    ## 60  versicolor          5.2         2.7    1.925926
-    ## 61  versicolor          5.0         2.0    2.500000
-    ## 62  versicolor          5.9         3.0    1.966667
-    ## 63  versicolor          6.0         2.2    2.727273
-    ## 64  versicolor          6.1         2.9    2.103448
-    ## 65  versicolor          5.6         2.9    1.931034
-    ## 66  versicolor          6.7         3.1    2.161290
-    ## 67  versicolor          5.6         3.0    1.866667
-    ## 68  versicolor          5.8         2.7    2.148148
-    ## 69  versicolor          6.2         2.2    2.818182
-    ## 70  versicolor          5.6         2.5    2.240000
-    ## 71  versicolor          5.9         3.2    1.843750
-    ## 72  versicolor          6.1         2.8    2.178571
-    ## 73  versicolor          6.3         2.5    2.520000
-    ## 74  versicolor          6.1         2.8    2.178571
-    ## 75  versicolor          6.4         2.9    2.206897
-    ## 76  versicolor          6.6         3.0    2.200000
-    ## 77  versicolor          6.8         2.8    2.428571
-    ## 78  versicolor          6.7         3.0    2.233333
-    ## 79  versicolor          6.0         2.9    2.068966
-    ## 80  versicolor          5.7         2.6    2.192308
-    ## 81  versicolor          5.5         2.4    2.291667
-    ## 82  versicolor          5.5         2.4    2.291667
-    ## 83  versicolor          5.8         2.7    2.148148
-    ## 84  versicolor          6.0         2.7    2.222222
-    ## 85  versicolor          5.4         3.0    1.800000
-    ## 86  versicolor          6.0         3.4    1.764706
-    ## 87  versicolor          6.7         3.1    2.161290
-    ## 88  versicolor          6.3         2.3    2.739130
-    ## 89  versicolor          5.6         3.0    1.866667
-    ## 90  versicolor          5.5         2.5    2.200000
-    ## 91  versicolor          5.5         2.6    2.115385
-    ## 92  versicolor          6.1         3.0    2.033333
-    ## 93  versicolor          5.8         2.6    2.230769
-    ## 94  versicolor          5.0         2.3    2.173913
-    ## 95  versicolor          5.6         2.7    2.074074
-    ## 96  versicolor          5.7         3.0    1.900000
-    ## 97  versicolor          5.7         2.9    1.965517
-    ## 98  versicolor          6.2         2.9    2.137931
-    ## 99  versicolor          5.1         2.5    2.040000
-    ## 100 versicolor          5.7         2.8    2.035714
-    ## 101  virginica          6.3         3.3    1.909091
-    ## 102  virginica          5.8         2.7    2.148148
-    ## 103  virginica          7.1         3.0    2.366667
-    ## 104  virginica          6.3         2.9    2.172414
-    ## 105  virginica          6.5         3.0    2.166667
-    ## 106  virginica          7.6         3.0    2.533333
-    ## 107  virginica          4.9         2.5    1.960000
-    ## 108  virginica          7.3         2.9    2.517241
-    ## 109  virginica          6.7         2.5    2.680000
-    ## 110  virginica          7.2         3.6    2.000000
-    ## 111  virginica          6.5         3.2    2.031250
-    ## 112  virginica          6.4         2.7    2.370370
-    ## 113  virginica          6.8         3.0    2.266667
-    ## 114  virginica          5.7         2.5    2.280000
-    ## 115  virginica          5.8         2.8    2.071429
-    ## 116  virginica          6.4         3.2    2.000000
-    ## 117  virginica          6.5         3.0    2.166667
-    ## 118  virginica          7.7         3.8    2.026316
-    ## 119  virginica          7.7         2.6    2.961538
-    ## 120  virginica          6.0         2.2    2.727273
-    ## 121  virginica          6.9         3.2    2.156250
-    ## 122  virginica          5.6         2.8    2.000000
-    ## 123  virginica          7.7         2.8    2.750000
-    ## 124  virginica          6.3         2.7    2.333333
-    ## 125  virginica          6.7         3.3    2.030303
-    ## 126  virginica          7.2         3.2    2.250000
-    ## 127  virginica          6.2         2.8    2.214286
-    ## 128  virginica          6.1         3.0    2.033333
-    ## 129  virginica          6.4         2.8    2.285714
-    ## 130  virginica          7.2         3.0    2.400000
-    ## 131  virginica          7.4         2.8    2.642857
-    ## 132  virginica          7.9         3.8    2.078947
-    ## 133  virginica          6.4         2.8    2.285714
-    ## 134  virginica          6.3         2.8    2.250000
-    ## 135  virginica          6.1         2.6    2.346154
-    ## 136  virginica          7.7         3.0    2.566667
-    ## 137  virginica          6.3         3.4    1.852941
-    ## 138  virginica          6.4         3.1    2.064516
-    ## 139  virginica          6.0         3.0    2.000000
-    ## 140  virginica          6.9         3.1    2.225806
-    ## 141  virginica          6.7         3.1    2.161290
-    ## 142  virginica          6.9         3.1    2.225806
-    ## 143  virginica          5.8         2.7    2.148148
-    ## 144  virginica          6.8         3.2    2.125000
-    ## 145  virginica          6.7         3.3    2.030303
-    ## 146  virginica          6.7         3.0    2.233333
-    ## 147  virginica          6.3         2.5    2.520000
-    ## 148  virginica          6.5         3.0    2.166667
-    ## 149  virginica          6.2         3.4    1.823529
-    ## 150  virginica          5.9         3.0    1.966667
+    ##   Species Sepal.Length Sepal.Width Sepal.Ratio
+    ## 1  setosa          5.1         3.5    1.457143
+    ## 2  setosa          4.9         3.0    1.633333
+    ## 3  setosa          4.7         3.2    1.468750
+    ## 4  setosa          4.6         3.1    1.483871
+    ## 5  setosa          5.0         3.6    1.388889
+    ## 6  setosa          5.4         3.9    1.384615
 
 or
 
 ``` r
 a <- iris %>% select(Species, starts_with("Sepal")) %>% mutate(Sepal.Ratio = Sepal.Length/Sepal.Width)
-a
+head(a)
 ```
 
-    ##        Species Sepal.Length Sepal.Width Sepal.Ratio
-    ## 1       setosa          5.1         3.5    1.457143
-    ## 2       setosa          4.9         3.0    1.633333
-    ## 3       setosa          4.7         3.2    1.468750
-    ## 4       setosa          4.6         3.1    1.483871
-    ## 5       setosa          5.0         3.6    1.388889
-    ## 6       setosa          5.4         3.9    1.384615
-    ## 7       setosa          4.6         3.4    1.352941
-    ## 8       setosa          5.0         3.4    1.470588
-    ## 9       setosa          4.4         2.9    1.517241
-    ## 10      setosa          4.9         3.1    1.580645
-    ## 11      setosa          5.4         3.7    1.459459
-    ## 12      setosa          4.8         3.4    1.411765
-    ## 13      setosa          4.8         3.0    1.600000
-    ## 14      setosa          4.3         3.0    1.433333
-    ## 15      setosa          5.8         4.0    1.450000
-    ## 16      setosa          5.7         4.4    1.295455
-    ## 17      setosa          5.4         3.9    1.384615
-    ## 18      setosa          5.1         3.5    1.457143
-    ## 19      setosa          5.7         3.8    1.500000
-    ## 20      setosa          5.1         3.8    1.342105
-    ## 21      setosa          5.4         3.4    1.588235
-    ## 22      setosa          5.1         3.7    1.378378
-    ## 23      setosa          4.6         3.6    1.277778
-    ## 24      setosa          5.1         3.3    1.545455
-    ## 25      setosa          4.8         3.4    1.411765
-    ## 26      setosa          5.0         3.0    1.666667
-    ## 27      setosa          5.0         3.4    1.470588
-    ## 28      setosa          5.2         3.5    1.485714
-    ## 29      setosa          5.2         3.4    1.529412
-    ## 30      setosa          4.7         3.2    1.468750
-    ## 31      setosa          4.8         3.1    1.548387
-    ## 32      setosa          5.4         3.4    1.588235
-    ## 33      setosa          5.2         4.1    1.268293
-    ## 34      setosa          5.5         4.2    1.309524
-    ## 35      setosa          4.9         3.1    1.580645
-    ## 36      setosa          5.0         3.2    1.562500
-    ## 37      setosa          5.5         3.5    1.571429
-    ## 38      setosa          4.9         3.6    1.361111
-    ## 39      setosa          4.4         3.0    1.466667
-    ## 40      setosa          5.1         3.4    1.500000
-    ## 41      setosa          5.0         3.5    1.428571
-    ## 42      setosa          4.5         2.3    1.956522
-    ## 43      setosa          4.4         3.2    1.375000
-    ## 44      setosa          5.0         3.5    1.428571
-    ## 45      setosa          5.1         3.8    1.342105
-    ## 46      setosa          4.8         3.0    1.600000
-    ## 47      setosa          5.1         3.8    1.342105
-    ## 48      setosa          4.6         3.2    1.437500
-    ## 49      setosa          5.3         3.7    1.432432
-    ## 50      setosa          5.0         3.3    1.515152
-    ## 51  versicolor          7.0         3.2    2.187500
-    ## 52  versicolor          6.4         3.2    2.000000
-    ## 53  versicolor          6.9         3.1    2.225806
-    ## 54  versicolor          5.5         2.3    2.391304
-    ## 55  versicolor          6.5         2.8    2.321429
-    ## 56  versicolor          5.7         2.8    2.035714
-    ## 57  versicolor          6.3         3.3    1.909091
-    ## 58  versicolor          4.9         2.4    2.041667
-    ## 59  versicolor          6.6         2.9    2.275862
-    ## 60  versicolor          5.2         2.7    1.925926
-    ## 61  versicolor          5.0         2.0    2.500000
-    ## 62  versicolor          5.9         3.0    1.966667
-    ## 63  versicolor          6.0         2.2    2.727273
-    ## 64  versicolor          6.1         2.9    2.103448
-    ## 65  versicolor          5.6         2.9    1.931034
-    ## 66  versicolor          6.7         3.1    2.161290
-    ## 67  versicolor          5.6         3.0    1.866667
-    ## 68  versicolor          5.8         2.7    2.148148
-    ## 69  versicolor          6.2         2.2    2.818182
-    ## 70  versicolor          5.6         2.5    2.240000
-    ## 71  versicolor          5.9         3.2    1.843750
-    ## 72  versicolor          6.1         2.8    2.178571
-    ## 73  versicolor          6.3         2.5    2.520000
-    ## 74  versicolor          6.1         2.8    2.178571
-    ## 75  versicolor          6.4         2.9    2.206897
-    ## 76  versicolor          6.6         3.0    2.200000
-    ## 77  versicolor          6.8         2.8    2.428571
-    ## 78  versicolor          6.7         3.0    2.233333
-    ## 79  versicolor          6.0         2.9    2.068966
-    ## 80  versicolor          5.7         2.6    2.192308
-    ## 81  versicolor          5.5         2.4    2.291667
-    ## 82  versicolor          5.5         2.4    2.291667
-    ## 83  versicolor          5.8         2.7    2.148148
-    ## 84  versicolor          6.0         2.7    2.222222
-    ## 85  versicolor          5.4         3.0    1.800000
-    ## 86  versicolor          6.0         3.4    1.764706
-    ## 87  versicolor          6.7         3.1    2.161290
-    ## 88  versicolor          6.3         2.3    2.739130
-    ## 89  versicolor          5.6         3.0    1.866667
-    ## 90  versicolor          5.5         2.5    2.200000
-    ## 91  versicolor          5.5         2.6    2.115385
-    ## 92  versicolor          6.1         3.0    2.033333
-    ## 93  versicolor          5.8         2.6    2.230769
-    ## 94  versicolor          5.0         2.3    2.173913
-    ## 95  versicolor          5.6         2.7    2.074074
-    ## 96  versicolor          5.7         3.0    1.900000
-    ## 97  versicolor          5.7         2.9    1.965517
-    ## 98  versicolor          6.2         2.9    2.137931
-    ## 99  versicolor          5.1         2.5    2.040000
-    ## 100 versicolor          5.7         2.8    2.035714
-    ## 101  virginica          6.3         3.3    1.909091
-    ## 102  virginica          5.8         2.7    2.148148
-    ## 103  virginica          7.1         3.0    2.366667
-    ## 104  virginica          6.3         2.9    2.172414
-    ## 105  virginica          6.5         3.0    2.166667
-    ## 106  virginica          7.6         3.0    2.533333
-    ## 107  virginica          4.9         2.5    1.960000
-    ## 108  virginica          7.3         2.9    2.517241
-    ## 109  virginica          6.7         2.5    2.680000
-    ## 110  virginica          7.2         3.6    2.000000
-    ## 111  virginica          6.5         3.2    2.031250
-    ## 112  virginica          6.4         2.7    2.370370
-    ## 113  virginica          6.8         3.0    2.266667
-    ## 114  virginica          5.7         2.5    2.280000
-    ## 115  virginica          5.8         2.8    2.071429
-    ## 116  virginica          6.4         3.2    2.000000
-    ## 117  virginica          6.5         3.0    2.166667
-    ## 118  virginica          7.7         3.8    2.026316
-    ## 119  virginica          7.7         2.6    2.961538
-    ## 120  virginica          6.0         2.2    2.727273
-    ## 121  virginica          6.9         3.2    2.156250
-    ## 122  virginica          5.6         2.8    2.000000
-    ## 123  virginica          7.7         2.8    2.750000
-    ## 124  virginica          6.3         2.7    2.333333
-    ## 125  virginica          6.7         3.3    2.030303
-    ## 126  virginica          7.2         3.2    2.250000
-    ## 127  virginica          6.2         2.8    2.214286
-    ## 128  virginica          6.1         3.0    2.033333
-    ## 129  virginica          6.4         2.8    2.285714
-    ## 130  virginica          7.2         3.0    2.400000
-    ## 131  virginica          7.4         2.8    2.642857
-    ## 132  virginica          7.9         3.8    2.078947
-    ## 133  virginica          6.4         2.8    2.285714
-    ## 134  virginica          6.3         2.8    2.250000
-    ## 135  virginica          6.1         2.6    2.346154
-    ## 136  virginica          7.7         3.0    2.566667
-    ## 137  virginica          6.3         3.4    1.852941
-    ## 138  virginica          6.4         3.1    2.064516
-    ## 139  virginica          6.0         3.0    2.000000
-    ## 140  virginica          6.9         3.1    2.225806
-    ## 141  virginica          6.7         3.1    2.161290
-    ## 142  virginica          6.9         3.1    2.225806
-    ## 143  virginica          5.8         2.7    2.148148
-    ## 144  virginica          6.8         3.2    2.125000
-    ## 145  virginica          6.7         3.3    2.030303
-    ## 146  virginica          6.7         3.0    2.233333
-    ## 147  virginica          6.3         2.5    2.520000
-    ## 148  virginica          6.5         3.0    2.166667
-    ## 149  virginica          6.2         3.4    1.823529
-    ## 150  virginica          5.9         3.0    1.966667
+    ##   Species Sepal.Length Sepal.Width Sepal.Ratio
+    ## 1  setosa          5.1         3.5    1.457143
+    ## 2  setosa          4.9         3.0    1.633333
+    ## 3  setosa          4.7         3.2    1.468750
+    ## 4  setosa          4.6         3.1    1.483871
+    ## 5  setosa          5.0         3.6    1.388889
+    ## 6  setosa          5.4         3.9    1.384615
 
 Using `%>%` not only eliminates the need for intermediate variables but
-also make code more readable. In this case, you firs take `iris`, then
-select some columns and then add a column based on the values of the
-existing columns, and your code captures the sequence of steps
+also makes code more **readable**. In this case, you first take `iris`,
+then select some columns and then add a column based on the values of
+the existing columns. The way your code is written captures the sequence
+of steps.
 
 Before we move on, we’ll show a useful technique that allows, for
 example, easy standardization. Our task is to standardize the values of
 sepal length by subtracting it from the species mean and dividing the
 result by the species standard deviation (this is called
-**Z-standardization**). Here’s the code that does it:
+**Z-standardization**). Here’s the code:
 
 ``` r
 iris %>% select(Species, Sepal.Length) %>%  group_by(Species) %>%
@@ -960,14 +531,6 @@ iris %>% select(Species, Sepal.Length) %>%  group_by(Species) %>%
          sp.SD = sd(Sepal.Length),
          Zstand.Sepal.Length = (Sepal.Length - sp.Mean)/sp.SD)
 ```
-
-    ## Warning: `...` is not empty.
-    ## 
-    ## We detected these problematic arguments:
-    ## * `needs_dots`
-    ## 
-    ## These dots only exist to allow future extensions and should be empty.
-    ## Did you misspecify an argument?
 
     ## # A tibble: 150 x 5
     ## # Groups:   Species [3]
@@ -995,14 +558,6 @@ iris %>% select(Species, Sepal.Length) %>%  group_by(Species) %>%
          Zstand.Sepal.Length = (Sepal.Length - sp.Mean)/sp.SD) %>% select(-c(sp.Mean, sp.SD))
 ```
 
-    ## Warning: `...` is not empty.
-    ## 
-    ## We detected these problematic arguments:
-    ## * `needs_dots`
-    ## 
-    ## These dots only exist to allow future extensions and should be empty.
-    ## Did you misspecify an argument?
-
     ## # A tibble: 150 x 3
     ## # Groups:   Species [3]
     ##    Species Sepal.Length Zstand.Sepal.Length
@@ -1019,15 +574,15 @@ iris %>% select(Species, Sepal.Length) %>%  group_by(Species) %>%
     ## 10 setosa           4.9             -0.301 
     ## # ... with 140 more rows
 
-Note that the columns to drop were passed as a vector of column names
+Note, that the columns to drop were passed as a vector of column names
 not enclosed in quotation marks (quotation marks are allowed but not
-necessary)
+necessary).
 
 ### Summarising with `summarise()`
 
 When used on a data frame that is not grouped `summarise` just applies a
 function to a column and returns a small data frame containing the
-result of applying the function to a column:
+result:
 
 ``` r
 summarise(iris, mean.Sepal.Length = mean(Sepal.Length))
@@ -1036,10 +591,10 @@ summarise(iris, mean.Sepal.Length = mean(Sepal.Length))
     ##   mean.Sepal.Length
     ## 1          5.843333
 
-This may be useful, but perhaps not terribly so.
+This may be useful, but rather not terribly so.
 
-Things change when you use summarise with grouped data frame. Then,
-writing very little code you can get lots of quite useful results:
+Things change when you use summarise with a grouped data frame. Then,
+writing very little code you can get lots of useful results:
 
 ``` r
 iris %>% select (Species, Petal.Length) %>% group_by(Species) %>% 
@@ -1049,14 +604,6 @@ iris %>% select (Species, Petal.Length) %>% group_by(Species) %>%
 ```
 
     ## `summarise()` ungrouping output (override with `.groups` argument)
-
-    ## Warning: `...` is not empty.
-    ## 
-    ## We detected these problematic arguments:
-    ## * `needs_dots`
-    ## 
-    ## These dots only exist to allow future extensions and should be empty.
-    ## Did you misspecify an argument?
 
     ## # A tibble: 3 x 4
     ##   Species    min.Petal.Length mean.Petal.Length max.Petal.Length
