@@ -2,6 +2,33 @@
 # Class 10
 
 # `dplyr`
+  * [dplyr and tidyverse](#dplyr-and-tidyverse)
+  * [Six dplyr verbs](#six-dplyr-verbs)
+      * [Exercise 1](#exercise-1)
+      * [Exercise 2](#exercise-2)
+    * [Filtering rows with filter()](#filtering-rows-with-filter)
+      * [filter() examples](#filter-examples)
+      * [Exercise 3](#exercise-3)
+    * [Ordering rows with arrange()](#ordering-rows-with-arrange)
+      * [arrange() example](#arrange-example)
+      * [Exercise 4](#exercise-4)
+    * [Picking, dropping and re-ordering columns with select()](#picking-dropping-and-re-ordering-columns-with-select)
+      * [select() examples](#select-examples)
+      * [Exercise 5](#exercise-5)
+      * [Exercise 6](#exercise-6)
+    * [Creating new variables as functions of the existing ones with mutate()](#creating-new-variables-as-functions-of-the-existing-ones-with-mutate)
+      * [mutate examples](#mutate-examples)
+      * [Exercise 7](#exercise-7)
+    * [Grouping cases by variable(s) with group_by()](#grouping-cases-by-variables-with-group_by)
+      * [group_by() examples](#group_by-examples)
+      * [Exercise 8](#exercise-8)
+      * [The pipe operator (%>%)](#the-pipe-operator-)
+    * [Summarising with summarise()](#summarising-with-summarise)
+  * [Practical dplyr](#practical-dplyr)
+    * [Puting the code together.](#puting-the-code-together)
+  
+***  
+  
 
 ## `dplyr` and `tidyverse`
 

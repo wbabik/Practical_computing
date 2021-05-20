@@ -1,4 +1,17 @@
 # Automation with shell scripts
+  * [if conditional](#if-conditional)
+      * [Exercise 1](#exercise-1)
+      * [Exercise 2](#exercise-2)
+  * [Loops: while until and for](#loops-while-until-and-for)
+    * [Two similar loops: while and until](#two-similar-loops-while-and-until)
+      * [Exercise 3](#exercise-3)
+    * [for loop](#for-loop)
+      * [Exercise 4](#exercise-4)
+      * [Exercise 5](#exercise-5)
+  * [Running jobs in the background with screen](#running-jobs-in-the-background-with-screen)
+  
+***  
+  
 
 ## `if` conditional
 
