@@ -80,9 +80,9 @@ For example, `^G`, or `Ctrl + g`, opens help.
   
 <img width="1422" alt="Saving" src="https://user-images.githubusercontent.com/12505600/119045975-6d14c500-b9bc-11eb-8c7d-b5414a960bd8.png">
   
-`^X`, or `Ctrl + x` closes Nano. You will be asked about whether to save changes before exiting.
+`^X`, or `Ctrl + x` closes Nano. You will be asked whether to save changes before exiting.
    
-`^K`, or `Ctrl + k`, allows you to cut entire lines of text. Then, you can head to the line where you want to paste them, and apply `^U`, or `Ctrl + u`.  
+`^K`, or `Ctrl + k`, allows you to cut entire lines of text. Then, you can head to the line where you want to paste them, and apply `^U`, or `Ctrl + u`.   
 You can also copy a particular string instead of full line. For this, first you will have to select that word/string by pressing `Ctrl + 6`, or `Alt + A` with the cursor at the beginning of the selection, and then moving to the end of selection. Now you can press `Ctrl + k` to cut and `Ctrl + u` to paste the word at your desired destination.  
     
 `Ctrl + w` can be used to search for a specific term. You will be asked to enter the word which you want to search. Then, hit Enter and the tool will take you to the matched entry.  
