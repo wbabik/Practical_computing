@@ -2,10 +2,10 @@
 
 # Introduction to Linux command line, connecting to a remote Linux machine, moving around in the Linux system
   * [Working in a Linux terminal](#working-in-a-linux-terminal)
-  * [Why is it worth learning to work with the command line?](#why-is-it-worth-learning-to-work-with-the-command-line?)
-  * [How to open a terminal?](#how-to-open-a-terminal?)
-  * [A few notes and useful commands to get you started.](#a-few-notes-and-useful-commands-to-get-you-started.)
+  * [Why is it worth learning to work with the command line?](#why-is-it-worth-learning-to-work-with-the-command-line)
+  * [How to open a terminal?](#how-to-open-a-terminal)
       * [Exercise 1](#exercise-1)
+  * [A few notes and useful commands to get you started.](#a-few-notes-and-useful-commands-to-get-you-started)
       * [Exercise 2](#exercise-2)
       * [Exercise 3](#exercise-3)
       * [Exercise 4](#exercise-4)

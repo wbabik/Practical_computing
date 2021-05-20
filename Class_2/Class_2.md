@@ -1,6 +1,17 @@
 # Class 2
 
 # Text files, text editors and regular expressions
+  * [Text vs. binary files](#text-vs-binary-files)
+  * [Notepad++](#notepad)
+  * [End-of-line and other non-printable characters](#end-of-line-and-other-non-printable-characters)
+  * [Encoding](#encoding)
+  * [Delimited text](#delimited-text)
+  * [Regular expressions](#regular-expressions)
+      * [Exercise 1](#exercise-1)
+      * [Exercise 2](#exercise-2)
+  
+***  
+  
 
 ## Text vs. binary files
 

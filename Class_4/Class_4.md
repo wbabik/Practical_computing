@@ -1,6 +1,23 @@
 # Class 4
 
 # Working in Linux shell I
+  * [Wildcards and operations on many files](#wildcards-and-operations-on-many-files)
+    * [HIV and SIV sequences](#hiv-and-siv-sequences)
+  * [Exercise 1](#exercise-1)
+  * [Editing text files with Nano](#editing-text-files-with-nano)
+  * [Downloading files from the Internet](#downloading-files-from-the-internet)
+  * [Standard input, output, redirection and pipe](#standard-input-output-redirection-and-pipe)
+    * [Redirection](#redirection)
+  * [Looking inside text files with cat, head, tail and less](#looking-inside-text-files-with-cat-head-tail-and-less)
+  * [Searching for patterns with grep](#searching-for-patterns-with-grep)
+      * [Exercise 2](#exercise-2)
+  * [Extracting information from structured text files with cut, sort and uniq](#extracting-information-from-structured-text-files-with-cut-sort-and-uniq)
+      * [Exercise 3](#exercise-3)
+  * [Merging files with cat](#merging-files-with-cat)
+      * [Exercise 4](#exercise-4)
+  
+***  
+  
 
 ## Wildcards and operations on many files
 

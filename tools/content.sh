@@ -58,7 +58,7 @@ fi
 cat $INSTRUCTION | grep '^##* ' | grep -v '^# ' | while read -r title
    do
         new_title=$(echo $title | sed 's/# /* [/g' | sed 's/#/  /g' | sed 's/`//g')
-        link=$(echo $title | sed 's/#* //' | sed 's/`//g'| sed 's/()//g' | tr 'A-Z ' 'a-z-' )
+        link=$(echo $title | sed 's/#* //' |   tr -dc '\- _a-zA-Z0-9' | tr 'A-Z ' 'a-z-' )
         echo "$new_title](#$link)" >> $INSTRUCTION_DIR/table.txt
    done
 
