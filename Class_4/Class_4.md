@@ -54,22 +54,46 @@ Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequ
 
 Nano is an easy-to-use, versatile and simple text editor installed by default in Ubuntu and many other Linux distributions. In many cases, using nano is the most straightforward way of making quick edits to your system files and scripts.
 
-`nano` or `nano FILENAME` starts the editor and creates a new file - although the second command can also be used to open an existing file. You will see a screen which looks like this ---  
+`nano` or `nano FILENAME` starts the editor and creates a new file - although the second command can also be used to open an existing file. You will see a screen which looks like this ---   
   
 <img width="1422" alt="Nano_screen" src="https://user-images.githubusercontent.com/12505600/119043659-8ff1aa00-b9b9-11eb-88e5-19efd3944bf8.png">
   
 The main window contains the cursor and the text, which you can edit in a standard way.  
 At the bottom of the editor window, there is useful information on keyboard shortcuts that let users perform some basic operations such as cut and paste text, exit the editor and launch help. Basically, you execute them using `Ctrl + LETTER`.  
+  
+For example, `^G`, or `Ctrl + g`, opens help.
 
-`Ctrl + o` saves the file. Upon pressing this key combination, you will be prompted to type the file name, and/or confirm that you want to change the name.
+#### Basic navigation and saving in Nano
+
+  
+`^A`, or `Ctrl + a` moves the cursor to the beginning of line in nano.  
+  
+`^E`, or `Ctrl + e` moves the cursor to the end of line in nano.  
+  
+`^Y`, or `Ctrl + y` moves down a page - to the next page in nano.  
+  
+`^V`, or `Ctrl + v` moves up a page - to the previous page in nano.  
+  
+`^_`, or `Ctrl + _` moves you to the specific line. You will be prompted to provide line number, confirm with Enter.
+  
+`^O`, or `Ctrl + o` allows you to save the file. Upon pressing this key combination, you will be prompted to type the file name, and/or confirm that you want to change the name. You will be given options such as selecting encoding, that you will be able to apply using `Alt + LETTER`, for example `Alt + M`.
+  
 <img width="1422" alt="Saving" src="https://user-images.githubusercontent.com/12505600/119045975-6d14c500-b9bc-11eb-8c7d-b5414a960bd8.png">
   
+`^X`, or `Ctrl + x` closes Nano. You will be asked about whether to save changes before exiting.
+   
+`^K`, or `Ctrl + k`, allows you to cut entire lines of text. Then, you can head to the line where you want to paste them, and apply `^U`, or `Ctrl + u`.  
+You can also copy a particular string instead of full line. For this, first you will have to select that word/string by pressing `Ctrl + 6`, or `Alt + A` with the cursor at the beginning of the selection, and then moving to the end of selection. Now you can press `Ctrl + k` to cut and `Ctrl + u` to paste the word at your desired destination.  
+    
+`Ctrl + w` can be used to search for a specific term. You will be asked to enter the word which you want to search. Then, hit Enter and the tool will take you to the matched entry.  
   
-
-
-
-
-
+`Ctrl + \` allows you to replace a word with another. Nano will ask you for the word which you want replaced, and then for the word you want it replaced with. After this, it will ask you to confirm the changes, and whether they should be applied to specific instances, or globally.  
+    
+&nbsp;  
+All together, Nano is not the most intuitive and easy-to-use editor. But it is immediately available within Unix environment, has multiple additional options, and with a little practise, can greatly speed up your work. Learning it is definitely worth your effort!  
+  
+&nbsp;  
+  
 
 ## Downloading files from the Internet
 
