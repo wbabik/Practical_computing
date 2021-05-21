@@ -34,24 +34,20 @@ Linux provides an easy way to process at once a large number of files. For this 
 > ### Examples
 >
 > `cp * /home/student02` will copy all files / directories from the current directory to the home directory of `student02` 
-> `rm * .jpg` will remove all files with the extension `.jpg` from the current directory
+> `rm *.jpg` will remove all files with the extension `.jpg` from the current directory
 > `mv A * directory1` will move all files starting with `A` to `directory1`
 > `ls A???` will show all files / directories whose names are only 4 characters long and start with `A`
 
 The principle of wildcard characters is quite similar to that of regular expressions. However, wildcards are used to search for a pattern in file and directory names, not inside text files. They are interpreted directly by the shell (and not by any particular program), therefore the meaning of the characters is slightly different than in regular expressions! Wildcards can be used in most programs that operate on files and directories  (`ls`, `cp`, `mv`, `rm` etc.)
 
-### HIV and SIV sequences
-
-During today's class we'll use genomic sequences of various lentiviruses (HIV and SIV) isolated from several hosts (designations of hosts are in file `/data/hiv/hiv_species.txt`). Virus sequences are in `/data/hiv`.
-
 > ### FASTA format
 >
-> One of the simples and widely used formats for storing sequences of nucleic acid and protein sequences is FASTA, often saved in files with extensions `.fa`, `fas` or `fasta` . These are plain text files, each sequence has a title line starting with `>`, which can contain any description you want, and in next line or lines is the actual sequence. Sequences are separated by lines staring with `>` and each sequence can be written in a single or multiple lines:
+> One of the simplest and widely used formats for storing sequences of nucleic acid and protein sequences is FASTA, often saved in files with extensions `.fa`, `.fas` or `.fasta` . These are plain text files, each sequence has a title line starting with `>`, which can contain any description you want, and in next line or lines is the actual sequence. Sequences are separated by lines staring with `>` and each sequence can be written in a single or multiple lines:
 >
 > ```
 > >seq1
 > ACTGATAGTAGATTAGGATTGAGTTGACCCATCAACTCATAGATCGTACGCAGTCAGCTCAGACGAGACGACGACAGCAGACGAAGAATAGCAGACGACGACAGCAGCAGACGACAGAAGATAGATGGCAGAGAAGATGAAGAG
-> >SEQ2 with a long title name containing # special % chracters
+> >SEQ2 with a long title name containing # special % characters
 > ACTGATAATGTATGATATGAGTA
 > >seq3 written in multiple short lines
 > ACTG
@@ -63,6 +59,8 @@ During today's class we'll use genomic sequences of various lentiviruses (HIV an
 
 ## Exercise 1
 
+During today's class we will use genomic sequences of various lentiviruses (HIV and SIV) isolated from several hosts (designations of hosts are in file `/data/hiv/hiv_species.txt`). Virus sequences are in `/data/hiv`.  
+  
 Sequences of viruses in `/data/hiv` are in separate files, each of them with extension `.fasta`.
 Do all files in the directory have extension `.fasta`? 
 Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequences, i. e. with extension `.fasta`. 
@@ -71,17 +69,60 @@ Please copy from `/data/hiv` to the `~/hiv` directory only files containing sequ
 
 ## Editing text files with Nano
 
+Nano is an easy-to-use, versatile and simple text editor installed by default in Ubuntu and many other Linux distributions. In many cases, using nano is the most straightforward way of making quick edits to your system files and scripts.
+
+`nano` or `nano FILENAME` starts the editor and creates a new file - although the second command can also be used to open an existing file. You will see a screen which looks like this ---   
+  
+<img width="1422" alt="Nano_screen" src="https://user-images.githubusercontent.com/12505600/119043659-8ff1aa00-b9b9-11eb-88e5-19efd3944bf8.png">
+  
+The main window contains the cursor and the text, which you can edit in a standard way.  
+At the bottom of the editor window, there is useful information on keyboard shortcuts that let users perform some basic operations such as cut and paste text, exit the editor and launch help. Basically, you execute them using `Ctrl + LETTER`.  
+  
+For example, `^G`, or `Ctrl + g`, opens help.
+
+#### Basic navigation and saving in Nano
+
+  
+`^A`, or `Ctrl + a` moves the cursor to the beginning of line in nano.  
+  
+`^E`, or `Ctrl + e` moves the cursor to the end of line in nano.  
+  
+`^Y`, or `Ctrl + y` moves down a page - to the next page in nano.  
+  
+`^V`, or `Ctrl + v` moves up a page - to the previous page in nano.  
+  
+`^_`, or `Ctrl + _` moves you to the specific line. You will be prompted to provide line number, confirm with Enter.
+  
+`^O`, or `Ctrl + o` allows you to save the file. Upon pressing this key combination, you will be prompted to type the file name, and/or confirm that you want to change the name. You will be given options such as selecting encoding, that you will be able to apply using `Alt + LETTER`, for example `Alt + M`.
+  
+<img width="1422" alt="Saving" src="https://user-images.githubusercontent.com/12505600/119045975-6d14c500-b9bc-11eb-8c7d-b5414a960bd8.png">
+  
+`^X`, or `Ctrl + x` closes Nano. You will be asked whether to save changes before exiting.
+   
+`^K`, or `Ctrl + k`, allows you to cut entire lines of text. Then, you can head to the line where you want to paste them, and apply `^U`, or `Ctrl + u`.   
+You can also copy a particular string instead of full line. For this, first you will have to select that word/string by pressing `Ctrl + 6`, or `Alt + A` with the cursor at the beginning of the selection, and then moving to the end of selection. Now you can press `Ctrl + k` to cut and `Ctrl + u` to paste the word at your desired destination.  
+    
+`Ctrl + w` can be used to search for a specific term. You will be asked to enter the word which you want to search. Then, hit Enter and the tool will take you to the matched entry.  
+  
+`Ctrl + \` allows you to replace a word with another. Nano will ask you for the word which you want replaced, and then for the word you want it replaced with. After this, it will ask you to confirm the changes, and whether they should be applied to specific instances, or globally.  
+    
+&nbsp;  
+All together, Nano is not the most intuitive and easy-to-use editor. But it is immediately available within Unix environment, has multiple additional options, and with a little practise, can greatly speed up your work. Learning it is definitely worth your effort!  
+  
+&nbsp;  
+  
+
 ## Downloading files from the Internet
 
 When working in terminal, you can easily download files from the Internet using `wget`. The basic usage is just:
 
 `wget URL` where URL is the web address of the file you want to download.
 
-For example, to download the readme file explaining a part NCBI genomic resources  called RefSeq type:
+For example, to download the README file explaining a part of NCBI genomic resources called RefSeq type:
 
 `wget https://ftp.ncbi.nih.gov/genomes/refseq/README.txt`
 
-`wget` is an advanced tool, allowing you to download files over unstable internet connections, recursive download of entire web pages and repositories and downloading in the background, when you're disconnected from the server. Consult the manual for additional information.
+`wget` is an advanced tool, allowing you to download files over unstable internet connections, recursive download of entire web pages and repositories and downloading in the background, when you are disconnected from the server. Consult the manual for additional information.
 
 ## Standard input, output, redirection and pipe
 
@@ -143,20 +184,40 @@ Basically each computer running Linux has several tools to work with text files.
 > `-v` inverts the search, i. e., displays only lines that did not contain the pattern
 >
 > `-E` **extended** grep. `grep` by default supports only basic regular expressions. Using `grep` with `-E` options gives access to the full set of regular expressions. Also, syntax is then a bit simpler, for example to search for alternative, with basic syntax you have to use `\|` to look for alternative, while with `-E` it's enough to type `|`.  It's a good idea to use `grep -E` by default.
->
+>  
 > `-P` use Perl dialect of regular expressions.  It's useful because it allows to search for `tab` characters, which are, unfortunately not implemented in basic and extended grep. With `-P` you can search for `tab` using `\t`.
+>  
+> `-A number` displays the line with the pattern AND the requested number of subsequent lines (**after** the line containing the pattern). For example, you may want to search a `.fasta` file and output both the headings containing your search pattern, and the lines immediately after containing the sequences.  
+>   
+> `-B number` displays the line with the pattern AND the requested number of preceding lines (**before** the line containing the pattern).
 
 > #### `grep` patterns
 >
 > There are two basic forms of patterns for `grep`:
 >
-> 1. Plain text, e. g., 'new' - `grep` will print lines containing **new**, **new**t or sto**new**ork. Plain text pattern can contain whitespaces 'This is a valid pattern to search' 
+> 1. Plain text, e. g., 'new' - `grep` will print lines containing **new**, **new**t or sto**new**ork. Plain text pattern can contain whitespaces: 'This is a valid pattern to search' 
 > 2. Regular expressions as explained in Class 2.
 
 #### Exercise 2
 
-TODO use grep to search for pattern
-
+File ["Army_ant_COI_sequences.fasta"](Army_ant_COI_sequences.fasta) contains barcode sequences of many specimens of several species of army ants, downloaded from Genbank. In each case, the sequence name contains genus, species, and isolate number.
+```
+>KX983244.1 Eciton burchellii isolate 6 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial
+ATACTATACTTTATTTTTTCATTCTGAGCAGGAATATTAGGATCCTCAATAAGTATAATTATTCGCTTAGAACTAGGAACATGTGGGTCCCTTCTTAATAACGACGCT....
+>KX983245.1 Cheliomyrmex sp. 1 PL-2016 isolate Che1 cytochrome oxidase subunit I (COI) gene, partial cds; mitochondrial
+ATACTTTATTTTATCTTTTCTTTTTGAGCCGGAATATTAGGTTCATCAATAAGAATAATTATTCGACTAGAATTAGGAACTTGTGGATCATTAATTAATAATGACCAA....
+```
+* 2.1. Display the heading lines. Now, count them. How many sequences are there in the file?
+ 
+* 2.2. How many sequences of *Eciton* are there?
+ 
+* 2.3. How many sequences of *Eciton* species other than *burchellii* are there? ***Hint***: you can pipe `|` the output of a `grep` search to another `grep` search!
+ 
+* 2.4. Display all sequences (headings + sequences) of *Labidus praedator*. Then, send them to a new file.
+ 
+* 2.5. Display, and then export to a new file, all sequences (headings + sequences) where the nucleotide sequence matches a potential diagnostic primer `ACCTGTGGTTCATTACTC`, supposed to match only a single species. Which species that is?
+ 
+* 2.6. We want to test another potential diagnostic primer for one of the species, `GGAAACTTYCTTGTACCA`. Note that it contains a degenerate position, `Y`, which according to the [IUPAC nucleotide code](https://www.bioinformatics.org/sms/iupac.html) represents either `T` or `C`. How many sequences does this primer match? Which species they belong to? How does the number of sequences matching the primer compare to the total number of sequences of that species?
 ---
 
 ## Extracting information from structured text files with `cut`, `sort` and `uniq`
