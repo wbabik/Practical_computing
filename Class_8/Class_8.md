@@ -2,41 +2,6 @@
 # Class 8
 
 # Data in R
-  * [Functions](#functions)
-      * [Exercise 1](#exercise-1)
-      * [Exercise 2](#exercise-2)
-      * [Exercise 3](#exercise-3)
-  * [Vectors](#vectors)
-      * [Exercise 4](#exercise-4)
-      * [Exercise 5](#exercise-5)
-      * [Exercise 6](#exercise-6)
-      * [Exercise 7](#exercise-7)
-      * [Exercise 8](#exercise-8)
-  * [Operations on vectors](#operations-on-vectors)
-      * [Exercise 9](#exercise-9)
-      * [Exercise 10](#exercise-10)
-    * [Examples:](#examples)
-      * [Exercise 11](#exercise-11)
-  * [Accessing elements of a vector](#accessing-elements-of-a-vector)
-      * [Exercise 12](#exercise-12)
-      * [Exercise 13](#exercise-13)
-      * [Exercise 14](#exercise-14)
-      * [Exercise 15](#exercise-15)
-  * [Working directory](#working-directory)
-      * [Exercise 16](#exercise-16)
-  * [Let’s start some real work!](#lets-start-some-real-work)
-  * [Data frames](#data-frames)
-  * [Data import and display](#data-import-and-display)
-      * [Exercise 17](#exercise-17)
-      * [Exercise 18](#exercise-18)
-      * [Exercise 19](#exercise-19)
-      * [Exercise 20](#exercise-20)
-      * [Exercise 21](#exercise-21)
-  * [Types of data](#types-of-data)
-      * [Exercise 22](#exercise-22)
-  
-***  
-  
 
 ## Functions
 
@@ -58,8 +23,9 @@ Open the manual for `paste()` function
 
 > #### Function manual
 >
-> Usually manual contains seven sections:  
-> - `Description` - what the function does - `Usage` - syntax  
+> Usually a manual contains seven sections:  
+> - `Description` - what the function does  
+> - `Usage` - syntax  
 > - `Arguments` - names of arguments passed to the function and their
 > meaning  
 > - `Details` - detailed description of the function behaviour  
@@ -70,9 +36,8 @@ Open the manual for `paste()` function
 
 #### Exercise 2
 
-Use
-`paste() to stick together the following words`‘I’m`,`’using’`and`‘R’\`.
-Don’t forget about quotation marks.
+Use `paste()` to stick together the following words `'I'm`, `'using'`
+and `'R'`. Don’t forget about quotation marks.
 
 Expected result:
 
@@ -100,12 +65,11 @@ Note that whitespaces were replaced with underscore. However, where did
 the blank spaces come from at the first time? The answer is that some
 arguments have their default values that would be taken if no value for
 this argument is provided when calling the function.  
-In the example above case the default value for `sep` argument is space
-(``).
+In the example above case the default value for `sep` argument is space.
 
 > #### Use argument names!
 >
-> It is a good practice to use argument names while calling a function.
+> It’s a good practice to use argument names while calling a function.
 > Although R can often “guess” the argument name from the order in which
 > arguments appear, this not always works, especially, when the number
 > of arguments is not strictly defined (`...` in the function
@@ -114,13 +78,13 @@ In the example above case the default value for `sep` argument is space
 > which is important for other users and for the future you! Try to
 > stick to this rule as much as you can, although we admit that in
 > commonly used functions with limited number of arguments it’s not
-> necessary.
+> always necessary.
 
 ## Vectors
 
-Vector is a series elements (usually numbers or strings) that are saved
-as a single variable. A new vector can be created with `c()` function in
-the following manner: `c(value_1,value_2,value_3,...)`.
+Vector is a series of elements (commonly numbers or strings) that are
+saved as a single variable. A new vector can be created with `c()`
+function in the following manner: `c(value_1,value_2,value_3,...)`.
 
 #### Exercise 4
 
@@ -137,7 +101,9 @@ the range separated by a colon.
 #### Exercise 5
 
 Create a vector containing integers from 1 to 100 and save it to a
-variable `one_to_hundred`. Call it. Expected result:
+variable `one_to_hundred`. Call it.
+
+Expected result:
 
       [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
      [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
@@ -155,7 +121,7 @@ variable `one_to_hundred`. Call it. Expected result:
 
 To create a vector of consecutive numbers which differ by a given value,
 use `seq()` function. Note that the function will return a vector so
-there is no need to use `c()`.
+there’s no need to use `c()`.
 
 #### Exercise 6
 
@@ -181,7 +147,7 @@ variable `repeated`.
 
 All elements of a vector have to be of the same type. While you try to
 combine elements of different types, R will convert all of them to the
-most “general” type.
+most “general” type (more on types later).
 
 #### Exercise 8
 
@@ -204,12 +170,12 @@ vector of strings? Why?
 > `length()` - the number of elements in a vector  
 > `sort()` - sort values (default is ascending order, use
 > `decreasing = TRUE` to sort in descending order)  
-> `unique()` - return unique values, i. e. discard duplicates  
+> `unique()` - return unique values, i. e., discard duplicates  
 > `round()` - round numbers (to integers by default)
 
 #### Exercise 9
 
-Calculate the mean and median of vector `one_to_hundred` from Ex. 4.
+Calculate the mean and median of vector `one_to_hundred` from Ex. 5.
 
 Expected results:
 
@@ -221,7 +187,7 @@ Expected results:
 
 #### Exercise 10
 
-Sort vector `repeated` from Ex. 6 and return its unique values.
+Sort vector `repeated` from Ex. 7 and return its unique values.
 
 Expected results:
 
@@ -241,13 +207,13 @@ length 1).
 ### Examples:
 
 ``` r
-c(1,2,3,4) + 5     # 5 is added to each element, the same as c(1,2,3,4) + c(5,5,5,5)
+c(1,2,3,4) + 5      # 5 is added to each element, the same as c(1,2,3,4) + c(5,5,5,5)
 ```
 
     [1] 6 7 8 9
 
 ``` r
-c(1,2,3,4) + c(1,2)     # the same as c(1,2,3,4) + c(1,2,1,2)
+c(1,2,3,4) + c(1,2) # the same as c(1,2,3,4) + c(1,2,1,2)
 ```
 
     [1] 2 4 4 6
@@ -501,33 +467,32 @@ answer as a comment within the script file.
 
 All values inside a single data frame column must be of the same data
 type, but the columns can be of different types. Type of data within a
-column is defined by its `type`. The most popular `types` are:
+column is defined by its **type**. The most popular types are:
 
--   \`character - strings (remember that numbers surrounded by quotation
+-   `character` - strings (remember that numbers surrounded by quotation
     marks are also treated as strings)
 -   `factor` - strings with the levels carrying information about the
-    number of occurances and order of strings. Factors are commonly used
-    when doing statistics in R, where they serve as indicators of the
-    [nominal
+    number of occurrences and order of strings. Factors are commonly
+    used when doing statistics in R, where they serve as indicators of
+    the [nominal
     scale](https://www.statsdirect.com/help/basics/measurement_scales.htm).
     Set as default for columns with strings. To change this behavior set
-    the *stringAsFactors* argument of importing function to *FALSE*.  
+    the `stringAsFactors` argument of importing function to `FALSE`.  
 -   `double` - real (floating point) numbers
--   `integer` - integer. both `integer` and `double` can both be
-    interpreted as numbers, therefore they together constitute type
-    `numeric`.
--   `logical` - logical values (TRUE or FALSE)
+-   `integer` - integer. Both `integer` and `double` can be interpreted
+    as numbers, therefore they together constitute type `numeric`.
+-   `logical` - logical values (`TRUE` or `FALSE`)
 
 > #### Conversion between types
 >
 > You can convert different data types with the use of `as...` function
 > family, e.g., `as.character()`, `as.factor()` etc. Note, however, that
 > not all conversions are permitted e.g. a letter cannot be converted
-> into an integer. The general rule is that more a simpler type can
-> always be repseented as a more complex type, but generally not vice
-> versa. Types in the order or increasing complexity: `logical`,
-> `integer`, numeric To change class of a column you need to replace
-> whole column with the result of *as…* function.
+> into an integer. The general rule is that a simpler type can always be
+> represented as a more complex type, but generally not vice versa.
+> Types in the order or increasing complexity: `logical`, `integer`,
+> `character` To change class of a column you need to replace whole
+> column with the result of *as…* function.
 
 Type of a column can be checked by displaying data frame with `View()`
 function and placing mouse cursor over the column header.
@@ -540,6 +505,4 @@ within the script file.
 ------------------------------------------------------------------------
 
 Type of column can be also checked with `typeof()` or `class()`
-functions, the latter providing more detailed information. However, as
-both require a single vector as argument we need to learn subsetting
-first, which we’ll do in the next class.
+functions, the latter providing more detailed information.

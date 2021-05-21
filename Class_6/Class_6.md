@@ -9,13 +9,13 @@
       * [Exercise 4](#exercise-4)
       * [Exercise 5](#exercise-5)
   * [Running jobs in the background with screen](#running-jobs-in-the-background-with-screen)
-  
-***  
-  
+
+***
+
 
 ## `if` conditional
 
-The `if` statement is used to construct commands that will be executed only if some extra conditions are fulfilled. The general syntax is:
+The `if` statement is used to construct commands that will be executed only if some conditions are fulfilled. The general syntax is:
 
 ``` bash
 if [ condition ]	# Condition has to be enclosed in square braces [] and separated from braces with spaces 
@@ -97,7 +97,7 @@ fi
 
 #### Exercise 1
 
-All exercises in this class will use files in directory `/data/epidemy`. Copy this directory and its entire content into your home directory (`cp -r` ). The directry contains 20,112 text files. Each of these files describes a single case of hemorrhagic fever in Poland from summer 2021 (therefore file names start with `pacjent`, which is `patient` in Polish). All files have the following format (below file for patient1 is shown):
+All exercises in this class will use files in directory `/data/epidemy`. Copy this directory and its entire content into your home directory (`cp -r` ). The directory contains 20,112 text files. Each of these files describes a single case of hemorrhagic fever in Poland from summer 2021 (therefore file names start with `pacjent`, which is `patient` in Polish). All files have the following format (below file for patient1 is shown):
 
 ``` 
 nr 1
@@ -139,7 +139,7 @@ Write script `epidemy1.sh`. This script should take as command line arguments id
 
 #### Exercise 2
 
-Doctors suspect that as the epidemy progressed, the symptoms were becoming milder. Write script `epidemy2.txt`, which takes patients number as command line argument and checks whether this patient experienced serious complications or died (nonempty comment line) and whether the patient was diagnosed at the early stage of epidemy (June). If both conditions are fulfilled the script should print `A serious case diagnosed in June 2021`, otherwise print `exiting...`
+Doctors suspect that as the epidemy progressed, the symptoms were becoming milder. Write script `epidemy2.txt`, which takes patient number as command line argument and checks whether this patient experienced serious complications or died (nonempty comment line) and whether the patient was diagnosed at the early stage of epidemy (June). If both conditions are fulfilled the script should print `A serious case diagnosed in June 2021`, otherwise print `exiting...`
 
 **Tips:**
 
@@ -152,7 +152,7 @@ Please test your script on patients 9633 (conditions fulfilled) and 1 (condition
 
 ## Loops: `while` `until` and `for`
 
-Loops execute a list of commands multiple time and are thus crucial for automation. In principle loops can run forever (and sometimes do, if they are incorrectly written), therefore we need to specify conditions for a loop to finish. The three types of loops we'll cover:
+Loops execute a list of commands multiple times and are thus crucial for automation. In principle loops can run forever (and sometimes do, if they are incorrectly written), therefore we need to specify conditions for a loop to finish. The three types of loops we'll cover:
 
 * `while` runs  as long as conditions are met
 
@@ -166,15 +166,15 @@ Let's write script `while_loop.sh`:
 ``` bash
 #!/bin/bash
 n=1									#define variable n, which counts the number of iterations
-while [ $n -lt 11 ]					#define contition: loop will run as long as n < 11
+while [ $n -lt 11 ]					#define condition: loop will run as long as n < 11
 do									#'do' starts the loop; three next lines contain commands to execute
 	echo $n							#print current value of n
-	echo passes through while loop	#print message, the same in each iteration
+	echo passes through the loop	#print message, the same in each iteration
 	(( n++ ))						#increase the value of n by 1
 done								#'done' ends the loop
 ```
 
-Conditions in loops are defined in the same way as in `if` statements. Please note variable `n` which counts the number of passes through the loop, and is called, surprisingly, **counter**. Counter is a general concept, common for most programming languages. Counter has to be **defined before loop**! - of course you can give it any name. Within the loop you have to **modify its value** `(( n++))`! What would happen if you did not modify the counter value?
+Conditions in loops are defined in the same way as in `if` statements. Please note variable `n` which counts the number of passes through the loop, and is called, surprisingly, **counter**. Counter is a general concept, common for most programming languages. Counter has to be **defined before loop**! - of course you can give it any name. Within the loop you have to **modify its value** `(( n++))`! What would happen if you din't modify the counter value?
 
 You can increase counter in steps different from 1, using expression `(( n+=3 ))`. If instead of `+` you use `-` counter will decrease by 3 with each pass through the loop. 
 
@@ -186,12 +186,12 @@ n=1									#define variable n, which counts the number of iterations
 until [ $n -gt 10 ]					#define condition: loop will run until n > 10
 do									#'do' starts the loop; three next lines contain commands to execute
 	echo $n							#print current value of n
-	echo passes through while loop	#print message, the same in each iteration
+	echo passes through the loop	#print message, the same in each iteration
 	(( n++ ))						#increase the value of n by 1
 done								#'done' ends the loop
 ```
 
-Do scripts `while_loop.sh` and `until_loop.sh` produce identical results? How many time the message `passes through the loop` appears in terminal? Make sure that you understand the syntax of both scripts.
+Do scripts `while_loop.sh` and `until_loop.sh` produce identical results? How many times the message `passes through the loop` appears in terminal? Make sure that you understand the syntax of both scripts.
 
 #### Exercise 3
 
@@ -204,16 +204,16 @@ Please modify the scripts:
 
 ### `for` loop
 
-In the `for` loop we define iterator, often named `i` that in consecutive passes through the loop takes value of consecutive elements from the list of values:
+In the `for` loop we define iterator, often named `i` that in consecutive passes through the loop takes the value of consecutive elements from the list of values:
 
 ``` bash
-for i in Alice Alex John	#define list, its items (Alice, Alex, John) are separated with space
+for i in Alice Alex John	#define list, its items (Alice, Alex, John) are separated with spaces
 do							#'do' starts the loop
 	echo $i has a cat		#the next line contains command to do: print the message
 done						#'done' ends the loop
 ```
 
-The list can be the result of a command. For example, you can use `ls` to get a list of file name:
+The list can be the result of a command. For example, you can use `ls` to get a list of file names:
 
 ``` bash
 for f in $( ls *.tab )		#define list of files: all files with extension '.tab' in current directory
@@ -276,4 +276,6 @@ So far our scripts were fast and we did not have to wait more than a few seconds
 >
 > To get rid of any of the virtual terminals (when it commands issued in it have been executed), enter it, and then type the `exit` as in a "normal" terminal.
 
+## Where to go next?
 
+This completes our tour of Linux command line. We hope that now you're convinced that working in command line makes sense. To get a more thorough understanding of the command line, we highly recommend this [free book](http://linuxcommand.org/).

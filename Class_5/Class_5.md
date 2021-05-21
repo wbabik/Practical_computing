@@ -17,14 +17,14 @@
       * [Exercise 7](#exercise-7)
   * [Searching and replacing with sed](#searching-and-replacing-with-sed)
     * [Exercise 8](#exercise-8)
- 
-***   
+
+***
 
 ## Copying files to and from remote server with `scp`
 
-If you work on Windows, you can use to copy files between your computer and remote server using WinSCP which you can download it [here](https://winscp.net/eng/download.php).
+If you work on Windows, you can copy files between your computer and remote server using WinSCP which you can download [here](https://winscp.net/eng/download.php).
 
-After downloading and installing open WinSCP, in the Login window in the field `Host name:` enter IP address of our server, in the field `User name` enter your user id, don't fill in password. Save your session as `thor` or another name.  By clicking `Login` you will start connection with the server, you'll be asked for your password and after verifying your credentials you'll see in one panel your local computer and in the other your home directory on the remote server.  You can now copy or move files between machines.
+After downloading and installing, open WinSCP, in the Login window in the field `Host name:` enter IP address of our server, in the field `User name` enter your user id, don't fill in password. Save your session as `apollo` or another name.  By clicking `Login` you will start connection with the server, you'll be asked for your password and, after verifying your credentials, you'll see in one panel your local computer and in the other your home directory on the remote server.  You can now copy or move files between machines.
 
 > #### `scp` on Linux or Mac
 >
@@ -32,7 +32,7 @@ After downloading and installing open WinSCP, in the Login window in the field `
 >
 > `scp [WHAT] [WHERE]`
 >
-> For example, `scp user102@149.156.165.xxx:/home/user102/*.txt /home/mary` will copy all `.txt` files from user102 home directory on the remote server to home directory of user `mary` on your local computer.
+> For example, `scp user102@149.156.165.156:/home/user102/*.txt /home/mary` will copy all `.txt` files from user102 home directory on the remote server to home directory of user `mary` on your local computer.
 >
 > `scp` can be also used to copy files between different remote servers
 
@@ -40,39 +40,41 @@ After downloading and installing open WinSCP, in the Login window in the field `
 
 ## MobaXterm combo (optional)
 
-So far we have been using `PuTTY` to connect to remote server and above we introduced `scp` for transferring files between computers. An interesting alternative is `MobaXterm` which you can download [here](https://mobaxterm.mobatek.net/download.html). MobaXterm has all functionality of PuTTY, allows opening multiple connections to remote servers in separate tabs, has some `scp` functionality, so allows copying files between your local machine and remote server, and even provides Linux shell on Windows computer.
+So far we have been using `PuTTY` to connect to the remote server and above we introduced `scp` for transferring files between computers. An interesting alternative is `MobaXterm` which you can download [here](https://mobaxterm.mobatek.net/download.html). MobaXterm has all functionality of PuTTY, allows opening multiple connections to remote servers in separate tabs, has some `scp` functionality, so allows copying files between your local machine and remote server, and even provides Linux shell on your Windows computer.
 
 We encourage you to explore `MobaXterm` on your own,  and if you like it you can use it instead of PuTTY in the class, but we leave this decision to you.
 
 ## Shell scripts and `echo`
 
-Shell commands do not need to be typed directly into a terminal. You can save them in a text file and have them executed, line by line. Such files with a set of commands to be executed are called (shell) scripts. We usually use the .sh extension when naming shell scripts.
+Shell commands do not need to be typed directly in terminal. You can save them in a text file and have them executed, line by line. Such files with a set of commands to be executed are called (shell) scripts. We usually use the .sh extension when naming shell scripts.
 The first line of the script should contain: 
 
-`#!/bin/bash`
-
-This line is used by the system to find the script interpreter (shell, or more precisely one of shell types - bash).
-
-Following lines contain commands to execute:
-
+```bash
+#!/bin/bash
 ```
+
+This line is used by the system to find the script interpreter (shell, or more precisely bash shell).
+
+The following lines contain commands to execute:
+
+```bash
 #!/bin/bash
 echo My script works!
 ```
 
-The script above will display in the terminal `My script works!`
+The script above will display in terminal `My script works!`
 
 `echo` prints in the terminal text in the current line, following the first whitespace.
 
 #### Exercise 1
 
-In `nano` write a script that will save the list of `.fasta` files in the directory `~/HIV` to the file `List_of_fasta_files.txt` in your home directory, and then will print in the terminal sentence `Task completed!`. Please name script `script1.sh1` and save it in your home directory.
+In `nano` write a script that will save the list of `.fasta` files in the directory `~/HIV` to the file `List_of_fasta_files.txt` in your home directory, and then will print in terminal sentence `Task completed!`. Please name script `script1.sh1` and save it in your home directory.
 
 ---
 
 ## Setting permissions with `chmod`
 
-To run a script you have to set appropriate **permissions** so that the script can be **executed** by the user.
+To run a script you need to set appropriate **permissions** so that the script can be **executed** by the user.
 
 > #### Permissions in Linux
 >
@@ -126,7 +128,7 @@ You can change permissions with `chmod` (change file mode)
 
 #### Exercise 3
 
-Give all users permissions to read and execute file `script1.sh`. Noe, list all files in your home directory. What's the font color in your script name? Use `ls -l` to check whether your script has indeed the permissions you wanted it to have. What's in the permissions field?
+Give all users permissions to read and execute file `script1.sh`. Now, list all files in your home directory. In which colour was the name of your script displayed? Use `ls -l` to check whether your script has indeed the permissions you wanted it to have. What's in the permissions field?
 
 Now you can run the script typing: `./filename.sh`  (what's the meaning of the dot at the beginning of the command?)
 
@@ -146,7 +148,9 @@ A variable can be defined inside script, it can also be defined directly in term
 
 > #### Defining variable
 >
-> `variable=value`
+> ````bash
+> variable=value
+> ````
 >
 > To the left of the equal sign (`=`) is the name of variable, to the right of the equal sign is the value of variable. **Important!** no spaces are allowed before and after `=`.
 >
@@ -193,7 +197,7 @@ head -2 $my_file > L2_"$my_file"
 cd ..
 ```
 
-Note, that in this script we entered directory `hiv` where fasta files are located, and at the end of the script we moved one directory up, back to the home directory. In this way we can refer to the files in this directory directly, without specifying path. 
+Note, that in this script we entered directory `hiv` where `.fasta` files are located, and at the end of the script we moved one directory up, back to the home directory. In this way we can refer to the files in this directory directly, without specifying path. 
 Save `script2.sh`, exit `nano` and run script in terminal `./script2.sh`. **Tip**: when writing a script it's a good idea to test individual commands in terminal. To do that, it's handy to have another PuTTY session open - you can open as many terminal windows as you want.
 
 A script can be written in such a way that we pass variables (for example, names of files on which the script operates) to the script. One of the ways of passing variables is to use command line arguments. In bash variable names `1` to `9` are reserved for command line arguments. 
@@ -216,7 +220,7 @@ The script is now a bit shorter and we run it providing file name as command lin
 Write script `script4.sh` and save it in your home directory. Within the script define variable `n` and assign to it an integer from the range 1 to 20. Script should:
 
 1. Print number `n` in terminal.
-2. Print in terminal `n` first nucleotides from each of `n`lines at the end of the file `KT183271.fasta` which is in directory `hiv`. **Tip1**: use pipe. **Tip2** `-c` option of `cat` may be useful.
+2. Print in terminal `n` first nucleotides from each of `n` lines at the end of the file `KT183271.fasta` which is in directory `hiv`. **Tip1**: use pipe. **Tip2** `-c` option of `cut` may be useful.
 
 Set appropriate permissions and run the script in terminal.
 
@@ -224,7 +228,7 @@ Set appropriate permissions and run the script in terminal.
 
 > #### Comments inside shell scripts
 >
-> Inside a script you can include comments that will not be interpreted by shell. They can, for example, explain its operation for other users (or the future you!). Comments start with `#`, can be in separate lines or can follow shell comments in the same line. Comments can be included anywhere in the script **except first line**, where `#` has a special meaning.
+> Inside a script you can include comments that will not be interpreted by shell. They can, for example, explain its operation for other users (or the future you!). Comments start with `#`, can be in separate lines or can follow shell comments in the same line. Comments can be included anywhere in the script **except the first line**, where `#` has a special meaning.
 
 #### Exercise 6
 
@@ -281,6 +285,7 @@ In your home directory create gzipped `.tar` archive named `hiv_all.tar.gz` cont
 `sed` is a stream text editor with many advanced facilities. 
 You can find out about them [here](https://www.gnu.org/software/sed/manual/sed.html).  
 But, it is usually used for two very simple tasks: 
+
 1. Searching and replacing a text  (or a regular expressions) in the text file
 2. Selecting lines by numbers 
 > 
@@ -313,15 +318,13 @@ But, it is usually used for two very simple tasks:
 
 
 ### Exercise 8  
-Change the `Ex_02_2.txt` (you should have this file in your home directory; if not, download 
+Transform `Ex_02_2.txt` (you should have this file in your home directory; if not, download 
 it from `https://www.dropbox.com/s/gruaw8vqgnwas8l/Ex_02_2.txt`) into a comma delimited file. Write the result to the new file named `Ex_02_2.csv`. 
 **Tip** Use sed and the symbolic representation of <kbd>Tab</kbd>: `\t`. 
-Now, try to change all lowercase letters
-in the header (first line) of the resulting file to the corresponding uppercase letters. 
-**Tip** You can use `.*` as the searched regular expression (to be replaced) 
-and `\U&` as the "new text". Save the resulting file as `Ex_02_2_upper.csv`.  
+Now, try to change all lowercase letters in the header (first line) of the resulting file to the corresponding uppercase letters. 
+**Tip** You can use `.*` as the searched regular expression (to be replaced) and `\U&` as the "new text". Save the resulting file as `Ex_02_2_upper.csv`.  
 This solution was found [here](https://stackoverflow.com/questions/22718518/sed-to-replace-lower-case-string-between-two-strings-to-upper-case).    
 How to perform both steps in one command? Try it!  
- 
+
 
 [Return to the top](#working-in-linux-shell-ii)

@@ -17,8 +17,8 @@ Open the manual for `paste()` function
 ---
 
 > #### Function manual
-Usually  manual contains seven sections:  
-- `Description` - what the function does
+Usually a manual contains seven sections:  
+- `Description` - what the function does  
 - `Usage` - syntax  
 - `Arguments`  - names of arguments passed to the function and their meaning  
 - `Details` - detailed description of the function behaviour  
@@ -27,7 +27,7 @@ Usually  manual contains seven sections:
 - `Examples` - examples of usage  
 
 #### Exercise 2
-Use `paste() to stick together the following words `'I'm`, `'using'` and `'R'`. Don't forget about quotation marks.
+Use `paste()` to stick together the following words `'I'm`, `'using'` and `'R'`. Don't forget about quotation marks.
 
 Expected result:
 ``` {r,comment = "",echo = FALSE}
@@ -51,15 +51,15 @@ paste("I'm","using","R",sep = "_")
 --- 
 
 Note that whitespaces were replaced with underscore. However, where did the blank spaces come from at the first time? The answer is that some arguments have their default values that would be taken if no value for this argument is provided when calling the function.  
-In the example above case the default value for `sep` argument is  space (` `). 
+In the example above case the default value for `sep` argument is  space. 
 
 > #### Use argument names!
-It is a good practice to use argument names while calling a function. Although R can often "guess" the argument name from the order in which arguments appear, this not always works, especially, when the number of arguments is not strictly defined (`...` in the function description).   
-Another reason for using argument names is readability of the code, which is important for other users and for the future you! Try to stick to this rule as much as you can, although we admit that in commonly used functions with limited number of arguments it's not necessary.
+It's a good practice to use argument names while calling a function. Although R can often "guess" the argument name from the order in which arguments appear, this not always works, especially, when the number of arguments is not strictly defined (`...` in the function description).   
+Another reason for using argument names is readability of the code, which is important for other users and for the future you! Try to stick to this rule as much as you can, although we admit that in commonly used functions with limited number of arguments it's not always necessary.
 
 ## Vectors
 
-Vector is a series elements (usually numbers or strings) that are saved as a single variable. A new vector can be created with `c()` function in the following manner: `c(value_1,value_2,value_3,...)`. 
+Vector is a series of elements (commonly numbers or strings) that are saved as a single variable. A new vector can be created with `c()` function in the following manner: `c(value_1,value_2,value_3,...)`. 
 
 #### Exercise 4
 Create a vector containing integers from 5 to 10 and save it to a variable. Call it.
@@ -75,6 +75,7 @@ To create a vector of consecutive integers you can type the limits of the range 
 #### Exercise 5
 
 Create a vector containing integers from 1 to 100 and save it to a variable `one_to_hundred`. Call it.
+
 Expected result:
 ```{r echo = FALSE, comment= ""}
 vec1 <- c(1:100)
@@ -86,7 +87,7 @@ vec1
 > #### Ranges in R
 R considers ranges fully inclusive, which means that both limits of the range will be included in the generated vector.
 
-To create a vector of consecutive numbers which differ by a given value, use `seq()` function. Note that the function will return a vector so there is no need to use `c()`.
+To create a vector of consecutive numbers which differ by a given value, use `seq()` function. Note that the function will return a vector so there's no need to use `c()`.
 
 #### Exercise 6
 Consult `seq()` manual and then, using `seq()` function, create a vector of numbers between 0 and 1 that differ by 0.1.
@@ -108,7 +109,7 @@ vec
 
 ---
 
-All elements of a vector have to be of the same type. While you try to combine elements of different types, R will convert all of them to the most "general" type.
+All elements of a vector have to be of the same type. While you try to combine elements of different types, R will convert all of them to the most "general" type (more on types later).
 
 #### Exercise 8
 Create a vector from 1 to 4 with odd numbers typed as integers and even numbers typed as words. What is the outcome? A vector of integers or a vector of strings? Why?
@@ -126,11 +127,11 @@ Create a vector from 1 to 4 with odd numbers typed as integers and even numbers 
 `median()` - median  
 `length()` - the number of elements in a vector  
 `sort()` - sort values (default is ascending order, use `decreasing = TRUE` to sort in descending order)  
-`unique()` - return unique values, i. e. discard duplicates  
+`unique()` - return unique values, i. e., discard duplicates  
 `round()` - round numbers (to integers by default)
 
 #### Exercise 9
-Calculate the mean and median of vector `one_to_hundred` from Ex. 4.  
+Calculate the mean and median of vector `one_to_hundred` from Ex. 5.  
 
 Expected results:
 ```{r echo = FALSE, comment= ""}
@@ -141,7 +142,7 @@ median(vec1)
 ---
 
 #### Exercise 10
-Sort vector `repeated` from Ex. 6 and return its unique values.  
+Sort vector `repeated` from Ex. 7 and return its unique values.  
 
 Expected results:
 ```{r echo = FALSE, comment= ""}
@@ -155,10 +156,10 @@ You can perform standard mathematical operations on vectors, which, as you will 
 
 ### Examples:  
 ```{r echo = TRUE, comment= ""}
-c(1,2,3,4) + 5     # 5 is added to each element, the same as c(1,2,3,4) + c(5,5,5,5)
+c(1,2,3,4) + 5      # 5 is added to each element, the same as c(1,2,3,4) + c(5,5,5,5)
 ```
 ```{r echo = TRUE, comment= ""}
-c(1,2,3,4) + c(1,2)     # the same as c(1,2,3,4) + c(1,2,1,2)
+c(1,2,3,4) + c(1,2) # the same as c(1,2,3,4) + c(1,2,1,2)
 ```
 
 #### Exercise 11
@@ -319,16 +320,16 @@ To print the summary of a data frame in the console, use `summary()` function. I
 
 ## Types of data
 
-All values inside a single data frame column must be of the same data type, but the columns can be of different types. Type of data within a column is defined by its `type`. The most popular `types` are:
+All values inside a single data frame column must be of the same data type, but the columns can be of different types. Type of data within a column is defined by its **type**. The most popular types are:
 
-* `character - strings (remember that numbers surrounded by quotation marks are also treated as strings) 
-* `factor` - strings with the levels carrying information about the number of occurances and order of strings. Factors are commonly used when doing statistics in R, where they serve as indicators of the [nominal scale](https://www.statsdirect.com/help/basics/measurement_scales.htm). Set as default for columns with strings. To change this behavior set the *stringAsFactors* argument of importing function to *FALSE*.  
+* `character` - strings (remember that numbers surrounded by quotation marks are also treated as strings) 
+* `factor` - strings with the levels carrying information about the number of occurrences and order of strings. Factors are commonly used when doing statistics in R, where they serve as indicators of the [nominal scale](https://www.statsdirect.com/help/basics/measurement_scales.htm). Set as default for columns with strings. To change this behavior set the `stringAsFactors` argument of importing function to `FALSE`.  
 * `double` - real (floating point) numbers
-* `integer` - integer. both `integer` and `double` can both be interpreted as numbers, therefore they together constitute type `numeric`.
-* `logical` - logical values (TRUE or FALSE)
+* `integer` - integer.  Both `integer` and `double` can be interpreted as numbers, therefore they together constitute type `numeric`.
+* `logical` - logical values (`TRUE` or `FALSE`)
 
 > #### Conversion between types 
-You can convert different data types with the use of `as...` function family, e.g., `as.character()`, `as.factor()` etc. Note, however, that not all conversions are permitted e.g. a letter cannot be converted into an integer. The general rule is that more a simpler type can always be repseented as a more complex type, but generally not vice versa. Types in the order or increasing complexity: `logical`, `integer`, numeric To change class of a column you need to replace whole column with the result of *as...* function.  
+You can convert different data types with the use of `as...` function family, e.g., `as.character()`, `as.factor()` etc. Note, however, that not all conversions are permitted e.g. a letter cannot be converted into an integer. The general rule is that a simpler type can always be represented as a more complex type, but generally not vice versa. Types in the order or increasing complexity: `logical`, `integer`, `character` To change class of a column you need to replace whole column with the result of *as...* function.  
 
 Type of a column can be checked by displaying data frame with `View()` function and placing mouse cursor over the column header. 
 
@@ -337,4 +338,4 @@ Check the class of column `uptake`. Write your answer as a comment within the sc
 
 ---
 
-Type of column can be also checked with `typeof()` or `class()` functions, the latter providing more detailed information. However, as both require a single vector as  argument we need to learn subsetting first, which we'll do in the next class. 
+Type of column can be also checked with `typeof()` or `class()` functions, the latter providing more detailed information. 

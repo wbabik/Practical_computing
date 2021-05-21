@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="data:text/css,%0A%40font%2Dface%20%7B%0Afont%2Dfamily%3A%20octicons%2Dlink%3B%0Asrc%3A%20url%28data%3Afont%2Fwoff%3Bcharset%3Dutf%2D8%3Bbase64%2Cd09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM%2B8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB%2FaFGpk3jaTY6xa8JAGMW%2FO62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v%2Bk%2F0an2i%2BitHDw3v2%2B9%2BDBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3%2FI7AtxEJLtzzuZfI%2BVVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy%2FLt7Kc%2B0vWY%2FgAgIIEqAN9we0pwKXreiMasxvabDQMM4riO%2BqxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw%2Bymhce7vwM9jSqO8JyVd5RH9gyTt2%2BJ%2FyUmYlIR0s04n6%2B7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv%2FocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi%2BW2%2BMjCzMIDApSwvXzC97Z4Ig8N%2FBxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh%2F8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT%2BAEjAwuDFpBmA9KMDEwMCh9i%2Fv8H8sH0%2F4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9%2FlqYwOGZxeUelN2U2R6%2BcArgtCJpauW7UQBqnFkUsjAY%2FkOU1cP%2BDAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl%2BvvmM%2FbyA48e6tWrKArm4ZJlCbdsrxksL1AwWn%2FyBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO%2F%2FsdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd%2F89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF%2B9JOS0nbaaYDCQfwCJ7Au3AHj%2BLO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm%2BEBXuAbHmIMSRMs%2B4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL%2BhD7C1xoaHeLJSEao0FEW14ckxC%2BTU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13%2F%2Blm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl%2B9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O%2FAdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB%2F%2F%2FAA8AAQAAAAAAAAAAAAAAAAABAAAAAA%3D%3D%29%20format%28%27woff%27%29%3B%0A%7D%0Abody%20%7B%0A%2Dwebkit%2Dtext%2Dsize%2Dadjust%3A%20100%25%3B%0Atext%2Dsize%2Dadjust%3A%20100%25%3B%0Acolor%3A%20%23333%3B%0Afont%2Dfamily%3A%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20%22Segoe%20UI%22%2C%20Arial%2C%20freesans%2C%20sans%2Dserif%2C%20%22Apple%20Color%20Emoji%22%2C%20%22Segoe%20UI%20Emoji%22%2C%20%22Segoe%20UI%20Symbol%22%3B%0Afont%2Dsize%3A%2016px%3B%0Aline%2Dheight%3A%201%2E6%3B%0Aword%2Dwrap%3A%20break%2Dword%3B%0A%7D%0Aa%20%7B%0Abackground%2Dcolor%3A%20transparent%3B%0A%7D%0Aa%3Aactive%2C%0Aa%3Ahover%20%7B%0Aoutline%3A%200%3B%0A%7D%0Astrong%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%202em%3B%0Amargin%3A%200%2E67em%200%3B%0A%7D%0Aimg%20%7B%0Aborder%3A%200%3B%0A%7D%0Ahr%20%7B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0Aheight%3A%200%3B%0A%7D%0Apre%20%7B%0Aoverflow%3A%20auto%3B%0A%7D%0Acode%2C%0Akbd%2C%0Apre%20%7B%0Afont%2Dfamily%3A%20monospace%2C%20monospace%3B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ainput%20%7B%0Acolor%3A%20inherit%3B%0Afont%3A%20inherit%3B%0Amargin%3A%200%3B%0A%7D%0Ahtml%20input%5Bdisabled%5D%20%7B%0Acursor%3A%20default%3B%0A%7D%0Ainput%20%7B%0Aline%2Dheight%3A%20normal%3B%0A%7D%0Ainput%5Btype%3D%22checkbox%22%5D%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0Apadding%3A%200%3B%0A%7D%0Atable%20%7B%0Aborder%2Dcollapse%3A%20collapse%3B%0Aborder%2Dspacing%3A%200%3B%0A%7D%0Atd%2C%0Ath%20%7B%0Apadding%3A%200%3B%0A%7D%0A%2A%20%7B%0Abox%2Dsizing%3A%20border%2Dbox%3B%0A%7D%0Ainput%20%7B%0Afont%3A%2013px%20%2F%201%2E4%20Helvetica%2C%20arial%2C%20nimbussansl%2C%20liberationsans%2C%20freesans%2C%20clean%2C%20sans%2Dserif%2C%20%22Apple%20Color%20Emoji%22%2C%20%22Segoe%20UI%20Emoji%22%2C%20%22Segoe%20UI%20Symbol%22%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%234078c0%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%2C%0Aa%3Aactive%20%7B%0Atext%2Ddecoration%3A%20underline%3B%0A%7D%0Ahr%20%7B%0Aheight%3A%200%3B%0Amargin%3A%2015px%200%3B%0Aoverflow%3A%20hidden%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23ddd%3B%0A%7D%0Ahr%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ahr%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Amargin%2Dtop%3A%2015px%3B%0Amargin%2Dbottom%3A%2015px%3B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ah1%20%7B%0Afont%2Dsize%3A%2030px%3B%0A%7D%0Ah2%20%7B%0Afont%2Dsize%3A%2021px%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%2016px%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%2014px%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%2012px%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%2011px%3B%0A%7D%0Ablockquote%20%7B%0Amargin%3A%200%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%3A%200%3B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Aol%20ol%2C%0Aul%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Droman%3B%0A%7D%0Aul%20ul%20ol%2C%0Aul%20ol%20ol%2C%0Aol%20ul%20ol%2C%0Aol%20ol%20ol%20%7B%0Alist%2Dstyle%2Dtype%3A%20lower%2Dalpha%3B%0A%7D%0Add%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0Afont%2Dsize%3A%2012px%3B%0A%7D%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0Afont%3A%2012px%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0A%7D%0A%2Eselect%3A%3A%2Dms%2Dexpand%20%7B%0Aopacity%3A%200%3B%0A%7D%0A%2Eocticon%20%7B%0Afont%3A%20normal%20normal%20normal%2016px%2F1%20octicons%2Dlink%3B%0Adisplay%3A%20inline%2Dblock%3B%0Atext%2Ddecoration%3A%20none%3B%0Atext%2Drendering%3A%20auto%3B%0A%2Dwebkit%2Dfont%2Dsmoothing%3A%20antialiased%3B%0A%2Dmoz%2Dosx%2Dfont%2Dsmoothing%3A%20grayscale%3B%0A%2Dwebkit%2Duser%2Dselect%3A%20none%3B%0A%2Dmoz%2Duser%2Dselect%3A%20none%3B%0A%2Dms%2Duser%2Dselect%3A%20none%3B%0Auser%2Dselect%3A%20none%3B%0A%7D%0A%2Eocticon%2Dlink%3Abefore%20%7B%0Acontent%3A%20%27%5Cf05c%27%3B%0A%7D%0A%2Emarkdown%2Dbody%3Abefore%20%7B%0Adisplay%3A%20table%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3Aafter%20%7B%0Adisplay%3A%20table%3B%0Aclear%3A%20both%3B%0Acontent%3A%20%22%22%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%20%21important%3B%0A%7D%0A%2Emarkdown%2Dbody%3E%2A%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%20%21important%3B%0A%7D%0Aa%3Anot%28%5Bhref%5D%29%20%7B%0Acolor%3A%20inherit%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0A%2Eanchor%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%2Dright%3A%202px%3B%0Amargin%2Dleft%3A%20%2D18px%3B%0A%7D%0A%2Eanchor%3Afocus%20%7B%0Aoutline%3A%20none%3B%0A%7D%0Ah1%2C%0Ah2%2C%0Ah3%2C%0Ah4%2C%0Ah5%2C%0Ah6%20%7B%0Amargin%2Dtop%3A%201em%3B%0Amargin%2Dbottom%3A%2016px%3B%0Afont%2Dweight%3A%20bold%3B%0Aline%2Dheight%3A%201%2E4%3B%0A%7D%0Ah1%20%2Eocticon%2Dlink%2C%0Ah2%20%2Eocticon%2Dlink%2C%0Ah3%20%2Eocticon%2Dlink%2C%0Ah4%20%2Eocticon%2Dlink%2C%0Ah5%20%2Eocticon%2Dlink%2C%0Ah6%20%2Eocticon%2Dlink%20%7B%0Acolor%3A%20%23000%3B%0Avertical%2Dalign%3A%20middle%3B%0Avisibility%3A%20hidden%3B%0A%7D%0Ah1%3Ahover%20%2Eanchor%2C%0Ah2%3Ahover%20%2Eanchor%2C%0Ah3%3Ahover%20%2Eanchor%2C%0Ah4%3Ahover%20%2Eanchor%2C%0Ah5%3Ahover%20%2Eanchor%2C%0Ah6%3Ahover%20%2Eanchor%20%7B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Ah1%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah2%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah3%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah4%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah5%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%2C%0Ah6%3Ahover%20%2Eanchor%20%2Eocticon%2Dlink%20%7B%0Avisibility%3A%20visible%3B%0A%7D%0Ah1%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%202%2E25em%3B%0Aline%2Dheight%3A%201%2E2%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23eee%3B%0A%7D%0Ah1%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%3B%0A%7D%0Ah2%20%7B%0Apadding%2Dbottom%3A%200%2E3em%3B%0Afont%2Dsize%3A%201%2E75em%3B%0Aline%2Dheight%3A%201%2E225%3B%0Aborder%2Dbottom%3A%201px%20solid%20%23eee%3B%0A%7D%0Ah2%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%201%2E5em%3B%0Aline%2Dheight%3A%201%2E43%3B%0A%7D%0Ah3%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E2%3B%0A%7D%0Ah4%20%7B%0Afont%2Dsize%3A%201%2E25em%3B%0A%7D%0Ah4%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E2%3B%0A%7D%0Ah5%20%7B%0Afont%2Dsize%3A%201em%3B%0A%7D%0Ah5%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ah6%20%7B%0Afont%2Dsize%3A%201em%3B%0Acolor%3A%20%23777%3B%0A%7D%0Ah6%20%2Eanchor%20%7B%0Aline%2Dheight%3A%201%2E1%3B%0A%7D%0Ap%2C%0Ablockquote%2C%0Aul%2C%0Aol%2C%0Adl%2C%0Atable%2C%0Apre%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0Ahr%20%7B%0Aheight%3A%204px%3B%0Apadding%3A%200%3B%0Amargin%3A%2016px%200%3B%0Abackground%2Dcolor%3A%20%23e7e7e7%3B%0Aborder%3A%200%20none%3B%0A%7D%0Aul%2C%0Aol%20%7B%0Apadding%2Dleft%3A%202em%3B%0A%7D%0Aul%20ul%2C%0Aul%20ol%2C%0Aol%20ol%2C%0Aol%20ul%20%7B%0Amargin%2Dtop%3A%200%3B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Ali%3Ep%20%7B%0Amargin%2Dtop%3A%2016px%3B%0A%7D%0Adl%20%7B%0Apadding%3A%200%3B%0A%7D%0Adl%20dt%20%7B%0Apadding%3A%200%3B%0Amargin%2Dtop%3A%2016px%3B%0Afont%2Dsize%3A%201em%3B%0Afont%2Dstyle%3A%20italic%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Adl%20dd%20%7B%0Apadding%3A%200%2016px%3B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0Ablockquote%20%7B%0Apadding%3A%200%2015px%3B%0Acolor%3A%20%23777%3B%0Aborder%2Dleft%3A%204px%20solid%20%23ddd%3B%0A%7D%0Ablockquote%3E%3Afirst%2Dchild%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Ablockquote%3E%3Alast%2Dchild%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Atable%20%7B%0Adisplay%3A%20block%3B%0Awidth%3A%20100%25%3B%0Aoverflow%3A%20auto%3B%0Aword%2Dbreak%3A%20normal%3B%0Aword%2Dbreak%3A%20keep%2Dall%3B%0A%7D%0Atable%20th%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Atable%20th%2C%0Atable%20td%20%7B%0Apadding%3A%206px%2013px%3B%0Aborder%3A%201px%20solid%20%23ddd%3B%0A%7D%0Atable%20tr%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Aborder%2Dtop%3A%201px%20solid%20%23ccc%3B%0A%7D%0Atable%20tr%3Anth%2Dchild%282n%29%20%7B%0Abackground%2Dcolor%3A%20%23f8f8f8%3B%0A%7D%0Aimg%20%7B%0Amax%2Dwidth%3A%20100%25%3B%0Abox%2Dsizing%3A%20content%2Dbox%3B%0Abackground%2Dcolor%3A%20%23fff%3B%0A%7D%0Acode%20%7B%0Apadding%3A%200%3B%0Apadding%2Dtop%3A%200%2E2em%3B%0Apadding%2Dbottom%3A%200%2E2em%3B%0Amargin%3A%200%3B%0Afont%2Dsize%3A%2085%25%3B%0Abackground%2Dcolor%3A%20rgba%280%2C0%2C0%2C0%2E04%29%3B%0Aborder%2Dradius%3A%203px%3B%0A%7D%0Acode%3Abefore%2C%0Acode%3Aafter%20%7B%0Aletter%2Dspacing%3A%20%2D0%2E2em%3B%0Acontent%3A%20%22%5C00a0%22%3B%0A%7D%0Apre%3Ecode%20%7B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Afont%2Dsize%3A%20100%25%3B%0Aword%2Dbreak%3A%20normal%3B%0Awhite%2Dspace%3A%20pre%3B%0Abackground%3A%20transparent%3B%0Aborder%3A%200%3B%0A%7D%0A%2Ehighlight%20%7B%0Amargin%2Dbottom%3A%2016px%3B%0A%7D%0A%2Ehighlight%20pre%2C%0Apre%20%7B%0Apadding%3A%2016px%3B%0Aoverflow%3A%20auto%3B%0Afont%2Dsize%3A%2085%25%3B%0Aline%2Dheight%3A%201%2E45%3B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0A%7D%0A%2Ehighlight%20pre%20%7B%0Amargin%2Dbottom%3A%200%3B%0Aword%2Dbreak%3A%20normal%3B%0A%7D%0Apre%20%7B%0Aword%2Dwrap%3A%20normal%3B%0A%7D%0Apre%20code%20%7B%0Adisplay%3A%20inline%3B%0Amax%2Dwidth%3A%20initial%3B%0Apadding%3A%200%3B%0Amargin%3A%200%3B%0Aoverflow%3A%20initial%3B%0Aline%2Dheight%3A%20inherit%3B%0Aword%2Dwrap%3A%20normal%3B%0Abackground%2Dcolor%3A%20transparent%3B%0Aborder%3A%200%3B%0A%7D%0Apre%20code%3Abefore%2C%0Apre%20code%3Aafter%20%7B%0Acontent%3A%20normal%3B%0A%7D%0Akbd%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%3A%203px%205px%3B%0Afont%2Dsize%3A%2011px%3B%0Aline%2Dheight%3A%2010px%3B%0Acolor%3A%20%23555%3B%0Avertical%2Dalign%3A%20middle%3B%0Abackground%2Dcolor%3A%20%23fcfcfc%3B%0Aborder%3A%20solid%201px%20%23ccc%3B%0Aborder%2Dbottom%2Dcolor%3A%20%23bbb%3B%0Aborder%2Dradius%3A%203px%3B%0Abox%2Dshadow%3A%20inset%200%20%2D1px%200%20%23bbb%3B%0A%7D%0A%2Epl%2Dc%20%7B%0Acolor%3A%20%23969896%3B%0A%7D%0A%2Epl%2Dc1%2C%0A%2Epl%2Ds%20%2Epl%2Dv%20%7B%0Acolor%3A%20%230086b3%3B%0A%7D%0A%2Epl%2De%2C%0A%2Epl%2Den%20%7B%0Acolor%3A%20%23795da3%3B%0A%7D%0A%2Epl%2Ds%20%2Epl%2Ds1%2C%0A%2Epl%2Dsmi%20%7B%0Acolor%3A%20%23333%3B%0A%7D%0A%2Epl%2Dent%20%7B%0Acolor%3A%20%2363a35c%3B%0A%7D%0A%2Epl%2Dk%20%7B%0Acolor%3A%20%23a71d5d%3B%0A%7D%0A%2Epl%2Dpds%2C%0A%2Epl%2Ds%2C%0A%2Epl%2Ds%20%2Epl%2Dpse%20%2Epl%2Ds1%2C%0A%2Epl%2Dsr%2C%0A%2Epl%2Dsr%20%2Epl%2Dcce%2C%0A%2Epl%2Dsr%20%2Epl%2Dsra%2C%0A%2Epl%2Dsr%20%2Epl%2Dsre%20%7B%0Acolor%3A%20%23183691%3B%0A%7D%0A%2Epl%2Dv%20%7B%0Acolor%3A%20%23ed6a43%3B%0A%7D%0A%2Epl%2Did%20%7B%0Acolor%3A%20%23b52a1d%3B%0A%7D%0A%2Epl%2Dii%20%7B%0Abackground%2Dcolor%3A%20%23b52a1d%3B%0Acolor%3A%20%23f8f8f8%3B%0A%7D%0A%2Epl%2Dsr%20%2Epl%2Dcce%20%7B%0Acolor%3A%20%2363a35c%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dml%20%7B%0Acolor%3A%20%23693a17%3B%0A%7D%0A%2Epl%2Dmh%2C%0A%2Epl%2Dmh%20%2Epl%2Den%2C%0A%2Epl%2Dms%20%7B%0Acolor%3A%20%231d3e81%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmq%20%7B%0Acolor%3A%20%23008080%3B%0A%7D%0A%2Epl%2Dmi%20%7B%0Acolor%3A%20%23333%3B%0Afont%2Dstyle%3A%20italic%3B%0A%7D%0A%2Epl%2Dmb%20%7B%0Acolor%3A%20%23333%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmd%20%7B%0Abackground%2Dcolor%3A%20%23ffecec%3B%0Acolor%3A%20%23bd2c00%3B%0A%7D%0A%2Epl%2Dmi1%20%7B%0Abackground%2Dcolor%3A%20%23eaffea%3B%0Acolor%3A%20%2355a532%3B%0A%7D%0A%2Epl%2Dmdr%20%7B%0Acolor%3A%20%23795da3%3B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0A%2Epl%2Dmo%20%7B%0Acolor%3A%20%231d3e81%3B%0A%7D%0Akbd%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0Apadding%3A%203px%205px%3B%0Afont%3A%2011px%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Menlo%2C%20Courier%2C%20monospace%3B%0Aline%2Dheight%3A%2010px%3B%0Acolor%3A%20%23555%3B%0Avertical%2Dalign%3A%20middle%3B%0Abackground%2Dcolor%3A%20%23fcfcfc%3B%0Aborder%3A%20solid%201px%20%23ccc%3B%0Aborder%2Dbottom%2Dcolor%3A%20%23bbb%3B%0Aborder%2Dradius%3A%203px%3B%0Abox%2Dshadow%3A%20inset%200%20%2D1px%200%20%23bbb%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20%7B%0Alist%2Dstyle%2Dtype%3A%20none%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%2B%2Etask%2Dlist%2Ditem%20%7B%0Amargin%2Dtop%3A%203px%3B%0A%7D%0A%2Etask%2Dlist%2Ditem%20input%20%7B%0Amargin%3A%200%200%2E35em%200%2E25em%20%2D1%2E6em%3B%0Avertical%2Dalign%3A%20middle%3B%0A%7D%0A%3Achecked%2B%2Eradio%2Dlabel%20%7B%0Az%2Dindex%3A%201%3B%0Aposition%3A%20relative%3B%0Aborder%2Dcolor%3A%20%234078c0%3B%0A%7D%0A%2EsourceLine%20%7B%0Adisplay%3A%20inline%2Dblock%3B%0A%7D%0Acode%20%2Ekw%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Edt%20%7B%20color%3A%20%23ed6a43%3B%20%7D%0Acode%20%2Edv%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Ebn%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Efl%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Ech%20%7B%20color%3A%20%23009999%3B%20%7D%0Acode%20%2Est%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Eco%20%7B%20color%3A%20%23969896%3B%20%7D%0Acode%20%2Eot%20%7B%20color%3A%20%230086b3%3B%20%7D%0Acode%20%2Eal%20%7B%20color%3A%20%23a61717%3B%20%7D%0Acode%20%2Efu%20%7B%20color%3A%20%2363a35c%3B%20%7D%0Acode%20%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%0Acode%20%2Ewa%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Ecn%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Esc%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Evs%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Ess%20%7B%20color%3A%20%23183691%3B%20%7D%0Acode%20%2Eim%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eva%20%7Bcolor%3A%20%23008080%3B%20%7D%0Acode%20%2Ecf%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eop%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Ebu%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Eex%20%7B%20color%3A%20%23000000%3B%20%7D%0Acode%20%2Epp%20%7B%20color%3A%20%23999999%3B%20%7D%0Acode%20%2Eat%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Edo%20%7B%20color%3A%20%23969896%3B%20%7D%0Acode%20%2Ean%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Ecv%20%7B%20color%3A%20%23008080%3B%20%7D%0Acode%20%2Ein%20%7B%20color%3A%20%23008080%3B%20%7D%0A">
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="class-8">Class 8</h1>
+<h1 id="data-in-r">Data in R</h1>
+<h2 id="functions">Functions</h2>
+<p>The usual ways to deal with your data in R is to use functions. They are simply named lists of commands residing in a computer memory that (usually) take argument(s), perform desired operations and often return a result. Functions we used before take only a single argument e.g. log() takes a number. However, functions often take multiple arguments, some of them optional. List of arguments and the way of using them, together with examples of usage can be found in function’s manual or help page. In RStudio information about a function can be invoked by typing <code>?</code> followed by the function’s name.</p>
+<h4 id="exercise-1">Exercise 1</h4>
+<p>Open the manual for <code>paste()</code> function</p>
+<hr />
+<blockquote>
+<h4 id="function-manual">Function manual</h4>
+<p>Usually a manual contains seven sections:</p>
+<ul>
+<li><code>Description</code> - what the function does</li>
+<li><code>Usage</code> - syntax</li>
+<li><code>Arguments</code> - names of arguments passed to the function and their meaning</li>
+<li><code>Details</code> - detailed description of the function behaviour</li>
+<li><code>Value</code> - the type of object the function returns</li>
+<li><code>References</code> - usually a book or article where the function was described for the first time or substantially modified</li>
+<li><code>Examples</code> - examples of usage</li>
+</ul>
+</blockquote>
+<h4 id="exercise-2">Exercise 2</h4>
+<p>Use <code>paste()</code> to stick together the following words <code>&#39;I&#39;m</code>, <code>&#39;using&#39;</code> and <code>&#39;R&#39;</code>. Don’t forget about quotation marks.</p>
+<p>Expected result:</p>
+<pre><code>[1] &quot;I&#39;m using R&quot;</code></pre>
+<hr />
+<p>Arguments passed to functions often have their own names. Distinctive names are crucial, because many functions take multiple arguments that have to be distinguished. Such named arguments are passed using the following pattern: <code>argument_name = argument_value</code>.</p>
+<h4 id="exercise-3">Exercise 3</h4>
+<p>Use the same function as above but set argument called <code>sep</code> (separator) to <code>_</code>.</p>
+<p>Expected result:</p>
+<pre><code>[1] &quot;I&#39;m_using_R&quot;</code></pre>
+<hr />
+<p>Note that whitespaces were replaced with underscore. However, where did the blank spaces come from at the first time? The answer is that some arguments have their default values that would be taken if no value for this argument is provided when calling the function.<br />
+In the example above case the default value for <code>sep</code> argument is space.</p>
+<blockquote>
+<h4 id="use-argument-names">Use argument names!</h4>
+<p>It’s a good practice to use argument names while calling a function. Although R can often “guess” the argument name from the order in which arguments appear, this not always works, especially, when the number of arguments is not strictly defined (<code>...</code> in the function description).<br />
+Another reason for using argument names is readability of the code, which is important for other users and for the future you! Try to stick to this rule as much as you can, although we admit that in commonly used functions with limited number of arguments it’s not always necessary.</p>
+</blockquote>
+<h2 id="vectors">Vectors</h2>
+<p>Vector is a series of elements (commonly numbers or strings) that are saved as a single variable. A new vector can be created with <code>c()</code> function in the following manner: <code>c(value_1,value_2,value_3,...)</code>.</p>
+<h4 id="exercise-4">Exercise 4</h4>
+<p>Create a vector containing integers from 5 to 10 and save it to a variable. Call it. Expected result:</p>
+<pre><code>[1]  5  6  7  8  9 10</code></pre>
+<hr />
+<p>To create a vector of consecutive integers you can type the limits of the range separated by a colon.</p>
+<h4 id="exercise-5">Exercise 5</h4>
+<p>Create a vector containing integers from 1 to 100 and save it to a variable <code>one_to_hundred</code>. Call it.</p>
+<p>Expected result:</p>
+<pre><code>  [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+ [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+ [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+ [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+ [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+ [91]  91  92  93  94  95  96  97  98  99 100</code></pre>
+<hr />
+<blockquote>
+<h4 id="ranges-in-r">Ranges in R</h4>
+<p>R considers ranges fully inclusive, which means that both limits of the range will be included in the generated vector.</p>
+</blockquote>
+<p>To create a vector of consecutive numbers which differ by a given value, use <code>seq()</code> function. Note that the function will return a vector so there’s no need to use <code>c()</code>.</p>
+<h4 id="exercise-6">Exercise 6</h4>
+<p>Consult <code>seq()</code> manual and then, using <code>seq()</code> function, create a vector of numbers between 0 and 1 that differ by 0.1.</p>
+<pre><code> [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</code></pre>
+<hr />
+<p>To create a vector of repeated values, use <code>rep()</code> function:</p>
+<h4 id="exercise-7">Exercise 7</h4>
+<p>Consult <code>rep()</code> manual and then, using <code>rep()</code> function, create a vector consisting of a sequence of 1, 2 and 3 repeated 20 times. Save it as a variable <code>repeated</code>.</p>
+<pre><code> [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2
+[39] 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3</code></pre>
+<hr />
+<p>All elements of a vector have to be of the same type. While you try to combine elements of different types, R will convert all of them to the most “general” type (more on types later).</p>
+<h4 id="exercise-8">Exercise 8</h4>
+<p>Create a vector from 1 to 4 with odd numbers typed as integers and even numbers typed as words. What is the outcome? A vector of integers or a vector of strings? Why?</p>
+<hr />
+<h2 id="operations-on-vectors">Operations on vectors</h2>
+<blockquote>
+<h3 id="useful-functions">Useful functions</h3>
+<p><code>min()</code> - minimum value<br />
+<code>max()</code> - maximum value<br />
+<code>sum()</code> - sum of all elements in a vector<br />
+<code>prod()</code> - product of all elements in a vector<br />
+<code>mean()</code> - the average of all elements in a vector<br />
+<code>median()</code> - median<br />
+<code>length()</code> - the number of elements in a vector<br />
+<code>sort()</code> - sort values (default is ascending order, use <code>decreasing = TRUE</code> to sort in descending order)<br />
+<code>unique()</code> - return unique values, i. e., discard duplicates<br />
+<code>round()</code> - round numbers (to integers by default)</p>
+</blockquote>
+<h4 id="exercise-9">Exercise 9</h4>
+<p>Calculate the mean and median of vector <code>one_to_hundred</code> from Ex. 5.</p>
+<p>Expected results:</p>
+<pre><code>[1] 50.5
+
+[1] 50.5</code></pre>
+<hr />
+<h4 id="exercise-10">Exercise 10</h4>
+<p>Sort vector <code>repeated</code> from Ex. 7 and return its unique values.</p>
+<p>Expected results:</p>
+<pre><code> [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+[39] 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+
+[1] 1 2 3</code></pre>
+<hr />
+<p>You can perform standard mathematical operations on vectors, which, as you will see, is very handy in data analysis. There is an important rule to remember: shorter vector will be <strong>recycled</strong> (repeated) until it reaches length of the longer one (single number is treated as vector of length 1).</p>
+<h3 id="examples">Examples:</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>) <span class="sc">+</span> <span class="dv">5</span>      <span class="co"># 5 is added to each element, the same as c(1,2,3,4) + c(5,5,5,5)</span></span></code></pre></div>
+<pre><code>[1] 6 7 8 9</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>) <span class="co"># the same as c(1,2,3,4) + c(1,2,1,2)</span></span></code></pre></div>
+<pre><code>[1] 2 4 4 6</code></pre>
+<h4 id="exercise-11">Exercise 11</h4>
+<p>Raise each element of vector <code>one_to_hundred</code> to the power of 3. Assign result to variable <code>power_3</code>.<br />
+Expected result:</p>
+<pre><code>  [1]       1       8      27      64     125     216     343     512     729
+ [10]    1000    1331    1728    2197    2744    3375    4096    4913    5832
+ [19]    6859    8000    9261   10648   12167   13824   15625   17576   19683
+ [28]   21952   24389   27000   29791   32768   35937   39304   42875   46656
+ [37]   50653   54872   59319   64000   68921   74088   79507   85184   91125
+ [46]   97336  103823  110592  117649  125000  132651  140608  148877  157464
+ [55]  166375  175616  185193  195112  205379  216000  226981  238328  250047
+ [64]  262144  274625  287496  300763  314432  328509  343000  357911  373248
+ [73]  389017  405224  421875  438976  456533  474552  493039  512000  531441
+ [82]  551368  571787  592704  614125  636056  658503  681472  704969  729000
+ [91]  753571  778688  804357  830584  857375  884736  912673  941192  970299
+[100] 1000000</code></pre>
+<hr />
+<h2 id="accessing-elements-of-a-vector">Accessing elements of a vector</h2>
+<p>Vector can be subset in the following manner: <code>vector_name[element_index]</code>.</p>
+<h4 id="exercise-12">Exercise 12</h4>
+<p>Return 15<sup>th</sup> element of the vector <code>power_3</code>.</p>
+<p>Expected result:</p>
+<pre><code>[1] 3375</code></pre>
+<hr />
+<p>Colon can be used for ranges just as when creating vector.</p>
+<h4 id="exercise-13">Exercise 13</h4>
+<p>Return 2<sup>nd</sup> to 20<sup>th</sup> elements of the vector <code>power_3</code>.</p>
+<p>Expected result:</p>
+<pre><code> [1]    8   27   64  125  216  343  512  729 1000 1331 1728 2197 2744 3375 4096
+[16] 4913 5832 6859 8000</code></pre>
+<hr />
+<p>To obtain multiple, non-consecutive elements of a vector, use vector as <code>element_index</code>.</p>
+<h4 id="exercise-14">Exercise 14</h4>
+<p>Return 15<sup>th</sup>, 30<sup>th</sup> and 45<sup>th</sup> elements of the vector<code>power_3</code>.<br />
+Expected result:</p>
+<pre><code>[1]  3375 27000 91125</code></pre>
+<hr />
+<h4 id="exercise-15">Exercise 15</h4>
+<p>Create a vector consisting of indexes used in Ex. 11 and 12 and assign it to a variable. Return corresponding elements of the vector <code>power_3</code>.</p>
+<p>Expected result:</p>
+<pre><code> [1]     8    27    64   125   216   343   512   729  1000  1331  1728  2197
+[13]  2744  3375  4096  4913  5832  6859  8000  3375 27000 91125</code></pre>
+<hr />
+<p>When creating a vector, you can combine both ranges and single indexes with <code>c()</code> function.</p>
+<blockquote>
+<h4 id="saving-history">Saving history</h4>
+<p>To save your code written during the class, type the commands below to save the R history. Change file name to include your surname and send it to your course instructor via email.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">savehistory</span>(<span class="at">file =</span> <span class="st">&quot;my_history.txt&quot;</span>)     <span class="co"># saves your R history to the file &quot;my_history.txt&quot;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()                                  <span class="co"># displays where the file was saved</span></span></code></pre></div>
+</blockquote>
+<h2 id="working-directory">Working directory</h2>
+<p>Working directory is a folder on your computer where R is operating at the moment. Think about it as a separate room for a given analysis. R will look for and save all files in the working directory by default. You can check current working directory by typing <code>getwd()</code>.</p>
+<p>To set new working directory in RStudio use <code>Session -&gt; Set Working Directory -&gt; Choose Directory</code> or use <code>setwd()</code> function with a destination path provided as an argument - don’t forget about quotes.</p>
+<p>Unless you continue a previous analysis, ALWAYS set new working directory.</p>
+<h4 id="exercise-16">Exercise 16</h4>
+<p>Create a new folder and set it as your working directory.</p>
+<blockquote>
+<h4 id="r-project-as-an-alternative-to-working-directory">R project as an alternative to working directory</h4>
+<p>TODO</p>
+</blockquote>
+<hr />
+<h2 id="lets-start-some-real-work">Let’s start some real work!</h2>
+<p>Before performing any new analysis in RStudio make sure three things are done:</p>
+<ol style="list-style-type: decimal">
+<li>An appropriate working directory is set.</li>
+<li>New “R script” text file with extension <code>.R</code> is created (<code>File -&gt; New File -&gt; Rscript</code>).</li>
+<li>Global environment is empty. You can clear it by clicking the <strong>broom icon</strong> in the <code>Environment</code> panel or by typing <code>rm(list = ls())</code></li>
+</ol>
+<h2 id="data-frames">Data frames</h2>
+<p>The picture below visualises differences between numbers (or strings), vectors and data frames:</p>
+<p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhsAAAC+CAYAAACcac3JAAAAiXpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjaVY7bCcQwDAT/VcWVoJf1KOcSbEgHKf9knMNkPqRlsQdBv68BnwkhgzYPSzMsNDX5WyFwIYjESHPXXDxbqBLvGoRXsAxH3Q/16f80sbDh6m7NTju57NyFJWrWP5hWnGfkltCBSyPv/uhvOfwAUE8ssZgZM9gAAAoGaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/Pgo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA0LjQuMC1FeGl2MiI+CiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICB4bWxuczpleGlmPSJodHRwOi8vbnMuYWRvYmUuY29tL2V4aWYvMS4wLyIKICAgIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIgogICBleGlmOlBpeGVsWERpbWVuc2lvbj0iNTM5IgogICBleGlmOlBpeGVsWURpbWVuc2lvbj0iMTkwIgogICB0aWZmOkltYWdlV2lkdGg9IjUzOSIKICAgdGlmZjpJbWFnZUhlaWdodD0iMTkwIgogICB0aWZmOk9yaWVudGF0aW9uPSIxIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg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" alt="objects" /></p>
+<p>Data frame is something you probably know as a “table”, similar to, e. g., spreadsheet table. However it has some unique characteristics:</p>
+<ol style="list-style-type: decimal">
+<li>It always has a header. It means that each column must have its unique name. If names are not provided by the user, R creates them automatically as <code>V</code> (as “Variable”) followed by the consecutive number.</li>
+<li>Data frame is always complete. It means that each column has the same number of rows. If some data are missing R puts <code>NA</code> (“Not Available”) in a given cell.</li>
+<li>An individual column of a data frame, similarly to vectors, can contain only a single type of data, but different columns can be of different types.</li>
+</ol>
+<h2 id="data-import-and-display">Data import and display</h2>
+<p>Usually, data imported into R are in the form of text files. Commonly used extensions:</p>
+<ul>
+<li><code>.csv</code> - comma-separated values - rows defined as lines of text, columns separated by <code>,</code> (see Class 2, remember about dialects, for example Polish uses <code>;</code> instead of <code>,</code> )</li>
+<li><code>.tsv</code> - tab-separated values - rows defined as lines of text, columns separated by <code>tab</code> (see Class 2)</li>
+<li><code>.txt</code> - can be any of these or some other form of text file. If not properly structured may be challenging to get into R in a proper form.</li>
+</ul>
+<h4 id="exercise-17">Exercise 17</h4>
+<p>Copy and execute the command below to download the file <code>CO2.csv</code> we are going to work with, to your working directory: `</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download.file</span>(<span class="at">url =</span> <span class="st">&quot;https://dl.dropbox.com/s/41kxqpagkvimsle/CO2.csv?dl=1&quot;</span>,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">destfile =</span> <span class="fu">paste</span>(<span class="fu">getwd</span>(),<span class="st">&quot;/CO2.csv&quot;</span>,<span class="at">sep =</span> <span class="st">&quot;&quot;</span>))</span></code></pre></div>
+<hr />
+<blockquote>
+<h4 id="built-in-datasets">Built-in datasets</h4>
+<p>R provides many training datasets that are built-in into R and can be called directly by their names. Their list of them can be obtained by calling <code>data()</code> function. The description of each dataset can be accessed by typing <code>?</code> followed by its name. <code>CO2</code> is one of built-in datasets, however, we downloaded it manually to learn how to import external datasets.</p>
+</blockquote>
+<h4 id="exercise-18">Exercise 18</h4>
+<p>Open description of <code>CO2</code> dataset. Check the description of the study and the meaning of column headers.</p>
+<hr />
+<h4 id="exercise-19">Exercise 19</h4>
+<p>Import <code>CO2.csv</code> file into R with <code>read.table()</code> function and assign it <code>my_data</code> variable. Check function manual for the information about its arguments values. Call <code>my_data</code>. First 10 lines of the expected output are shown below:</p>
+<pre><code>  Plant   Type  Treatment conc uptake
+1   Qn1 Quebec nonchilled   95   16.0
+2   Qn1 Quebec nonchilled  175   30.4
+3   Qn1 Quebec nonchilled  250   34.8
+4   Qn1 Quebec nonchilled  350   37.2
+5   Qn1 Quebec nonchilled  500   35.3
+6   Qn1 Quebec nonchilled  675   39.2
+7   Qn1 Quebec nonchilled 1000   39.7
+8   Qn2 Quebec nonchilled   95   13.6
+9   Qn2 Quebec nonchilled  175   27.3</code></pre>
+<hr />
+<blockquote>
+<h4 id="prevewing-and-viewing-tables">Prevewing and viewing tables</h4>
+<p>While importing a new file int R, it’s a good practice to display it before in any simple, external text editor (e.g., Notepad++) to see its structure. It helps to set the arguments of <code>read.table()</code> properly.<br />
+Displaying tables in a console is often not very informative, especially when the number of columns or rows is large.<br />
+R Studio provides an easy tool for intuitive visualization of data frames. It’s <code>View()</code> function (note that it starts with a capital letter). You can call it also by simply clicking on a data frame within the <code>Environment</code> panel.</p>
+</blockquote>
+<h4 id="exercise-20">Exercise 20</h4>
+<p>Call built-in dataset <code>infert</code>. Can you see the entire table? If not, what is missing? Write your answer as a comment within the script file.</p>
+<hr />
+<h4 id="exercise-21">Exercise 21</h4>
+<p>Display <code>my_data</code> from Ex. 16 with <code>View()</code> function. In the view windows on column header to sort the data according to the values in a given column. In which region CO2 uptake is the highest? Write your answer as a comment within the script file.</p>
+<hr />
+<blockquote>
+<h4 id="quick-summaries">Quick summaries</h4>
+<p>To print the summary of a data frame in the console, use <code>summary()</code> function. It will provide simple statistics for each column separately. You can display a few rows from the beginning of data frame with <code>head()</code> and from the end of data frame with <code>tail()</code>.</p>
+</blockquote>
+<h2 id="types-of-data">Types of data</h2>
+<p>All values inside a single data frame column must be of the same data type, but the columns can be of different types. Type of data within a column is defined by its <strong>type</strong>. The most popular types are:</p>
+<ul>
+<li><code>character</code> - strings (remember that numbers surrounded by quotation marks are also treated as strings)</li>
+<li><code>factor</code> - strings with the levels carrying information about the number of occurrences and order of strings. Factors are commonly used when doing statistics in R, where they serve as indicators of the <a href="https://www.statsdirect.com/help/basics/measurement_scales.htm">nominal scale</a>. Set as default for columns with strings. To change this behavior set the <code>stringAsFactors</code> argument of importing function to <code>FALSE</code>.</li>
+<li><code>double</code> - real (floating point) numbers</li>
+<li><code>integer</code> - integer. Both <code>integer</code> and <code>double</code> can be interpreted as numbers, therefore they together constitute type <code>numeric</code>.</li>
+<li><code>logical</code> - logical values (<code>TRUE</code> or <code>FALSE</code>)</li>
+</ul>
+<blockquote>
+<h4 id="conversion-between-types">Conversion between types</h4>
+<p>You can convert different data types with the use of <code>as...</code> function family, e.g., <code>as.character()</code>, <code>as.factor()</code> etc. Note, however, that not all conversions are permitted e.g. a letter cannot be converted into an integer. The general rule is that a simpler type can always be represented as a more complex type, but generally not vice versa. Types in the order or increasing complexity: <code>logical</code>, <code>integer</code>, <code>character</code> To change class of a column you need to replace whole column with the result of <em>as…</em> function.</p>
+</blockquote>
+<p>Type of a column can be checked by displaying data frame with <code>View()</code> function and placing mouse cursor over the column header.</p>
+<h4 id="exercise-22">Exercise 22</h4>
+<p>Check the class of column <code>uptake</code>. Write your answer as a comment within the script file.</p>
+<hr />
+<p>Type of column can be also checked with <code>typeof()</code> or <code>class()</code> functions, the latter providing more detailed information.</p>
+
+</body>
+</html>

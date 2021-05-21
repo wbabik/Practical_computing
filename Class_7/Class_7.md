@@ -2,26 +2,6 @@
 # Class 7
 
 # R and RStudio basics
-  * [What is R?](#what-is-r)
-  * [Installation](#installation)
-  * [R as a calculator](#r-as-a-calculator)
-      * [Exercise 1](#exercise-1)
-      * [Exercise 2](#exercise-2)
-      * [Exercise 3](#exercise-3)
-      * [Exercise 4](#exercise-4)
-      * [Exercise 5](#exercise-5)
-  * [R studio](#r-studio)
-    * [Installation and appearance](#installation-and-appearance)
-      * [Exercise 6](#exercise-6)
-  * [Variables](#variables)
-      * [Exercise 7](#exercise-7)
-      * [Exercise 8](#exercise-8)
-      * [Exercise 9](#exercise-9)
-      * [Exercise 10](#exercise-10)
-  * [str() and understanding the structure of R objects](#str-and-understanding-the-structure-of-r-objects)
-  
-***  
-  
 
 ## What is R?
 
@@ -34,14 +14,14 @@ R is a powerful programming language, broadly used for:
 -   … and much more
 
 R is a particularly popular tool in biology, so knowing the basics of R
-is an important asset of any bilogist
+is an important asset of any biologist.
 
 ## Installation
 
 To install R for Windows follow the
 [link](https://cran.uni-muenster.de/bin/windows/base/) and then click on
 “Download R – *version\_number* – for Windows”. As of the time of
-writing the currect R version was 4.0.5.  
+writing the currect R version was 4.1.0.  
 To install R for OS X (Macs) follow the
 [link](https://cran.uni-muenster.de/) and then click on “Download R for
 (Mac) OS X”  
@@ -88,7 +68,8 @@ Expected result:
 
 ------------------------------------------------------------------------
 
-> R also provides two additional operators:  
+> R also provides two additional operators:
+>
 > `%%` - **modulus** - returns the remainder from the division of one
 > number by another, e. g., `10 %% 3 = 1`
 >
@@ -98,7 +79,7 @@ Expected result:
 #### Exercise 3
 
 For numbers 10, 156, 557, 777 and 1055, check which one are divisible by
-7 (i.e., divisible without remainder)
+7 (i.e., divisible without remainder).
 
 ------------------------------------------------------------------------
 
@@ -129,9 +110,8 @@ Expected result:
 > to a given power  
 > `sin()`, `cos()`, `tan()` trigonometric functions  
 > `abs()` absolute value  
-> The argument of the function is provided in parentheses, e.g.,
-> exponent of e for \`exp() or the angle in radians for trigonometric
-> functions.
+> The argument of a function is provided in parentheses, e.g., exponent
+> of e for \`exp() or the angle in radians for trigonometric functions.
 
 #### Exercise 5
 
@@ -144,22 +124,22 @@ Expected result:
 
 ------------------------------------------------------------------------
 
-## R studio
+## RStudio
 
 RStudio is a shell and programming environment for the R language. It
 makes working with R much easier and more intuitive by providing a user
 interface to R features originally hidden behind R functions and R
-console. However, remember that all actions can be also performed within
+console. However, remember that the same actions can be performed within
 the classical R console, e. g. if you work on a remote server without
 GUI.
 
 ### Installation and appearance
 
 Follow the [link](https://rstudio.com/products/rstudio/download/),
-choose the appropriate operating system and install R studio. Have in
+choose the appropriate operating system and install RStudio. Have in
 mind that R needs to be installed first (as we did here).
 
-R Studio has three major advantages over the classical R console:
+RStudio has three major advantages over the classical R console:
 
 -   you can easily save and edit your code as a text file (give it `.R`
     extension)  
@@ -167,13 +147,14 @@ R Studio has three major advantages over the classical R console:
 -   displaying all R objects and variables saved in your computer memory
     at any given moment - you can check whether R is doing behind the
     scenes what you think is doing
+-   projects (see next class)
 
 The R Studio workspace consists of four main panels:
 
 ![Rstudio\_ide](https://sfg-ucsb.github.io/fishery-manageR/images/rstudio_ide.png)
 
 1.  **Code editor** - write your code and save it in a text file (.R).
-    You can run it anytime by highlighting aa given piece of code and
+    You can run it anytime by highlighting a given piece of code and
     clicking `Run` in right-top corner (or pressing
     <kbd>Ctrl</kbd>+<kbd>R</kbd>).
 2.  **Console** - Exactly the same console as in standard R (see above).
@@ -217,19 +198,22 @@ code first.
 We know already bash variables. Here a bit more about variables in R.
 Until you name something it does not exist in a computer memory! Any
 result of the execution of a command within the console perishes when
-the calculation is finished, unless you assign it variable. So, roughly
-speaking, named objects within the computer memory are called
+the calculation is finished, unless you assign it to a variable. So,
+roughly speaking, named objects within the computer memory are called
 “variables”. You can create one by using arrows (assignment symbol) in
-the following manner:  
-`variable_name <- object_to_be_assigned`  
+the following manner:
+
+`variable_name <- object_to_be_assigned`
+
 You can easily recall the value of the variable later on by typing its
-name. The assignment operation is common and handy a keyboard shortcut
-<kbd>Alt</kbd>+<kbd>-</kbd>exists.
+name. The assignment operation is common and there’s a handy keyboard
+shortcut <kbd>Alt</kbd>+<kbd>-</kbd>.
 
 #### Exercise 7
 
 Assign `5` to a variable, giving it any name you want. Then type the
-name in console and press <kbd>Enter</kbd> Expected result:
+name in console and press <kbd>Enter</kbd>.  
+Expected result:
 
     [1] 5
 
@@ -240,12 +224,12 @@ name in console and press <kbd>Enter</kbd> Expected result:
 > Variable names are case sensitive and cannot contain blank spaces or
 > start with a digit (similar as in bash). When you want to combine
 > several words into a single name use the underscore (`_`). By
-> convention dots are used for function names and, while allowed, should
-> be avoided in variable names.
+> convention dots are used for function names and, while allowed, they
+> are not recommended in variable names.
 
 Once an object is assigned to variable, its name can replace the value
 of the object in any R command, e. g., if `2` is assigned to `x`, both
-`2 + 3` and `x + 3` would produce the result `5`.
+`2 + 3` and `x + 3` would produce the same result `5`.
 
 #### Exercise 8
 
@@ -281,4 +265,4 @@ Assign your name to variable `my_name`. Call it.
 When in doubt about the nature of any named R object, be it a named
 variable, function, dataset, you can learn a lot about what it is using
 `str()` function. Please consult manual of `str()` and test yourself
-some of the examples provided in the manual
+some of the examples provided in the manual.
