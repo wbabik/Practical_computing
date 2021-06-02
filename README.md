@@ -10,5 +10,6 @@ This is repository of Practical Computing for Biologists Instructions
 * [Class_7: **R and RStudio basics**](https://github.com/wbabik/Practical_computing/blob/main/Class_7/Class_7.md)
 * [Class_8: **Data in R**](https://github.com/wbabik/Practical_computing/blob/main/Class_8/Class_8.md)
 * [Class_9: **Subsetting and working with data frames**](https://github.com/wbabik/Practical_computing/blob/main/Class_9/Class_9.md)
-* [Class_10: **dplyr**](https://github.com/wbabik/Practical_computing/blob/main/Class_10/Class_10.md)
+* Class_10: **Base R graphics and ggplot2 (I)**
+* [Class_11: **dplyr**](https://github.com/wbabik/Practical_computing/blob/main/Class_11/Class_11.md)
 
