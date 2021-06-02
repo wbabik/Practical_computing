@@ -1,5 +1,5 @@
 
-# Class 10
+# Class 11
 
 # `dplyr`
   * [dplyr and tidyverse](#dplyr-and-tidyverse)
