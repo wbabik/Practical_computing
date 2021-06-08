@@ -2,9 +2,9 @@
 
 # Working in Linux shell I
   * [Wildcards and operations on many files](#wildcards-and-operations-on-many-files)
-    * [HIV and SIV sequences](#hiv-and-siv-sequences)
-  * [Exercise 1](#exercise-1)
-  * [Editing text files with Nano](#editing-text-files-with-nano)
+      * [Exercise 1](#exercise-1)
+  * [Editing text files with nano](#editing-text-files-with-nano)
+      * [Basic navigation and saving in Nano](#basic-navigation-and-saving-in-nano)
   * [Downloading files from the Internet](#downloading-files-from-the-internet)
   * [Standard input, output, redirection and pipe](#standard-input-output-redirection-and-pipe)
     * [Redirection](#redirection)
