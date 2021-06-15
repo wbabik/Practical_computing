@@ -51,7 +51,7 @@ fi
 > |    `-n TEXT`     |     text string length > 0     |         `[ -n cat]`         |
 > |    `-z TEXT`     |  text string length equals 0   |          `[ -z ]`           |
 > | `TEXT1 = TEXT2`  | two text strings are identical |      ` [ cat = cat ] `      |
-> | `TEXT1 != TEXT2` | two text strings are different |       `[ Cat = cat ]`       |
+> | `TEXT1 != TEXT2` | two text strings are different |       `[ Cat != cat ]`       |
 >
 > Conditions for integers
 >
@@ -73,7 +73,7 @@ fi
 > Condition can also take a form of equation, which is then enclosed in double braces:
 >
 > ``` bash
-> if (( 10 % 2 == 0))		#if remainder from dividing 10 by 2 is 0, then..
+> if (( 10 % 2 == 0 ))		#if remainder from dividing 10 by 2 is 0, then..
 > then ...				
 > ```
 >
@@ -235,7 +235,7 @@ done
 
 #### Exercise 4
 
-Modify script `epidemy2.sh` from the previous class so that it saves in file `June_difficult_cases.txt` names of all files that contain difficult cases (complications or death) diagnosed in June2021. Save the modified script as `epidemy3.sh`. How many files were there. **Tip**: it's a good idea to test the script on a portion of data (e. g., files `pacjent11*.txt`) as searching through all 20,112 files will take a while.
+Modify script `epidemy2.sh` so that it saves in file `June_difficult_cases.txt` names of all files that contain difficult cases (complications or death) diagnosed in June2021. Save the modified script as `epidemy3.sh`. How many files were there. **Tip**: it's a good idea to test the script on a portion of data (e. g., files `pacjent11*.txt`) as searching through all 20,112 files will take a while.
 
 ---
 
