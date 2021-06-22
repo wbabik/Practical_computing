@@ -15,7 +15,6 @@
       * [Exercise 5](#exercise-5)
       * [Exercise 6](#exercise-6)
       * [Exercise 7](#exercise-7)
-      * [Exercise 8](#exercise-8)
 
 ***
   
@@ -81,8 +80,8 @@ Please change your password. In the terminal, type the command:
 You will be guided through the steps of changing your password. Please enter your passwords carefully!  
   
 **Remember!** Uppercase letters are not the same as lowercase in Linux ! The new password should be difficult to crack. Please make it at least 8 characters long, including a capital letter and a number.  
-  
-**Remember or write down the new password!** You will use it from now on.  
+
+Remember or write down the new password! You will use it from now on.  
 ---   
 &nbsp;  
   
@@ -294,17 +293,17 @@ Within the parent directory *scripts*, you have created another directory. Our f
 > Folder and file names are often long and difficult to type. Please check what happens when you enter just the first few letters of its name and press the <kbd>Tab</kbd> key. This is called the Tab completion or autocompletion feature. Use it as often as possible to do less typing and avoid typos. After completing the file name, you can go to the end of the line and finish typing the command (you can also continue to use Tab completion).  
 &nbsp;  
   
-#### Exercise 6
+#### Exercise 5
 Please display content of directory `/data`. How do files and directories look like?
 ---  
 &nbsp;  
 
-#### Exercise 7
+#### Exercise 6
 Use autocompletion to copy the file `GCF_000001405.39 ...` from the directory `/data` to the `genome` directory you created. This is a file containing information about the human genome assembly. We will use it as an example of a text file later on.
 ---
 &nbsp;  
   
-#### Exercise 8
+#### Exercise 7
 Please view the manual pages for the `ls` command. Which `ls` option will show all files, including hidden files (hidden filenames start with a period on Linux)?</br>
 When inside the manual, you can search its contents by typing:
 
