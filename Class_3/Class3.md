@@ -2,13 +2,16 @@
 
 # Introduction to Linux command line, connecting to a remote Linux machine, moving around in the Linux system
   * [Why is it worth learning to work with the command line?](#why-is-it-worth-learning-to-work-with-the-command-line)
-  * [Working in a Linux terminal](#working-in-a-linux-terminal)
+  * [Linux - basics](#linux-basics)
   * [How to open a terminal?](#how-to-open-a-terminal)
+  * [Working in a Linux terminal](#working-in-a-linux-terminal)
       * [Exercise 1](#exercise-1)
-  * [A few notes and useful commands to get you started.](#a-few-notes-and-useful-commands-to-get-you-started)
+  * [A few notes and useful commands to get you started](#a-few-notes-and-useful-commands-to-get-you-started)
       * [Exercise 2](#exercise-2)
       * [Exercise 3](#exercise-3)
+  * [Getting around in the Linux environment: more commands, and how to use them](#getting-around-in-the-linux-environment-more-commands-and-how-to-use-them)
       * [Exercise 4](#exercise-4)
+  * [Making your life easier, and working with real files](#making-your-life-easier-and-working-with-real-files)
       * [Exercise 5](#exercise-5)
       * [Exercise 6](#exercise-6)
       * [Exercise 7](#exercise-7)
@@ -25,7 +28,7 @@ Please think how many steps you need to copy the second and third lines from the
 One solution to this task takes you to type a few lines of text in the terminal, and an average computer will complete the task for you in couple of seconds.  We will return to this task in Classes 5 and 6.  
 &nbsp;  
   
-## Working in a Linux terminal
+## Linux - basics
 **Linux** is a free operating system that, apart from graphical user environment (GUI), allows a very efficient work in the command line mode (terminal) using shell. **Shell** is the part of the operating system that is responsible for how the terminal looks and functions and how the system executes commands. The most commonly used type of shell is **bash** (Bourne again shell). Linux and Linux-like systems are ubiquitous in scientific computing, including computer clusters that are increasingly used in various areas of biology. The working knowledge of Linux command line is thus an important part of a biologist's toolbox.
 
 So, in practical terms:
@@ -63,7 +66,7 @@ After pressing <kbd>Enter</kbd> you will be asked to enter your password.
   
   
 ## Working in a Linux terminal - 
-After starting your shell session, you should sew a **prompt line**. It will look more or less like this:
+After starting your shell session, you should see a **prompt**. It will look more or less like this:
 ```
 user181@apollo:/home/user181$
 ```   
@@ -73,9 +76,11 @@ It contains the user name, server name, current working directory, and an invita
 #### Exercise 1
 Please change your password. In the terminal, type the command:
   
-`passwd` and press <kbd>Enter</kbd>.
+`passwd` and press <kbd>Enter</kbd>
   
-You will be guided through the steps of changing your password. Please enter your passwords carefully!  **Remember! Uppercase letters are not the same as lowercase in Linux !!!** The new password should be difficult to crack. Please make it at least 8 characters long, including a capital letter and a number.
+You will be guided through the steps of changing your password. Please enter your passwords carefully!  
+  
+**Remember! Uppercase letters are not the same as lowercase in Linux !!!** The new password should be difficult to crack. Please make it at least 8 characters long, including a capital letter and a number.
 **Remember or write down the new password!** You'll use it from now on.  
 ---   
 &nbsp;  
@@ -123,7 +128,6 @@ The command `cd`, or an abbreviation from *change directory*, needs to be run wi
 4. Type `mkdir output_files` and press <kbd>Enter</kbd>.  
 Within the parent directory *scripts*, you have created another directory. The folder structure is getting complicated!  
 ---  
-&nbsp;  
   
 #### Now, let's inspect what we have created, and how to navigate!
 > ### Files, directories (folders) and paths
@@ -181,8 +185,7 @@ Within the parent directory *scripts*, you have created another directory. The f
 ---  
 &nbsp;  
   
-  
-## Getting around in the Linux environment: more commands, and how to get them to work!
+## Getting around in the Linux environment: more commands, and how to use them!
   
 > ### Commands, their options, and some caveats!
 > **Important!** If something in the commands typed below is enclosed in `[]`, it means that it's not an obligatory part of the command syntax, but rather it's optional. Do not type parentheses in the terminal! For example, the command:
@@ -201,14 +204,16 @@ Within the parent directory *scripts*, you have created another directory. The f
 > `ls -l /home/user102/genome`
 > 
 > will display the contents of the genome directory, also in long format.  
+&nbsp;  
   
 > ### Spaces are important
 > The command will not be understood by the shell if we enter a space where it shouldn't be (e. g., by typing `- l` instead of `-l` or `/ home / user102 / genome` instead of `/home/user102/genome`). Spaces, however, are necessary between the components of the command:
 > 
 > `ls -l /home/user102/genome` will work, while `ls-l/home/user102/genome` will throw an error
 >
-> **Important**
+> **Error messages**
 > Usually, an incorrectly typed command only results in a message that shell didn't understand and didn't carry out the command. If you accidentally type a command that causes the terminal to hang (no prompt, can't type anything), press <kbd>Ctrl</kbd> and <kbd>C</kbd> at the same time - this should terminate the  process. Remember this shortcut, you'll use it many times during the course!  
+&nbsp;  
   
 > ### Useful commands and utilities Part 1
 > `pwd` </br> 
@@ -244,7 +249,7 @@ Within the parent directory *scripts*, you have created another directory. The f
 > (word count) Returns the number of lines, words and characters contained in the file. The `-l` option gives only the number of lines, `-w` only the number of words, `-c` only the number of characters.
 >
 > `man [options] command`
-> (manual) Opens the manual for the command. Man displays comprehensive documentation of the command/program, which may be quite technical. To get more limited, but often more accessible help, many programs support `--help` option
+> (manual) Opens the manual for the command. Man displays comprehensive documentation of the command/program, which may be quite technical. To get more limited, but often more accessible help, many programs support `--help` or `-h` option. Or use Google :)
 >
 > `passwd`
 > (password) Allows the user to change his password, as we already did.
@@ -252,8 +257,16 @@ Within the parent directory *scripts*, you have created another directory. The f
 > `exit`
 > Ends the session and closes the terminal.  
 &nbsp;    
-
-
+  
+> ### Wildcards
+> Often, you will want to execute the same command on several files or folders. You can do this using **wildcards**
+> 
+> `?` indicates any character, but only one, in the folder or file name.
+> `ls file?.txt` will list *file1.txt* and *file2.txt*, but not *file10.txt*
+>
+> `*` indicates a series of characters of any length.
+> `rm file*` will remove any files the name of which starts with *file*!
+  
   
 #### Exercise 4
 1. Within the `scripts` directory create three empty files, *file1.txt* *file2.txt* *file3.txt*.
@@ -261,35 +274,35 @@ Within the parent directory *scripts*, you have created another directory. The f
 3. Copy *results.txt* to the directory `genome` and save it under the new name, *genome_results.txt*
 4. Copy the whole folder `output_files`, with all files, to the directory `genome`
 5. From `output_files` directory, remove all files with *file* in their name.
-6. Change your working directory to home directory, and from there, remove the *results.txt* file that you left in the output directory.
-7. While within home directory, remove all files from the `genome/output_files/`, and then that directory itself!
----
-
-
-
-#### Exercise 5
-Please create directories and subdirectories in your home directory to recreate the tree shown above (downstream the `user102` directory).
-**Tip** To create a directory and subdirectory at once, you can use the `mkdir -p` option.
-
----
-
-
+6. Change your working directory to home directory, and from there, remove the *genome_results.txt* file that you had placed in the `genome` directory.
+7. While within home directory, remove all files from the `genome/output_files/`, and then that directory itself.
+---  
+&nbsp;  
+  
+## Making your life easier, and working with real files!
+  
 > ### History
 > Typing commands can be tiresome, but you can reuse the commands you typed previously. The commands that were typed in the terminal are remembered as **History**. To recall them, you can use the <kbd>↑</kbd> <kbd>↓</kbd> arrows, and then change only part of the command (arrows <kbd>→</kbd> <kbd>←</kbd>, <kbd>Backspace</kbd>, <kbd>Delete</kbd> keys).
-
+>  .
+> Also, you can use the command `history` to list commands executed recently!
+> .
+> When reusing old commands, it is helpful to use shortcuts Ctrl+A, Ctrl+E - jumping to the beginning/end of the edited command.  
+&nbsp;  
+  
+> ### Autocompletion
+> Folder and file names are often long and difficult to type. Please check what happens when you enter just the first few letters of its name and press the <kbd>Tab</kbd> key. This is called the Tab completion or autocompletion feature. Use it as often as possible to do less typing and avoid typos. After completing the file name, you can go to the end of the line and finish typing the command (you can also continue to use Tab completion).  
+&nbsp;  
+  
 #### Exercise 6
 Please display content of directory `/data`. How do files and directories look like?
-
----
+---  
+&nbsp;  
 
 #### Exercise 7
-Please read the `Autocompletion` box below and copy the file `GCF_000001405.39 ...` from the directory `/data` to the `genome` directory you created. This is a file containing information about the human genome assembly. We will use it as an example of a text file later on.
-
+Use autocompletion to copy the file `GCF_000001405.39 ...` from the directory `/data` to the `genome` directory you created. This is a file containing information about the human genome assembly. We will use it as an example of a text file later on.
 ---
-
-> ### Autocompletion
-> The file has a long name that is difficult to type. Please check what happens when you enter just the first few letters of its name and press the <kbd>Tab</kbd> key. This is called the Tab completion or autocompletion feature. Use it as often as possible to do less typing avoid typos. After completing the file name, you can go to the end of the line and finish typing the command (you can also continue to use Tab completion)
-
+&nbsp;  
+  
 #### Exercise 8
 Please view the manual pages for the `ls` command. Which `ls` option will show all files, including hidden files (hidden filenames start with a period on Linux)?</br>
 When inside the manual, you can search its contents by typing:
@@ -304,18 +317,4 @@ To exit the manual, press <kbd>q</kbd>.
 ---
 
 [Return to the top](#why-is-it-worth-learning-to-work-with-the-command-line)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
