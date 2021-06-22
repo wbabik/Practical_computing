@@ -65,7 +65,7 @@ After pressing <kbd>Enter</kbd> you will be asked to enter your password.
 &nbsp;  
   
   
-## Working in a Linux terminal - 
+## Working in a Linux terminal 
 After starting your shell session, you should see a **prompt**. It will look more or less like this:
 ```
 user181@apollo:/home/user181$
@@ -80,13 +80,14 @@ Please change your password. In the terminal, type the command:
   
 You will be guided through the steps of changing your password. Please enter your passwords carefully!  
   
-**Remember! Uppercase letters are not the same as lowercase in Linux !!!** The new password should be difficult to crack. Please make it at least 8 characters long, including a capital letter and a number.
-**Remember or write down the new password!** You'll use it from now on.  
+**Remember!** Uppercase letters are not the same as lowercase in Linux ! The new password should be difficult to crack. Please make it at least 8 characters long, including a capital letter and a number.  
+  
+**Remember or write down the new password!** You will use it from now on.  
 ---   
 &nbsp;  
   
 #### The anatomy of a command
-In the terminal, you type a command that has a specific syntax, e.g.:
+In the terminal, you type commands that have a specific syntax, e.g.:
 
 `ls -l`
 
@@ -114,7 +115,7 @@ After pressing <kbd>Enter</kbd> , the required information will be displayed in 
 Please find your current working directory. Make three directories, and in one of them, a subdirectory.  
 1. Type `pwd` and press <kbd>Enter</kbd>.  
 This command, an abbreviation from *print working directory*, does just that!  
-The absolute path to your working directory will be printed to standard output, i.e., the terminal.  
+The absolute path to your working directory will be printed to the standard output, i.e., the terminal.  
   
 2. Type `mkdir hiv genome scripts` and press <kbd>Enter</kbd>.  
 The command `mkdir`, or an abbreviation from *make directory*, needs to be run with one or more parameters - the desired directory names. In this case, the command has resulted in the creation of three directories.
@@ -123,10 +124,10 @@ The command `mkdir`, or an abbreviation from *make directory*, needs to be run w
 You can see that your home directory now contains three new directories - *hiv*, *genome*, *scripts*. Cool!  
   
 3. Type `cd scripts` and press <kbd>Enter</kbd>.  
-The command `cd`, or an abbreviation from *change directory*, needs to be run with a parameter - an instruction on where to go! We will talk more about this in a moment. After executing it, you can inspect the path in the prompt line, display again the current working directory (`pwd`) and list the directory contents (`ls -l`).  
+The command `cd`, or an abbreviation from *change directory*, needs to be run with a parameter, that is an instruction on what you want to change to! We will talk more about this in a moment. After executing `cd`, you can inspect the path in the prompt line, display again the current working directory (`pwd`) and list the directory contents (`ls -l`).  
   
 4. Type `mkdir output_files` and press <kbd>Enter</kbd>.  
-Within the parent directory *scripts*, you have created another directory. The folder structure is getting complicated!  
+Within the parent directory *scripts*, you have created another directory. Our folder structure is getting complicated!  
 ---  
   
 #### Now, let's inspect what we have created, and how to navigate!
