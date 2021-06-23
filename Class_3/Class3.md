@@ -279,7 +279,7 @@ Within the parent directory *scripts*, you have created another directory. Our f
 6. Change your working directory to home directory, and from there, remove the *genome_results.txt* file that you had placed in the `genome` directory.
 7. While within home directory, remove all files from the `genome/output_files/`, and then that directory itself.
 ---  
-&nbsp;  
+
   
 ## Making your life easier, and working with real files!
   
@@ -303,16 +303,23 @@ Please display content of directory `/data`. How do files and directories look l
  
 
 #### Exercise 6
-Use autocompletion to copy the file `GCF_000001405.39 ...` from the directory `/data` to the `genome` directory you created. This is a file containing information about the human genome assembly. We will use it as an example of a text file later on---
+Use autocompletion to copy the file `GCF_000001405.39 ...` from the directory `/data` to
+the `genome` directory you created. This is a file containing information about the human genome assembly.
+We will use it as an example of a text file later on   
+
+---
   
 #### Exercise 7   
-Please view the manual pages for the `ls` command. Which `ls` option will show all files, including hidden files (hidden filenames start with a period on Linux)?</br>
+Please view the manual pages for the `ls` command. Which `ls` option will show all files,
+including hidden files (hidden filenames start with a period on Linux)?</br>
 When inside the manual, you can search its contents by typing:
 
 `/phrase`</br>
-and then pressing the <kbd>Enter</kbd> key. Pressing the <kbd>n</kbd> key will allow you to go to the place of the next occurrence of the searched phrase in the manual.
+and then pressing the <kbd>Enter</kbd> key. Pressing the <kbd>n</kbd> key will allow you to go to the place 
+of the next occurrence of the searched phrase in the manual.
 
-Search the manual for `size` and answer the question: Which `ls` command option should you use to list files and directories sorted by size?
+Search the manual for `size` and answer the question: 
+Which `ls` command option should you use to list files and directories sorted by size?
 
 To exit the manual, press <kbd>q</kbd>.
 
