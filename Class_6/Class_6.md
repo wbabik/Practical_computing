@@ -110,7 +110,7 @@ Line 1: patient number (id) - the same as in the file name
 
 Line 2: town where the case was diagnosed
 
-Line 3: data when the case was diagnosed
+Line 3: date when the case was diagnosed
 
 Line 4: comment - this line can be missing, can be present but empty, or can contain information about complications
 
