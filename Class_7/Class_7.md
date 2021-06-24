@@ -39,11 +39,11 @@ is an important asset of any biologist.
 ## Installation
 
 To install R for Windows follow the
-[link](https://cran.uni-muenster.de/bin/windows/base/) and then click on
+[link](https://cran.r-project.org/bin/windows/base/) and then click on
 “Download R – *version\_number* – for Windows”. As of the time of
 writing the currect R version was 4.1.0.  
 To install R for OS X (Macs) follow the
-[link](https://cran.uni-muenster.de/) and then click on “Download R for
+[link](https://cran.r-project.org/) and then click on “Download R for
 (Mac) OS X”  
 To install R for Linux type the following lines in the terminal:
 
