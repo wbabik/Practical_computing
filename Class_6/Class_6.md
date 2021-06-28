@@ -13,6 +13,7 @@
   * [Where to go next?](#where-to-go-next)
 
 ***
+
 ## Automation...  
 is needed when you want to do some task on the large number of objects (files, directories, lines).  
 During this class you will analyze data from more than 20,000 small text files using shell scripts. 
