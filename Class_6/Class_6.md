@@ -1,5 +1,4 @@
 # Automation with shell scripts
-  * [Automation...](#automation)
   * [if conditional](#if-conditional)
       * [Exercise 1](#exercise-1)
       * [Exercise 2](#exercise-2)
