@@ -20,7 +20,7 @@ During this class you will analyze data from more than 20,000 small text files u
 To make this task possible you need to add to your scripts two types of constructs:  loops and conditionals.   
 
 **A loop** is a powerful programming tool that enables you to execute a set of commands repeatedly.  
-**A conditional statement** enable you to control the flow of commands. In other words, you can use them to 
+**A conditional statement** enables you to control the flow of commands. In other words, you can use them to 
 create branches and execute different commands on objects fulfilling (or not) some condition.  
 
 ***  
