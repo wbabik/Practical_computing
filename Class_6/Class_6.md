@@ -1,4 +1,5 @@
 # Automation with shell scripts
+  * [Automation...](#automation)
   * [if conditional](#if-conditional)
       * [Exercise 1](#exercise-1)
       * [Exercise 2](#exercise-2)
@@ -22,6 +23,7 @@ To make this task possible you need to add to your scripts two types of construc
 **A conditional statement** enable you to control the flow of commands. In other words, you can use them to 
 create branches and execute different commands on objects fulfilling (or not) some condition.  
 
+***  
 
 ## `if` conditional
 
