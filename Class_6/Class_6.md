@@ -151,7 +151,7 @@ Write script `epidemy1.sh`. This script should take as command line arguments id
 
 #### Exercise 2
 
-Doctors suspect that as the epidemy progressed, the symptoms were becoming milder. Write script `epidemy2.txt`, which takes patient number as command line argument and checks whether this patient experienced serious complications or died (nonempty comment line) and whether the patient was diagnosed at the early stage of epidemy (June). If both conditions are fulfilled the script should print `A serious case diagnosed in June 2021`, otherwise print `exiting...`
+Doctors suspect that as the epidemy progressed, the symptoms were becoming milder. Write script `epidemy2.sh`, which takes patient number as command line argument and checks whether this patient experienced serious complications or died (nonempty comment line) and whether the patient was diagnosed at the early stage of epidemy (June). If both conditions are fulfilled the script should print `A serious case diagnosed in June 2021`, otherwise print `exiting...`
 
 **Tips:**
 
