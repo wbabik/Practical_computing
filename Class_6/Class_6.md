@@ -60,16 +60,16 @@ fi
 >
 > |    Condition     |            Meaning             | Example (condition is TRUE) |
 > | :--------------: | :----------------------------: | :-------------------------: |
-> |    `-n TEXT`     |     text string length > 0     |         `[ -n cat]`         |
+> |    `-n TEXT`     |     text string length > 0     |         `[ -n cat ]`        |
 > |    `-z TEXT`     |  text string length equals 0   |          `[ -z ]`           |
 > | `TEXT1 = TEXT2`  | two text strings are identical |      ` [ cat = cat ] `      |
-> | `TEXT1 != TEXT2` | two text strings are different |       `[ Cat != cat ]`       |
+> | `TEXT1 != TEXT2` | two text strings are different |       `[ Cat != cat ]`      |
 >
 > Conditions for integers
 >
 > |       Condition       |        Meaning        | Example (condition is TRUE) |
 > | :-------------------: | :-------------------: | :-------------------------: |
-> | `NUMBER1 -eq NUMBER2` | numbers are identical |       `[ 10 -eq 10]`        |
+> | `NUMBER1 -eq NUMBER2` | numbers are identical |       `[ 10 -eq 10 ]`       |
 > | `NUMBER1 -gt NUMBER2` |  `NUMBER1 > NUMBER2`  |       `[ 10 -gt 5 ]`        |
 > | `NUMBER1 -lt NUMBER2` |  `NUMBER1 < NUMBER2`  |       `[ 5 -lt 10 ]`        |
 >
