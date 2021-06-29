@@ -68,7 +68,7 @@ The script above will display in terminal `My script works!`
 
 #### Exercise 1
 
-In `nano` write a script that will save the list of `.fasta` files in the directory `~/HIV` to the file `List_of_fasta_files.txt` in your home directory, and then will print in terminal sentence `Task completed!`. Please name script `script1.sh1` and save it in your home directory.
+In `nano` write a script that will save the list of `.fasta` files in the directory `~/hiv` to the file `List_of_fasta_files.txt` in your home directory, and then will print in terminal sentence `Task completed!`. Please name script `script1.sh` and save it in your home directory.
 
 ---
 
@@ -136,7 +136,7 @@ Now you can run the script typing: `./filename.sh`  (what's the meaning of the d
 
 #### Exercise 4
 
-Run `script1.sh` and check whether it's worked. Did file `List_of_fasta_files.txt` appear in your home directory. Did the message `Task completed!` appear in the terminal?
+Run `script1.sh` and check whether it worked. Did file `List_of_fasta_files.txt` appear in your home directory. Did the message `Task completed!` appear in the terminal?
 
 ---
 
@@ -168,7 +168,7 @@ A variable can be defined inside script, it can also be defined directly in term
 > * `vari#able` (contains `#`)
 > * `my variable` (contains space)
 >
-> The rules for the values of variables are a bit complex. For now, remember that if the value of your variable contains spaces or some complex characters, it's a good idea to enclose it quotes. If you want the value of variable to be treated literally, it's a good idea to enclose it in single quotes 
+> The rules for the values of variables are a bit complex. For now, remember that if the value of your variable contains spaces or some complex characters, it's a good idea to enclose it in quotes. If you want the value of variable to be treated literally, it's a good idea to enclose it in single quotes 
 > `'  '`, e. g. `my_variable='This is the content of the variable'`
 
 > #### Referring to variable
@@ -178,8 +178,10 @@ A variable can be defined inside script, it can also be defined directly in term
 > Imagine that we want to write a script in which we take first two lines from a file and save it in file with (almost) the same name, just adding `L2_` as prefix. To do that you can use the following code - you can run it directly from the terminal or as a shell script
 >
 > ```bash 
->   my_file='hiv/KT183271.fasta'
+>   cd hiv
+>   my_file='KT183271.fasta'
 >   head -2 $my_file > L2_"$my_file"
+>   cd ..
 > ```
 >
 > **Note!** Because we wanted the value of the variable `my_file` to be a part of the name of a new file, we enclosed it in double quotes `""`.  This is related to a complex topic of shell expansion, discussed in many places on the web, for example [here](https://mywiki.wooledge.org/Quotes).
@@ -213,7 +215,7 @@ head -2 $1 > L2_"$1"
 cd ..
 ```
 
-The script is now a bit shorter and we run it providing file name as command line argument: `./script3.sh KT183271.sh`
+The script is now a bit shorter and we run it providing file name as command line argument: `./script3.sh KT183271.fasta`
 
 #### Exercise 5
 
@@ -232,7 +234,7 @@ Set appropriate permissions and run the script in terminal.
 
 #### Exercise 6
 
-Write script `script5.sh` and save it in your home directory. This script should do the same operations as `script3.sh` from Exercise 5, but `n` should be the first command line argument (`$1`), and the name of the file from which parts of the last lines will be printed should be the second command line argument (`$2`). Within the script include comments explaining the meaning of the two command line arguments. As previously, set permissions and run the script in terminal.
+Write script `script5.sh` and save it in your home directory. This script should do the same operations as `script4.sh` from Exercise 5, but `n` should be the first command line argument (`$1`), and the name of the file from which parts of the last lines will be printed should be the second command line argument (`$2`). Within the script include comments explaining the meaning of the two command line arguments. As previously, set permissions and run the script in terminal.
 
 ---
 
@@ -240,7 +242,7 @@ Write script `script5.sh` and save it in your home directory. This script should
 
 To save space and speed up transfer via network files are often **compressed**. This is particularly important for large text files, as their size can be reduced several-fold. Some types of files, such as many audio/video files, jpeg images or pdf files are already compressed, so further compression doesn't reduce their size.
 
-The standard compression and decompression utility in Linux in `gzip`.  Its basic usage is extremely simple: `gzip [FILENAME]` will create file with the name identical to the original file with `.gz` suffix added. 
+The standard compression and decompression utility in Linux is `gzip`.  Its basic usage is extremely simple: `gzip [FILENAME]` will create file with the name identical to the original file with `.gz` suffix added. 
 
 > #### `gzip` useful options
 >
