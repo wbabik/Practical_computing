@@ -1,7 +1,11 @@
 
 # Class 13
 
-## Practical `dplyr`
+# Practical `dplyr`
+    * [Puting the code together.](#puting-the-code-together)
+  
+***  
+  
 
 In this class we’ll illustrate the practical use of `dplyr` with a real
 life example. Our task will be to summarize data on MHC class I

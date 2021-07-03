@@ -2,6 +2,42 @@
 # Class 11
 
 # Operations on data frames, `dplyr`
+  * [Operations on data frames, part 2](#operations-on-data-frames-part-2)
+    * [Subsetting data frames with logical expressions](#subsetting-data-frames-with-logical-expressions)
+      * [Exercise 1](#exercise-1)
+      * [Exercise 2](#exercise-2)
+    * [Adding new column or row](#adding-new-column-or-row)
+      * [Exercise 3](#exercise-3)
+      * [Exercise 4](#exercise-4)
+      * [Exercise 5](#exercise-5)
+      * [Exercise 6](#exercise-6)
+    * [Saving data frame](#saving-data-frame)
+      * [Exercise 7](#exercise-7)
+  * [dplyr and tidyverse](#dplyr-and-tidyverse)
+  * [Six dplyr verbs](#six-dplyr-verbs)
+      * [Exercise 8](#exercise-8)
+      * [Exercise 9](#exercise-9)
+    * [Filtering rows with filter()](#filtering-rows-with-filter)
+      * [filter() examples](#filter-examples)
+      * [Exercise 10](#exercise-10)
+    * [Ordering rows with arrange()](#ordering-rows-with-arrange)
+      * [arrange() example](#arrange-example)
+      * [Exercise 11](#exercise-11)
+    * [Picking, dropping and re-ordering columns with select()](#picking-dropping-and-re-ordering-columns-with-select)
+      * [select() examples](#select-examples)
+      * [Exercise 12](#exercise-12)
+      * [Exercise 13](#exercise-13)
+    * [Creating new variables as functions of the existing ones with mutate()](#creating-new-variables-as-functions-of-the-existing-ones-with-mutate)
+      * [mutate examples](#mutate-examples)
+      * [Exercise 14](#exercise-14)
+    * [Grouping cases by variable(s) with group_by()](#grouping-cases-by-variables-with-group_by)
+      * [group_by() examples](#group_by-examples)
+      * [Exercise 15](#exercise-15)
+      * [The pipe operator (%>%)](#the-pipe-operator-)
+    * [Summarising with summarise()](#summarising-with-summarise)
+  
+***  
+  
 
 ## Operations on data frames, part 2
 
