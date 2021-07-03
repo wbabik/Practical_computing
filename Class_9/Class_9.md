@@ -32,7 +32,7 @@
       * [Exercise 22](#exercise-22)
     * [Subsetting with logical expressions](#subsetting-with-logical-expressions)
       * [Exercise 23](#exercise-23)
-  * [Operations on data frames](#operations-on-data-frames)
+  * [Operations on data frames, part 1](#operations-on-data-frames-part-1)
     * [Replacement](#replacement)
       * [Exercise 24](#exercise-24)
     * [Mathematical operations](#mathematical-operations)
@@ -44,16 +44,6 @@
     * [Deleting rows containing missing data](#deleting-rows-containing-missing-data)
       * [Exercise 29](#exercise-29)
       * [Exercise 30](#exercise-30)
-    * [Subsetting data frames with logical expressions](#subsetting-data-frames-with-logical-expressions)
-      * [Exercise 31](#exercise-31)
-      * [Exercise 32](#exercise-32)
-    * [Adding new column or row](#adding-new-column-or-row)
-      * [Exercise 33](#exercise-33)
-      * [Exercise 34](#exercise-34)
-      * [Exercise 35](#exercise-35)
-      * [Exercise 36](#exercise-36)
-    * [Saving data frame](#saving-data-frame)
-      * [Exercise 37](#exercise-37)
   
 ***  
   

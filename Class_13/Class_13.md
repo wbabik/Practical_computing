@@ -1,5 +1,12 @@
 
 # Class 13
+# Practical `dplyr`  
+  * [Practical dplyr](#practical-dplyr)
+    * [Puting the code together.](#puting-the-code-together)
+
+  
+***  
+  
 
 ## Practical `dplyr`
 
