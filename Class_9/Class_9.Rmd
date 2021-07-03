@@ -289,7 +289,7 @@ c(1:100)[c(1:100)>mean(c(1:100))]
 ```
 
 
-## Operations on data frames
+## Operations on data frames, part 1
 
 ### Replacement
 
@@ -365,85 +365,3 @@ Rows with missing data can be removed with `na.omit()` function. To save changes
 
 #### Exercise 30
 Remove the row with missing data created in the previous exercise. Replace `my_data` with such modified table. Remember that this action cannot be  undone.
-
-
-### Subsetting data frames with logical expressions 
-
-The logic of subsetting vector with logical expressions can be easily extended to data frames. Note, that if you want to obtain a logical vector with one element for each row (i.e, to subset rows), you need to specify which column you want to use. For instance, if you have data frame `my_data` and you want to get all rows with the value of variable `my_column` different from 5, you would use the following expression `my_data[my_data$my_column !=5,]`. This expression will return all columns (note blank after the comma)
-
-#### Exercise 31
-Using built-in dataset `CO2`, return observation for `Qn2` plant.  
-
-Expected result:  
-```{r echo = FALSE, comment= ""}
-CO2[CO2$Plant == "Qn2",]
-```
-
----
-
-#### Exercise 32
-Using built-in dataset `CO2`, return observation from Mississippi chilled plant with an uptake higher than 0.02 mmol/m^2^ x s.  
-
-Expected result:  
-```{r echo = FALSE, comment= ""}
-CO2[CO2$Type == "Mississippi" & CO2$Treatment == "chilled" & CO2$uptake > 20,]
-```
-
-
-### Adding new column or row
-
-Adding **new column** is relatively **simple**. All you need to have is a vector. However, remember three things:
-
-- length of vector must equal the number of rows of the data frame
-- order of values within a vector corresponds to the row numbers
-- name of the vector will become the name of the added column
-
-We are going to add a column with IDs of observations. Note that column with IDs is often necessary in statistical analysis. It is also inherent to the data in [long format](https://www.theanalysisfactor.com/wide-and-long-data/) which is strongly advised (see class 1 and next class).
-
-#### Exercise 33
-Create vector with ID numbers starting from 100. Use one of functions introduced above to determine what should be the length of the vector. Name the vector `ID`.  
-Expected result:
-```{r echo = FALSE, comment= ""}
-c(100:(98+nrow(CO2)))
-```
-
----
-
-You can combine data frames with the use of `cbind()` function in the following manner: `cbind(data_frame1, data_frame2)`. Note that a vector can be considered a data frame with a single column. 
-
-#### Exercise 34
-Place created IDs at the beginning (as first column) of `my_dat`. Overwrite `my_data` variable.
-
----
-
-Adding **new row** is more **complicated** as you cannot create a vector with different types of data. Firstly you need to create a new data frame (similar to the old one) consisting of only new row (or rows). To do this use `data.frame()` function in the following manner: `data.frame(columnName1 = value1, columnName2 = value2,...)`.
-
-#### Exercise 35
-
-Create data frame with a single row and the following values: `1,'Kr1','Krakow',unknown',1000,20`. Column names should correspond to these of `my_data`. Name the newly created data frame `Added_rows`.
-
-Expected result:
-```{r echo = FALSE, comment= ""}
-data.frame("ID" = 1,"Plant" = "Kr1","Type" = "Krakow","Treatment" = "unknown","conc" = 1000,"uptake" = 20)
-```
-
----
-
-To create a data frame with multiple rows, replace the value for each column with a vector.
-
-To combine data frames by rows use `rbind()` function in the following manner: `rbind(data_frame1, data_frame2)`
-
-#### Exercise 36
-
-Add the row created in Ex. 19 at the end of `my_data`. Overwrite `my_data` variable.
-
----
-
-### Saving data frame
-
-To save your data frame into a text file use `write.table()` function. 
-
-#### Exercise 37
-Save the modified `my_data` int a `.csv` file. Consult `write.table()` manual to set the arguments. Include your surname in the file name.
-
----

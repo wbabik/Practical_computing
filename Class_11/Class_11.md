@@ -1,34 +1,140 @@
 
 # Class 11
 
-# `dplyr`
-  * [dplyr and tidyverse](#dplyr-and-tidyverse)
-  * [Six dplyr verbs](#six-dplyr-verbs)
-      * [Exercise 1](#exercise-1)
-      * [Exercise 2](#exercise-2)
-    * [Filtering rows with filter()](#filtering-rows-with-filter)
-      * [filter() examples](#filter-examples)
-      * [Exercise 3](#exercise-3)
-    * [Ordering rows with arrange()](#ordering-rows-with-arrange)
-      * [arrange() example](#arrange-example)
-      * [Exercise 4](#exercise-4)
-    * [Picking, dropping and re-ordering columns with select()](#picking-dropping-and-re-ordering-columns-with-select)
-      * [select() examples](#select-examples)
-      * [Exercise 5](#exercise-5)
-      * [Exercise 6](#exercise-6)
-    * [Creating new variables as functions of the existing ones with mutate()](#creating-new-variables-as-functions-of-the-existing-ones-with-mutate)
-      * [mutate examples](#mutate-examples)
-      * [Exercise 7](#exercise-7)
-    * [Grouping cases by variable(s) with group_by()](#grouping-cases-by-variables-with-group_by)
-      * [group_by() examples](#group_by-examples)
-      * [Exercise 8](#exercise-8)
-      * [The pipe operator (%>%)](#the-pipe-operator-)
-    * [Summarising with summarise()](#summarising-with-summarise)
-  * [Practical dplyr](#practical-dplyr)
-    * [Puting the code together.](#puting-the-code-together)
-  
-***  
-  
+# Operations on data frames, `dplyr`
+
+## Operations on data frames, part 2
+
+### Subsetting data frames with logical expressions
+
+The logic of subsetting vector with logical expressions can be easily
+extended to data frames. Note, that if you want to obtain a logical
+vector with one element for each row (i.e, to subset rows), you need to
+specify which column you want to use. For instance, if you have data
+frame `my_data` and you want to get all rows with the value of variable
+`my_column` different from 5, you would use the following expression
+`my_data[my_data$my_column !=5,]`. This expression will return all
+columns (note blank after the comma)
+
+#### Exercise 1
+
+Using built-in dataset `CO2`, return observation for `Qn2` plant.
+
+Expected result:
+
+``` 
+   Plant   Type  Treatment conc uptake
+8    Qn2 Quebec nonchilled   95   13.6
+9    Qn2 Quebec nonchilled  175   27.3
+10   Qn2 Quebec nonchilled  250   37.1
+11   Qn2 Quebec nonchilled  350   41.8
+12   Qn2 Quebec nonchilled  500   40.6
+13   Qn2 Quebec nonchilled  675   41.4
+14   Qn2 Quebec nonchilled 1000   44.3
+```
+
+-----
+
+#### Exercise 2
+
+Using built-in dataset `CO2`, return observation from Mississippi
+chilled plant with an uptake higher than 0.02 mmol/m<sup>2</sup> x s.
+
+Expected result:
+
+``` 
+   Plant        Type Treatment conc uptake
+69   Mc1 Mississippi   chilled  675   22.2
+70   Mc1 Mississippi   chilled 1000   21.9
+```
+
+### Adding new column or row
+
+Adding **new column** is relatively **simple**. All you need to have is
+a vector. However, remember three things:
+
+  - length of vector must equal the number of rows of the data frame
+  - order of values within a vector corresponds to the row numbers
+  - name of the vector will become the name of the added column
+
+We are going to add a column with IDs of observations. Note that column
+with IDs is often necessary in statistical analysis. It is also inherent
+to the data in [long
+format](https://www.theanalysisfactor.com/wide-and-long-data/) which is
+strongly advised (see class 1 and next class).
+
+#### Exercise 3
+
+Create vector with ID numbers starting from 100. Use one of the
+functions introduced above to determine what should be the length of the
+vector. Name the vector `ID`.  
+Expected result:
+
+``` 
+ [1] 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118
+[20] 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137
+[39] 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156
+[58] 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 175
+[77] 176 177 178 179 180 181 182
+```
+
+-----
+
+You can combine data frames with the use of `cbind()` function in the
+following manner: `cbind(data_frame1, data_frame2)`. Note that a vector
+can be considered a data frame with a single column.
+
+#### Exercise 4
+
+Place created IDs at the beginning (as first column) of `my_dat`.
+Overwrite `my_data` variable.
+
+-----
+
+Adding **new row** is more **complicated** as you cannot create a vector
+with different types of data. Firstly you need to create a new data
+frame (similar to the old one) consisting of only new row (or rows). To
+do this use `data.frame()` function in the following manner:
+`data.frame(columnName1 = value1, columnName2 = value2,...)`.
+
+#### Exercise 5
+
+Create data frame with a single row and the following values:
+`1,'Kr1','Krakow',unknown',1000,20`. Column names should correspond to
+these of `my_data`. Name the newly created data frame `Added_rows`.
+
+Expected result:
+
+``` 
+  ID Plant   Type Treatment conc uptake
+1  1   Kr1 Krakow   unknown 1000     20
+```
+
+-----
+
+To create a data frame with multiple rows, replace the value for each
+column with a vector.
+
+To combine data frames by rows use `rbind()` function in the following
+manner: `rbind(data_frame1, data_frame2)`
+
+#### Exercise 6
+
+Add the row created in Ex. 5 at the end of `my_data`. Overwrite
+`my_data` variable.
+
+-----
+
+### Saving data frame
+
+To save your data frame into a text file use `write.table()` function.
+
+#### Exercise 7
+
+Save the modified `my_data` int a `.csv` file. Consult `write.table()`
+manual to set the arguments. Include your surname in the file name.
+
+-----
 
 ## `dplyr` and `tidyverse`
 
@@ -50,22 +156,22 @@ We’ll illustrate the basic `dplyr` functions (verbs) using the built-in
 `iris` dataset that contains measurements (in cm) of several flower
 traits of several *Iris* species.
 
-#### Exercise 1
+#### Exercise 8
 
 Display structure and summary of `iris` dataset using `str()` and
 `summary()`. Answer the following questions:
 
--   which traits were measured?
--   how many flowers were measured in total?
--   which *Iris* species were studied?
--   what were sample sizes of particular species?
+  - which traits were measured?
+  - how many flowers were measured in total?
+  - which *Iris* species were studied?
+  - what were sample sizes of particular species?
 
 Here’s a schematic view of a flower with the most important structures
 labeled:
 
 ![flower](flower.png)
 
-------------------------------------------------------------------------
+-----
 
 All six functions work similarly:
 
@@ -75,11 +181,11 @@ All six functions work similarly:
     without using quotation marks.
 3.  The result is a data frame.
 
-#### Exercise 2
+#### Exercise 9
 
 Load `dplyr` package
 
-------------------------------------------------------------------------
+-----
 
 ### Filtering rows with `filter()`
 
@@ -108,8 +214,8 @@ filter(iris, Species == "setosa")
 
 **Note:**
 
--   we used double equal sign (`==`) to specify a comparison
--   the column name was not enclosed in quotation marks, while the value
+  - we used double equal sign (`==`) to specify a comparison
+  - the column name was not enclosed in quotation marks, while the value
     (species name, character string) was.
 
 Display all observations for *Iris setosa* that have sepal length at
@@ -173,10 +279,10 @@ filter(iris, (Species == "versicolor" | "virginica"), Petal.Length >=5)
 ```
 
     ## Error: Problem with `filter()` input `..1`.
-    ## x operacje są możliwe jedynie dla typów liczbowych, logicznych oraz zespolonych
+    ## x operations are possible only for numeric, logical or complex types
     ## i Input `..1` is `(Species == "versicolor" | "virginica")`.
 
-#### Exercise 3
+#### Exercise 10
 
 Select all observations, regardless of species, that have sepal length
 smaller than 6 cm or petal length smaller than 5 cm, and sepal width
@@ -189,7 +295,7 @@ Expected result:
     ## 2          5.2         4.1          1.5         0.1  setosa
     ## 3          5.5         4.2          1.4         0.2  setosa
 
-------------------------------------------------------------------------
+-----
 
 ### Ordering rows with `arrange()`
 
@@ -210,7 +316,7 @@ order and within the species from the longest to the shortest sepal
 arrange(iris, Species, desc(Sepal.Length))
 ```
 
-#### Exercise 4
+#### Exercise 11
 
 Sort species in descending order, and observations within each species
 according to the increasing petal length.
@@ -229,7 +335,7 @@ Expected result:
     ## 9           6.3         2.5          5.0         1.9 virginica
     ## 10          5.8         2.7          5.1         1.9 virginica
 
-------------------------------------------------------------------------
+-----
 
 ### Picking, dropping and re-ordering columns with `select()`
 
@@ -238,15 +344,15 @@ can be referred to by name, position in the data frame or by an
 expression.
 
 > #### `select` helpers
->
+> 
 > The following helper functions can be used to select columns that
 > match a pattern:
->
+> 
 > `starts_with()` selects columns that start with a string  
 > `ends_with()` selects columns that end with a string  
 > `contains()` selects columns that contain a string  
 > `matches()` selects columns matching a regular expression
->
+> 
 > There are also useful helpers that allow to select column on the basis
 > of a character vector containing names. See `?select` for more
 > details.
@@ -315,7 +421,7 @@ select(iris, Species, everything())
     ## 9   setosa          4.4         2.9          1.4         0.2
     ## 10  setosa          4.9         3.1          1.5         0.1
 
-#### Exercise 5
+#### Exercise 12
 
 Select width measurements and species from `iris`, at the same time
 relocating species to the beginning of the data frame.  
@@ -333,9 +439,9 @@ Expected result:
     ## 9   setosa         2.9         0.2
     ## 10  setosa         3.1         0.1
 
-------------------------------------------------------------------------
+-----
 
-#### Exercise 6
+#### Exercise 13
 
 Drop petal measurements from `iris` data frame.  
 Expected result:
@@ -352,7 +458,7 @@ Expected result:
     ## 9           4.4         2.9  setosa
     ## 10          4.9         3.1  setosa
 
-------------------------------------------------------------------------
+-----
 
 ### Creating new variables as functions of the existing ones with `mutate()`
 
@@ -402,7 +508,7 @@ mutate(iris, Petal.Ratio = Petal.Length/Petal.Width)
     ## 9           4.4         2.9          1.4         0.2  setosa    7.000000
     ## 10          4.9         3.1          1.5         0.1  setosa   15.000000
 
-#### Exercise 7
+#### Exercise 14
 
 Create, using a single `mutate()` call, two new variables:
 Petal.Length.Squared, Sepal.Length.Squared, containing the squared
@@ -432,7 +538,7 @@ Expected result:
     ## 9                  1.96                19.36
     ## 10                 2.25                24.01
 
-------------------------------------------------------------------------
+-----
 
 ### Grouping cases by variable(s) with `group_by()`
 
@@ -474,13 +580,13 @@ altered:
     ## 10          4.9         3.1          1.5         0.1 setosa 
     ## # ... with 140 more rows
 
-#### Exercise 8
+#### Exercise 15
 
 Group `iris` by species, assign the grouped dataset to variable, and use
 mutate to add column `Mean.Sepal.Length`, which would contain the mean
 value of sepal length. Are all values in this column identical? Why?
 
-------------------------------------------------------------------------
+-----
 
 #### The pipe operator (`%>%`)
 
@@ -508,7 +614,7 @@ Linux shell. In conjunction with `dplyr` verbs it allows creating
 pipelines without the need of assigning intermediate results to
 variables. Note, that when a `dplyr` function is used following `%>%`,
 you don’t specify the data frame the function operates on - because the
-data frame is passed by `%>%`!
+data frame is passed by `%>%`\!
 
 So, instead of the code above you can use:
 
@@ -638,560 +744,3 @@ iris %>% select (Species, Petal.Length) %>% group_by(Species) %>%
     ## 1 setosa                  1                1.46              1.9
     ## 2 versicolor              3                4.26              5.1
     ## 3 virginica               4.5              5.55              6.9
-
-## Practical `dplyr`
-
-In the remaining part of the class we’ll illustrate the practical use of
-`dplyr` with a real life example. Our task will be to summarize data on
-MHC class I genotypes from many populations of several *Triturus* newt
-species. These genes are duplicated (with different number of genes in
-different individual) and highly polymorphic, so each individual has
-several alleles, and the total number of alleles in a species go into
-hundreds.
-
-We will calculate:
-
--   For each population:
-    -   number of analysed individuals (`n_ind`)
-    -   total number of MHC alleles (`n_all`)
-    -   mean number of MHC alleles per individual (`mean_n_all_ind`)
--   For each species you will calculate the same three summaries and
-    additionally also:
-    -   number of sampled populations (`n_pop`)
-
-We’ll use the names indicated above as column names of your final result
-data frame.
-
--   **Download data**  
-    [Here](https://www.dropbox.com/sh/6s60oyt4snc8fgj/AAAyR9wv3t9hWUah2bq_aNtwa?dl)
-    is the folder with the data we will use. Please download the files
-    to your computer. All files are encoded in UTF-8. Have a look at the
-    content of the files in Notepad++:
-
-    -   `genotypes.txt` - tab-delimited file, 1st row contains column
-        names, the remaining rows contain individual IDs and genotypes
-        encoded as presence (`1`) or absence (`0`) of each allele.
-        Allele names are provided in the 1st row.
-    -   `ID_locality_species.txt`- tab-delimited file containing
-        individual IDs (as in `genotypes.txt` but more), locality name,
-        and species designation. There is also an additional column
-        `transctiptome` that we will not use. Note that locality names
-        contain characters outside the standard Latin character set.
-    -   `localities.txt`- tab-delimited file containing various
-        information about localities. We’ll need only a subset of
-        localities and a subset of columns.
-
-    Organisation of these data into the three files emphasizes the
-    concepts we learned during this course:
-
-    -   genotype file contains only information about individual IDs and
-        genotypes.
-    -   further information about each individual is contained in
-        another file, and can be linked with genotypes when needed using
-        the column `ID` which is shared between the files.
-    -   another file contains information about localities, which can be
-        linked with information about individuals using the shared
-        `locality` column.
-    -   `ID_locality_species.txt` and `localities.txt` contain more rows
-        and columns than needed. This is not a problem, because we will
-        extract only the information we need from these files.
-
--   **Set up new project in RStudio**  
-    Within the project folder create new directory named `data`. Copy
-    the three previously downloaded files to `data`
-
--   **Create new R script**  
-    Make sure it’s in you project folder (NOT in `data`). In this script
-    you’ll save all the commands we’ll use below.
-
--   **Load `tidyverse`**
-
-``` r
-library(tidyverse)
-```
-
-We’re loading the entire `tidyverse` collection, because we’ll need some
-functions that are in packages other than `dplyr`
-
--   **Read genotypes**
-
-``` r
-gen <- read.table("data/genotypes.txt", header = TRUE, sep = "\t", encoding = "UTF-8")
-head(gen[,1:10])
-```
-
-    ##      ID i_0003 i_0005 i_0010 i_0008 i_0024 i_0004 i_0007 i_0001 i_0017
-    ## 1 13155      0      0      0      0      0      0      0      1      0
-    ## 2 13156      0      0      0      0      0      0      0      1      0
-    ## 3 13157      0      0      0      0      0      0      0      1      0
-    ## 4 13163      0      0      0      0      0      0      0      1      0
-    ## 5 13164      0      0      0      0      0      0      0      1      0
-    ## 6 13170      0      0      0      0      0      0      0      1      0
-
-We used several options to modify the default behaviour or
-`read.table()`:
-
--   column names to be taken from the 1st row,
-
--   columns are separated by tabs
-
--   text is encoded as UTF-8
-
--   **Check whether any individual IDs are duplicated**
-
-``` r
-nrow(gen)
-```
-
-    ## [1] 348
-
-``` r
-gen %>% select(ID) %>% distinct() %>% nrow()
-```
-
-    ## [1] 348
-
-Here we counted the number of rows in the original dataframe and the
-dataframe containing only unique IDs
-
--   **Filter out missing data**  
-    The way genotypes were obtained ensures that if information for an
-    individual is missing for any allele, it’s actually mising for all.
-    So it’s enough to filter out rows that contain `NA` for the first
-    allele.
-
-``` r
-gen_noNA <- gen %>% filter(!is.na(i_0003))
-```
-
-Note that we used a dedicated function `is.na()` to identify `NA`
-values.
-
--   **Read information about each individual’s locality and species**  
-    We’ll need only two columns, so we drop `transcriptome` on the way
-
-``` r
-ID_info <- read.table("data/ID_locality_species.txt", header = TRUE, sep = "\t", encoding = "UTF-8") %>% 
-  select(-transcriptome)
-head(ID_info)
-```
-
-    ##      ID    locality     species
-    ## 1 14465 Mollafeneri  anatolicus
-    ## 2 14466 Mollafeneri  anatolicus
-    ## 3 14467     Kethüda  anatolicus
-    ## 4 14468 Fushë-Krujë macedonicus
-    ## 5 14469 Fushë-Krujë macedonicus
-    ## 6 14470 Fushë-Krujë macedonicus
-
--   **Read information about localities**  
-    We’ll need just the locality name, country and geographic
-    coordinates, so we select only these four columns:
-
-``` r
-localities <- read.table("data/localities.txt", header = TRUE, sep = "\t", encoding = "UTF-8") %>% 
-  select(locality, country, latitude, longitude)
-head(localities)
-```
-
-    ##        locality  country latitude longitude
-    ## 1   Abanta Gölu   Turkey   40.612    31.288
-    ## 2     Adapazari   Turkey   40.799    30.440
-    ## 3 Aghios Kosmas   Greece   41.084    24.671
-    ## 4         Alepu Bulgaria   42.348    27.714
-    ## 5   Alexandrovo Bulgaria   42.602    25.099
-    ## 6   Alibahadir2   Turkey   41.187    29.205
-
--   **Reshape the genotype data into the “long” format**  
-    In this step we will radically reshape our data, which will simplify
-    further tasks. Instead of having each allele as a separate column,
-    we’ll collapse these columns into two: i) allele name, ii)
-    information about presence (`1`) or absence (`0`) in a given
-    individual.  
-    So, we take our data frame that looks like this:
-
-``` r
-head(gen[,1:20], n = 20)
-```
-
-    ##       ID i_0003 i_0005 i_0010 i_0008 i_0024 i_0004 i_0007 i_0001 i_0017 i_0012
-    ## 1  13155      0      0      0      0      0      0      0      1      0      0
-    ## 2  13156      0      0      0      0      0      0      0      1      0      0
-    ## 3  13157      0      0      0      0      0      0      0      1      0      0
-    ## 4  13163      0      0      0      0      0      0      0      1      0      0
-    ## 5  13164      0      0      0      0      0      0      0      1      0      0
-    ## 6  13170      0      0      0      0      0      0      0      1      0      0
-    ## 7  13171      0      0      0      0      0      0      0      1      0      1
-    ## 8  13174      0      0      0      0      0      0      0      1      0      0
-    ## 9  13175      0      0      0      0      0      0      0      1      0      1
-    ## 10 13178      0      0      0      0      0      0      0      1      0      0
-    ## 11 14465      0      1      1      0      0      0      1      1      1      0
-    ## 12 14466      0      0      0      0      0      0      1      0      1      0
-    ## 13 14467      0      0      0      0      0      0      1      0      1      0
-    ## 14 14468      0      0      0      1      0      0      0      1      0      0
-    ## 15 14469      0      0      0      1      0      0      0      1      0      0
-    ## 16 14470      0      0      0      1      0      0      0      1      0      0
-    ## 17 14471      0      0      0      1      0      0      1      0      0      1
-    ## 18 14472      0      0      0      1      0      0      0      1      0      1
-    ## 19 14473      0      0      0      1      0      0      1      0      0      1
-    ## 20 14474      0      1      1      0      1      0      0      1      0      1
-    ##    i_0045 i_0025 i_0036 i_0013 i_0018 i_0033 i_0023 i_0002 i_0048
-    ## 1       0      0      0      0      0      0      0      0      0
-    ## 2       0      0      0      0      0      0      0      0      0
-    ## 3       0      0      0      0      0      0      0      0      0
-    ## 4       0      0      0      0      0      0      0      0      0
-    ## 5       0      0      0      0      0      0      0      0      0
-    ## 6       0      0      0      0      0      0      0      0      0
-    ## 7       0      0      0      0      0      0      0      0      0
-    ## 8       0      0      0      0      0      0      0      0      0
-    ## 9       0      0      0      0      0      0      0      0      0
-    ## 10      0      0      0      0      0      0      0      0      0
-    ## 11      0      1      0      1      0      1      0      1      0
-    ## 12      0      1      0      0      0      1      0      0      0
-    ## 13      0      1      0      1      0      0      0      0      0
-    ## 14      0      0      0      0      0      0      0      0      0
-    ## 15      0      0      0      0      0      0      0      0      0
-    ## 16      0      0      0      0      0      0      0      0      0
-    ## 17      0      0      0      0      0      0      1      1      1
-    ## 18      0      0      0      0      0      0      0      1      0
-    ## 19      0      0      0      0      0      0      1      0      1
-    ## 20      0      0      1      0      1      0      0      1      0
-
-And reshape it using the following command:
-
-``` r
-gen_long <- gen_noNA %>% pivot_longer(-ID, names_to = "allele", values_to = "present_absent")
-head(gen_long, n = 20)
-```
-
-    ## # A tibble: 20 x 3
-    ##       ID allele present_absent
-    ##    <int> <chr>           <int>
-    ##  1 13155 i_0003              0
-    ##  2 13155 i_0005              0
-    ##  3 13155 i_0010              0
-    ##  4 13155 i_0008              0
-    ##  5 13155 i_0024              0
-    ##  6 13155 i_0004              0
-    ##  7 13155 i_0007              0
-    ##  8 13155 i_0001              1
-    ##  9 13155 i_0017              0
-    ## 10 13155 i_0012              0
-    ## 11 13155 i_0045              0
-    ## 12 13155 i_0025              0
-    ## 13 13155 i_0036              0
-    ## 14 13155 i_0013              0
-    ## 15 13155 i_0018              0
-    ## 16 13155 i_0033              0
-    ## 17 13155 i_0023              0
-    ## 18 13155 i_0002              0
-    ## 19 13155 i_0048              0
-    ## 20 13155 i_0027              1
-
-We called `pivot_longer()`, informing the function that we want to
-reshape all the columns except `ID`, that names of the columns should go
-the new `allele` column, and that values from these columns should go to
-the `present_absent` column. Let’s compare the number of rows in the
-original and reshaped data frame:
-
-``` r
-nrow(gen_noNA)
-```
-
-    ## [1] 344
-
-``` r
-nrow(gen_long)
-```
-
-    ## [1] 379432
-
-In the long format, the information that an individual doesn’t have a
-particular allele is not really useful, so we can just get rid of the
-rows with (`0`) in `present_absent`. Then, `present_absent` column would
-not be informative anymore, so we can drop it:
-
-``` r
-gen_long <- gen_long %>% filter(present_absent == 1) %>% select(-present_absent)
-nrow(gen_long)
-```
-
-    ## [1] 6779
-
-It’s much shorter now!
-
--   **Add information about populations and species to the genotype
-    table**  
-    We start be adding information about locality and species:
-
-``` r
-gen_long <- gen_long %>% left_join(ID_info, by = "ID")
-head(gen_long, n = 15)
-```
-
-    ## # A tibble: 15 x 4
-    ##       ID allele locality species   
-    ##    <int> <chr>  <chr>    <chr>     
-    ##  1 13155 i_0001 Ecka     dobrogicus
-    ##  2 13155 i_0027 Ecka     dobrogicus
-    ##  3 13155 i_0021 Ecka     dobrogicus
-    ##  4 13155 i_0039 Ecka     dobrogicus
-    ##  5 13155 i_0099 Ecka     dobrogicus
-    ##  6 13155 i_0046 Ecka     dobrogicus
-    ##  7 13155 i_0147 Ecka     dobrogicus
-    ##  8 13155 i_0053 Ecka     dobrogicus
-    ##  9 13155 i_0100 Ecka     dobrogicus
-    ## 10 13155 i_0095 Ecka     dobrogicus
-    ## 11 13155 i_0149 Ecka     dobrogicus
-    ## 12 13155 i_0115 Ecka     dobrogicus
-    ## 13 13155 i_0151 Ecka     dobrogicus
-    ## 14 13155 i_0076 Ecka     dobrogicus
-    ## 15 13155 i_0152 Ecka     dobrogicus
-
-Here we used `left_join()` to add columns from `ID_info` data frame to
-`gen_long` data frame. Left join means that in the resulting data frame
-all rows from the left (i.e., `gen_long`) data frame will be retained,
-and only these rows from `ID_info` data frame will be added, which match
-a value of `ID` column in any row of `gen_long` data frame. If multiple
-rows from `ID_info` match a single row of `gene_long`, the resulting
-data frame will have more rows than `gen_long`.
-
-And now we’ll add information about localities:
-
-``` r
-gen_long <- gen_long %>% left_join(localities, by = "locality")
-head(gen_long, n = 15)
-```
-
-    ## # A tibble: 15 x 7
-    ##       ID allele locality species    country latitude longitude
-    ##    <int> <chr>  <chr>    <chr>      <chr>      <dbl>     <dbl>
-    ##  1 13155 i_0001 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  2 13155 i_0027 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  3 13155 i_0021 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  4 13155 i_0039 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  5 13155 i_0099 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  6 13155 i_0046 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  7 13155 i_0147 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  8 13155 i_0053 Ecka     dobrogicus Serbia      45.3      20.4
-    ##  9 13155 i_0100 Ecka     dobrogicus Serbia      45.3      20.4
-    ## 10 13155 i_0095 Ecka     dobrogicus Serbia      45.3      20.4
-    ## 11 13155 i_0149 Ecka     dobrogicus Serbia      45.3      20.4
-    ## 12 13155 i_0115 Ecka     dobrogicus Serbia      45.3      20.4
-    ## 13 13155 i_0151 Ecka     dobrogicus Serbia      45.3      20.4
-    ## 14 13155 i_0076 Ecka     dobrogicus Serbia      45.3      20.4
-    ## 15 13155 i_0152 Ecka     dobrogicus Serbia      45.3      20.4
-
--   **Calculate summaries we want**  
-    First, we calculate for each population:
-    -   sample size
-    -   the number of distinct alleles
-    -   mean number of alleles per individual
-
-``` r
-pop_sum <- gen_long %>% group_by(locality, species) %>% summarise(n_ind = n_distinct(ID),
-                                                                  n_all = n_distinct(allele),
-                                                                  mean_n_all_ind = n()/n_ind)
-head(pop_sum)
-```
-
-    ## # A tibble: 6 x 5
-    ## # Groups:   locality [6]
-    ##   locality      species      n_ind n_all mean_n_all_ind
-    ##   <chr>         <chr>        <int> <int>          <dbl>
-    ## 1 Abanta Gölu   anatolicus       2    29           18  
-    ## 2 Adapazari     anatolicus       3    36           19.3
-    ## 3 Aghios Kosmas ivanbureschi     2    19           16  
-    ## 4 Alepu         ivanbureschi     3    32           24  
-    ## 5 Alexandrovo   ivanbureschi     2    22           17.5
-    ## 6 Alibahadir2   anatolicus       2    32           20.5
-
-`n_distinct()` calculates the number of different values in a data frame
-column **within each group**, as defined in `group_by()`  
-`n()` counts the number of rows in each group.  
-Please stop here to make sure that you understand what and how was
-calculated here.
-
-In principle, it’s posible that more than one species occurs in a
-locality, let’s check it!
-
-``` r
-nrow(pop_sum)
-```
-
-    ## [1] 121
-
-``` r
-pop_sum %>% distinct(locality) %>% nrow()
-```
-
-    ## [1] 121
-
-Then, we calculate the same statistics, but with data grouped by
-species:
-
-``` r
-spec_sum <- gen_long %>% group_by(species) %>% summarise(n_ind = n_distinct(ID),
-                                                         n_all = n_distinct(allele),
-                                                         mean_n_all_ind = n()/n_distinct(allele),
-                                                         n_pop = n_distinct(locality))
-head(spec_sum)
-```
-
-    ## # A tibble: 5 x 5
-    ##   species      n_ind n_all mean_n_all_ind n_pop
-    ##   <chr>        <int> <int>          <dbl> <int>
-    ## 1 anatolicus      54   306           3.38    19
-    ## 2 cristatus       57   306           3.89    18
-    ## 3 dobrogicus      10   108           2.26     2
-    ## 4 ivanbureschi   111   316           6.43    41
-    ## 5 macedonicus    112   261           8.72    41
-
-We’re done now! But, perhaps, you’d like to have a single table with all
-your summaries, so that the species summary is below the list of
-populations of each species for the ease of inspection.
-
--   **Combine the two result data frames into one**
-
-``` r
-sum_sum <- pop_sum %>% bind_rows(spec_sum) 
-sum_sum
-```
-
-    ## # A tibble: 126 x 6
-    ## # Groups:   locality [122]
-    ##    locality      species      n_ind n_all mean_n_all_ind n_pop
-    ##    <chr>         <chr>        <int> <int>          <dbl> <int>
-    ##  1 Abanta Gölu   anatolicus       2    29           18      NA
-    ##  2 Adapazari     anatolicus       3    36           19.3    NA
-    ##  3 Aghios Kosmas ivanbureschi     2    19           16      NA
-    ##  4 Alepu         ivanbureschi     3    32           24      NA
-    ##  5 Alexandrovo   ivanbureschi     2    22           17.5    NA
-    ##  6 Alibahadir2   anatolicus       2    32           20.5    NA
-    ##  7 Alistrati     ivanbureschi     2    29           18      NA
-    ##  8 Ano Kalliniki macedonicus      2    17           16      NA
-    ##  9 Aranđelovac   ivanbureschi     3    25           15      NA
-    ## 10 Avdancik      anatolicus       3    37           20.3    NA
-    ## # ... with 116 more rows
-
-`bind_rows()` added rows from `spec_sum` to the end of `pop_sum`.
-Because the data frames differed in the number of columns, i.e., `n_pop`
-was missing from `pop_sum` and `locality` was missing from `spec_sum`,
-the columns from both data frames were combined and filled with `NA`
-where needed.  
-Have a look at the entire data frame in RStudio viewer (`View()`).
-
-Now, we’ll make use of the fact that `NA` values are put at the end of a
-column sorted with `arrange()`, to place summary for each species under
-the summaries of its populations:
-
-``` r
-sum_sum <- sum_sum %>% arrange(species, locality)
-sum_sum
-```
-
-    ## # A tibble: 126 x 6
-    ## # Groups:   locality [122]
-    ##    locality    species    n_ind n_all mean_n_all_ind n_pop
-    ##    <chr>       <chr>      <int> <int>          <dbl> <int>
-    ##  1 Abanta Gölu anatolicus     2    29           18      NA
-    ##  2 Adapazari   anatolicus     3    36           19.3    NA
-    ##  3 Alibahadir2 anatolicus     2    32           20.5    NA
-    ##  4 Avdancik    anatolicus     3    37           20.3    NA
-    ##  5 Çakirli     anatolicus     3    33           18      NA
-    ##  6 Çibanköy    anatolicus     3    28           16.7    NA
-    ##  7 Gölköy      anatolicus     3    25           17      NA
-    ##  8 Gürbulak    anatolicus     2    24           17      NA
-    ##  9 Hanköy      anatolicus     3    40           19.7    NA
-    ## 10 Karakoç     anatolicus     3    42           22.3    NA
-    ## # ... with 116 more rows
-
-And finally, we’d like to replace `NA` in the `Locality` column with the
-word “Overall”
-
-``` r
-sum_sum <- sum_sum %>% 
-  mutate(locality = ifelse(is.na(locality), "Overall", locality))
-sum_sum
-```
-
-    ## # A tibble: 126 x 6
-    ## # Groups:   locality [122]
-    ##    locality    species    n_ind n_all mean_n_all_ind n_pop
-    ##    <chr>       <chr>      <int> <int>          <dbl> <int>
-    ##  1 Abanta Gölu anatolicus     2    29           18      NA
-    ##  2 Adapazari   anatolicus     3    36           19.3    NA
-    ##  3 Alibahadir2 anatolicus     2    32           20.5    NA
-    ##  4 Avdancik    anatolicus     3    37           20.3    NA
-    ##  5 Çakirli     anatolicus     3    33           18      NA
-    ##  6 Çibanköy    anatolicus     3    28           16.7    NA
-    ##  7 Gölköy      anatolicus     3    25           17      NA
-    ##  8 Gürbulak    anatolicus     2    24           17      NA
-    ##  9 Hanköy      anatolicus     3    40           19.7    NA
-    ## 10 Karakoç     anatolicus     3    42           22.3    NA
-    ## # ... with 116 more rows
-
-`ifelse()` is a function that operates on each row of the data frame, so
-its useful together with mutate. If the logical condition is met, i.e.,
-if there is `NA` in the `loaclity` column of a given row, the value of
-the new column `locality` in this row will be `"Overall"`, otherwise,
-the value will just be taken from the eisting `locality` column.
-
--   **Save the resulting table into a text file**  
-    We want tab-delimited text file without enclosing any values in
-    quotes
-
-``` r
-write.table(sum_sum, "MHC_summary.txt", quote = FALSE, sep = "\t")
-```
-
-The same can be done by using `dplyr` function `write_tsv()` called with
-default options:
-
-``` r
-write_tsv(sum_sum, "MHC_summary.txt")
-```
-
-### Puting the code together.
-
-Let’s see now how much code was actually needed to accomplish our task.
-Below is the code streamlined a little bit by a more extensive use of
-`%>` and skipping commands that print intermediate results. Copy this
-code to your script and write comments (comment lines start with `#`)
-explaining what particular commands do.
-
-``` r
-library(tidyverse)
-
-gen <- read.table("data/genotypes.txt", header = TRUE, sep = "\t", encoding = "UTF-8")
-
-nrow(gen)
-gen %>% select(ID) %>% distinct() %>% nrow()
-
-gen_noNA <- gen %>% filter(!is.na(i_0003))
-
-ID_info <- read.table("data/ID_locality_species.txt", header = TRUE, sep = "\t", encoding = "UTF-8") %>% select(-transcriptome)
-
-localities <- read.table("data/localities.txt", header = TRUE, sep = "\t", encoding = "UTF-8") %>% 
-  select(locality, country, latitude, longitude)
-
-gen_long <- gen_noNA %>% pivot_longer(-ID, names_to = "allele", values_to = "present_absent") %>% 
-  filter(present_absent == 1) %>% select(-present_absent)
-
-gen_long <- gen_long %>% left_join(ID_info, by = "ID") %>% 
-  left_join(localities, by = "locality")
-
-pop_sum <- gen_long %>% group_by(locality, species) %>% summarise(n_ind = n_distinct(ID),
-                                                                  n_all = n_distinct(allele),
-                                                                  mean_n_all_ind = n()/n_ind)
-                                                
-spec_sum <- gen_long %>% group_by(species) %>% summarise(n_ind = n_distinct(ID),
-                                                         n_all = n_distinct(allele),
-                                                         mean_n_all_ind = n()/n_distinct(allele),
-                                                         n_pop = n_distinct(locality))
-
-sum_sum <- pop_sum %>% bind_rows(spec_sum) %>% arrange(species, locality) %>% 
-  mutate(locality = ifelse(is.na(locality), "Overall", locality))
-
-write_tsv(sum_sum, "MHC_summary.txt")
-```
