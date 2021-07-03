@@ -2,7 +2,7 @@
 title: "R PLOTTING - PART1"
 author: "Szymon Drobniak"
 date: "30/06/2021"
-output: github_document
+output: rmdformats::robobook
 ---
 ```{css, echo=FALSE}
 .bluef {
@@ -15,7 +15,7 @@ output: github_document
 ```
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
@@ -53,10 +53,10 @@ main = "Change of cholesterol concentration")
 
 ### OR
 
-plot(x = data_chol$Before, y = data_chol$After8weeks,
-xlab = "Cholesterol conc. before diet",
-ylab = "Cholesterol conc. after 8 weeks",
-main = "Change of cholesterol concentration")
+# plot(x = data_chol$Before, y = data_chol$After8weeks,
+# xlab = "Cholesterol conc. before diet",
+# ylab = "Cholesterol conc. after 8 weeks",
+# main = "Change of cholesterol concentration")
 ```
 
 <span class = magf>**EXERCISE 2: **</span> Zmodyfikuj wykres za pomocą opcji zmieniających kolor i kształt punktów (podpowiedzi znajdziesz tutaj: <https://www.r-graph-gallery.com/6-graph-parameters-reminder.html>). Ustaw symbole w postaci wypełnionych, niebieskich kwadratów.
