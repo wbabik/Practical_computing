@@ -76,6 +76,7 @@ Expected result:
 
 Using built-in dataset `CO2`, return observation from Mississippi
 chilled plant with an uptake higher than 0.02 mmol/m<sup>2</sup> x s.
+**Tip** Check the description of the `CO2` dataset for the `uptake` units.  
 
 Expected result:
 
@@ -94,8 +95,8 @@ a vector. However, remember three things:
   - order of values within a vector corresponds to the row numbers
   - name of the vector will become the name of the added column
 
-We are going to add a column with IDs of observations. Note that column
-with IDs is often necessary in statistical analysis. It is also inherent
+We are going to add a column with IDs of observations to the created during Class 9 `my_data` dataframe.
+Note that column with IDs is often necessary in statistical analysis. It is also inherent
 to the data in [long
 format](https://www.theanalysisfactor.com/wide-and-long-data/) which is
 strongly advised (see class 1 and next class).
@@ -103,7 +104,7 @@ strongly advised (see class 1 and next class).
 #### Exercise 3
 
 Create vector with ID numbers starting from 100. Use one of the
-functions introduced above to determine what should be the length of the
+functions introduced previously to determine what should be the length of the
 vector. Name the vector `ID`.  
 Expected result:
 
@@ -123,8 +124,8 @@ can be considered a data frame with a single column.
 
 #### Exercise 4
 
-Place created IDs at the beginning (as first column) of `my_dat`.
-Overwrite `my_data` variable.
+Place created IDs at the beginning (as first column) of `my_data`.
+Overwrite `my_data` dataset.
 
 -----
 
@@ -158,7 +159,7 @@ manner: `rbind(data_frame1, data_frame2)`
 #### Exercise 6
 
 Add the row created in Ex. 5 at the end of `my_data`. Overwrite
-`my_data` variable.
+`my_data` dataframe.
 
 -----
 
