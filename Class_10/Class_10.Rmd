@@ -5,12 +5,14 @@ date: "`r Sys.Date()`"
 output:
   md_document:
     toc: true
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+# Class 10
 
 **In the below instructions...**
 
