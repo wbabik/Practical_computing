@@ -1,8 +1,13 @@
 ---
 title: "R PLOTTING - PART1"
 author: "Szymon Drobniak"
-date: "30/06/2021"
-output: rmdformats::robobook
+date: "`r Sys.Date()`"
+output:
+  
+  # rmdformats::robobook
+  # pdf_document: default
+  github_document:
+    toc: true
 ---
 ```{css, echo=FALSE}
 .bluef {
