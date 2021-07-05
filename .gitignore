@@ -1,5 +1,5 @@
 pyvenv.ctg
 venv
 .Rproj.user
-.Rproj
+*.Rproj
 .DS_Store
