@@ -1,3 +1,5 @@
 pyvenv.ctg
 venv
 .Rproj.user
+*.Rproj
+.DS_Store
