@@ -35,7 +35,7 @@ before diet, and after 4 & 8 weeks of diet containing one of two types
 of margarine. The age group of patients is also indicated.
 
 ``` r
-data_chol <- read.table('Cholesterol_Age_R.csv',
+data_chol <- read.table('data/Cholesterol_Age_R.csv',
                        sep = ';', header = T,
                        stringsAsFactors = T)
 
