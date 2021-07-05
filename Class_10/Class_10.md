@@ -105,7 +105,7 @@ together with the name of the dataset - using `data = ...` - or to
 directly call variables in your dataset (e.g. by using
 `...$variable_x`).
 
-**EXERCISE 1:**Try to recreate the below plot using the loaded data.
+**EXERCISE 1:** Try to recreate the below plot using the loaded data.
 Consult the `plot()` function if necessary.
 
 **Output**
