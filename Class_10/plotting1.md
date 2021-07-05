@@ -100,6 +100,7 @@ directly call variables in your dataset (e.g. by using
 using the loaded data. Consult the `plot()` function if necessary.
 
 <span class="bluef">**Output**</span>
+
 ![](plotting1_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
 <span class="magf">**EXERCISE 2: **</span> Modify the plot changing the
