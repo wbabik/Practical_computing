@@ -22,10 +22,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Data
 
-We will work on a simple dataset on cholesterol levels from patients. The data presents cholesterol concentrations in plasma in patients before diet, and after 4 & 8 weeks of diet containing one of two types of margarine. The age group of patients is also indicated.
+We will work on a simple dataset on cholesterol levels from patients. The data presents cholesterol concentrations in plasma in patients before diet, and after 4 & 8 weeks of diet containing one of two types of margarine. The age group of patients is also indicated. Data can be downloaded here: https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv
 
 ```{r echo = T}
-data_chol <- read.table('data/Cholesterol_Age_R.csv',
+data_chol <- read.table('https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv',
                        sep = ';', header = T,
                        stringsAsFactors = T)
 
@@ -504,10 +504,10 @@ plot2 <- ggplot(data = data_chol, mapping = aes(x = AgeGroup, y = Before)) +
 plot2
 ```
 
-2. A boxplot may be much more informative if we add raw data to it. It can be done in many ways - e.g., to achieve an effect similar to this one; <https://bit.ly/31estrN>. Try to produce a similar plot using additional data (file `Diet_R.csv`, which presents weight loss of patients on three different diets). Before using the data clean it from all missing values (`na.omit()`).
+2. A boxplot may be much more informative if we add raw data to it. It can be done in many ways - e.g., to achieve an effect similar to this one; <https://bit.ly/31estrN>. Try to produce a similar plot using additional data (file `Diet_R.csv`, which presents weight loss of patients on three different diets). Before using the data clean it from all missing values (`na.omit()`). Data can be found here: https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Diet_R.csv
 
 ```{r}
-mydata <- na.omit(read.table("data/Diet_R.csv", sep = ",", header = T))
+mydata <- na.omit(read.table("https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Diet_R.csv", sep = ",", header = T))
 
 plot3 <- ggplot(data = mydata, mapping = aes(x = as.factor(Diet),
                                             color = as.factor(gender),

@@ -32,10 +32,12 @@ Data
 We will work on a simple dataset on cholesterol levels from patients.
 The data presents cholesterol concentrations in plasma in patients
 before diet, and after 4 & 8 weeks of diet containing one of two types
-of margarine. The age group of patients is also indicated.
+of margarine. The age group of patients is also indicated. Data can be
+downloaded here:
+<a href="https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv" class="uri">https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv</a>
 
 ``` r
-data_chol <- read.table('data/Cholesterol_Age_R.csv',
+data_chol <- read.table('https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv',
                        sep = ';', header = T,
                        stringsAsFactors = T)
 
@@ -515,6 +517,7 @@ additional points added to the plot?
     Try to produce a similar plot using additional data (file
     `Diet_R.csv`, which presents weight loss of patients on three
     different diets). Before using the data clean it from all missing
-    values (`na.omit()`).
+    values (`na.omit()`). Data can be found here:
+    <a href="https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Diet_R.csv" class="uri">https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Diet_R.csv</a>
 
 ![](Class_10_files/figure-markdown_github/unnamed-chunk-35-1.png)
