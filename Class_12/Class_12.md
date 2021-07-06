@@ -4,7 +4,10 @@
     -   [Annotating the plot, other dimensions of
         data](#annotating-the-plot-other-dimensions-of-data)
     -   [`ggplot2` histogram](#ggplot2-histogram)
+    -   [Grid of plots](#grid-of-plots)
     -   [Boxplot](#boxplot)
+    -   [Customizing plot elements - scales, axes,
+        legends](#customizing-plot-elements---scales-axes-legends)
     -   [Saving the plots](#saving-the-plots)
 
 Class 12
@@ -152,53 +155,13 @@ plot - it may look better with the `theme_bw()` style, instead of the
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
-If our goal is to place multiple unrelated plots on one figure - we may
-as well use the `ggpubr` package and its `ggarrange()` function.
-
-``` r
-# install.packages('ggpubr') # if needed
-library(ggpubr)
-```
-
-**EXERCISE 9:** First - produce 4 plots and save them to 4 differently
-named objects. These can be some of the plots we have generated so far:
-
-``` r
-plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
-  geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm') +
-  theme(text = element_text(size = 10))
-
-plot2 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
-  facet_wrap( ~ AgeGroup) +
-  geom_point(shape = 15, cex = 3) + theme_bw() + geom_smooth(method = 'lm') +
-  theme(text = element_text(size = 10))
-
-plot3 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
-  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
-  theme(text = element_text(size = 10))
-
-plot4 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
-  geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + theme(text = element_text(size = 10))
-```
-
-Now - produce a grid plot from the four subplots using the `ggarrange()`
-function. Label the subplots as `A`, `B`, `C`, `D`.
-
-    ## `geom_smooth()` using formula 'y ~ x'
-    ## `geom_smooth()` using formula 'y ~ x'
-    ## `geom_smooth()` using formula 'y ~ x'
-    ## `geom_smooth()` using formula 'y ~ x'
-    ## `geom_smooth()` using formula 'y ~ x'
-
-![](Class_12_files/figure-markdown_github/unnamed-chunk-13-1.png)
-
 `ggplot2` histogram
 -------------------
 
 **EXERCISE 9:** Using the `geom_hist()` geometry create a histogram of
 the `After8weeks` variable. **Output**
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![](Class_12_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 **EXERCISE 10:** Change the histogram so that it displays relative
 frequencies of data in each bin, and not absolute counts. Inspiration on
@@ -208,7 +171,7 @@ how to do this can be found here:
 
 **Output**
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![](Class_12_files/figure-markdown_github/unnamed-chunk-12-1.png)
 
 **EXERCISE 11:** Modify the histogram to add a kernel density estimator
 to it (it is an analogue of the `density()` function we have used
@@ -216,12 +179,55 @@ earlier).
 
 **Output**
 
+![](Class_12_files/figure-markdown_github/unnamed-chunk-13-1.png)
+
+Grid of plots
+-------------
+
+If our goal is to place multiple unrelated plots on one figure - we may
+as well use the `ggpubr` package and its `ggarrange()` function.
+
+``` r
+# install.packages('ggpubr') # if needed
+library(ggpubr)
+```
+
+**EXERCISE 12:** First - produce 4 plots and save them to 4 differently
+named objects. These can be some of the plots we have generated so far:
+
+``` r
+plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
+  geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() +
+  theme(text = element_text(size = 12))
+
+plot2 <- ggplot(data = data_chol, mapping = aes(x = Before, y = ..density..)) +
+  geom_histogram(fill = 'white', color = 'black', bins = 10) +
+  geom_density(color = 'red', fill = 'red', alpha = 0.15) +
+  theme_classic() +
+  theme(text = element_text(size = 12))
+
+plot3 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After4weeks, color = AgeGroup)) +
+  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
+  theme(text = element_text(size = 12))
+
+plot4 <- ggplot(data = data_chol, mapping = aes(x = After4weeks, y = After8weeks, color = AgeGroup)) +
+  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
+  theme(text = element_text(size = 12))
+```
+
+Now - produce a grid plot from the four subplots using the `ggarrange()`
+function. Label the subplots as `A`, `B`, `C`, `D`.
+
+    ## `geom_smooth()` using formula 'y ~ x'
+    ## `geom_smooth()` using formula 'y ~ x'
+    ## `geom_smooth()` using formula 'y ~ x'
+
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-16-1.png)
 
 Boxplot
 -------
 
-**EXERCISE 12:** `geom_boxplot()` can be used to visualise categorical
+**EXERCISE 13:** `geom_boxplot()` can be used to visualise categorical
 data. In base R this is achieved by using the `boxplot()` function:
 
 ``` r
@@ -243,7 +249,7 @@ additional points added to the plot?
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-18-1.png)
 
-**EXERCISE 13:** a boxplot may be more informative if we add raw data to
+**EXERCISE 14:** a boxplot may be more informative if we add raw data to
 it. It can be done in many ways - e.g., to achieve an effect similar to
 this one:
 <a href="https://bit.ly/31estrN" class="uri">https://bit.ly/31estrN</a>.
@@ -267,13 +273,84 @@ teansparent and hence less tiring to our eyes.
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-20-1.png)
 
+Customizing plot elements - scales, axes, legends
+-------------------------------------------------
+
+In our previous example we used in all cases default colours supplied by
+`ggplot`. Let’s explore the ways we can modify legends. First - produce
+the below plot based on the \`Diet\_R.csv’ data, it shows the
+relationship between body height and post-diet weight in three different
+diet groups.
+
+**Output**
+
+``` r
+myplot <- ggplot(data = mydata, mapping = aes(x = Height, y = weight6weeks, colour = as.factor(Diet))) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(x = "Height", y = "Weight after 6 weeks", colour = "Diet type", title = "Height vs. weight")
+myplot
+```
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-21-1.png)
+
+**EXERCISE 15:** add anothe layer to the plot - using the
+`scale_colour_manual()` component change colours used on the plot to
+purple, organe and dark grey for diets 1, 2 and 3. In order to achieve
+this you should assign these colours to `values` of the scale.
+
+**Output**
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-22-1.png)
+
+**EXERCISE 16:**to give some more space for the width of the plot move
+the legend (by modifying the `theme()` function call) to the bottom of
+the plot.
+
+**Output**
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-23-1.png)
+
+**EXERCISE 17:**by specifying `guide = "none"` in the scale layer, you
+can remove the legend altogether - try it.
+
+**Output**
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-24-1.png)
+
+**EXERCISE 18:**by using the `labels` option in the scale layer you can
+easily rename the categories presented in the lgend. Try renaming them
+to vegan (diet 1), lacto-ovo (diet 2) and vegetarian (diet 3).
+
+**Output**
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-25-1.png)
+
+**EXERCISE 19:**similarly to using the `xlim`/`ylim` options in the
+`plot()` function, you can modify the plotting area of a `ggplot` graph.
+There are two way to achieve this. The first involves adding the
+`xlim()` (check `?xlim` for details) or `ylim()` layers (or both). The
+other works by modifying the coordinate system used and adding the
+layer: `coord_cartesian(xlim = c(...))`. Which produces which plot
+below? How do they differ in handling the plotted data?
+
+**Output**
+
+    ## Warning: Removed 28 rows containing non-finite values (stat_smooth).
+
+    ## Warning: Removed 28 rows containing missing values (geom_point).
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-26-1.png)![](Class_12_files/figure-markdown_github/unnamed-chunk-26-2.png)
+
 Saving the plots
 ----------------
 
 Use the `ggsave` function - it provides some powerful plot saving
 routines.
 
-**EXERCISE 14:** Save one of the last plots to a JPG file and to a PDF
+**EXERCISE 20:** Save one of the last plots to a JPG file and to a PDF
 file. Rescale the pdf to about 80% of the original plot size. Check
 `?ggsave` for more information. Compare what happens when you save the
 plot to a PDF file directly from the plotting console.
