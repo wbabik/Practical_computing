@@ -171,7 +171,6 @@ plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
 plot2 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
   facet_wrap( ~ AgeGroup) +
   geom_point(shape = 15, cex = 3) + theme_bw() + geom_smooth(method = 'lm') +
-  labs(x = "Conc. before experiment", y = "Conc. after 8 weeks", color = "Age") +
   theme(text = element_text(size = 10))
 
 plot3 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
