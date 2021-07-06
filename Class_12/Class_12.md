@@ -187,6 +187,8 @@ function. Label the subplots as `A`, `B`, `C`, `D`.
     ## `geom_smooth()` using formula 'y ~ x'
     ## `geom_smooth()` using formula 'y ~ x'
     ## `geom_smooth()` using formula 'y ~ x'
+    ## `geom_smooth()` using formula 'y ~ x'
+    ## `geom_smooth()` using formula 'y ~ x'
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-13-1.png)
 

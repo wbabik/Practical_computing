@@ -139,7 +139,7 @@ library(ggpubr)
 
 **EXERCISE 9:** First - produce 4 plots and save them to 4 differently named objects. These can be some of the plots we have generated so far:
 
-```{r echo = T}
+```{r echo = T, message = F}
 plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
   geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm') +
   theme(text = element_text(size = 10))
@@ -162,7 +162,7 @@ Now - produce a grid plot from the four subplots using the `ggarrange()` functio
 
 ```{r}
 gridplot <- ggarrange(plot1, plot2, plot3, plot4,
-                      labels = c('A', 'B', 'C', 'D'))
+                      labels = c('A', 'B', 'C', 'D'), legend = 'bottom', common.legend = T)
 gridplot
 ```
 
