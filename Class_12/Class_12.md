@@ -4,6 +4,8 @@
     -   [Annotating the plot, other dimensions of
         data](#annotating-the-plot-other-dimensions-of-data)
     -   [`ggplot2` histogram](#ggplot2-histogram)
+    -   [Boxplot](#boxplot)
+    -   [Saving the plots](#saving-the-plots)
 
 Class 12
 ========
@@ -150,13 +152,52 @@ plot - it may look better with the `theme_bw()` style, instead of the
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
+If our goal is to place multiple unrelated plots on one figure - we may
+as well use the `ggpubr` package and its `ggarrange()` function.
+
+``` r
+# install.packages('ggpubr') # if needed
+library(ggpubr)
+```
+
+**EXERCISE 9:** First - produce 4 plots and save them to 4 differently
+named objects. These can be some of the plots we have generated so far:
+
+``` r
+plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
+  geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm') +
+  theme(text = element_text(size = 20))
+
+plot2 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
+  facet_wrap( ~ AgeGroup) +
+  geom_point(shape = 15, cex = 3) + theme_bw() + geom_smooth(method = 'lm') +
+  labs(x = "Concentration before experiment", y = "Concentration after 8 weeks", color = "Age") +
+  theme(text = element_text(size = 20))
+
+plot3 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
+  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
+  theme(text = element_text(size = 20))
+
+plot4 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
+  geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + theme(text = element_text(size = 20))
+```
+
+Now - produce a grid plot from the four subplots using the `ggarrange()`
+function. Label the subplots as `A`, `B`, `C`, `D`.
+
+    ## `geom_smooth()` using formula 'y ~ x'
+    ## `geom_smooth()` using formula 'y ~ x'
+    ## `geom_smooth()` using formula 'y ~ x'
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-13-1.png)
+
 `ggplot2` histogram
 -------------------
 
 **EXERCISE 9:** Using the `geom_hist()` geometry create a histogram of
 the `After8weeks` variable. **Output**
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-11-1.png)
+![](Class_12_files/figure-markdown_github/unnamed-chunk-14-1.png)
 
 **EXERCISE 10:** Change the histogram so that it displays relative
 frequencies of data in each bin, and not absolute counts. Inspiration on
@@ -166,7 +207,7 @@ how to do this can be found here:
 
 **Output**
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-12-1.png)
+![](Class_12_files/figure-markdown_github/unnamed-chunk-15-1.png)
 
 **EXERCISE 11:** Modify the histogram to add a kernel density estimator
 to it (it is an analogue of the `density()` function we have used
@@ -174,7 +215,10 @@ earlier).
 
 **Output**
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-13-1.png)
+![](Class_12_files/figure-markdown_github/unnamed-chunk-16-1.png)
+
+Boxplot
+-------
 
 **EXERCISE 12:** `geom_boxplot()` can be used to visualise categorical
 data. In base R this is achieved by using the `boxplot()` function:
@@ -184,7 +228,7 @@ boxplot(Before ~ AgeGroup, data = data_chol,
         xlab = "Age group", ylab = "Cholesterol conc. before the experiment")
 ```
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![](Class_12_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
 Try to produce such plot, showing the cholesterol concentrations before
 the diet, categorised by age groups, in `ggplot2`. Use `?geom_boxplot`
@@ -194,10 +238,13 @@ to find out how to achieve this. On such a boxplot - what is the meaning
 of: the boundaries of each box, the ends of the whiskers and the
 additional points added to the plot?
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-15-1.png)
+**Output**
 
-A boxplot may be much more informative if we add raw data to it. It can
-be done in many ways - e.g., to achieve an effect similar to this one:
+![](Class_12_files/figure-markdown_github/unnamed-chunk-18-1.png)
+
+**EXERCISE 13:** a boxplot may be more informative if we add raw data to
+it. It can be done in many ways - e.g., to achieve an effect similar to
+this one:
 <a href="https://bit.ly/31estrN" class="uri">https://bit.ly/31estrN</a>.
 Try to produce a similar plot using additional data (file `Diet_R.csv`,
 which presents weight loss of patients on three different diets). Before
@@ -209,4 +256,23 @@ be found here:
 mydata <- na.omit(read.table("https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Diet_R.csv", sep = ",", header = T))
 ```
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-17-1.png)
+To achieve the below effect remember to include the following
+components: use `geom_boxplot()` and `geom_point()` to map data to
+visuals; map genders to box colours; for both points and boxes you can
+set `alpha` option to something &lt;1 to ensure that they are a bit
+teansparent and hence less tiring to our eyes.
+
+**Output**
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-20-1.png)
+
+Saving the plots
+----------------
+
+Use the `ggsave` function - it provides some powerful plot saving
+routines.
+
+**EXERCISE 14:** Save one of the last plots to a JPG file and to a PDF
+file. Rescale the pdf to about 80% of the original plot size. Check
+`?ggsave` for more information. Compare what happens when you save the
+plot to a PDF file directly from the plotting console.
