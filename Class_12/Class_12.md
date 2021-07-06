@@ -282,8 +282,6 @@ the below plot based on the \`Diet\_R.csv’ data, it shows the
 relationship between body height and post-diet weight in three different
 diet groups.
 
-**Output**
-
 ``` r
 myplot <- ggplot(data = mydata, mapping = aes(x = Height, y = weight6weeks, colour = as.factor(Diet))) +
   geom_point() +
@@ -305,7 +303,7 @@ this you should assign these colours to `values` of the scale.
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-22-1.png)
 
-**EXERCISE 16:**to give some more space for the width of the plot move
+**EXERCISE 16:** to give some more space for the width of the plot move
 the legend (by modifying the `theme()` function call) to the bottom of
 the plot.
 
@@ -313,22 +311,46 @@ the plot.
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-23-1.png)
 
-**EXERCISE 17:**by specifying `guide = "none"` in the scale layer, you
+**EXERCISE 17:** by specifying `guide = "none"` in the scale layer, you
 can remove the legend altogether - try it.
 
 **Output**
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-24-1.png)
 
-**EXERCISE 18:**by using the `labels` option in the scale layer you can
+**EXERCISE 18:** by using the `labels` option in the scale layer you can
 easily rename the categories presented in the lgend. Try renaming them
 to vegan (diet 1), lacto-ovo (diet 2) and vegetarian (diet 3).
 
 **Output**
 
 ![](Class_12_files/figure-markdown_github/unnamed-chunk-25-1.png)
+**EXERCISE 19:** similarly, you can modify colour scales of any other
+component - e.g., in the plot…
 
-**EXERCISE 19:**similarly to using the `xlim`/`ylim` options in the
+``` r
+myplot <- ggplot(data = mydata, mapping = aes(x = as.factor(Diet),
+                                            color = as.factor(gender),
+                                            y = weight6weeks,
+                                            fill = as.factor(gender))) +
+  geom_boxplot(alpha = 0.3, outlier.shape = NA) + 
+  labs(x = "Diet type", y = "Weight after diet", colour = "Gender", fill = "Gender") +
+  theme_classic()
+myplot
+```
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-26-1.png)
+
+…we can modify scales linked to colour, fill and, for example, x axis.
+Use `scale_colour_viridis_d()` (a discrete version of the viridis
+palette), `scale_fill_viridis_d` and `scale_x_discrete` to modify the
+above plot and reproduce the below example. Note: if you don;t have the
+`viridis` library installed, execute first
+`install.packages('viridis')`.
+
+![](Class_12_files/figure-markdown_github/unnamed-chunk-27-1.png)
+
+**EXERCISE 20:** similarly to using the `xlim`/`ylim` options in the
 `plot()` function, you can modify the plotting area of a `ggplot` graph.
 There are two way to achieve this. The first involves adding the
 `xlim()` (check `?xlim` for details) or `ylim()` layers (or both). The
@@ -342,7 +364,7 @@ below? How do they differ in handling the plotted data?
 
     ## Warning: Removed 28 rows containing missing values (geom_point).
 
-![](Class_12_files/figure-markdown_github/unnamed-chunk-26-1.png)![](Class_12_files/figure-markdown_github/unnamed-chunk-26-2.png)
+![](Class_12_files/figure-markdown_github/unnamed-chunk-28-1.png)![](Class_12_files/figure-markdown_github/unnamed-chunk-28-2.png)
 
 Saving the plots
 ----------------
@@ -350,7 +372,7 @@ Saving the plots
 Use the `ggsave` function - it provides some powerful plot saving
 routines.
 
-**EXERCISE 20:** Save one of the last plots to a JPG file and to a PDF
+**EXERCISE 21:** Save one of the last plots to a JPG file and to a PDF
 file. Rescale the pdf to about 80% of the original plot size. Check
 `?ggsave` for more information. Compare what happens when you save the
 plot to a PDF file directly from the plotting console.
