@@ -357,8 +357,8 @@ myplot <- ggplot(data = mydata, mapping = aes(x = as.factor(Diet),
                                             fill = as.factor(gender))) +
   geom_boxplot(alpha = 0.3, outlier.shape = NA) + 
   labs(x = "Diet type", y = "Weight after diet", colour = "Gender", fill = "Gender") +
-  scale_colour_viridis_d() +
-  scale_fill_viridis_d() +
+  scale_colour_viridis_d(labels = c('female', 'male')) +
+  scale_fill_viridis_d(labels = c('female', 'male')) +
   scale_x_discrete(labels = c('vegan', 'lacto-ovo', 'vegeterian')) +
   theme_classic() +
   theme(text = element_text(size = 20))
