@@ -3,3 +3,5 @@ venv
 .Rproj.user
 *.Rproj
 .DS_Store
+.Rhistory
+.Rdata
