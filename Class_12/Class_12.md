@@ -166,20 +166,20 @@ named objects. These can be some of the plots we have generated so far:
 ``` r
 plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
   geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm') +
-  theme(text = element_text(size = 20))
+  theme(text = element_text(size = 10))
 
 plot2 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
   facet_wrap( ~ AgeGroup) +
   geom_point(shape = 15, cex = 3) + theme_bw() + geom_smooth(method = 'lm') +
-  labs(x = "Concentration before experiment", y = "Concentration after 8 weeks", color = "Age") +
-  theme(text = element_text(size = 20))
+  labs(x = "Conc. before experiment", y = "Conc. after 8 weeks", color = "Age") +
+  theme(text = element_text(size = 10))
 
 plot3 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
   geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
-  theme(text = element_text(size = 20))
+  theme(text = element_text(size = 10))
 
 plot4 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks)) +
-  geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + theme(text = element_text(size = 20))
+  geom_point(color = 'blue', shape = 15, cex = 3) + theme_classic() + theme(text = element_text(size = 10))
 ```
 
 Now - produce a grid plot from the four subplots using the `ggarrange()`
