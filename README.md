@@ -13,4 +13,5 @@ This is repository of Practical Computing for Biologists Instructions
 * [Class_9: **Subsetting and working with data frames**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_9/Class_9.md)
 * [Class_10: **Plotting basics**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_10/Class_10.md)
 * [Class_11: **Operations on data frames, `dplyr`**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_11/Class_11.md)
+* [Class_12: **Plotting basics**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_12/Class_12.md)
 * [Class_13: **Practical `dplyr`**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_13/Class_13.md)
