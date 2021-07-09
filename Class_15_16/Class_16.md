@@ -142,5 +142,6 @@ The graph can be made in several different ways, the one below is an
 example using geom\_point and geom\_smooth with “lm” method.
 
 ![](Class_2_files/figure-gfm/Scatter%20plot%20showing%20outcome%20of%20the%20test%20over%20the%20time%20of%20test%20initiation-1.png)<!-- -->
+![](Fig_Score_Start.jpg)
 
 ### Optional homework for students
