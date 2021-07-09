@@ -32,7 +32,7 @@ pairs, which is gathered in the breeding data sheet. The key variables
 of interest are: `Origin`, `box`, `startd`, `eggno`, `ldate`, `eggw`,
 `ring`.
 
-Load the data from [here:](2020-09-30-Learning-finches-database.xlsx)
+Load the data from [here:](https://www.dropbox.com/s/vhnigrp94tgys3o/2020-09-30-Learning-finches-database.xlsx?dl=0)
 
 Read metadata sheet to find out more what those variables are. Look at
 the **breeding** data sheet and note the following information:
