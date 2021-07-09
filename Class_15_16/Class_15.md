@@ -115,3 +115,4 @@ of the x axis, size and boldness fonts, of the size of points and their
 transparency.
 
 ![](Class_1_files/figure-gfm/figures%20with%20data%20grouped%20by%20the%20experiment-1.png)<!-- -->![](Class_1_files/figure-gfm/figures%20with%20data%20grouped%20by%20the%20experiment-2.png)<!-- -->![](Class_1_files/figure-gfm/figures%20with%20data%20grouped%20by%20the%20experiment-3.png)<!-- -->
+![](Fig-Clutch_size.jpg) ![](Fig-Mean_egg_mass.jpg) ![](Fig_Latency.jpg)
