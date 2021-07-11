@@ -1,18 +1,4 @@
 
-    ## Warning: package 'tidyverse' was built under R version 4.0.5
-
-    ## Warning: package 'ggplot2' was built under R version 4.0.5
-
-    ## Warning: package 'tibble' was built under R version 4.0.5
-
-    ## Warning: package 'tidyr' was built under R version 4.0.5
-
-    ## Warning: package 'readr' was built under R version 4.0.5
-
-    ## Warning: package 'dplyr' was built under R version 4.0.5
-
-    ## Warning: package 'forcats' was built under R version 4.0.5
-
 # Class 13
 
 ## Practical `dplyr`
@@ -408,7 +394,7 @@ column **within each group**, as defined in `group_by()`
 Please stop here to make sure that you understand what and how was
 calculated here.
 
-In principle, it’s posible that more than one species occurs in a
+In principle, it’s possible that more than one species occurs in a
 locality, let’s check it\!
 
 ``` r
@@ -530,10 +516,10 @@ sum_sum
     ## # ... with 116 more rows
 
 `ifelse()` is a function that operates on each row of the data frame, so
-its useful together with mutate. If the logical condition is met, i.e.,
+it’s useful together with mutate. If the logical condition is met, i.e.,
 if there is `NA` in the `loaclity` column of a given row, the value of
 the new column `locality` in this row will be `"Overall"`, otherwise,
-the value will just be taken from the eisting `locality` column.
+the value will just be taken from the existing `locality` column.
 
   - **Save the resulting table into a text file**  
     We want tab-delimited text file without enclosing any values in
@@ -587,7 +573,7 @@ pop_sum <- gen_long %>% group_by(locality, species) %>% summarise(n_ind = n_dist
                                                 
 spec_sum <- gen_long %>% group_by(species) %>% summarise(n_ind = n_distinct(ID),
                                                          n_all = n_distinct(allele),
-                                                         mean_n_all_ind = n()/n_distinct(allele),
+                                                         mean_n_all_ind = n()/n_ind,
                                                          n_pop = n_distinct(locality))
 
 sum_sum <- pop_sum %>% bind_rows(spec_sum) %>% arrange(species, locality) %>% 
