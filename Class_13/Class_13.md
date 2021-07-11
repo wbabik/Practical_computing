@@ -422,7 +422,7 @@ species:
 ``` r
 spec_sum <- gen_long %>% group_by(species) %>% summarise(n_ind = n_distinct(ID),
                                                          n_all = n_distinct(allele),
-                                                         mean_n_all_ind = n()/n_distinct(allele),
+                                                         mean_n_all_ind = n()/n_ind,
                                                          n_pop = n_distinct(locality))
 head(spec_sum)
 ```
