@@ -542,7 +542,7 @@ write_tsv(sum_sum, "MHC_summary.txt")
 
 Let’s see now how much code was actually needed to accomplish our task.
 Below is the code streamlined a little bit by a more extensive use of
-`%>` and skipping commands that print intermediate results. Copy this
+`%>%` and skipping commands that print intermediate results. Copy this
 code to your script and write comments (comment lines start with `#`)
 explaining what particular commands do.
 
