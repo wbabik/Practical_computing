@@ -1,11 +1,21 @@
 
+    ## Warning: package 'tidyverse' was built under R version 4.0.5
+
+    ## Warning: package 'ggplot2' was built under R version 4.0.5
+
+    ## Warning: package 'tibble' was built under R version 4.0.5
+
+    ## Warning: package 'tidyr' was built under R version 4.0.5
+
+    ## Warning: package 'readr' was built under R version 4.0.5
+
+    ## Warning: package 'dplyr' was built under R version 4.0.5
+
+    ## Warning: package 'forcats' was built under R version 4.0.5
+
 # Class 13
 
-# Practical `dplyr`
-    * [Puting the code together.](#puting-the-code-together)
-  
-***  
-  
+## Practical `dplyr`
 
 In this class we’ll illustrate the practical use of `dplyr` with a real
 life example. Our task will be to summarize data on MHC class I
@@ -419,7 +429,7 @@ species:
 ``` r
 spec_sum <- gen_long %>% group_by(species) %>% summarise(n_ind = n_distinct(ID),
                                                          n_all = n_distinct(allele),
-                                                         mean_n_all_ind = n()/n_distinct(allele),
+                                                         mean_n_all_ind = n()/n_ind,
                                                          n_pop = n_distinct(locality))
 head(spec_sum)
 ```
@@ -427,11 +437,11 @@ head(spec_sum)
     ## # A tibble: 5 x 5
     ##   species      n_ind n_all mean_n_all_ind n_pop
     ##   <chr>        <int> <int>          <dbl> <int>
-    ## 1 anatolicus      54   306           3.38    19
-    ## 2 cristatus       57   306           3.89    18
-    ## 3 dobrogicus      10   108           2.26     2
-    ## 4 ivanbureschi   111   316           6.43    41
-    ## 5 macedonicus    112   261           8.72    41
+    ## 1 anatolicus      54   306           19.2    19
+    ## 2 cristatus       57   306           20.9    18
+    ## 3 dobrogicus      10   108           24.4     2
+    ## 4 ivanbureschi   111   316           18.3    41
+    ## 5 macedonicus    112   261           20.3    41
 
 We’re done now\! But, perhaps, you’d like to have a single table with
 all your summaries, so that the species summary is below the list of
