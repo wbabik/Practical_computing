@@ -2,17 +2,12 @@
 title: "Class 10"
 author: "Szymon Drobniak"
 date: "`r Sys.Date()`"
-output:
-  md_document:
-    toc: true
-    variant: markdown_github
+output: rmdformats::robobook
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = F)
 ```
-
-# Class 10
 
 **In the below instructions...**
 
@@ -329,7 +324,7 @@ Control over the graphical parameters in the `plot()` function is rudimentary. T
 A simple *ggplot2* graph may be structured as follows:
 
 ```{r eval = FALSE, include = T, echo = T}
-mygraph <- ggplot2(data = MYDATA,
+mygraph <- ggplot(data = MYDATA,
                   mapping = aes(x = VAR1, y = VAR2, ...)) +
   geom_1(OPTIONS) +
   geom_2(OPTIONS)
@@ -342,7 +337,7 @@ plot(graph2)
 
 Calling the `ggplot()` function may be used only to create an object of class `ggplot`, without displaying the actual graph. Such object will contain the data and its mappings to specific elements of the final plot. To display it, we need additional function from the `geom_...` family, which add specific visual elements to the defined mappings (e.g. `geom_point` adds scatterpoints, `geom_hist` forms a histogram). Subsequent elements can be concatenated using the `+` operator. other elements that can be added to the plot using `+` are display and aesthetic rules, e.g. `theme()`, which describe the appearance of non-data elements of a plot.
 
-Load the `ggplot2` - if you don;t have it use `install.packages()` to install it.
+Load the `ggplot2` - if you don't have it use `install.packages()` to install it.
 
 ```{r echo = T}
 # install.packages('ggplot2')
