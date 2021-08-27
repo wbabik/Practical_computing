@@ -1,0 +1,379 @@
+---
+title: "Class 16"
+author: "Szymon Drobniak"
+date: "`r Sys.Date()`"
+output: rmdformats::robobook
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T)
+```
+
+# Class 16 - intro to open science tools
+
+You can use your mini-projects as source of sample content to be used in the following excersises. Alternatively, you can also use mock files, e.g. a simple R script containing the below code, or some text and non-text files uploaded from your computer.
+
+NOTE: you have to have your own GitHub account set before you an start.
+
+# GitHub
+
+## GitHub - basics
+
+**EXERCISE 1:** Create a new repository in your Github.
+
+1. Go to your profile > `Repositories` > `New` and enter all details. Make the repository public, remember to add a `README` file and initialize a `.gitignore` file.
+
+2. In the repo, edit the `README` file to include some meaningful information. Write a piece of text using GitHub markdowm language - you can find a good reference here https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax. Please include the following elements in your readme file:
++ Short text that contains bolded text, italics, one or two headings, and a numbered list
++ a block-quote from a chosen online source
++ a code block containing the below piece of code:
+
+```{r eval = F}
+library(ggplot2)
+library(tidyverse)
+
+data_chol <- read.table('https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv',
+                        sep = ';', header = T,
+                        stringsAsFactors = T)
+
+head(data_chol)
+
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_bar(stat = 'identity', fill = 'white', colour = 'black') +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+
+myplot
+```
++ download the dataset from the link in the code block above and keep it handy
+
+Before we head on - please put the details of your repo (its URL), together with your name and GitHub login here: https://docs.google.com/spreadsheets/d/1GTGDn77PsQ5W_7i72LgwSEgqAdorTy1YZux3fa8381Q/edit?usp=sharing - we will use these to match pairs of collaborators, to see how GitHub collaboration works.
+
+**EXERCISE 2:** In RStudio, clone the repository to your local computer and link it to your R project.
+
+1. In RStudio navigate to the top-level directory where you would like to place the working directory of your new repo-project.
+2. Select `File` > `New Project` > `Version Control` > `Git` and enter the URL of your repository, your project directory name (this will be the name of your working directory), and make sure the top directory is selected in the third field.
+3. A new project should be created and opened in the current or new RStudio window.
+
+## Using GitHub
+
+**EXERCISE 3:** With project opened - modify it.
+1. Create a new R script file and paste there the above plotting code. Save the file.
+2. Navigate to the `Git` panel - you should see there a notification about a new file. Select it anc click `Commit`.
+3. In the commit window, review the changes (here - trivial as it's a new file), enter an informative commit comment and click commit. If you see a message similar to:
+
+```
+1 file changed, 24 insertions(+)
+ create mode 100644 script.R
+```
+
+the commit was successfull.
+
+**EXERCISE 4:** Push the changes to your online repository.
+1. In the Git panel press `Push` - you should be prompted for your github.com credentials. Enter your username and password from your github account. If your changes are successfully pushed - you should see something like:
+
+```
+>>> git push origin HEAD:refs/heads/main
+To https://github.com/szymekdr/trial_repo1
+   ca0f843..bf80425  HEAD -> main
+```
+
+2. Go back to your online git account and refresh. You should now see your introduced changes.
+
+**EXERCISE 5:** Safe Git credentials. An old method of logging to GitHub is by using password. It is not safe - you should not expose your security like this. Instead - you should use single-use tokens that serve as secure passwords. To manage Git credentials in a safe way - install the `gitcreds` package.
+
+```{r eval = F}
+install.packages('gitcreds')
+```
+
+For now you should be using your password and so checking your credentials should look like this:
+
+```{r eval = F}
+library(gitcreds)
+gitcreds_get()
+```
+
+```
+<gitcreds>
+  protocol: https
+  host    : github.com
+  username: szymekdr
+  password: <-- hidden -->
+```
+Delete these credentials:
+
+```{r eval = F}
+gitcreds_delete()
+# select the proper option
+```
+
+```
+-> Removing current credentials...
+-> Removing credetials from cache...
+-> Done.
+```
+
+To setup new credentials, go to the GitHub website. In your profile menu go to `Settings`, then to `Developer settings`, and finally to `Personal access tokens`. Generate a new token - you will have to login by providing your GitHub password. When generating token you can modify access permissions for the person using the token. Here, you're generating one for you so just select all scopes.
+
+Come back to RStudio and run `gitcreds_set()` to set this new token as your password. If the whole process was successfull you can try `gitcreds_get()` - you should see:
+
+```
+<gitcreds>
+  protocol: https
+  host    : github.com
+  username: PersonalAccessToken
+  password: <-- hidden -->
+```
+
+**EXERCISE 5:** Pulling from repos.
+
+1. Still in the online version of GitHub add a new file to your repo (e.g., a pdf of an article) by clicking `Add file`, uploading it and commiting the change. Now your remote (online) repo is one change ahead of your local repo.
+
+2. In RStudio with your project opened click in the Git panel `Pull`. You should see something like this:
+
+```
+From https://github.com/szymekdr/trial_repo1
+   bf80425..2d76799  main       -> origin/main
+Updating bf80425..2d76799
+Fast-forward
+ nauka-emigrantka.pdf | 3599 ++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 3599 insertions(+)
+ create mode 100644 nauka-emigrantka.pdf
+```
+
+and the newly added file should appear in you project directory. Remember to pull regularly if you are co-working on another package with someone, to make sure you always start with a fresh version of remote files.
+
+## GitHub collaboration
+
+**EXERCISE 6:** Collaborating via GitHub.
+
+1. In your online repo, go to `Settings` > `Manage access` and grant access to your repository to the person you are matched with (identify the person's ID in the column E). To do this you will have to add this person's GitHub login in the access section.
+
+2. As a collaborator, check your e-mail and click the link sent by GitHub to join your host's repository. Repeat the steps from Exercise 2 to clone it to your RStudio, via creating a new project. Make sure to close your current project (through the menu in the top right corner of RStudio). Check if you receive all the files.
+
+3. Modify your host's file in RStudio (e.g. the R script), commit, and push the changes. You should be able to do this even though it's not your repository - thanks to bein added as a collaborator.
+
+4. It may sometimes be a good idea to `branch` - i.e., to create a separate line of changes in the repository, to avoid modifying the main version of it. It happens a lot in collaborative repositories. To do this in RStudio, still as collaborator in the guest repository, click `New Branch` in the `Git` panel, name the branch and create it. Your Git panel should now switch to this branch (check the upper right corner). You can introduce soma changes, commit and push - the changes are now pushed to the new branch, no to the top level of the repository.
+
+4. As the owner of the repository - go there online. You should see a notification that there are some changes in a new branch, that you can review. To close the branch and merge its changes with the main stream of the repository you have to create a pull request.
+
++ go to `Pull requests` and create a new pull request
++ you want to integrate changes from the new branch to the main stream - define this direction of merging in the top bar of the window (i.e., `base` should be set to `main` and `compare` to the new branch)
++ below you will see the comparison of changes and some additional information, e.g. whether changes can be easily merged with the rest of the repository
++ click `Create pull request` - you will be directed to new page, where the commits from the new branch will be listed; in most cases you will see there
+
+> This branch has no conflicts with the base branch
+
++ click `Merge pull request` - this will result in the changes from the branch to be integrated with the repository
+
+**EXERCISE 7:* Forking repositories. Another way of collaborating on GitHub is forking someone else's repository. It means creating your local copy of it, which you can then push to the original repo by creating pull requests. This will be the option when working with repos - where you don't have collaborator's permissions.
+
+1. Go to the repository of the person whose ID is in column F. You shouldn't hopefully be a collaborator there. Fork it by clicking `Fork` in the top right corner. Now your profile will have a new repository set up, with the same name. You can modify it at will - it's your own repository, and changes from it do not affect the original, forked repo.
+
+2. Create a new project in RStudio, cloning to it your brand new forked repository. Once the iles are downloaded - modify one or two of the files.
+
+3. Commit and push - the changes are pushed to your forked copy o the repository.
+
+4. To really integrate your changes into the original repository from which you forked - click `Contribute` in the top bar of your forked repo. This will let you open a pull request - which can be annotated and saved in the same way as previously. Do it.
+
+5. Your partner - the owner of the original repo, forked by you, should now receive a pull request in the original repository. As the owner - try to merge this pull request, applying the changes added by the forking partner.
+
+
+# RMarkdown
+
+## Intro
+RMarkdown is a markdown format that allows for the creation of documents that integrate text and R code that is executable. A good introduction to RMarkdown can be found here: https://bookdown.org/yihui/rmarkdown/ Below you will try to recreate a RMarkdown document that reproduces visual formatting visible in the below chunks (they are created ysing exactly the markdown syntax that you should try to replicate).
+
+Before starting make sure you install and load the `rmarkdown` package.
+
+**Exercise 8:** Each RMarkdown document starts with a YAML frontmatter. This part defines certain basic settings and output formats of your document. Create an RMarkdown docuemnt (with HTML as output) and compare your YAML with mine below - what do you think are the differences you see?
+
+```
+title: "Class 16"
+author: "Szymon Drobniak"
+date: "`r Sys.Date()`"
+output: rmdformats::robobook
+```
+
+Regular text in RMarkdown is written as plain text, and anything that should become an executable R code must be inclosed between two lines:
+
+```{r comment = NA, echo = F}
+cat("```{r}
+YOUR_CODE
+```")
+```
+
+## Exercise in Rmd syntax
+
+**Exercise 9:** Below you will see a piece of text and code built using the markdown syntax. Using available references - e.g. https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf - try to replicate the structure of the below document. In the above cheatsheet the most important sections are `Important chunk options` and `Pandoc's Markdown`. Note: since I'm using a custom, non-standard Rmd format, I have slightly different font family or code chunk formatting - but things like bolding, bulletpoint lists etc. will be common. This is also the power of markdown - you only define the structure of a document and your chosen format and visual style decide how it is displayed.
+
+
+
+> **THE CONTENT OF RMD FILE TO REPRODUCE STARTS HERE**
+
+# We first load the data
+
+The below code loads the data and makes usre they are of proper ormat by displaying the table for verification.
+
+## Data load
+
+```{r echo = T}
+data_chol <- read.table('https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv',
+                       sep = ';', header = T,
+                       stringsAsFactors = T)
+```
+
+## Data verification
+```{r}
+head(data_chol)
+summary(data_chol)
+```
+
+
+# Load the necessary libraries
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+You can also load a library with the messages returned on loading hidden in the markdown document.
+
+```{r message = F}
+detach("package:tidyverse", unload = TRUE)
+library(tidyverse)
+```
+
+# Try several options of including a chunk of code
+
++ This one is evaluated and displayed
+
+```{r}
+plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
+  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
+  theme(text = element_text(size = 20))
+plot1
+```
+
++ This one is evaluated - but only the result is displayed
+
+```{r echo = F, message = F}
+plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
+  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
+  labs(x = "Concentration before experiment", y = "Concentration after 8 weeks", color = "Age") +
+  theme(text = element_text(size = 20))
+plot1
+```
+
++ Here - nothing is included in the markdown document
+
+Below should be the chunk of code with the following instructions:
+
+```
+plot2_hidden <- ggplot(data = data_chol, mapping = aes(x = AgeGroup, y = Before)) +
+  geom_boxplot() +
+  labs(x = "Age Group", y = "Cholesterol before experiment") +
+  theme_classic() + theme(text = element_text(size = 25))
+plot2_hidden
+```
+
+```{r include = F}
+plot2_hidden <- ggplot(data = data_chol, mapping = aes(x = AgeGroup, y = Before)) +
+  geom_boxplot() +
+  labs(x = "Age Group", y = "Cholesterol before experiment") +
+  theme_classic() + theme(text = element_text(size = 25))
+plot2_hidden
+```
+
+But - apparently - some code is executed as we now have another object present in the workspace:
+
+```{r}
+str(plot2_hidden, max.level = 1)
+```
+
+
++ Here the code is included - but never processed and evaluated
+
+```{r eval = F}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```
+
+When properly evaluated - it should look like this:
+
+```{r}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```
+
++ Finally - here some plot dimensions are modified...
+
+```{r fig.width = 3, fig.height = 4}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```
+
+
++ ...and the figure is placed on the left
+
+```{r fig.width = 3, fig.height = 4, fig.align = "left"}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```

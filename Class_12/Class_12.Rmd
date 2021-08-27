@@ -2,17 +2,12 @@
 title: "Class 12"
 author: "Szymon Drobniak"
 date: "`r Sys.Date()`"
-output:
-  md_document:
-    toc: true
-    variant: markdown_github
+output: rmdformats::robobook
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = F)
 ```
-
-# Class 12
 
 **In the below instructions...**
 
@@ -390,6 +385,83 @@ myplot <- ggplot(data = mydata, mapping = aes(x = Height, y = weight6weeks, colo
   scale_colour_manual(values = c('purple', 'orange', 'darkgrey'),
                       labels = c('vegan', 'lacto-ovo', 'vegetarian')) +
   coord_cartesian(xlim = c(160, 175))
+myplot
+```
+
+## Other geometries
+
+### Barplot
+
+```{r echo = T}
+myplot <- ggplot(data = mydata, mapping = aes(x = as.factor(Diet),
+                                            fill = as.factor(gender),
+                                            y = ..count..)) +
+  geom_bar() + 
+  labs(x = "Diet type", y = "Count", fill = "Diet") +
+  scale_x_discrete(labels = c('vegan','lacto-ovo', 'vegeterian')) +
+  scale_fill_discrete(labels = c('f', 'm')) +
+  theme_classic() +
+  theme(text = element_text(size = 20))
+
+# ggplot2 automatically counts things (..count.. is optional)
+
+myplot
+
+myplot <- ggplot(data = mydata, mapping = aes(x = as.factor(Diet),
+                                            fill = as.factor(gender),
+                                            y = ..count..)) +
+  geom_bar(position = "dodge") + 
+  labs(x = "Diet type", y = "Count", fill = "Diet") +
+  scale_x_discrete(labels = c('vegan','lacto-ovo', 'vegeterian')) +
+  scale_fill_discrete(labels = c('f', 'm')) +
+  theme_classic() +
+  theme(text = element_text(size = 20))
+
+# ggplot2 automatically counts things (..count.. is optional)
+
+myplot
+```
+
+
+### Error bars
+
+```{r echo =T}
+library(tidyverse)
+
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_bar(stat = 'identity', fill = 'white', colour = 'black') +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old')) +
+  ylim(c(0, 6.5))
 myplot
 ```
 
