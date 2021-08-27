@@ -15,3 +15,7 @@ This is repository of Practical Computing for Biologists Instructions
 * [Class_11: **Operations on data frames, `dplyr`**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_11/Class_11.md)
 * [Class_12: **Plotting basics**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_12/Class_12.md)
 * [Class_13: **Practical `dplyr`**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_13/Class_13.md)
+* **Class 14 CANCELLED in this edition**
+* [Introduction to Miniproject: **READ BEFORE Class 15**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_15_16/Intro_Transformations_behavioural_data.md)
+* [Class_15: **Miniproject: Transformations of behavioural data Part 1**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_15_16/Class_15.md)
+* [Class_16: **Miniproject: Transformations of behavioural data Part 2**](https://github.com/wbabik/Practical_computing/blob/teaching/Class_15_16/Class_16.md)
