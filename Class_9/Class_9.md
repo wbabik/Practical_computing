@@ -141,7 +141,7 @@ exist) names.
 
 #### Exercise 5
 
-Return the same column as in Ex. 4, but use column name instead of its
+Return the same column as in Ex. 3, but use column name instead of its
 number. Don’t forget about quotation marks.
 
 Another way of obtaining an entire column is to use dollar sign between

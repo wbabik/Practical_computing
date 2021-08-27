@@ -1,12 +1,5 @@
 
 # Class 13
-# Practical `dplyr`  
-  * [Practical dplyr](#practical-dplyr)
-    * [Puting the code together.](#puting-the-code-together)
-
-  
-***  
-  
 
 ## Practical `dplyr`
 
@@ -401,7 +394,7 @@ column **within each group**, as defined in `group_by()`
 Please stop here to make sure that you understand what and how was
 calculated here.
 
-In principle, it’s posible that more than one species occurs in a
+In principle, it’s possible that more than one species occurs in a
 locality, let’s check it\!
 
 ``` r
@@ -422,7 +415,7 @@ species:
 ``` r
 spec_sum <- gen_long %>% group_by(species) %>% summarise(n_ind = n_distinct(ID),
                                                          n_all = n_distinct(allele),
-                                                         mean_n_all_ind = n()/n_distinct(allele),
+                                                         mean_n_all_ind = n()/n_ind,
                                                          n_pop = n_distinct(locality))
 head(spec_sum)
 ```
@@ -430,11 +423,11 @@ head(spec_sum)
     ## # A tibble: 5 x 5
     ##   species      n_ind n_all mean_n_all_ind n_pop
     ##   <chr>        <int> <int>          <dbl> <int>
-    ## 1 anatolicus      54   306           3.38    19
-    ## 2 cristatus       57   306           3.89    18
-    ## 3 dobrogicus      10   108           2.26     2
-    ## 4 ivanbureschi   111   316           6.43    41
-    ## 5 macedonicus    112   261           8.72    41
+    ## 1 anatolicus      54   306           19.2    19
+    ## 2 cristatus       57   306           20.9    18
+    ## 3 dobrogicus      10   108           24.4     2
+    ## 4 ivanbureschi   111   316           18.3    41
+    ## 5 macedonicus    112   261           20.3    41
 
 We’re done now\! But, perhaps, you’d like to have a single table with
 all your summaries, so that the species summary is below the list of
@@ -523,10 +516,10 @@ sum_sum
     ## # ... with 116 more rows
 
 `ifelse()` is a function that operates on each row of the data frame, so
-its useful together with mutate. If the logical condition is met, i.e.,
+it’s useful together with mutate. If the logical condition is met, i.e.,
 if there is `NA` in the `loaclity` column of a given row, the value of
 the new column `locality` in this row will be `"Overall"`, otherwise,
-the value will just be taken from the eisting `locality` column.
+the value will just be taken from the existing `locality` column.
 
   - **Save the resulting table into a text file**  
     We want tab-delimited text file without enclosing any values in
@@ -549,7 +542,7 @@ write_tsv(sum_sum, "MHC_summary.txt")
 
 Let’s see now how much code was actually needed to accomplish our task.
 Below is the code streamlined a little bit by a more extensive use of
-`%>` and skipping commands that print intermediate results. Copy this
+`%>%` and skipping commands that print intermediate results. Copy this
 code to your script and write comments (comment lines start with `#`)
 explaining what particular commands do.
 
@@ -580,7 +573,7 @@ pop_sum <- gen_long %>% group_by(locality, species) %>% summarise(n_ind = n_dist
                                                 
 spec_sum <- gen_long %>% group_by(species) %>% summarise(n_ind = n_distinct(ID),
                                                          n_all = n_distinct(allele),
-                                                         mean_n_all_ind = n()/n_distinct(allele),
+                                                         mean_n_all_ind = n()/n_ind,
                                                          n_pop = n_distinct(locality))
 
 sum_sum <- pop_sum %>% bind_rows(spec_sum) %>% arrange(species, locality) %>% 
