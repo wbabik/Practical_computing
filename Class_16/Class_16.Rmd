@@ -15,7 +15,9 @@ You can use your mini-projects as source of sample content to be used in the fol
 
 NOTE: you have to have your own GitHub account set before you an start.
 
-## GitHub
+# GitHub
+
+## GitHub - basics
 
 **EXERCISE 1:** Create a new repository in your Github.
 
@@ -61,6 +63,8 @@ Before we head on - please put the details of your repo (its URL), together with
 1. In RStudio navigate to the top-level directory where you would like to place the working directory of your new repo-project.
 2. Select `File` > `New Project` > `Version Control` > `Git` and enter the URL of your repository, your project directory name (this will be the name of your working directory), and make sure the top directory is selected in the third field.
 3. A new project should be created and opened in the current or new RStudio window.
+
+## Using GitHub
 
 **EXERCISE 3:** With project opened - modify it.
 1. Create a new R script file and paste there the above plotting code. Save the file.
@@ -148,6 +152,8 @@ Fast-forward
 
 and the newly added file should appear in you project directory. Remember to pull regularly if you are co-working on another package with someone, to make sure you always start with a fresh version of remote files.
 
+## GitHub collaboration
+
 **EXERCISE 6:** Collaborating via GitHub.
 
 1. In your online repo, go to `Settings` > `Manage access` and grant access to your repository to the person you are matched with (identify the person's ID in the column E). To do this you will have to add this person's GitHub login in the access section.
@@ -182,4 +188,192 @@ and the newly added file should appear in you project directory. Remember to pul
 5. Your partner - the owner of the original repo, forked by you, should now receive a pull request in the original repository. As the owner - try to merge this pull request, applying the changes added by the forking partner.
 
 
+# RMarkdown
 
+## Intro
+RMarkdown is a markdown format that allows for the creation of documents that integrate text and R code that is executable. A good introduction to RMarkdown can be found here: https://bookdown.org/yihui/rmarkdown/ Below you will try to recreate a RMarkdown document that reproduces visual formatting visible in the below chunks (they are created ysing exactly the markdown syntax that you should try to replicate).
+
+Before starting make sure you install and load the `rmarkdown` package.
+
+**Exercise 8:** Each RMarkdown document starts with a YAML frontmatter. This part defines certain basic settings and output formats of your document. Create an RMarkdown docuemnt (with HTML as output) and compare your YAML with mine below - what do you think are the differences you see?
+
+```
+title: "Class 16"
+author: "Szymon Drobniak"
+date: "`r Sys.Date()`"
+output: rmdformats::robobook
+```
+
+Regular text in RMarkdown is written as plain text, and anything that should become an executable R code must be inclosed between two lines:
+
+```{r comment = NA, echo = F}
+cat("```{r}
+YOUR_CODE
+```")
+```
+
+## Exercise in Rmd syntax
+
+**Exercise 9:** Below you will see a piece of text and code built using the markdown syntax. Using available references - e.g. https://github.com/rstudio/cheatsheets/raw/master/rmarkdown-2.0.pdf - try to replicate the structure of the below document. In the above cheatsheet the most important sections are `Important chunk options` and `Pandoc's Markdown`. Note: since I'm using a custom, non-standard Rmd format, I have slightly different font family or code chunk formatting - but things like bolding, bulletpoint lists etc. will be common. This is also the power of markdown - you only define the structure of a document and your chosen format and visual style decide how it is displayed.
+
+
+
+> **THE CONTENT OF RMD FILE TO REPRODUCE STARTS HERE**
+
+# We first load the data
+
+The below code loads the data and makes usre they are of proper ormat by displaying the table for verification.
+
+## Data load
+
+```{r echo = T}
+data_chol <- read.table('https://raw.githubusercontent.com/wbabik/Practical_computing/teaching/Class_10/data/Cholesterol_Age_R.csv',
+                       sep = ';', header = T,
+                       stringsAsFactors = T)
+```
+
+## Data verification
+```{r}
+head(data_chol)
+summary(data_chol)
+```
+
+
+# Load the necessary libraries
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+```
+
+You can also load a library with the messages returned on loading hidden in the markdown document.
+
+```{r message = F}
+detach("package:tidyverse", unload = TRUE)
+library(tidyverse)
+```
+
+# Try several options of including a chunk of code
+
++ This one is evaluated and displayed
+
+```{r}
+plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
+  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
+  theme(text = element_text(size = 20))
+plot1
+```
+
++ This one is evaluated - but only the result is displayed
+
+```{r echo = F, message = F}
+plot1 <- ggplot(data = data_chol, mapping = aes(x = Before, y = After8weeks, color = AgeGroup)) +
+  geom_point(shape = 15, cex = 3) + theme_classic() + geom_smooth(method = 'lm', alpha = 0.25) +
+  labs(x = "Concentration before experiment", y = "Concentration after 8 weeks", color = "Age") +
+  theme(text = element_text(size = 20))
+plot1
+```
+
++ Here - nothing is included in the markdown document
+
+Below should be the chunk of code with the following instructions:
+
+```
+plot2_hidden <- ggplot(data = data_chol, mapping = aes(x = AgeGroup, y = Before)) +
+  geom_boxplot() +
+  labs(x = "Age Group", y = "Cholesterol before experiment") +
+  theme_classic() + theme(text = element_text(size = 25))
+plot2_hidden
+```
+
+```{r include = F}
+plot2_hidden <- ggplot(data = data_chol, mapping = aes(x = AgeGroup, y = Before)) +
+  geom_boxplot() +
+  labs(x = "Age Group", y = "Cholesterol before experiment") +
+  theme_classic() + theme(text = element_text(size = 25))
+plot2_hidden
+```
+
+But - apparently - some code is executed as we now have another object present in the workspace:
+
+```{r}
+str(plot2_hidden, max.level = 1)
+```
+
+
++ Here the code is included - but never processed and evaluated
+
+```{r eval = F}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```
+
+When properly evaluated - it should look like this:
+
+```{r}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```
+
++ Finally - here some plot dimensions are modified...
+
+```{r fig.width = 3, fig.height = 4}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```
+
+
++ ...and the figure is placed on the left
+
+```{r fig.width = 3, fig.height = 4, fig.align = "left"}
+summ <- tibble(Age = levels(data_chol$AgeGroup),
+               mean = by(data_chol$After8weeks, data_chol$AgeGroup, mean, na.rm = T),
+               se = by(data_chol$After8weeks, data_chol$AgeGroup,
+                       function(x) sd(x, na.rm = T)/sqrt(length(x))))
+
+myplot <- ggplot(data = summ, mapping = aes(x = Age, y = mean,
+                                            ymin = mean-se, ymax = mean+se)) +
+  geom_point(colour = 'black', cex = 5) +
+  geom_errorbar(width = 0.5) +
+  theme_classic() +
+  theme(text = element_text(size = 20)) +
+  labs(y = "Cholesterol conc. after 8 weeks") +
+  scale_x_discrete(limits = c('Young', 'Middle', 'Old'))
+myplot
+```
